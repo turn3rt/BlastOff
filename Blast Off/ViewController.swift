@@ -12,27 +12,16 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    
+//    MARK: - IBOutlets
     @IBOutlet var sceneView: ARSCNView!
-    
-    
     
 //    MARK: - Local Controller Variables
     let configuration = ARWorldTrackingConfiguration()
     
-    
-    
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the view's delegate
-        sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin]
-        
+        configureScene()
         
         // Create a new scene
         let scene = SCNScene()
@@ -42,26 +31,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
 //        sceneView.scene = Terra!
         
-        
-        
-        
-        
-        
         // Create Node Objects
         let earthPos = SCNVector3(0, 0, -0.03)
         let earthRadius = CGFloat(0.035)
+//        let moonPos = SCNVector3(0.1, 0.02, -0.08)
+//        let moonRadius = CGFloat(0.02)
         
-        
-        let moonPos = SCNVector3(0.1, 0.02, -0.08)
-        let moonRadius = CGFloat(0.02)
         
         // Render Nodes
         let Earth = createPlanet(position: earthPos, radius: earthRadius, texture: "EarthTexture.png")
-        let Moon = createPlanet(position: moonPos, radius: moonRadius, texture: "MoonTexture.png")
+//        let Moon = createPlanet(position: moonPos, radius: moonRadius, texture: "MoonTexture.png")
         
-        // add nodes to Scene
+        // Add nodes to scene
+        
         scene.rootNode.addChildNode(Earth)
-        scene.rootNode.addChildNode(Moon)
+//        scene.rootNode.addChildNode(Moon)
+        rotate(node: Earth)
+        
     }
     
 
@@ -85,46 +71,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
 
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
+
     
     
+    
+//    MARK: - IBAction Functions
     
     @IBAction func resetOrigin(_ sender: Any) {
         sceneView.session.pause()
-        
-        
-//        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-//            node.removeFromParentNode()
-//        }
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        
-        
-        
-        
-//        let scene = SCNScene()
-//        sceneView.scene = scene
-//        sceneView.showsStatistics = true
-//        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin]
-
-
         print("User Reset World Origin")
     }
 
-    
-    
-    
-    
-    
-    
+
+//    MARK: - Internal Functions
     
     func createPlanet(position: SCNVector3, radius: CGFloat, texture: String) -> SCNNode {
         
@@ -136,8 +96,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = UIImage(named: texture)
         planet.firstMaterial = material
         
-        
         return node
+    }
+    
+    func configureScene(){
+        // Set the view's delegate
+        sceneView.delegate = self
+        
+        // Show statistics such as fps and timing information
+        sceneView.showsStatistics = true
+        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin]
+    }
+    
+    
+    func rotate(node: SCNNode) {
+        let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 86400/10000)
+        let repeatForever = SCNAction.repeatForever(rotateOnce)
+        node.runAction(repeatForever)
     }
 
 }
