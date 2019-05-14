@@ -36,21 +36,32 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         let scene = SCNScene()
+//        let Terra = SCNScene(named: "Earth.scn")
         
         // Set the scene to the view
         sceneView.scene = scene
+//        sceneView.scene = Terra!
         
         
         
         
         
+        
+        // Create Node Objects
         let earthPos = SCNVector3(0, 0, -0.03)
         let earthRadius = CGFloat(0.035)
         
-        // 2
-        let Earth = createPlanet(position: earthPos, radius: earthRadius)
-        // 3
+        
+        let moonPos = SCNVector3(0.1, 0.02, -0.08)
+        let moonRadius = CGFloat(0.02)
+        
+        // Render Nodes
+        let Earth = createPlanet(position: earthPos, radius: earthRadius, texture: "EarthTexture.png")
+        let Moon = createPlanet(position: moonPos, radius: moonRadius, texture: "MoonTexture.png")
+        
+        // add nodes to Scene
         scene.rootNode.addChildNode(Earth)
+        scene.rootNode.addChildNode(Moon)
     }
     
 
@@ -110,11 +121,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     
     
-    func createPlanet(position: SCNVector3, radius: CGFloat) -> SCNNode {
+    
+    
+    
+    
+    
+    func createPlanet(position: SCNVector3, radius: CGFloat, texture: String) -> SCNNode {
         
         let planet = SCNSphere(radius: radius)
         let node = SCNNode(geometry: planet)
         node.position = position
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: texture)
+        planet.firstMaterial = material
+        
         
         return node
     }

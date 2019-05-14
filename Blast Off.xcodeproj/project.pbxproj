@@ -13,6 +13,7 @@
 		B3AB1858228A4FED0084802A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1856228A4FED0084802A /* Main.storyboard */; };
 		B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1859228A4FEE0084802A /* Assets.xcassets */; };
 		B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AB185B228A4FEE0084802A /* LaunchScreen.storyboard */; };
+		B3AB1865228B1C160084802A /* EarthTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1864228B1C160084802A /* EarthTexture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B3AB1859228A4FEE0084802A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3AB185C228A4FEE0084802A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3AB185E228A4FEE0084802A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3AB1864228B1C160084802A /* EarthTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EarthTexture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B3AB1854228A4FED0084802A /* ViewController.swift */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
+				B3AB1864228B1C160084802A /* EarthTexture.png */,
 				B3AB185B228A4FEE0084802A /* LaunchScreen.storyboard */,
 				B3AB185E228A4FEE0084802A /* Info.plist */,
 			);
@@ -128,6 +131,7 @@
 				B3AB1853228A4FED0084802A /* art.scnassets in Resources */,
 				B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */,
 				B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */,
+				B3AB1865228B1C160084802A /* EarthTexture.png in Resources */,
 				B3AB1858228A4FED0084802A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
