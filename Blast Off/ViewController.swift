@@ -39,6 +39,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        
+        
+        
+        
+        let earthPos = SCNVector3(0, 0, -0.03)
+        let earthRadius = CGFloat(0.035)
+        
+        // 2
+        let Earth = createPlanet(position: earthPos, radius: earthRadius)
+        // 3
+        scene.rootNode.addChildNode(Earth)
     }
     
 
@@ -79,18 +91,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
         
         
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            node.removeFromParentNode()
-        }
+//        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+//            node.removeFromParentNode()
+//        }
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
         
         
         
-        let scene = SCNScene()
-        sceneView.scene = scene
-        sceneView.showsStatistics = true
-        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin]
+//        let scene = SCNScene()
+//        sceneView.scene = scene
+//        sceneView.showsStatistics = true
+//        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin]
 
 
         print("User Reset World Origin")
