@@ -18,6 +18,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //    MARK: - Local Controller Variables
     let configuration = ARWorldTrackingConfiguration()
     
+//    MARK: - Math Variables
+    let earthGravityParam = 398600 // meters^3/sec^2
+    
+    
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         let scene = SCNScene()
+        
 //        let Terra = SCNScene(named: "Earth.scn")
         
         // Set the scene to the view
@@ -47,6 +52,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         scene.rootNode.addChildNode(Earth)
 //        scene.rootNode.addChildNode(Moon)
         rotate(node: Earth)
+        
+        
+        
+        
+//    let rocket = SCNScene(named: "rocketship.scn")
+        
+        
+        
+        
+        
         
     }
     
@@ -111,6 +126,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func rotate(node: SCNNode) {
         let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 86400/10000)
+        // ^^ duration is 1 day decreased by scale factor of 10,000 ^^
         let repeatForever = SCNAction.repeatForever(rotateOnce)
         node.runAction(repeatForever)
     }
