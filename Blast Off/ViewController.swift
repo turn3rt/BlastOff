@@ -37,14 +37,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        sceneView.scene = Terra!
         
         // Create Node Objects
-        let earthPos = SCNVector3(0, 0, -0.03) // meters
+        let earthPos = SCNVector3(0, 0, -0.3) // meters
         let earthRadius = CGFloat(6378100.0/200000000.0) // meters SCALE FACTOR: 200mil smaller, double precision
 //        let moonPos = SCNVector3(0.1, 0.02, -0.08)
 //        let moonRadius = CGFloat(0.02)
         
         
+        
         // Render Nodes
         let Earth = createPlanet(position: earthPos, radius: earthRadius, texture: "EarthTexture.png")
+        
+        let rocket = SCNNode()
+        rocket.
+        //let earthNode = scene.rootNode.childNode(withName: "Earth", recursively: true)
+
 //        let Moon = createPlanet(position: moonPos, radius: moonRadius, texture: "MoonTexture.png")
         
         // Add nodes to scene
@@ -69,8 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Create a session configuration
-       // let configuration = ARWorldTrackingConfiguration()
-        
+       // let configuration = ARWorldTrackingConfiguration() // delcared up top
         configuration.planeDetection = .horizontal
         configuration.planeDetection = .vertical
         
@@ -110,21 +115,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = UIImage(named: texture)
         planet.firstMaterial = material
         
+        planet.firstMaterial?.specular.contents = UIColor.white
+        
+        
         return node
     }
     
     func configureScene(){
         // Set the view's delegate
         sceneView.delegate = self
-        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin] //, SCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, .showFeaturePoints] //, .showWireframe]
+        sceneView.autoenablesDefaultLighting = true
     }
     
     
     func rotate(node: SCNNode) {
-        let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 86400/10000)
+        let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(2*Float.pi), z: 0, duration: 86400/10000) // in seconds
         // ^^ duration is 1 day decreased by scale factor of 10,000 ^^
         let repeatForever = SCNAction.repeatForever(rotateOnce)
         node.runAction(repeatForever)
