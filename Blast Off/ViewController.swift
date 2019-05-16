@@ -37,8 +37,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        sceneView.scene = Terra!
         
         // Create Node Objects
-        let earthPos = SCNVector3(0, 0, -0.03)
-        let earthRadius = CGFloat(0.035)
+        let earthPos = SCNVector3(0, 0, -0.03) // meters
+        let earthRadius = CGFloat(6378100.0/200000000.0) // meters SCALE FACTOR: 200mil smaller, double precision
 //        let moonPos = SCNVector3(0.1, 0.02, -0.08)
 //        let moonRadius = CGFloat(0.02)
         
@@ -56,12 +56,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         
         
-//    let rocket = SCNScene(named: "rocketship.scn")
-        
-        
-        
-        
-        
+//        let rocket = SCNScene(named: "rocketship.scn")
+//        scene.rootNode.addChildNode((rocket!.rootNode))
+//        print("Yeeted")
         
     }
     
@@ -71,10 +68,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
+       // let configuration = ARWorldTrackingConfiguration()
+        
+        configuration.planeDetection = .horizontal
+        configuration.planeDetection = .vertical
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -120,7 +119,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin] //, SCNDebugOptions.showFeaturePoints]
     }
     
     
