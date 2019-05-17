@@ -20,6 +20,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
 //    MARK: - Math Variables
     let earthGravityParam = 398600 // meters^3/sec^2
+    let earthRadius = CGFloat(6378100.0/200000000.0) // meters SCALE FACTOR: 200mil smaller, double precision
+    let earthPos = SCNVector3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
     
     
 //    MARK: - Override functions
@@ -29,42 +31,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         let scene = SCNScene()
-        
-//        let Terra = SCNScene(named: "Earth.scn")
-        
         // Set the scene to the view
         sceneView.scene = scene
-//        sceneView.scene = Terra!
-        
         // Create Node Objects
         let earthPos = SCNVector3(0, 0, -0.3) // meters
-        let earthRadius = CGFloat(6378100.0/200000000.0) // meters SCALE FACTOR: 200mil smaller, double precision
-//        let moonPos = SCNVector3(0.1, 0.02, -0.08)
-//        let moonRadius = CGFloat(0.02)
-        
-        
         
         // Render Nodes
         let Earth = createPlanet(position: earthPos, radius: earthRadius, texture: "EarthTexture.png")
-        
-        let rocket = SCNNode()
-        rocket.
-        //let earthNode = scene.rootNode.childNode(withName: "Earth", recursively: true)
-
-//        let Moon = createPlanet(position: moonPos, radius: moonRadius, texture: "MoonTexture.png")
-        
         // Add nodes to scene
-        
         scene.rootNode.addChildNode(Earth)
-//        scene.rootNode.addChildNode(Moon)
+        
+//        TODO: Animations
         rotate(node: Earth)
-        
-        
-        
-        
-//        let rocket = SCNScene(named: "rocketship.scn")
-//        scene.rootNode.addChildNode((rocket!.rootNode))
-//        print("Yeeted")
         
     }
     
@@ -76,8 +54,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         // Create a session configuration
        // let configuration = ARWorldTrackingConfiguration() // delcared up top
-        configuration.planeDetection = .horizontal
-        configuration.planeDetection = .vertical
+//        configuration.planeDetection = .horizontal
+//        configuration.planeDetection = .vertical
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -115,10 +93,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = UIImage(named: texture)
         planet.firstMaterial = material
         
-        planet.firstMaterial?.specular.contents = UIColor.white
+        // planet.firstMaterial?.specular.contents = UIColor.white
         
         
         return node
+    }
+    
+    func createOrbit() {
+        print("createOrbit Start")
+        
     }
     
     func configureScene(){
@@ -127,7 +110,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, .showFeaturePoints] //, .showWireframe]
-        sceneView.autoenablesDefaultLighting = true
+        // Lighting
+        // sceneView.autoenablesDefaultLighting = true
     }
     
     
@@ -137,5 +121,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let repeatForever = SCNAction.repeatForever(rotateOnce)
         node.runAction(repeatForever)
     }
+
+//     func addRocket(x: Float = 0, y: Float = 0, z: Float = -0.5) {
+//        TODO: - Add 3D Model of rocket
+//        guard let rocketshipScene = SCNScene(named: "rocketship.scn"), let rocketshipNode = rocketshipScene.rootNode.childNode(withName: "rocketship", recursively: true) else { return }
+//        rocketshipNode.position = SCNVector3(x, y, z)
+//        sceneView.scene.rootNode.addChildNode(rocketshipNode)
+//    }
+    
+    
+    
+   
 
 }
