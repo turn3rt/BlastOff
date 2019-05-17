@@ -37,26 +37,48 @@
                                     <action selector="resetOrigin:" destination="BV1-FR-VrT" eventType="touchUpInside" id="f9D-Y9-i0R"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OYc-Qg-dXU">
+                                <rect key="frame" x="198" y="318.5" width="159" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uAe-X5-Dk1"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderChange:" destination="BV1-FR-VrT" eventType="valueChanged" id="ebf-mE-YRG"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alt: 0000 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-KZ-htd">
+                                <rect key="frame" x="16" y="20" width="116" height="16"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="3er-XG-DTM" secondAttribute="bottom" constant="24" id="3gv-Nq-O4b"/>
-                            <constraint firstItem="3er-XG-DTM" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="ELz-Pi-6x7"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="3er-XG-DTM" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="LfQ-vj-qSz"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="3er-XG-DTM" secondAttribute="trailing" constant="16" id="jwD-uh-Ntp"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="3er-XG-DTM" secondAttribute="bottom" constant="24" id="0dg-Xz-QYN"/>
+                            <constraint firstItem="HWP-KZ-htd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="7p3-x2-W7Q"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="centerX" secondItem="3er-XG-DTM" secondAttribute="centerX" id="C7f-Rf-Fio"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="OYc-Qg-dXU" secondAttribute="trailing" constant="20" id="FAi-Z0-CQC"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="JaE-cq-Ijq"/>
+                            <constraint firstItem="HWP-KZ-htd" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="PTf-53-pb9"/>
+                            <constraint firstItem="OYc-Qg-dXU" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="200" id="RkW-j5-VIs"/>
+                            <constraint firstItem="3er-XG-DTM" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leadingMargin" id="kjR-lT-UWv"/>
+                            <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerY" secondItem="U0K-SW-4ec" secondAttribute="centerY" id="ohR-Oe-nQd"/>
+                            <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="qff-7J-qFn"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="qvk-7m-DQi"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="srk-Cy-GN2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
+                        <outlet property="Slider" destination="OYc-Qg-dXU" id="tgI-oy-8da"/>
+                        <outlet property="altitudeLabel" destination="HWP-KZ-htd" id="J1i-AX-Z62"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>

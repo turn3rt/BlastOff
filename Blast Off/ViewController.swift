@@ -44,6 +44,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        TODO: Animations
         rotate(node: Earth)
         
+//        MARK: UI Elements
+        // createSlider()
+        
     }
     
 
@@ -79,7 +82,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         print("User Reset World Origin")
     }
-
+    
+    
+    @IBAction func sliderChange(_ sender: UISlider) {
+        let ans = sender.value
+        
+        print("slider value: \(ans)")
+        altitudeLabel.text = "Altitude = \(ans) km"
+    }
+    
+    
+//    MARK: - IBOulet Variables
+    
+    @IBOutlet weak var slider: UISlider! {
+        didSet{
+            slider.transform = CGAffineTransform(rotationAngle: -.pi/2)
+            slider.minimumValue = 0
+            slider.maximumValue = 1000
+        }
+    }
+    
+    @IBOutlet weak var altitudeLabel: UILabel!
+    
+    
+    
 
 //    MARK: - Internal Functions
     
@@ -122,6 +148,46 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.runAction(repeatForever)
     }
 
+    
+    
+    
+    
+    
+    
+    
+    //let step: Float = 10 // If you want UISlider to snap to steps by 10
+//    func createSlider(){
+//        let mySlider = UISlider(frame:CGRect(x: 10, y: 100, width: 300, height: 20))
+//        mySlider.minimumValue = 0
+//        mySlider.maximumValue = 100
+//        mySlider.isContinuous = true
+//        mySlider.tintColor = UIColor.green
+//        mySlider.addTarget(self, action: #selector(ViewController.sliderValueDidChange(_:)), for: .valueChanged)
+//
+//        self.view.addSubview(mySlider)
+//    }
+    
+    
+   
+    
+//    @objc func sliderValueDidChange(_ sender:UISlider!)
+//    {
+//        print("Slider value changed")
+//
+//        // Use this code below only if you want UISlider to snap to values step by step
+////        let roundedStepValue = round(sender.value / step) * step
+////        sender.value = roundedStepValue
+//
+//        print("Slider step value \(Int(s))")
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
 //     func addRocket(x: Float = 0, y: Float = 0, z: Float = -0.5) {
 //        TODO: - Add 3D Model of rocket
 //        guard let rocketshipScene = SCNScene(named: "rocketship.scn"), let rocketshipNode = rocketshipScene.rootNode.childNode(withName: "rocketship", recursively: true) else { return }
