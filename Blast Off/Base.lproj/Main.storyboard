@@ -37,7 +37,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-TZ-LAd">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-TZ-LAd" userLabel="Bottom Stack View">
                                 <rect key="frame" x="16" y="607" width="343" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQw-88-lgW">
@@ -71,6 +71,31 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3Fv-xg-Jkb" userLabel="Vert Stack View">
+                                <rect key="frame" x="295" y="431" width="64" height="144"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptK-Rk-tue">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="5Tk-L8-uHP"/>
+                                            <constraint firstAttribute="height" constant="64" id="KAa-wt-066"/>
+                                        </constraints>
+                                        <state key="normal" image="UpArrow.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-Ub-H18">
+                                        <rect key="frame" x="0.0" y="80" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="OUI-ba-4a3"/>
+                                            <constraint firstAttribute="width" constant="64" id="tdc-N1-A0B"/>
+                                        </constraints>
+                                        <state key="normal" image="DownArrow.png"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="SRW-fT-TEp"/>
+                                    <constraint firstAttribute="height" constant="144" id="Syc-He-pza"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -80,7 +105,9 @@
                             <constraint firstItem="HWP-KZ-htd" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="PTf-53-pb9"/>
                             <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" constant="150" id="Qa8-Hf-loT"/>
                             <constraint firstAttribute="trailing" secondItem="xaF-TZ-LAd" secondAttribute="trailing" constant="16" id="V8t-Wa-15c"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="3Fv-xg-Jkb" secondAttribute="trailing" constant="16" id="fL6-e0-d0d"/>
                             <constraint firstItem="xaF-TZ-LAd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="gKX-Uk-6nf"/>
+                            <constraint firstItem="3er-XG-DTM" firstAttribute="top" secondItem="3Fv-xg-Jkb" secondAttribute="bottom" constant="32" id="kJ6-4D-nXx"/>
                             <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerY" secondItem="U0K-SW-4ec" secondAttribute="centerY" id="ohR-Oe-nQd"/>
                             <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="qff-7J-qFn"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="qvk-7m-DQi"/>
@@ -99,4 +126,8 @@
             <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DownArrow.png" width="64" height="64"/>
+        <image name="UpArrow.png" width="64" height="64"/>
+    </resources>
 </document>
