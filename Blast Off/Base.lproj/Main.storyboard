@@ -21,25 +21,10 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3er-XG-DTM">
-                                <rect key="frame" x="16" y="607" width="343" height="36"/>
-                                <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="0.94407460389999998" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
-                                <state key="normal" title=" Reset Origin">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="resetOrigin:" destination="BV1-FR-VrT" eventType="touchUpInside" id="f9D-Y9-i0R"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OYc-Qg-dXU">
-                                <rect key="frame" x="198" y="318.5" width="159" height="31"/>
+                                <rect key="frame" x="125.5" y="318.5" width="424" height="31"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="420" id="Jek-uk-jjL"/>
                                     <constraint firstAttribute="height" constant="30" id="uAe-X5-Dk1"/>
                                 </constraints>
                                 <connections>
@@ -47,22 +32,55 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alt: 0000 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-KZ-htd">
-                                <rect key="frame" x="16" y="20" width="116" height="16"/>
+                                <rect key="frame" x="16" y="20" width="115.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-TZ-LAd">
+                                <rect key="frame" x="16" y="607" width="343" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQw-88-lgW">
+                                        <rect key="frame" x="0.0" y="0.0" width="161" height="36"/>
+                                        <color key="backgroundColor" red="0.82745098039215681" green="0.18431372549019609" blue="0.18431372549019609" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                        <state key="normal" title="Launch">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3er-XG-DTM">
+                                        <rect key="frame" x="182" y="0.0" width="161" height="36"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="0.94407460389999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="resetOrigin:" destination="BV1-FR-VrT" eventType="touchUpInside" id="f9D-Y9-i0R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="3er-XG-DTM" secondAttribute="bottom" constant="24" id="0dg-Xz-QYN"/>
                             <constraint firstItem="HWP-KZ-htd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="7p3-x2-W7Q"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="centerX" secondItem="3er-XG-DTM" secondAttribute="centerX" id="C7f-Rf-Fio"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="OYc-Qg-dXU" secondAttribute="trailing" constant="20" id="FAi-Z0-CQC"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="xaF-TZ-LAd" secondAttribute="bottom" constant="24" id="ABa-n8-Kr9"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="JaE-cq-Ijq"/>
                             <constraint firstItem="HWP-KZ-htd" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="PTf-53-pb9"/>
-                            <constraint firstItem="OYc-Qg-dXU" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="200" id="RkW-j5-VIs"/>
-                            <constraint firstItem="3er-XG-DTM" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leadingMargin" id="kjR-lT-UWv"/>
+                            <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" constant="150" id="Qa8-Hf-loT"/>
+                            <constraint firstAttribute="trailing" secondItem="xaF-TZ-LAd" secondAttribute="trailing" constant="16" id="V8t-Wa-15c"/>
+                            <constraint firstItem="xaF-TZ-LAd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="gKX-Uk-6nf"/>
                             <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerY" secondItem="U0K-SW-4ec" secondAttribute="centerY" id="ohR-Oe-nQd"/>
                             <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="qff-7J-qFn"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="qvk-7m-DQi"/>
