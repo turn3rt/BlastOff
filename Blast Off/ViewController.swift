@@ -20,24 +20,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
 //    MARK: - Math Variables
     let earthGravityParam = 398600 // meters^3/sec^2
-    let earthRadius = CGFloat(6378100.0/200000000.0) // meters SCALE FACTOR: 200mil smaller, double precision
-    let earthPos = SCNVector3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
+    let scaleFactor = 200000000.0
+    lazy var earthRadius = 6378100.0/scaleFactor // meters SCALE FACTOR: 200mil smaller, double precision
+    let earthPos = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
     
     
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureScene()
-        
         // Create a new scene
         let scene = SCNScene()
         // Set the scene to the view
         sceneView.scene = scene
-        // Create Node Objects
-        let earthPos = SCNVector3(0, 0, -0.3) // meters
-        
         // Render Nodes
-        let Earth = createPlanet(position: earthPos, radius: earthRadius, texture: "EarthTexture.png")
+        let Earth = createPlanet(position: SCNVector3(earthPos), radius: CGFloat(earthRadius), texture: "EarthTexture.png")
         // Add nodes to scene
         scene.rootNode.addChildNode(Earth)
         
@@ -45,7 +42,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         rotate(node: Earth)
         
 //        MARK: UI Elements
-        // createSlider()
+    
         
     }
     
@@ -64,6 +61,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
+    
+    
+    
+//    // MARK: - ARSCNViewDelegate
+//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//        DispatchQueue.main.async {
+//            self.buttonHighlighted = self.button.isHighlighted
+//        }
+//    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
+        
+//        let startPos = earthPos + SCNVector3(0, 0, earthRadius) //SCNVector3(0, 0, -0.3) // meters
+
+        //print("rendering...")
+    }
+
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -77,18 +92,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
 //    MARK: - IBAction Functions
     
-    @IBAction func resetOrigin(_ sender: Any) {
+    @IBAction func launchTap(_ sender: UIButton) {
+        
+        let startPoint = earthPos + simd_double3([0, 0, earthRadius])
+        print("Earth Radius is:  \(earthRadius)")
+        print(startPoint)
+        print("Z value is: \(startPoint.z)")
+        
+        
+        let drawPoint = SCNSphere(radius: 0.005)
+        let drawNode = SCNNode(geometry: drawPoint)
+        drawNode.position = SCNVector3(startPoint)
+        
+        drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+        
+        
+//        let scene = SCNScene()
+//        // Set the scene to the view
+//        sceneView.scene = scene
+//        // Add nodes to scene
+//        scene.rootNode.addChildNode(drawNode)
+        
+        print("yeeted")
+//        let material = SCNMaterial()
+//        material.diffuse.contents = UIColor.white
+//        drawPoint.firstMaterial = material
+//        drawPoint.firstMaterial?.diffuse.contents
+        
+        
+        
+        
+    }
+    @IBAction func resetOrigin(_ sender: UIButton) {
         sceneView.session.pause()
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         print("User Reset World Origin")
     }
     
-    
+
     @IBAction func sliderChange(_ sender: UISlider) {
-        let ans = sender.value
-        
-        print("slider value: \(ans)")
-        altitudeLabel.text = "Altitude = \(ans) km"
+//        uncomment if desired for setep value when moving slider
+//        let step: Float = 1000
+//        let roundedValue = round(sender.value / step) * step
+//        sender.value = roundedValue
+        print("slider value: \(sender.value)")
+        altitudeLabel.text = "Altitude = \(Int(sender.value)) km" // force cast to int rounds numbers to no decimal
     }
     
     
@@ -98,7 +146,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         didSet{
             slider.transform = CGAffineTransform(rotationAngle: -.pi/2)
             slider.minimumValue = 0
-            slider.maximumValue = 1000
+            slider.maximumValue = 35000 // in kilometers
         }
     }
     
