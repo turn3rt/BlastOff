@@ -19,7 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let configuration = ARWorldTrackingConfiguration()
     
 //    MARK: - Math Variables
-    let earthGravityParam = 398600 // meters^3/sec^2
+    let earthGravityParam = 398600.0 // meters^3/sec^2
     let scaleFactor = 200000000.0
     lazy var earthRadius = 6378100.0/scaleFactor // meters SCALE FACTOR: 200mil smaller, double precision
     let earthPos = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
@@ -41,7 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        TODO: Animations
         rotate(node: Earth)
         
-//        MARK: UI Elements
+//    MARK: - UI Elements
     
         
     }
@@ -100,7 +100,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         print("Z value is: \(startPoint.z)")
 
         
-        let drawPoint = SCNSphere(radius: 0.0005)
+        let drawPoint = SCNSphere(radius: 0.005)
         let drawNode = SCNNode(geometry: drawPoint)
         drawNode.position = SCNVector3(startPoint)
         
@@ -111,8 +111,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         self.sceneView.scene.rootNode.addChildNode(drawNode)
         
-        let doot = rv2oe()
-        print("output of rv2oe is \(doot)")
+        
+        // TODO: marker
+        let rPCI = [0.7, 0.6, 0.3]
+        let vPCI = [-0.8, 0.8, 0.0]
+      
+        let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
+        
+        print("if this works i'll literally shit myself: \(oe)")
+        
+        
+        
+//        print("output of rv2oe is first arg: \(oe[0]) and  second arg: \(oe[1]) and third arg \(oe[2])")
         
         
 //        let scene = SCNScene()
