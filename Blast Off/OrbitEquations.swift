@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Darwin
+// import Darwin
 import simd
 
 
@@ -37,9 +37,6 @@ import simd
 // %    oe(5): argument of the periapsis (rad)                             %-
 // %    oe(6): true anomaly (rad)                                          %-
 // %-%---------------------------------------------------------------------%-
-
-
-
 
 func rv2oe(rPCI: [Double], vPCI: [Double], mu: Double) -> [Double] {
     print("rv2oe begin")
@@ -126,4 +123,153 @@ func rv2oe(rPCI: [Double], vPCI: [Double], mu: Double) -> [Double] {
     let nu    = atan2(dot(-rPC,cross(hVector, eVector)),-h*dot(rPC, eVector)) + .pi;
     
     return [a, e, capOmega, inc, omega, nu]
+}
+
+
+func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
+    
+//    %-% Input:  orbital elements             (6 by 1 column vector)          %-
+//    %-%   oe(1): Semi-major axis.                                            %-
+//    %-%   oe(2): Eccentricity.                                               %-
+//    %-%   oe(3): Longitude of the ascending node (rad)                       %-
+//    %-%   oe(4): Inclination (rad)                                           %-
+//    %-%   oe(5): Argument of the periapsis (rad)                             %-
+//    %-%   oe(6): True anomaly (rad)                                          %-
+//    %-%   mu:    Planet gravitational parameter     (scalar)                 %-
+//    %-% Outputs:                                                             %-
+//    %-%   rPCI:  Planet-Centered Inertial (PCI) Cartesian position           %-
+//    %-%          (3 by 1 column vector)                                      %-
+//    %-%   vPCI:  Planet-Centered Inertial (PCI) Cartesian inertial velocity  %-
+//    %-%          (3 by 1 column vector)                                      %-
+//    %-%----------------------------------------------------------------------%-
+//
+//
+//    % This code takes one column vector in the form
+//    % oe =
+//
+//    % a        = semi-major axis distance   [kM]
+//    % e        = eccentricity               [unitless]
+//    % capOmega = longitude of acending node [Radians]
+//    % i        = orbit inclination          [Radians]
+//    % omega    = argument of periapsis      [Radians]
+//    % nu       = true anomoly               [Radians]
+//
+//    % mu       = Gravitational Parameter    [kM^3/s^2]
+//
+//    % and gives r and v, two 3x1 vectors that denote the
+//    % position and velocity, respectively relative to the planet
+//
+//    % rPCI = [x; y; z]
+//    % vPCI = [Vx; Vy; Vz]
+    
+    // %-------VARIABLE DECLARATION------%
+    let a        = oe[1-1];
+    let e        = oe[2-1];
+    let capOmega = oe[3-1];
+    let inc      = oe[4-1];
+    let omega    = oe[5-1];
+    let nu       = oe[6-1];
+    // %------Begin function-------%
+    
+    // %-----TRANSFORMATIONS-----%
+    // % These provide the transformations in a 3-1-3 Euler
+    // % Sequence that transform from a perifocal coordinte
+    // % system to an Earth-Centered Inertial frame
+    
+    
+   // %-----TRANSFORMATION 1-----%
+   // % Transform about 3 axis via angle capOmega
+   // % transforms from the basis n (line of nodes) to ECI Coordinates
+   // % [Ix, Iy, Iz]
+    let rows1 = [
+        simd_double3(cos(capOmega), -sin(capOmega), 0),
+        simd_double3(sin(capOmega),  cos(capOmega), 0),
+        simd_double3(            0,              0, 1)
+    ]
+    let NtransformI = double3x3(rows: rows1)
+    
+    // %-----TRANSFORMATION 2-----%
+    // Transform about the 1 axis via angle i
+    // transforms from the basis n (line of nodes) to the basis q,
+    // in which the qz component is orthogonal to the orbit plane
+    // [qx, qy], making qz parrallel to the angular momentum
+    let rows2 = [
+        simd_double3(1,        0,         0),
+        simd_double3(0, cos(inc), -sin(inc)),
+        simd_double3(0, sin(inc),  cos(inc))
+    ]
+    let QtransformN = double3x3(rows: rows2)
+
+    // %-----TRANSFORMATION 3-----%
+    // Transform about the 3 axis via angle omega
+    let rows3 = [
+        simd_double3(cos(omega), -sin(omega), 0),
+        simd_double3(sin(omega),  cos(omega), 0),
+        simd_double3(         0,           0, 1)
+    ]
+    let PtransformQ = double3x3(rows: rows3)
+    
+    // % -------Position and Intertial Velocity in Perifocal Basis------%
+    // % This overall translates from PCI to ECI coordinates
+    let PtransformI = NtransformI*QtransformN*PtransformQ
+    // %-----END TRANSFORMATIONS-----%
+    
+
+    
+    // %-----NECCESARY MATHEMATICS-----%
+    // % Need the semi-lattus rectum in order to calculate
+    // % postition scalar r (EQN 1.50)
+    let p = a*(1-(e*e));
+    
+   // % Then, caclulate position scalar r (EQN 1.44)
+    let r = p/(1+e*cos(nu));
+    
+    // % U is inertial frame that is rotated by angle nu relative
+    // % to the perifocal basis P. It can therefore be derived from
+    // % EQ 2.43 in Astrodyanmics Course notes, Anil Rao the position
+    // % vector r expressed in the perifocal basis as:
+    
+
+    let rInPeri = simd_double3([r*cos(nu),
+                                r*sin(nu),
+                                       0])
+    
+    let vInPeri = simd_double3([(-sin(nu)*sqrt(mu/p)),
+                               (e+cos(nu)*sqrt(mu/p)),
+                                                  0])
+    
+//    let rInPeri = [r*cos(nu),
+//                   r*sin(nu),
+//                           0]
+//    let vInPeri = [(-sin(nu)*sqrt(mu/p)),
+//                   (e+cos(nu)*sqrt(mu/p)),
+//                                      0]
+//
+    // % Now that we have both the position and velocity vectors
+    // % expressed in the perifocal basis, using the transformation
+    // % vectors one can simply transform from the basis
+    // % P = [Px, Py, Pz] to ECI coordinates I = [Ix, Iy, Iz]
+    let rPCIa = PtransformI*rInPeri;
+    let vPCIa = PtransformI*vInPeri;
+
+    let rPCI = [rPCIa[0], rPCIa[1], rPCIa[2]]
+    let vPCI = [vPCIa[0], vPCIa[1], vPCIa[2]]
+    
+    
+    
+    return (rPCI, vPCI)
+}
+
+
+
+
+
+
+
+func rad2deg(_ number: Double) -> Double {
+    return number * 180 / .pi
+}
+
+func deg2rad(_ number: Double) -> Double {
+    return number * .pi / 180
 }

@@ -112,15 +112,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.scene.rootNode.addChildNode(drawNode)
         
         
-        // TODO: marker
         let rPCI = [0.7, 0.6, 0.3]
         let vPCI = [-0.8, 0.8, 0.0]
       
         let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
         
-        print("if this works i'll literally shit myself: \(oe)")
+        print("Orbital elements: \(oe)")
+        print("oe[0] is : \(oe[0])")
         
         
+        // TODO: marker
+
+        
+        
+        let x = oe2rv(oe: oe, mu: 1)
+        
+        print("output of oe2rv is as follows: \(x)")
         
 //        print("output of rv2oe is first arg: \(oe[0]) and  second arg: \(oe[1]) and third arg \(oe[2])")
         
