@@ -98,13 +98,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         print("Earth Radius is:  \(earthRadius)")
         print(startPoint)
         print("Z value is: \(startPoint.z)")
+
         
-        
-        let drawPoint = SCNSphere(radius: 0.005)
+        let drawPoint = SCNSphere(radius: 0.0005)
         let drawNode = SCNNode(geometry: drawPoint)
         drawNode.position = SCNVector3(startPoint)
         
         drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+        
+        
+        
+        
+        self.sceneView.scene.rootNode.addChildNode(drawNode)
+        
+        let doot = rv2oe()
+        print("output of rv2oe is \(doot)")
         
         
 //        let scene = SCNScene()
@@ -165,9 +173,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: texture)
-        planet.firstMaterial = material
+        planet.firstMaterial = material //
         
-        // planet.firstMaterial?.specular.contents = UIColor.white
+        // planet.firstMaterial?.diffuse.contents is single line func call for above func
+        // diffuse is texture properties like color etc...
+        
+        // planet.firstMaterial?.specular.contents = UIColor.white // specurlar is shiny-ness of objects,
         
         
         return node

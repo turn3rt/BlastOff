@@ -16,6 +16,7 @@
 		B3AB1865228B1C160084802A /* EarthTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1864228B1C160084802A /* EarthTexture.png */; };
 		B3AB186F229062C70084802A /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AB186D229062C70084802A /* DownArrow.png */; };
 		B3AB1870229062C70084802A /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AB186E229062C70084802A /* UpArrow.png */; };
+		B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB187122931DE90084802A /* OrbitEquations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B3AB1864228B1C160084802A /* EarthTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EarthTexture.png; sourceTree = "<group>"; };
 		B3AB186D229062C70084802A /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrow.png; sourceTree = "<group>"; };
 		B3AB186E229062C70084802A /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrow.png; sourceTree = "<group>"; };
+		B3AB187122931DE90084802A /* OrbitEquations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitEquations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				B3AB1850228A4FED0084802A /* AppDelegate.swift */,
 				B3AB1852228A4FED0084802A /* art.scnassets */,
 				B3AB1854228A4FED0084802A /* ViewController.swift */,
+				B3AB187122931DE90084802A /* OrbitEquations.swift */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
 				B3AB186B229060140084802A /* Textures */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */,
 				B3AB1855228A4FED0084802A /* ViewController.swift in Sources */,
 				B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */,
 			);
