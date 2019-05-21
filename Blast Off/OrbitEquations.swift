@@ -228,8 +228,6 @@ func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
     // % to the perifocal basis P. It can therefore be derived from
     // % EQ 2.43 in Astrodyanmics Course notes, Anil Rao the position
     // % vector r expressed in the perifocal basis as:
-    
-
     let rInPeri = simd_double3([r*cos(nu),
                                 r*sin(nu),
                                        0])
@@ -237,14 +235,7 @@ func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
     let vInPeri = simd_double3([(-sin(nu)*sqrt(mu/p)),
                                (e+cos(nu)*sqrt(mu/p)),
                                                   0])
-    
-//    let rInPeri = [r*cos(nu),
-//                   r*sin(nu),
-//                           0]
-//    let vInPeri = [(-sin(nu)*sqrt(mu/p)),
-//                   (e+cos(nu)*sqrt(mu/p)),
-//                                      0]
-//
+
     // % Now that we have both the position and velocity vectors
     // % expressed in the perifocal basis, using the transformation
     // % vectors one can simply transform from the basis

@@ -9,6 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import Foundation
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
@@ -19,9 +20,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let configuration = ARWorldTrackingConfiguration()
     
 //    MARK: - Math Variables
-    let earthGravityParam = 398600.0 // meters^3/sec^2
-    let scaleFactor = 200000000.0
-    lazy var earthRadiusAR = 6378100.0/scaleFactor // meters SCALE FACTOR: 200mil smaller, double precision
+    let earthGravityParam = 398600.0 // kilometers^3/sec^2
+    let scaleFactor = 200000.0// 200000000.0
+    lazy var earthRadiusAR = 6378.1000/scaleFactor // 6378100.0/scaleFactor // meters SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
     let earthPos = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
     
     
@@ -97,6 +98,55 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //    MARK: - IBAction Functions
     
     @IBAction func launchTap(_ sender: UIButton) {
+        // DEFINE GIVEN rPCI & vPCI & mu
+        let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
+        let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222];  // km/s
+        let mu = 398600.0; // km^3/s^2
+        
+        // converts to AR unit system
+        let r0AR = [r0[0]/scaleFactor, r0[1]/scaleFactor, r0[2]/scaleFactor]
+        let v0AR = [v0[0]/scaleFactor, v0[1]/scaleFactor, v0[2]/scaleFactor]
+        
+        let oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
+        // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
+        let a        = oe[0]/scaleFactor
+        let e        = oe[1]
+        let capOmega = oe[2]
+        let inc      = oe[3]
+        let omega    = oe[4]
+        let nu0      = oe[5]
+        
+        
+        let numOfPoints = 1000
+        let interval = 2*Double.pi/Double(numOfPoints)
+        
+        var nuStart = nu0
+        for index in 1...numOfPoints {
+            if nuStart >= 2*Double.pi{
+                nuStart = nuStart - (2*Double.pi)
+            }
+            let nuNext = nuStart+interval
+            nuStart = nuNext
+            print("nu value is \(nuNext)")
+            //print("\(index) times 5 is \(index * 5)")
+        }
+        
+        
+        
+        
+        
+        
+        let orbitTime = 2*Double.pi*sqrt((a*a*a)/mu)
+        print("Orbit time is: \(orbitTime)")
+        
+        
+        print("CHECK OE'S HERE: \(oe)")
+        
+        
+        
+        
+        
+        
         
         let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
         
@@ -105,12 +155,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             drawNodeExists?.removeFromParentNode()
         }
         
-        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value*1000)/(scaleFactor)])
-        print("shit to be added to earth radius: \(Double(slider.value*1000)/scaleFactor)")
+        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+        print("shit to be added to earth radius: \(Double(slider.value)/scaleFactor)")
         print("Earth Radius is:  \(earthRadiusAR)")
         print("Start point Z value is: \(startPoint.z)")
 
-        
         let drawPoint = SCNSphere(radius: 0.005)
         let drawNode = SCNNode(geometry: drawPoint)
         drawNode.position = SCNVector3(startPoint)
@@ -118,13 +167,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
         
         self.sceneView.scene.rootNode.addChildNode(drawNode)
-        drawNode.name = "drawNode"
+        drawNode.name = "drawNode" // need to add name to every node
+        
+        
+        
+
+        
         
         
         let rPCI = [ 0.7, 0.6, 0.3]
         let vPCI = [-0.8, 0.8, 0.0]
       
-        let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
+        //let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
         
         print("Orbital elements: \(oe)")
         print("oe[0] is : \(oe[0])")
@@ -134,33 +188,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         let x = oe2rv(oe: oe, mu: 1)
         print("output of oe2rv is as follows: \(x)")
-        
-//        print("output of rv2oe is first arg: \(oe[0]) and  second arg: \(oe[1]) and third arg \(oe[2])")
-        
-        
-//        let scene = SCNScene()
-//        // Set the scene to the view
-//        sceneView.scene = scene
-//        // Add nodes to scene
-//        scene.rootNode.addChildNode(drawNode)
-        
-        print("yeeted")
-//        let material = SCNMaterial()
-//        material.diffuse.contents = UIColor.white
-//        drawPoint.firstMaterial = material
-//        drawPoint.firstMaterial?.diffuse.contents
-        
-        
-        
-        
     }
+    
     @IBAction func resetOrigin(_ sender: UIButton) {
+        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
+        if drawNodeExists != nil {
+            drawNodeExists?.removeFromParentNode()
+        }
         sceneView.session.pause()
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         print("User Reset World Origin")
     }
     
-
     @IBAction func sliderChange(_ sender: UISlider) {
 //        uncomment if desired for step value when moving slider
 //        let step: Float = 1000
@@ -174,7 +213,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             drawNodeExists?.removeFromParentNode()
         }
         
-        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value*1000)/(scaleFactor)])
+        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
 
         let drawPoint = SCNSphere(radius: 0.005)
         let drawNode = SCNNode(geometry: drawPoint)
@@ -184,11 +223,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         self.sceneView.scene.rootNode.addChildNode(drawNode)
         drawNode.name = "drawNode"
-        
-        
-        
-        
-        
         
         print("slider value: \(sender.value)")
         altitudeLabel.text = "Altitude = \(Int(sender.value)) km" // force cast to int rounds numbers to no decimal
