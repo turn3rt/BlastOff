@@ -23,7 +23,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let earthGravityParam = 398600.0 // kilometers^3/sec^2
     let scaleFactor = 200000.0// 200000000.0
     lazy var earthRadiusAR = 6378.1000/scaleFactor // 6378100.0/scaleFactor // meters SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
-    let earthPos = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
+    let earthPosAR = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
     
     
 //    MARK: - Override functions
@@ -35,13 +35,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         // Render Nodes
-        let Earth = createPlanet(position: SCNVector3(earthPos), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
+        let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
         // Add nodes to scene and name
         scene.rootNode.addChildNode(Earth)
         Earth.name = "Earth"
         
        let yep = scene.rootNode.childNode(withName: "Earth", recursively: false)
-        print(yep)
+       // print(yep)
         
 //        TODO: Animations
         rotate(node: Earth)
@@ -107,7 +107,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let r0AR = [r0[0]/scaleFactor, r0[1]/scaleFactor, r0[2]/scaleFactor]
         let v0AR = [v0[0]/scaleFactor, v0[1]/scaleFactor, v0[2]/scaleFactor]
         
-        let oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
+        var oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
         // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
         let a        = oe[0]/scaleFactor
         let e        = oe[1]
@@ -116,11 +116,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let omega    = oe[4]
         let nu0      = oe[5]
         
-        
         let numOfPoints = 1000
         let interval = 2*Double.pi/Double(numOfPoints)
         
         var nuStart = nu0
+        //var L = 0 // length of time matrix based on numOfPoints divided by 2*pi (one orbit)
+        
         for index in 1...numOfPoints {
             if nuStart >= 2*Double.pi{
                 nuStart = nuStart - (2*Double.pi)
@@ -128,13 +129,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let nuNext = nuStart+interval
             nuStart = nuNext
             print("nu value is \(nuNext)")
-            //print("\(index) times 5 is \(index * 5)")
+            
+            oe[5] = nuNext
+            
+            let ans = oe2rv(oe: oe, mu: mu)
+            let rNext = ans.rPCI
+            let rNextAR = [rNext[0]/scaleFactor, rNext[1]/scaleFactor, (rNext[2]/scaleFactor) + earthPosAR.z]
+            
+            let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+            let drawPoint = SCNSphere(radius: 0.0005)
+            let drawNode = SCNNode(geometry: drawPoint)
+            drawNode.position = SCNVector3(linePoint)
+
+            drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+
+            self.sceneView.scene.rootNode.addChildNode(drawNode)
         }
         
-        
-        
-        
-        
+        // print("Loop has ended with index value equal to L = \(L)")
         
         let orbitTime = 2*Double.pi*sqrt((a*a*a)/mu)
         print("Orbit time is: \(orbitTime)")
@@ -147,47 +159,50 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         
         
+//
+//        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
+//
+//        // uncomment to remove child nodes before drawing another one
+//        if drawNodeExists != nil {
+//            drawNodeExists?.removeFromParentNode()
+//        }
+//
+//        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+//        print("shit to be added to earth radius: \(Double(slider.value)/scaleFactor)")
+//        print("Earth Radius is:  \(earthRadiusAR)")
+//        print("Start point Z value is: \(startPoint.z)")
+//
+//        let drawPoint = SCNSphere(radius: 0.005)
+//        let drawNode = SCNNode(geometry: drawPoint)
+//        drawNode.position = SCNVector3(startPoint)
+//
+//        drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+//
+//        self.sceneView.scene.rootNode.addChildNode(drawNode)
+//        drawNode.name = "drawNode" // need to add name to every node
+//
+//
+//
+//
+//
+//
+//
+//        let rPCI = [ 0.7, 0.6, 0.3]
+//        let vPCI = [-0.8, 0.8, 0.0]
+//
+//        //let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
+//
+//        print("Orbital elements: \(oe)")
+//        print("oe[0] is : \(oe[0])")
+//
+//
+//        // TODO: marker
+//
+//        let x = oe2rv(oe: oe, mu: 1)
+//        print("output of oe2rv is as follows: \(x)")
         
-        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
-        
-        // uncomment to remove child nodes before drawing another one
-        if drawNodeExists != nil {
-            drawNodeExists?.removeFromParentNode()
-        }
-        
-        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
-        print("shit to be added to earth radius: \(Double(slider.value)/scaleFactor)")
-        print("Earth Radius is:  \(earthRadiusAR)")
-        print("Start point Z value is: \(startPoint.z)")
-
-        let drawPoint = SCNSphere(radius: 0.005)
-        let drawNode = SCNNode(geometry: drawPoint)
-        drawNode.position = SCNVector3(startPoint)
-        
-        drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
-        
-        self.sceneView.scene.rootNode.addChildNode(drawNode)
-        drawNode.name = "drawNode" // need to add name to every node
         
         
-        
-
-        
-        
-        
-        let rPCI = [ 0.7, 0.6, 0.3]
-        let vPCI = [-0.8, 0.8, 0.0]
-      
-        //let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
-        
-        print("Orbital elements: \(oe)")
-        print("oe[0] is : \(oe[0])")
-        
-        
-        // TODO: marker
-
-        let x = oe2rv(oe: oe, mu: 1)
-        print("output of oe2rv is as follows: \(x)")
     }
     
     @IBAction func resetOrigin(_ sender: UIButton) {
@@ -213,7 +228,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             drawNodeExists?.removeFromParentNode()
         }
         
-        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+        let startPoint = earthPosAR + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
 
         let drawPoint = SCNSphere(radius: 0.005)
         let drawNode = SCNNode(geometry: drawPoint)
