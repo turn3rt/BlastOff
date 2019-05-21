@@ -254,17 +254,9 @@ func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
 
     let rPCI = [rPCIa[0], rPCIa[1], rPCIa[2]]
     let vPCI = [vPCIa[0], vPCIa[1], vPCIa[2]]
-    
-    
-    
+
     return (rPCI, vPCI)
 }
-
-
-
-
-
-
 
 func rad2deg(_ number: Double) -> Double {
     return number * 180 / .pi

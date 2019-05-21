@@ -21,7 +21,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //    MARK: - Math Variables
     let earthGravityParam = 398600.0 // meters^3/sec^2
     let scaleFactor = 200000000.0
-    lazy var earthRadius = 6378100.0/scaleFactor // meters SCALE FACTOR: 200mil smaller, double precision
+    lazy var earthRadiusAR = 6378100.0/scaleFactor // meters SCALE FACTOR: 200mil smaller, double precision
     let earthPos = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
     
     
@@ -34,9 +34,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         // Render Nodes
-        let Earth = createPlanet(position: SCNVector3(earthPos), radius: CGFloat(earthRadius), texture: "EarthTexture.png")
-        // Add nodes to scene
+        let Earth = createPlanet(position: SCNVector3(earthPos), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
+        // Add nodes to scene and name
         scene.rootNode.addChildNode(Earth)
+        Earth.name = "Earth"
+        
+       let yep = scene.rootNode.childNode(withName: "Earth", recursively: false)
+        print(yep)
         
 //        TODO: Animations
         rotate(node: Earth)
@@ -94,10 +98,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func launchTap(_ sender: UIButton) {
         
-        let startPoint = earthPos + simd_double3([0, 0, earthRadius])
-        print("Earth Radius is:  \(earthRadius)")
-        print(startPoint)
-        print("Z value is: \(startPoint.z)")
+        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
+        
+        // uncomment to remove child nodes before drawing another one
+        if drawNodeExists != nil {
+            drawNodeExists?.removeFromParentNode()
+        }
+        
+        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value*1000)/(scaleFactor)])
+        print("shit to be added to earth radius: \(Double(slider.value*1000)/scaleFactor)")
+        print("Earth Radius is:  \(earthRadiusAR)")
+        print("Start point Z value is: \(startPoint.z)")
 
         
         let drawPoint = SCNSphere(radius: 0.005)
@@ -106,13 +117,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
         
-        
-        
-        
         self.sceneView.scene.rootNode.addChildNode(drawNode)
+        drawNode.name = "drawNode"
         
         
-        let rPCI = [0.7, 0.6, 0.3]
+        let rPCI = [ 0.7, 0.6, 0.3]
         let vPCI = [-0.8, 0.8, 0.0]
       
         let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
@@ -123,10 +132,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // TODO: marker
 
-        
-        
         let x = oe2rv(oe: oe, mu: 1)
-        
         print("output of oe2rv is as follows: \(x)")
         
 //        print("output of rv2oe is first arg: \(oe[0]) and  second arg: \(oe[1]) and third arg \(oe[2])")
@@ -156,10 +162,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
 
     @IBAction func sliderChange(_ sender: UISlider) {
-//        uncomment if desired for setep value when moving slider
+//        uncomment if desired for step value when moving slider
 //        let step: Float = 1000
 //        let roundedValue = round(sender.value / step) * step
 //        sender.value = roundedValue
+        
+        
+        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
+        
+        if drawNodeExists != nil {
+            drawNodeExists?.removeFromParentNode()
+        }
+        
+        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value*1000)/(scaleFactor)])
+
+        let drawPoint = SCNSphere(radius: 0.005)
+        let drawNode = SCNNode(geometry: drawPoint)
+        drawNode.position = SCNVector3(startPoint)
+        
+        drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+        
+        self.sceneView.scene.rootNode.addChildNode(drawNode)
+        drawNode.name = "drawNode"
+        
+        
+        
+        
+        
+        
         print("slider value: \(sender.value)")
         altitudeLabel.text = "Altitude = \(Int(sender.value)) km" // force cast to int rounds numbers to no decimal
     }
