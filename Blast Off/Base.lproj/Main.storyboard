@@ -170,7 +170,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="backButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="XTB-yC-2Ki"/>
+                                    <action selector="variableButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="wtZ-cC-psk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,6 +201,7 @@
                         <outlet property="Slider" destination="OYc-Qg-dXU" id="tgI-oy-8da"/>
                         <outlet property="altitudeLabel" destination="HWP-KZ-htd" id="J1i-AX-Z62"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="variableButton" destination="EqA-LZ-lks" id="8h3-bL-Ujb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

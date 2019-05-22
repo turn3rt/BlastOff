@@ -11,7 +11,7 @@ import SceneKit
 import ARKit
 import Foundation
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate {
     
 //    MARK: - IBOutlets
     @IBOutlet var sceneView: ARSCNView!
@@ -151,6 +151,61 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func variableButtonClick(_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: "Slider Variable", message: "Select a variable to change using the slider:", preferredStyle: .actionSheet)
+        
+        let aButton = UIAlertAction(title: "Semi-Major Axis [a]", style: .default, handler: { (action) -> Void in
+            self.variableButton.setTitle("a", for: UIControl.State.normal)
+            print("a: semi-major axis selected")
+        })
+        
+        let eButton = UIAlertAction(title: "Eccentricity [e]", style: .default, handler: { (action) -> Void in
+            self.variableButton.setTitle("e", for: UIControl.State.normal)
+            print("e: eccentricity selected")
+        })
+        
+        let capOmegaButton = UIAlertAction(title: "Longitude of Ascending Node [capOmega]", style: .default, handler: { (action) -> Void in
+            self.variableButton.setTitle("capOmega", for: UIControl.State.normal)
+            print("capOmega: long of asc. node selected")
+        })
+        
+        let incButton = UIAlertAction(title: "Inclination [inc]", style: .default, handler: { (action) -> Void in
+            self.variableButton.setTitle("inc", for: UIControl.State.normal)
+            print("inc: inclination selected")
+        })
+        
+        let omegaButton = UIAlertAction(title: "Argument of Periapsis [omega]", style: .default, handler: { (action) -> Void in
+            self.variableButton.setTitle("omega", for: UIControl.State.normal)
+            print("omega: arg of periapsis selected")
+        })
+        
+        let nuButton = UIAlertAction(title: "True Anomoly [nu]", style: .default, handler: { (action) -> Void in
+            self.variableButton.setTitle("nu", for: UIControl.State.normal)
+            print("nu: true anomoly selected")
+        })
+        
+//        let  deleteButton = UIAlertAction(title: "Delete forever", style: .destructive, handler: { (action) -> Void in
+//            print("Delete button tapped")
+//        })
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            print("Cancel button tapped")
+        })
+        
+        
+        alertController.addAction(aButton)
+        alertController.addAction(eButton)
+        alertController.addAction(capOmegaButton)
+        alertController.addAction(incButton)
+        alertController.addAction(omegaButton)
+        alertController.addAction(nuButton)
+
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 //    MARK: - IBOulet Variables
     
     @IBOutlet weak var slider: UISlider! {
@@ -162,6 +217,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBOutlet weak var altitudeLabel: UILabel!
+    @IBOutlet weak var variableButton: UIButton!
     
     
     
