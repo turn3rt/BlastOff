@@ -40,7 +40,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         scene.rootNode.addChildNode(Earth)
         Earth.name = "Earth"
         
-       let yep = scene.rootNode.childNode(withName: "Earth", recursively: false)
+       // let yep = scene.rootNode.childNode(withName: "Earth", recursively: false)
        // print(yep)
         
 //        TODO: Animations
@@ -77,7 +77,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //    }
     
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
-        
+        // this function iterates at 60 frames per second
 //        let startPos = earthPos + SCNVector3(0, 0, earthRadius) //SCNVector3(0, 0, -0.3) // meters
 
         //print("rendering...")
@@ -90,126 +90,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-
-
-    
-    
     
 //    MARK: - IBAction Functions
     
     @IBAction func launchTap(_ sender: UIButton) {
-        // DEFINE GIVEN rPCI & vPCI & mu
-        let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
-        let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222];  // km/s
-        let mu = 398600.0; // km^3/s^2
-        
-        // converts to AR unit system
-        let r0AR = [r0[0]/scaleFactor, r0[1]/scaleFactor, r0[2]/scaleFactor]
-        let v0AR = [v0[0]/scaleFactor, v0[1]/scaleFactor, v0[2]/scaleFactor]
-        
-        var oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
-        // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
-        let a        = oe[0]/scaleFactor
-        let e        = oe[1]
-        let capOmega = oe[2]
-        let inc      = oe[3]
-        let omega    = oe[4]
-        let nu0      = oe[5]
-        
-        let numOfPoints = 1000
-        let interval = 2*Double.pi/Double(numOfPoints)
-        
-        var nuStart = nu0
-        //var L = 0 // length of time matrix based on numOfPoints divided by 2*pi (one orbit)
-        
-        for index in 1...numOfPoints {
-            if nuStart >= 2*Double.pi{
-                nuStart = nuStart - (2*Double.pi)
-            }
-            let nuNext = nuStart+interval
-            nuStart = nuNext
-            print("nu value is \(nuNext)")
-            
-            oe[5] = nuNext
-            
-            let ans = oe2rv(oe: oe, mu: mu)
-            let rNext = ans.rPCI
-            let rNextAR = [rNext[0]/scaleFactor, rNext[1]/scaleFactor, (rNext[2]/scaleFactor) + earthPosAR.z]
-            
-            let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
-            let drawPoint = SCNSphere(radius: 0.0005)
-            let drawNode = SCNNode(geometry: drawPoint)
-            drawNode.position = SCNVector3(linePoint)
-
-            drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-
-            self.sceneView.scene.rootNode.addChildNode(drawNode)
-        }
-        
-        // print("Loop has ended with index value equal to L = \(L)")
-        
-        let orbitTime = 2*Double.pi*sqrt((a*a*a)/mu)
-        print("Orbit time is: \(orbitTime)")
-        
-        
-        print("CHECK OE'S HERE: \(oe)")
-        
-        
-        
-        
-        
-        
-//
-//        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
-//
-//        // uncomment to remove child nodes before drawing another one
-//        if drawNodeExists != nil {
-//            drawNodeExists?.removeFromParentNode()
-//        }
-//
-//        let startPoint = earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
-//        print("shit to be added to earth radius: \(Double(slider.value)/scaleFactor)")
-//        print("Earth Radius is:  \(earthRadiusAR)")
-//        print("Start point Z value is: \(startPoint.z)")
-//
-//        let drawPoint = SCNSphere(radius: 0.005)
-//        let drawNode = SCNNode(geometry: drawPoint)
-//        drawNode.position = SCNVector3(startPoint)
-//
-//        drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
-//
-//        self.sceneView.scene.rootNode.addChildNode(drawNode)
-//        drawNode.name = "drawNode" // need to add name to every node
-//
-//
-//
-//
-//
-//
-//
-//        let rPCI = [ 0.7, 0.6, 0.3]
-//        let vPCI = [-0.8, 0.8, 0.0]
-//
-//        //let oe = rv2oe(rPCI: rPCI, vPCI: vPCI, mu: 1)
-//
-//        print("Orbital elements: \(oe)")
-//        print("oe[0] is : \(oe[0])")
-//
-//
-//        // TODO: marker
-//
-//        let x = oe2rv(oe: oe, mu: 1)
-//        print("output of oe2rv is as follows: \(x)")
-        
-        
-        
+        createOrbit()
     }
     
-    @IBAction func resetOrigin(_ sender: UIButton) {
+    @IBAction func resetClick(_ sender: UIButton) {
+        // removing starter point
         let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
         if drawNodeExists != nil {
             drawNodeExists?.removeFromParentNode()
         }
+        
+        // removing orbit
+        if orbitExists {
+            for index in 1...numOfPoints{
+                let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "drawNode\(index)", recursively: false)
+                orbitNode?.removeFromParentNode()
+            }
+        }
+        
         sceneView.session.pause()
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         print("User Reset World Origin")
@@ -220,7 +122,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        let step: Float = 1000
 //        let roundedValue = round(sender.value / step) * step
 //        sender.value = roundedValue
-        
         
         let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
         
@@ -243,6 +144,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         altitudeLabel.text = "Altitude = \(Int(sender.value)) km" // force cast to int rounds numbers to no decimal
     }
     
+    @IBAction func backButtonClick(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            print("User clicked back button")
+        }
+        //self.navigationController?.popViewController(animated: true)
+    }
     
 //    MARK: - IBOulet Variables
     
@@ -269,20 +176,73 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: texture)
-        planet.firstMaterial = material //
+        planet.firstMaterial = material
         
         // planet.firstMaterial?.diffuse.contents is single line func call for above func
         // diffuse is texture properties like color etc...
         
-        // planet.firstMaterial?.specular.contents = UIColor.white // specurlar is shiny-ness of objects,
+        // planet.firstMaterial?.specular.contents = UIColor.white // specular is shiny-ness of objects,
         
         
         return node
     }
     
+    let numOfPoints = 1000
+    var orbitExists = false
     func createOrbit() {
         print("createOrbit Start")
+        // DEFINE GIVEN rPCI & vPCI & mu
+        let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
+        let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222];  // km/s
+        let mu = 398600.0; // km^3/s^2
         
+        // converts to AR unit system
+        // let r0AR = [r0[0]/scaleFactor, r0[1]/scaleFactor, r0[2]/scaleFactor]
+        // let v0AR = [v0[0]/scaleFactor, v0[1]/scaleFactor, v0[2]/scaleFactor]
+        
+        var oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
+        // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
+        let a        = oe[0]/scaleFactor
+        // let e        = oe[1]
+        // let capOmega = oe[2]
+        // let inc      = oe[3]
+        // let omega    = oe[4]
+        let nu0      = oe[5]
+        
+        let interval = 2*Double.pi/Double(numOfPoints)
+        
+        var nuStart = nu0
+        //var L = 0 // length of time matrix based on numOfPoints divided by 2*pi (one orbit)
+        
+        for index in 1...numOfPoints {
+            if nuStart >= 2*Double.pi{
+                nuStart = nuStart - (2*Double.pi)
+            }
+            let nuNext = nuStart+interval
+            nuStart = nuNext
+            // print("nu value is \(nuNext)")
+            
+            oe[5] = nuNext
+            
+            let ans = oe2rv(oe: oe, mu: mu)
+            let rNext = ans.rPCI
+            let rNextAR = [rNext[0]/scaleFactor, rNext[1]/scaleFactor, (rNext[2]/scaleFactor) + earthPosAR.z]
+            
+            let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+            let drawPoint = SCNSphere(radius: 0.0005)
+            let drawNode = SCNNode(geometry: drawPoint)
+            drawNode.position = SCNVector3(linePoint)
+            
+            drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+            
+            self.sceneView.scene.rootNode.addChildNode(drawNode)
+            drawNode.name = "drawNode\(index)"
+        }
+        
+        let orbitTime = 2*Double.pi*sqrt((a*a*a)/mu)
+        print("Orbit time is: \(orbitTime*scaleFactor)")
+        print("CHECK OE'S HERE: \(oe)")
+        orbitExists = true
     }
     
     func configureScene(){
@@ -302,56 +262,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let repeatForever = SCNAction.repeatForever(rotateOnce)
         node.runAction(repeatForever)
     }
-
-    
-    
-    
-    
-    
-    
-    
-    //let step: Float = 10 // If you want UISlider to snap to steps by 10
-//    func createSlider(){
-//        let mySlider = UISlider(frame:CGRect(x: 10, y: 100, width: 300, height: 20))
-//        mySlider.minimumValue = 0
-//        mySlider.maximumValue = 100
-//        mySlider.isContinuous = true
-//        mySlider.tintColor = UIColor.green
-//        mySlider.addTarget(self, action: #selector(ViewController.sliderValueDidChange(_:)), for: .valueChanged)
-//
-//        self.view.addSubview(mySlider)
-//    }
-    
-    
-   
-    
-//    @objc func sliderValueDidChange(_ sender:UISlider!)
-//    {
-//        print("Slider value changed")
-//
-//        // Use this code below only if you want UISlider to snap to values step by step
-////        let roundedStepValue = round(sender.value / step) * step
-////        sender.value = roundedStepValue
-//
-//        print("Slider step value \(Int(s))")
-//    }
-    
-    
-    
-    
-    
-    
-    
-    
-//     func addRocket(x: Float = 0, y: Float = 0, z: Float = -0.5) {
-//        TODO: - Add 3D Model of rocket
-//        guard let rocketshipScene = SCNScene(named: "rocketship.scn"), let rocketshipNode = rocketshipScene.rootNode.childNode(withName: "rocketship", recursively: true) else { return }
-//        rocketshipNode.position = SCNVector3(x, y, z)
-//        sceneView.scene.rootNode.addChildNode(rocketshipNode)
-//    }
-    
-    
-    
-   
 
 }

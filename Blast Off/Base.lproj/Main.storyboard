@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S9O-HX-tyw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,44 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="34J-vM-Jgy">
+            <objects>
+                <viewController id="S9O-HX-tyw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rra-Gf-wzA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-VT-PGA">
+                                <rect key="frame" x="107" y="545" width="161" height="36"/>
+                                <color key="backgroundColor" red="0.89122001593299494" green="0.58363504185670534" blue="0.17620554327194435" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                <state key="normal" title="Generate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="qrE-4X-xsm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uvY-VT-PGA" firstAttribute="top" secondItem="NZm-pX-MdJ" secondAttribute="top" constant="525" id="H7P-V4-0yC"/>
+                            <constraint firstItem="uvY-VT-PGA" firstAttribute="centerX" secondItem="rra-Gf-wzA" secondAttribute="centerX" id="fcG-kA-VAy"/>
+                            <constraint firstItem="uvY-VT-PGA" firstAttribute="leading" secondItem="NZm-pX-MdJ" secondAttribute="leading" constant="107" id="n8f-Ih-yuF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NZm-pX-MdJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PpD-XK-Yti" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-734" y="27"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,6 +59,22 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-GM-s1H">
+                                <rect key="frame" x="16" y="65" width="161" height="36"/>
+                                <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                <state key="normal" title="&lt;&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="a6x-C7-05X"/>
+                                </connections>
+                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OYc-Qg-dXU">
                                 <rect key="frame" x="125.5" y="318.5" width="424" height="31"/>
                                 <constraints>
@@ -69,7 +123,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="resetOrigin:" destination="BV1-FR-VrT" eventType="touchUpInside" id="f9D-Y9-i0R"/>
+                                            <action selector="resetClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9oQ-Wa-61s"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -99,18 +153,43 @@
                                     <constraint firstAttribute="height" constant="144" id="Syc-He-pza"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqA-LZ-lks">
+                                <rect key="frame" x="271" y="130" width="88" height="24"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="dO9-Ay-eOd"/>
+                                    <constraint firstAttribute="width" constant="88" id="yBZ-30-aUB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                <state key="normal" title="capOmega">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="XTB-yC-2Ki"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HWP-KZ-htd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="7p3-x2-W7Q"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="xaF-TZ-LAd" secondAttribute="bottom" constant="24" id="ABa-n8-Kr9"/>
+                            <constraint firstItem="oRT-GM-s1H" firstAttribute="leading" secondItem="HWP-KZ-htd" secondAttribute="leading" id="DOp-Md-MNd"/>
+                            <constraint firstItem="oRT-GM-s1H" firstAttribute="top" secondItem="HWP-KZ-htd" secondAttribute="bottom" constant="29" id="DVE-X4-mUA"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="JaE-cq-Ijq"/>
                             <constraint firstItem="HWP-KZ-htd" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="PTf-53-pb9"/>
+                            <constraint firstItem="EqA-LZ-lks" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="110" id="QOi-bC-Djh"/>
                             <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" constant="150" id="Qa8-Hf-loT"/>
                             <constraint firstAttribute="trailing" secondItem="xaF-TZ-LAd" secondAttribute="trailing" constant="16" id="V8t-Wa-15c"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="3Fv-xg-Jkb" secondAttribute="trailing" constant="16" id="fL6-e0-d0d"/>
                             <constraint firstItem="xaF-TZ-LAd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="gKX-Uk-6nf"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="EqA-LZ-lks" secondAttribute="trailing" constant="16" id="jIC-6c-dxY"/>
                             <constraint firstItem="3er-XG-DTM" firstAttribute="top" secondItem="3Fv-xg-Jkb" secondAttribute="bottom" constant="32" id="kJ6-4D-nXx"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="oRT-GM-s1H" secondAttribute="trailing" constant="198" id="nCd-QP-5F1"/>
                             <constraint firstItem="OYc-Qg-dXU" firstAttribute="centerY" secondItem="U0K-SW-4ec" secondAttribute="centerY" id="ohR-Oe-nQd"/>
                             <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="qff-7J-qFn"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="qvk-7m-DQi"/>
@@ -126,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
+            <point key="canvasLocation" x="141.59999999999999" y="26.53673163418291"/>
         </scene>
     </scenes>
     <resources>
