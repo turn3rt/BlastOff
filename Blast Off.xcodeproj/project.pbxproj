@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1850228A4FED0084802A /* AppDelegate.swift */; };
 		B3AB1853228A4FED0084802A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1852228A4FED0084802A /* art.scnassets */; };
-		B3AB1855228A4FED0084802A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1854228A4FED0084802A /* ViewController.swift */; };
+		B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1854228A4FED0084802A /* ARViewController.swift */; };
 		B3AB1858228A4FED0084802A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1856228A4FED0084802A /* Main.storyboard */; };
 		B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1859228A4FEE0084802A /* Assets.xcassets */; };
 		B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AB185B228A4FEE0084802A /* LaunchScreen.storyboard */; };
@@ -17,13 +17,16 @@
 		B3AB186F229062C70084802A /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AB186D229062C70084802A /* DownArrow.png */; };
 		B3AB1870229062C70084802A /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AB186E229062C70084802A /* UpArrow.png */; };
 		B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB187122931DE90084802A /* OrbitEquations.swift */; };
+		B3C6900D22973FC200AB80BF /* MainBGImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3C6900B22973FC200AB80BF /* MainBGImage.jpg */; };
+		B3C6900E22973FC200AB80BF /* rvBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3C6900C22973FC200AB80BF /* rvBG.jpg */; };
+		B3C6901122974ED100AB80BF /* PCIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6901022974ED100AB80BF /* PCIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B3AB184D228A4FED0084802A /* Blast Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blast Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AB1850228A4FED0084802A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3AB1852228A4FED0084802A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		B3AB1854228A4FED0084802A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3AB1854228A4FED0084802A /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		B3AB1857228A4FED0084802A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3AB1859228A4FEE0084802A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3AB185C228A4FEE0084802A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		B3AB186D229062C70084802A /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrow.png; sourceTree = "<group>"; };
 		B3AB186E229062C70084802A /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrow.png; sourceTree = "<group>"; };
 		B3AB187122931DE90084802A /* OrbitEquations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitEquations.swift; sourceTree = "<group>"; };
+		B3C6900B22973FC200AB80BF /* MainBGImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MainBGImage.jpg; sourceTree = "<group>"; };
+		B3C6900C22973FC200AB80BF /* rvBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rvBG.jpg; sourceTree = "<group>"; };
+		B3C6901022974ED100AB80BF /* PCIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,7 @@
 		B3AB1844228A4FED0084802A = {
 			isa = PBXGroup;
 			children = (
+				B3C6901022974ED100AB80BF /* PCIController.swift */,
 				B3AB184F228A4FED0084802A /* Blast Off */,
 				B3AB184E228A4FED0084802A /* Products */,
 			);
@@ -66,12 +73,13 @@
 			children = (
 				B3AB1850228A4FED0084802A /* AppDelegate.swift */,
 				B3AB1852228A4FED0084802A /* art.scnassets */,
-				B3AB1854228A4FED0084802A /* ViewController.swift */,
+				B3AB1854228A4FED0084802A /* ARViewController.swift */,
 				B3AB187122931DE90084802A /* OrbitEquations.swift */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
 				B3AB186B229060140084802A /* Textures */,
 				B3AB186C2290601B0084802A /* Icons */,
+				B3C6900F22973FC700AB80BF /* Images */,
 				B3AB185B228A4FEE0084802A /* LaunchScreen.storyboard */,
 				B3AB185E228A4FEE0084802A /* Info.plist */,
 			);
@@ -93,6 +101,15 @@
 				B3AB186E229062C70084802A /* UpArrow.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		B3C6900F22973FC700AB80BF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B3C6900C22973FC200AB80BF /* rvBG.jpg */,
+				B3C6900B22973FC200AB80BF /* MainBGImage.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +174,11 @@
 				B3AB186F229062C70084802A /* DownArrow.png in Resources */,
 				B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */,
 				B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */,
+				B3C6900E22973FC200AB80BF /* rvBG.jpg in Resources */,
 				B3AB1865228B1C160084802A /* EarthTexture.png in Resources */,
 				B3AB1870229062C70084802A /* UpArrow.png in Resources */,
 				B3AB1858228A4FED0084802A /* Main.storyboard in Resources */,
+				B3C6900D22973FC200AB80BF /* MainBGImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */,
-				B3AB1855228A4FED0084802A /* ViewController.swift in Sources */,
+				B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */,
+				B3C6901122974ED100AB80BF /* PCIController.swift in Sources */,
 				B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

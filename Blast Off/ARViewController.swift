@@ -11,7 +11,7 @@ import SceneKit
 import ARKit
 import Foundation
 
-class ViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate {
+class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate {
     
 //    MARK: - IBOutlets
     @IBOutlet var sceneView: ARSCNView!
