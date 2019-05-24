@@ -86,7 +86,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if isDouble(number: textField.text!) && textField.text?.toFloat() <0 {
+        if isDouble(number: textField.text!) {
             print("Valid Double Precision value entered")
             rxSlider.value = (rxTField.text?.toFloat())!
             rySlider.value = (ryTField.text?.toFloat())!
