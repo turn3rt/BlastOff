@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PCIController: UIViewController {
+class PCIController: UIViewController, UITextFieldDelegate {
 
     // MARK: - IBOutlets
     @IBOutlet weak var rxTField: UITextField!
@@ -26,7 +26,13 @@ class PCIController: UIViewController {
     @IBOutlet weak var vySlider: UISlider!
     @IBOutlet weak var vzSlider: UISlider!
 
+    // MARK: - IBActions
+    
 
+    
+    @IBAction func rxSliderChange(_ sender: UISlider) {
+        rxTField.text = String(rxSlider.value)
+    }
     
     
     
@@ -34,23 +40,75 @@ class PCIController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        setupTextFields()
+        
 
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    func setupTextFields(){
         
     }
+    
+    override func viewWillAppear(_ animated:Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    func setupTextFields(){
+        rxTField.delegate = self
+        ryTField.delegate = self
+        rzTField.delegate = self
+        vxTField.delegate = self
+        vyTField.delegate = self
+        vzTField.delegate = self
+        
+        rxTField.keyboardType = .numbersAndPunctuation
+        ryTField.keyboardType = .numbersAndPunctuation
+        rzTField.keyboardType = .numbersAndPunctuation
+        vxTField.keyboardType = .numbersAndPunctuation
+        vyTField.keyboardType = .numbersAndPunctuation
+        vzTField.keyboardType = .numbersAndPunctuation
+
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if isDouble(number: textField.text!){
+            print("Double Precision value entered")
+        } else {
+            print("Please enter a numeric value")
+        }
+        
+        
+        textField.resignFirstResponder()
+        print("Return Key Press Success")
+//        rxTField.resignFirstResponder()
+//        ryTField.resignFirstResponder()
+//        rzTField.resignFirstResponder()
+//        vxTField.resignFirstResponder()
+//        vyTField.resignFirstResponder()
+//        vzTField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if vxTField.isEditing || vyTField.isEditing || vzTField.isEditing == true {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 180 //keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y += 180 //keyboardSize.height
+        }
+    }
+    
+    @IBAction func tapOffKeyboard(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    
     
     
     
@@ -66,9 +124,18 @@ class PCIController: UIViewController {
     }
     */
     
-    
-    
-    
-    
 
+    // MARK: - Random Helpful Functions
+    func isDouble(number:String) -> Bool{
+        if Double(number) == nil{
+            return false
+        } else {
+            return true
+        }
+    }
+       
+
+    
+    
+    
 }

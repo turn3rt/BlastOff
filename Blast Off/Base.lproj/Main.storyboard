@@ -207,6 +207,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="qfd-iw-zTJ"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="rxSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Ur4-wd-zkl"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3091.4121082280699" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="ki1-C7-95F">
                                         <rect key="frame" x="-2" y="87" width="179" height="31"/>
@@ -277,6 +280,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="plV-Nu-PcB" firstAttribute="top" secondItem="SXm-w0-CtK" secondAttribute="bottom" constant="8" id="10Z-ay-v4U"/>
                             <constraint firstItem="SXm-w0-CtK" firstAttribute="top" secondItem="NZm-pX-MdJ" secondAttribute="top" constant="16" id="1uC-Uk-cyb"/>
@@ -297,6 +301,9 @@
                             <constraint firstItem="Ybh-LB-N47" firstAttribute="centerY" secondItem="Mz5-FA-Qc7" secondAttribute="centerY" id="zN7-OM-sQa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NZm-pX-MdJ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wyi-SK-dk9" appends="YES" id="e5b-fV-GnK"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Molniya Orbit" id="Jpf-on-fTf"/>
                     <connections>
@@ -315,6 +322,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpD-XK-Yti" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wyi-SK-dk9">
+                    <connections>
+                        <action selector="tapOffKeyboard:" destination="S9O-HX-tyw" id="4JT-H7-vJp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-932" y="-735"/>
         </scene>
@@ -779,7 +791,7 @@
         <!--Home-->
         <scene sceneID="D0K-xj-ken">
             <objects>
-                <viewController id="l8n-4J-cM3" sceneMemberID="viewController">
+                <viewController id="l8n-4J-cM3" customClass="HomeViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ddp-MT-1vs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -806,7 +818,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-yR-m6r">
                                 <rect key="frame" x="100" y="456" width="175" height="172"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-dW-eaO">
+                                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-dW-eaO">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="36"/>
                                         <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
@@ -901,7 +913,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZS-uQ-c91">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZS-uQ-c91">
                                 <rect key="frame" x="107" y="495" width="161" height="36"/>
                                 <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
@@ -917,7 +929,7 @@
                                     <segue destination="jDg-Av-zdz" kind="show" id="0Ct-Yo-oW6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-3T-HDe">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-3T-HDe">
                                 <rect key="frame" x="107" y="418" width="161" height="36"/>
                                 <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
@@ -943,10 +955,13 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="DiX-UB-lS6" secondAttribute="trailing" constant="16" id="9n9-cf-hOA"/>
+                            <constraint firstItem="8BN-3T-HDe" firstAttribute="centerX" secondItem="DiX-UB-lS6" secondAttribute="centerX" id="J7A-di-R9Q"/>
                             <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="FZS-uQ-c91" secondAttribute="leading" id="L5n-3c-uLF"/>
                             <constraint firstItem="FZS-uQ-c91" firstAttribute="top" secondItem="8BN-3T-HDe" secondAttribute="bottom" constant="41" id="L6U-FI-IG2"/>
                             <constraint firstItem="DiX-UB-lS6" firstAttribute="top" secondItem="kUS-9I-dBG" secondAttribute="top" constant="100" id="USq-2P-xwq"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="bottom" secondItem="FZS-uQ-c91" secondAttribute="bottom" constant="247" id="W4N-Nn-QBH"/>
                             <constraint firstItem="DiX-UB-lS6" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="16" id="ZKo-io-H8d"/>
+                            <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="107" id="ixw-NN-dJL"/>
                             <constraint firstItem="8BN-3T-HDe" firstAttribute="trailing" secondItem="FZS-uQ-c91" secondAttribute="trailing" id="s6L-5y-J6R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kUS-9I-dBG"/>

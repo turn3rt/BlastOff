@@ -29,6 +29,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         configureScene()
         // Create a new scene
         let scene = SCNScene()
