@@ -27,17 +27,30 @@ class PCIController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var vzSlider: UISlider!
 
     // MARK: - IBActions
-    
-
-    
     @IBAction func rxSliderChange(_ sender: UISlider) {
         rxTField.text = String(rxSlider.value)
+    }
+    @IBAction func rySliderChange(_ sender: UISlider) {
+        ryTField.text = String(rySlider.value)
+    }
+    @IBAction func rzSliderChange(_ sender: UISlider) {
+        rzTField.text = String(rzSlider.value)
+    }
+    @IBAction func vxSliderChange(_ sender: UISlider) {
+        vxTField.text = String(vxSlider.value)
+    }
+    @IBAction func vySliderChange(_ sender: UISlider) {
+        vyTField.text = String(vySlider.value)
+    }
+    @IBAction func vzSliderChange(_ sender: UISlider) {
+        vzTField.text = String(vzSlider.value)
     }
     
     
     
     
     
+    // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -52,6 +65,8 @@ class PCIController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
+    
+    // MARK: - Keyboard Setup & Handling
     
     func setupTextFields(){
         rxTField.delegate = self
@@ -71,10 +86,16 @@ class PCIController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if isDouble(number: textField.text!){
-            print("Double Precision value entered")
+        if isDouble(number: textField.text!) && textField.text?.toFloat() <0 {
+            print("Valid Double Precision value entered")
+            rxSlider.value = (rxTField.text?.toFloat())!
+            rySlider.value = (ryTField.text?.toFloat())!
+            rzSlider.value = (rzTField.text?.toFloat())!
+            vxSlider.value = (vxTField.text?.toFloat())!
+            vySlider.value = (vyTField.text?.toFloat())!
+            vzSlider.value = (vzTField.text?.toFloat())!
         } else {
-            print("Please enter a numeric value")
+            print("Please enter a numeric value, need to display alert controller for this")
         }
         
         
@@ -126,16 +147,19 @@ class PCIController: UIViewController, UITextFieldDelegate {
     
 
     // MARK: - Random Helpful Functions
-    func isDouble(number:String) -> Bool{
-        if Double(number) == nil{
-            return false
-        } else {
+    func isDouble(number: String) -> Bool {
+        if Double(number) != nil {
             return true
+        } else {
+            return false
         }
     }
-       
+    
+    
+}
 
-    
-    
-    
+extension String {
+    func toFloat() -> Float? {
+        return NumberFormatter().number(from: self)?.floatValue
+    }
 }

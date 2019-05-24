@@ -211,13 +211,13 @@
                                             <action selector="rxSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Ur4-wd-zkl"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3091.4121082280699" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="ki1-C7-95F">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-3091.4121082280699" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="ki1-C7-95F">
                                         <rect key="frame" x="-2" y="87" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="MEO-ZP-6DL"/>
                                         </constraints>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-S7-tjc">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-6173.4073287731699" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-S7-tjc">
                                         <rect key="frame" x="-2" y="174" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="9Ud-VN-O6b"/>
@@ -228,19 +228,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-LB-N47" userLabel="Velocity Slider Stack">
                                 <rect key="frame" x="184" y="475" width="175" height="204"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C7O-RC-lZh">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="9.8863581550789608" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="C7O-RC-lZh">
                                         <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="ABv-AM-BUB"/>
                                         </constraints>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xPW-fm-seF">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-0.44612173709930297" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="xPW-fm-seF">
                                         <rect key="frame" x="-2" y="87" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="qBO-za-LNL"/>
                                         </constraints>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-Oo-bgW">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-0.89088452296722198" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-Oo-bgW">
                                         <rect key="frame" x="-2" y="174" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="SDf-As-uG8"/>
