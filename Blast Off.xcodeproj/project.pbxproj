@@ -54,7 +54,6 @@
 		B3AB1844228A4FED0084802A = {
 			isa = PBXGroup;
 			children = (
-				B3C6901022974ED100AB80BF /* PCIController.swift */,
 				B3AB184F228A4FED0084802A /* Blast Off */,
 				B3AB184E228A4FED0084802A /* Products */,
 			);
@@ -75,6 +74,7 @@
 				B3AB1852228A4FED0084802A /* art.scnassets */,
 				B3AB1854228A4FED0084802A /* ARViewController.swift */,
 				B3AB187122931DE90084802A /* OrbitEquations.swift */,
+				B3C6901022974ED100AB80BF /* PCIController.swift */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
 				B3AB186B229060140084802A /* Textures */,
