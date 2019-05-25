@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553C2298770D00F88C4A /* HomeViewController.swift */; };
+		B393553F2299B89E00F88C4A /* MyOrbitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553E2299B89E00F88C4A /* MyOrbitsTableViewController.swift */; };
 		B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1850228A4FED0084802A /* AppDelegate.swift */; };
 		B3AB1853228A4FED0084802A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1852228A4FED0084802A /* art.scnassets */; };
 		B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1854228A4FED0084802A /* ARViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		B393553C2298770D00F88C4A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B393553E2299B89E00F88C4A /* MyOrbitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrbitsTableViewController.swift; sourceTree = "<group>"; };
 		B3AB184D228A4FED0084802A /* Blast Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blast Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AB1850228A4FED0084802A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3AB1852228A4FED0084802A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				B3AB1850228A4FED0084802A /* AppDelegate.swift */,
 				B3AB1852228A4FED0084802A /* art.scnassets */,
 				B3AB1854228A4FED0084802A /* ARViewController.swift */,
+				B393553E2299B89E00F88C4A /* MyOrbitsTableViewController.swift */,
 				B3AB187122931DE90084802A /* OrbitEquations.swift */,
 				B393553C2298770D00F88C4A /* HomeViewController.swift */,
 				B3C6901022974ED100AB80BF /* PCIController.swift */,
@@ -196,6 +199,7 @@
 				B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */,
 				B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */,
 				B3C6901122974ED100AB80BF /* PCIController.swift in Sources */,
+				B393553F2299B89E00F88C4A /* MyOrbitsTableViewController.swift in Sources */,
 				B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

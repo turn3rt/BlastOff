@@ -45,6 +45,20 @@ class PCIController: UIViewController, UITextFieldDelegate {
     @IBAction func vzSliderChange(_ sender: UISlider) {
         vzTField.text = String(vzSlider.value)
     }
+    @IBAction func saveOrbitClick(_ sender: UIButton) {
+        print("Save Orbit Clicked")
+//        let rvVals = [Double(self.rxSlider.value),
+//                      Double(self.rySlider.value),
+//                      Double(self.rzSlider.value),
+//                      Double(self.vxSlider.value),
+//                      Double(self.vySlider.value),
+//                      Double(self.vzSlider.value)]
+//        defaults.set(<#T##value: Double##Double#>, forKey: <#T##String#>)
+        
+        
+        showAddNameAlert()
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     
@@ -94,7 +108,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
             vxSlider.value = (vxTField.text?.toFloat())!
             vySlider.value = (vyTField.text?.toFloat())!
             vzSlider.value = (vzTField.text?.toFloat())!
-        } else {
+        } else { // TODO: Error Handling
             print("Please enter a numeric value, need to display alert controller for this")
         }
         
@@ -129,37 +143,42 @@ class PCIController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+   
     
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-
-    // MARK: - Random Helpful Functions
-    func isDouble(number: String) -> Bool {
-        if Double(number) != nil {
-            return true
-        } else {
-            return false
+    // MARK: - Useful Internal Controller Functions
+    func showAddNameAlert(){
+        //controller definition
+        let alert = UIAlertController(title:"Add Name", message: "Please add a name for your orbit", preferredStyle: .alert)
+        
+        // button creation
+        let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            if textField.text != "" && textField.text?.contains(" ") == false {
+                print("User saving with name: \(textField.text!)")
+            } else {
+                alert.message = "Error: Please enter a name as a single word with no spaces"
+                self.present(alert, animated: true, completion: nil)
+            }
         }
+        // button creation
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in }
+        
+        // adding to controller
+        alert.addAction(save)
+        alert.addAction(cancel)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Ex: Molniya"
+        }
+        self.present(alert, animated: true, completion: nil)
     }
+ 
+
+ 
+    
+    // MARK: - Memory Management
+    let defaults = UserDefaults.standard
+    
     
     
 }
 
-extension String {
-    func toFloat() -> Float? {
-        return NumberFormatter().number(from: self)?.floatValue
-    }
-}

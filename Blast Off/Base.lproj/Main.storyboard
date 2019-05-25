@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Molniya Orbit-->
+        <!--Controller-->
         <scene sceneID="34J-vM-Jgy">
             <objects>
                 <viewController id="S9O-HX-tyw" customClass="PCIController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
@@ -216,12 +216,18 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="MEO-ZP-6DL"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="rySliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="bpr-El-7lj"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-6173.4073287731699" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-S7-tjc">
                                         <rect key="frame" x="-2" y="174" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="9Ud-VN-O6b"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="rzSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Sy8-c1-E9i"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                             </stackView>
@@ -233,18 +239,27 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="ABv-AM-BUB"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="vxSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="3ng-f9-gAz"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-0.44612173709930297" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="xPW-fm-seF">
                                         <rect key="frame" x="-2" y="87" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="qBO-za-LNL"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="vySliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="C9o-NN-tja"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-0.89088452296722198" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-Oo-bgW">
                                         <rect key="frame" x="-2" y="174" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="SDf-As-uG8"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="vzSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Yib-9a-mba"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <constraints>
@@ -268,6 +283,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveOrbitClick:" destination="S9O-HX-tyw" eventType="touchUpInside" id="NUV-1a-wWF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Velocity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-a3-hGy">
                                 <rect key="frame" x="16" y="422" width="343" height="24"/>
@@ -305,7 +323,7 @@
                             <outletCollection property="gestureRecognizers" destination="wyi-SK-dk9" appends="YES" id="e5b-fV-GnK"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Molniya Orbit" id="Jpf-on-fTf"/>
+                    <navigationItem key="navigationItem" id="Jpf-on-fTf"/>
                     <connections>
                         <outlet property="rxSlider" destination="fHz-7Q-Zs8" id="hgl-Qv-Mzl"/>
                         <outlet property="rxTField" destination="6y0-19-JvG" id="Ldr-TP-MJS"/>
@@ -788,6 +806,60 @@
             </objects>
             <point key="canvasLocation" x="-1922" y="756"/>
         </scene>
+        <!--Modify-->
+        <scene sceneID="D9H-44-llK">
+            <objects>
+                <tableViewController id="Kmq-eH-Y7W" customClass="MyOrbitsTableViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DLl-hM-b79">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="ald-xF-SI5">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrbitNameCell" id="QOr-dC-1OO">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QOr-dC-1OO" id="DA7-fx-En5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orbit Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXT-GL-VZc">
+                                            <rect key="frame" x="16" y="8" width="343" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="oBR-fH-EQO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="XXT-GL-VZc" secondAttribute="trailing" constant="16" id="P88-tF-TiW"/>
+                                        <constraint firstAttribute="bottom" secondItem="XXT-GL-VZc" secondAttribute="bottom" constant="8" id="Sf0-lF-e4R"/>
+                                        <constraint firstItem="XXT-GL-VZc" firstAttribute="top" secondItem="DA7-fx-En5" secondAttribute="top" constant="8" id="Tu6-Zp-cxL"/>
+                                        <constraint firstItem="XXT-GL-VZc" firstAttribute="leading" secondItem="DA7-fx-En5" secondAttribute="leading" constant="16" id="iDd-cH-gPp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="04M-ZP-gpZ" kind="show" id="XpS-Jg-72O"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Kmq-eH-Y7W" id="yxf-KY-fDU"/>
+                            <outlet property="delegate" destination="Kmq-eH-Y7W" id="CYY-kq-PzG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Modify" id="baa-LE-2Pt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F6n-4O-8l7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1922.4000000000001" y="-735.22167487684737"/>
+        </scene>
         <!--Home-->
         <scene sceneID="D0K-xj-ken">
             <objects>
@@ -818,7 +890,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-yR-m6r">
                                 <rect key="frame" x="100" y="456" width="175" height="172"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-dW-eaO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-dW-eaO">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="36"/>
                                         <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
@@ -830,6 +902,9 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="Kmq-eH-Y7W" kind="show" id="izu-Tk-dff"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-ma-Aua">
                                         <rect key="frame" x="0.0" y="68" width="175" height="36"/>
@@ -978,4 +1053,7 @@
         <image name="MainBGImage.jpg" width="552" height="1024"/>
         <image name="UpArrow.png" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XpS-Jg-72O"/>
+    </inferredMetricsTieBreakers>
 </document>

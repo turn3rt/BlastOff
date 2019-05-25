@@ -249,6 +249,7 @@ func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
     return (rPCI, vPCI)
 }
 
+// MARK: Helper Functions
 func rad2deg(_ number: Double) -> Double {
     return number * 180 / .pi
 }
@@ -256,3 +257,24 @@ func rad2deg(_ number: Double) -> Double {
 func deg2rad(_ number: Double) -> Double {
     return number * .pi / 180
 }
+
+func isDouble(number: String) -> Bool {
+    if Double(number) != nil {
+        return true
+    } else {
+        return false
+    }
+}
+
+extension String {
+    func toFloat() -> Float? {
+        return NumberFormatter().number(from: self)?.floatValue
+    }
+}
+
+
+
+
+
+
+ 
