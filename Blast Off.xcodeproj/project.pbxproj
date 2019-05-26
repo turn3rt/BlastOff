@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553C2298770D00F88C4A /* HomeViewController.swift */; };
-		B393553F2299B89E00F88C4A /* MyOrbitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553E2299B89E00F88C4A /* MyOrbitsTableViewController.swift */; };
+		B393553F2299B89E00F88C4A /* OrbitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */; };
+		B39355412299C33200F88C4A /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39355402299C33200F88C4A /* Orbit.swift */; };
+		B3935543229A185B00F88C4A /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3935542229A185B00F88C4A /* settingsIcon.png */; };
+		B3935545229B344000F88C4A /* SettingsTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3935544229B344000F88C4A /* SettingsTBController.swift */; };
 		B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1850228A4FED0084802A /* AppDelegate.swift */; };
 		B3AB1853228A4FED0084802A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1852228A4FED0084802A /* art.scnassets */; };
 		B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1854228A4FED0084802A /* ARViewController.swift */; };
@@ -26,7 +29,10 @@
 
 /* Begin PBXFileReference section */
 		B393553C2298770D00F88C4A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B393553E2299B89E00F88C4A /* MyOrbitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrbitsTableViewController.swift; sourceTree = "<group>"; };
+		B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitsTableViewController.swift; sourceTree = "<group>"; };
+		B39355402299C33200F88C4A /* Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orbit.swift; sourceTree = "<group>"; };
+		B3935542229A185B00F88C4A /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
+		B3935544229B344000F88C4A /* SettingsTBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTBController.swift; sourceTree = "<group>"; };
 		B3AB184D228A4FED0084802A /* Blast Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blast Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AB1850228A4FED0084802A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3AB1852228A4FED0084802A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -55,9 +61,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3935546229B34C800F88C4A /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3935544229B344000F88C4A /* SettingsTBController.swift */,
+				B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */,
+			);
+			path = TableViewControllers;
+			sourceTree = "<group>";
+		};
 		B3AB1844228A4FED0084802A = {
 			isa = PBXGroup;
 			children = (
+				B39355402299C33200F88C4A /* Orbit.swift */,
 				B3AB184F228A4FED0084802A /* Blast Off */,
 				B3AB184E228A4FED0084802A /* Products */,
 			);
@@ -76,8 +92,8 @@
 			children = (
 				B3AB1850228A4FED0084802A /* AppDelegate.swift */,
 				B3AB1852228A4FED0084802A /* art.scnassets */,
+				B3935546229B34C800F88C4A /* TableViewControllers */,
 				B3AB1854228A4FED0084802A /* ARViewController.swift */,
-				B393553E2299B89E00F88C4A /* MyOrbitsTableViewController.swift */,
 				B3AB187122931DE90084802A /* OrbitEquations.swift */,
 				B393553C2298770D00F88C4A /* HomeViewController.swift */,
 				B3C6901022974ED100AB80BF /* PCIController.swift */,
@@ -112,6 +128,7 @@
 		B3C6900F22973FC700AB80BF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3935542229A185B00F88C4A /* settingsIcon.png */,
 				B3C6900C22973FC200AB80BF /* rvBG.jpg */,
 				B3C6900B22973FC200AB80BF /* MainBGImage.jpg */,
 			);
@@ -177,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3AB1853228A4FED0084802A /* art.scnassets in Resources */,
+				B3935543229A185B00F88C4A /* settingsIcon.png in Resources */,
 				B3AB186F229062C70084802A /* DownArrow.png in Resources */,
 				B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */,
 				B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */,
@@ -195,11 +213,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3935545229B344000F88C4A /* SettingsTBController.swift in Sources */,
 				B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */,
 				B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */,
+				B39355412299C33200F88C4A /* Orbit.swift in Sources */,
 				B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */,
 				B3C6901122974ED100AB80BF /* PCIController.swift in Sources */,
-				B393553F2299B89E00F88C4A /* MyOrbitsTableViewController.swift in Sources */,
+				B393553F2299B89E00F88C4A /* OrbitsTableViewController.swift in Sources */,
 				B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

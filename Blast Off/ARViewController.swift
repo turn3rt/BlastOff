@@ -95,7 +95,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - IBAction Functions
     
     @IBAction func launchTap(_ sender: UIButton) {
-        createOrbit()
+        createOrbit(orbitalElements: tundra0oe)
+        createOrbit(orbitalElements: tundra45oe)
+        createOrbit(orbitalElements: tundra90oe)
+        createOrbit(orbitalElements: tundra135oe)
+        createOrbit(orbitalElements: tundra180oe)        
     }
     
     @IBAction func resetClick(_ sender: UIButton) {
@@ -244,9 +248,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         return node
     }
     
+    
+    
     let numOfPoints = 1000
     var orbitExists = false
-    func createOrbit() {
+    func createOrbit(orbitalElements: [Double]) {
         print("createOrbit Start")
         // DEFINE GIVEN rPCI & vPCI & mu
         let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
@@ -257,7 +263,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // let r0AR = [r0[0]/scaleFactor, r0[1]/scaleFactor, r0[2]/scaleFactor]
         // let v0AR = [v0[0]/scaleFactor, v0[1]/scaleFactor, v0[2]/scaleFactor]
         
-        var oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
+//        var oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
+        var oe = orbitalElements
         // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
         let a        = oe[0]/scaleFactor
         // let e        = oe[1]
@@ -266,7 +273,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // let omega    = oe[4]
         let nu0      = oe[5]
         
-        let interval = 2*Double.pi/Double(numOfPoints)
+        let interval = 2*Double.pi/Double(numOfPoints) // divide by fraction to get fraction of orbit
         
         var nuStart = nu0
         //var L = 0 // length of time matrix based on numOfPoints divided by 2*pi (one orbit)

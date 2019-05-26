@@ -10,7 +10,6 @@ import Foundation
 // import Darwin
 import simd
 
-
 // %-%---------------------------------------------------------------------%-
 // % This Code Takes two column vectors in the form                        %-
 // % rPCI = [x, y, z]                                                      %-
@@ -274,7 +273,38 @@ extension String {
 
 
 
+// MARK: - Default Orbits
+// Molniya Orbit
+let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
+let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222];
+
+// Tundra Orbit
+let a = 4.224108006788328e+04
+let e = 0.25
+let capOmegaArray = [0, 45, 90, 135, 180]
+let incDeg = 63.4
+let omega1deg = 90.0
+let nu = 0.0
+
+
+let mew = 398600.0
+let tauHour = 24.0
+
+let inc = deg2rad(incDeg)
+let omega = deg2rad(omega1deg)
+
+let tundra0oe = [a, e, deg2rad(0), inc, omega, nu]
+let tundra45oe = [a, e, deg2rad(45), inc, omega, nu]
+let tundra90oe = [a, e, deg2rad(90), inc, omega, nu]
+let tundra135oe = [a, e, deg2rad(135), inc, omega, nu]
+let tundra180oe = [a, e, deg2rad(180), inc, omega, nu]
 
 
 
- 
+
+
+let earthGravityParam = 398600.0 // kilometers^3/sec^2
+
+
+//MARK: - Data Management
+var savedNumberOfOrbits = UserDefaults.standard.integer(forKey: "savedNumberOfOrbits")
