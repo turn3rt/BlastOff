@@ -122,9 +122,8 @@ class OrbitsTableViewController: UITableViewController {
     }
     */
 
-    
-    
-    
     // MARK: - Data Management
     let defaults = UserDefaults.standard
+    
+    
 }

@@ -47,42 +47,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func saveOrbitClick(_ sender: UIButton) {
         print("Save Orbit Clicked, prior savedNumberOfOrbits: \(savedNumberOfOrbits)")
-//        alertWithTextField(title: "bork", message: "Please add a name for your orbit", placeholder: "bork?") { result in
-//            print(result)
-//        }
         showAddNameAlert()
-        
-        
-        
-//        let rvVals = [Double(self.rxSlider.value),
-//                      Double(self.rySlider.value),
-//                      Double(self.rzSlider.value),
-//                      Double(self.vxSlider.value),
-//                      Double(self.vySlider.value),
-//                      Double(self.vzSlider.value)]
-//        //set [nameOfOrbit]rvValues
-//        defaults.set(nameOfOrbit, forKey: "\(savedNumberOfOrbits)")
-//        print("User saved \(nameOfOrbit)")
-//        defaults.set(rvVals, forKey: "\(savedNumberOfOrbits+1)")
-//        print("with the following rv values: [\(rvVals)]")
-//        let rVals = [rvVals[0],
-//                     rvVals[1],
-//                     rvVals[2]
-//        ]
-//        let vVals = [rvVals[3],
-//                     rvVals[4],
-//                     rvVals[5],
-//        ]
-//
-//        let oe = rv2oe(rPCI: rVals, vPCI: vVals, mu: earthGravityParam)
-//        //set [nameOfOrbit]oeValues
-//        defaults.set(oe, forKey: "\(savedNumberOfOrbits+2)")
-//        print("and the following oe values: [\(oe)]")
-//        savedNumberOfOrbits = savedNumberOfOrbits + 1
-//        print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
-//
-//        print("currently in userDefaults: \(defaults)")
-//        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -167,32 +132,12 @@ class PCIController: UIViewController, UITextFieldDelegate {
     
    
     
-    // MARK: - Useful Internal Controller Functions
-//    func alertWithTextField(title: String? = nil, message: String? = nil, placeholder: String? = nil, completion: @escaping ((String) -> Void) = { _ in }) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        alert.addTextField() { newTextField in
-//            newTextField.placeholder = placeholder
-//        }
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completion("") })
-//        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
-//            if
-//                let textFields = alert.textFields,
-//                let tf = textFields.first,
-//                let result = tf.text
-//            { completion(result) }
-//            else
-//            { completion("") }
-//        })
-//        navigationController?.present(alert, animated: true)
-//    }
-    
+    // MARK: - Useful Internal Controller Functions & Variables
     var nameOfOrbit = String()
     func showAddNameAlert(){
         //controller definition
         let alert = UIAlertController(title:"Add Name", message: "Please add a name for your orbit", preferredStyle: .alert)
-//        alert.addTextField(configurationHandler: configurationTextField)
-
-
+        
         // button creation
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
@@ -222,6 +167,9 @@ class PCIController: UIViewController, UITextFieldDelegate {
                 let oe = rv2oe(rPCI: rVals, vPCI: vVals, mu: earthGravityParam)
                 //set [nameOfOrbit]oeValues
                 self.defaults.set(oe, forKey: "\(savedNumberOfOrbits+2)")
+                // set default show setting to true for ARDrawing
+                self.defaults.set(true, forKey: "\(savedNumberOfOrbits+3)")
+
                 print("and the following oe values: [\(oe)]")
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
@@ -244,14 +192,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
         }
         self.present(alert, animated: true, completion: nil)
     }
- 
-
- 
-    
     // MARK: - Memory Management
     let defaults = UserDefaults.standard
-    
-    
-    
 }
 
