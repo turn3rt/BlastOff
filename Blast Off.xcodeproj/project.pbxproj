@@ -12,6 +12,7 @@
 		B39355412299C33200F88C4A /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39355402299C33200F88C4A /* Orbit.swift */; };
 		B3935543229A185B00F88C4A /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3935542229A185B00F88C4A /* settingsIcon.png */; };
 		B3935545229B344000F88C4A /* SettingsTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3935544229B344000F88C4A /* SettingsTBController.swift */; };
+		B3935548229B3C1300F88C4A /* OEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3935547229B3C1300F88C4A /* OEController.swift */; };
 		B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1850228A4FED0084802A /* AppDelegate.swift */; };
 		B3AB1853228A4FED0084802A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AB1852228A4FED0084802A /* art.scnassets */; };
 		B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB1854228A4FED0084802A /* ARViewController.swift */; };
@@ -33,6 +34,7 @@
 		B39355402299C33200F88C4A /* Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orbit.swift; sourceTree = "<group>"; };
 		B3935542229A185B00F88C4A /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
 		B3935544229B344000F88C4A /* SettingsTBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTBController.swift; sourceTree = "<group>"; };
+		B3935547229B3C1300F88C4A /* OEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEController.swift; sourceTree = "<group>"; };
 		B3AB184D228A4FED0084802A /* Blast Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blast Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AB1850228A4FED0084802A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3AB1852228A4FED0084802A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				B3AB187122931DE90084802A /* OrbitEquations.swift */,
 				B393553C2298770D00F88C4A /* HomeViewController.swift */,
 				B3C6901022974ED100AB80BF /* PCIController.swift */,
+				B3935547229B3C1300F88C4A /* OEController.swift */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
 				B3AB186B229060140084802A /* Textures */,
@@ -215,6 +218,7 @@
 			files = (
 				B3935545229B344000F88C4A /* SettingsTBController.swift in Sources */,
 				B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */,
+				B3935548229B3C1300F88C4A /* OEController.swift in Sources */,
 				B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */,
 				B39355412299C33200F88C4A /* Orbit.swift in Sources */,
 				B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */,

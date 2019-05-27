@@ -348,10 +348,10 @@
             </objects>
             <point key="canvasLocation" x="-932" y="-735"/>
         </scene>
-        <!--Tundra Orbit-->
+        <!--Orbital Elements-->
         <scene sceneID="4lq-CB-hN8">
             <objects>
-                <viewController id="jDg-Av-zdz" customClass="PCIController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jDg-Av-zdz" customClass="OEController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NUe-qB-HHA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -531,23 +531,32 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
                                 <rect key="frame" x="184" y="210" width="175" height="204"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-1217.394287109375" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-1217.394287109375" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
                                         <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="yni-Nk-sAo"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
+                                        </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3091.412109375" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.78000000000000003" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
                                         <rect key="frame" x="-2" y="87" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="gkk-lR-Ghd"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
+                                        </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-7000" maxValue="7000" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="45" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
                                         <rect key="frame" x="-2" y="174" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="vfP-ag-8Ej"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <constraints>
@@ -557,23 +566,32 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
                                 <rect key="frame" x="184" y="475" width="175" height="204"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="68" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
                                         <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="5AS-qE-1qK"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
+                                        </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
                                         <rect key="frame" x="-2" y="87" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="2Zj-Nf-tTu"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
+                                        </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="180" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
                                         <rect key="frame" x="-2" y="174" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="yRm-xO-MST"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <constraints>
@@ -596,6 +614,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveOrbitClick:" destination="jDg-Av-zdz" eventType="touchUpInside" id="BgC-Fe-OVX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Orbital Elements" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-yp-xQ4">
                                 <rect key="frame" x="16" y="120" width="343" height="44"/>
@@ -608,6 +629,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="eBY-yp-xQ4" firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" id="DH1-OP-eNE"/>
                             <constraint firstItem="vbE-no-N3a" firstAttribute="bottom" secondItem="WQq-Ey-eV4" secondAttribute="bottom" constant="16" id="Dl2-6e-UOF"/>
@@ -625,24 +647,32 @@
                             <constraint firstItem="WQq-Ey-eV4" firstAttribute="centerX" secondItem="NUe-qB-HHA" secondAttribute="centerX" id="reu-Zb-og2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vbE-no-N3a"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eIs-yA-qEH" appends="YES" id="QHd-EL-imh"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tundra Orbit" id="cGd-qE-UZs"/>
+                    <navigationItem key="navigationItem" title="Orbital Elements" id="cGd-qE-UZs"/>
                     <connections>
-                        <outlet property="rxSlider" destination="g91-C7-R67" id="3wz-KB-Ylb"/>
-                        <outlet property="rxTField" destination="fN2-zu-MyD" id="Bia-24-mmV"/>
-                        <outlet property="rySlider" destination="SEf-Hr-koI" id="FQv-0x-69c"/>
-                        <outlet property="ryTField" destination="iv3-3T-ibA" id="9qo-vX-lO0"/>
-                        <outlet property="rzSlider" destination="4bp-Eq-qKn" id="F0Y-yQ-Twv"/>
-                        <outlet property="rzTField" destination="xLi-NS-RDl" id="A0i-oq-s2l"/>
-                        <outlet property="vxSlider" destination="bTF-tP-qx2" id="5SU-at-BO5"/>
-                        <outlet property="vxTField" destination="ZXE-fP-ZGZ" id="6Gd-0T-hTm"/>
-                        <outlet property="vySlider" destination="yxg-kU-zzT" id="NyX-JW-58b"/>
-                        <outlet property="vyTField" destination="lwD-xY-ElP" id="uik-aK-p8K"/>
-                        <outlet property="vzSlider" destination="mnf-u7-baF" id="f3i-hc-tf3"/>
-                        <outlet property="vzTField" destination="jWB-vB-CkN" id="mI0-mL-YCL"/>
+                        <outlet property="aSlider" destination="g91-C7-R67" id="6CZ-c3-R7k"/>
+                        <outlet property="aTField" destination="fN2-zu-MyD" id="bBM-3k-fl8"/>
+                        <outlet property="capOmegaSlider" destination="4bp-Eq-qKn" id="5xG-CT-U7Q"/>
+                        <outlet property="capOmegaTField" destination="xLi-NS-RDl" id="T8W-JG-8LX"/>
+                        <outlet property="eSlider" destination="SEf-Hr-koI" id="BrD-yk-QUi"/>
+                        <outlet property="eTField" destination="iv3-3T-ibA" id="AeX-8t-IrR"/>
+                        <outlet property="incSlider" destination="bTF-tP-qx2" id="JJg-Ei-nUF"/>
+                        <outlet property="incTField" destination="ZXE-fP-ZGZ" id="STt-J0-9Ns"/>
+                        <outlet property="nuSlider" destination="mnf-u7-baF" id="lgP-8U-GUd"/>
+                        <outlet property="nuTField" destination="jWB-vB-CkN" id="Qpa-Ub-nxO"/>
+                        <outlet property="omegaSlider" destination="yxg-kU-zzT" id="eMh-Sp-q9P"/>
+                        <outlet property="omegaTField" destination="lwD-xY-ElP" id="wZW-FL-Bae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDd-V0-rFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eIs-yA-qEH">
+                    <connections>
+                        <action selector="tapOffKeyboard:" destination="jDg-Av-zdz" id="Yj9-E8-pgm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-932" y="756"/>
         </scene>
@@ -1063,6 +1093,6 @@
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XpS-Jg-72O"/>
+        <segue reference="78u-lo-LW7"/>
     </inferredMetricsTieBreakers>
 </document>
