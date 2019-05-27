@@ -10,13 +10,15 @@ import Foundation
 
 class Orbit {
     var name: String
-    var oe: [Double]
     var rv: [Double]
+    var oe: [Double]
+    var isShown: Bool
     
-    init(name: String, oe: [Double], rv: [Double]){
+    init(name: String, rv: [Double], oe: [Double], isShown: Bool){
         self.name = name
-        self.oe = oe
         self.rv = rv
+        self.oe = oe
+        self.isShown = isShown
     }
 }
 

@@ -346,7 +346,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-932" y="-735"/>
+            <point key="canvasLocation" x="-164" y="-388"/>
         </scene>
         <!--Orbital Elements-->
         <scene sceneID="4lq-CB-hN8">
@@ -674,7 +674,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-932" y="756"/>
+            <point key="canvasLocation" x="-164" y="460"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -756,7 +756,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1922.4000000000001" y="755.9113300492611"/>
+            <point key="canvasLocation" x="-3577" y="1066"/>
         </scene>
         <!--Modify-->
         <scene sceneID="D9H-44-llK">
@@ -780,7 +780,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="04M-ZP-gpZ" kind="show" id="XpS-Jg-72O"/>
+                                    <segue destination="04M-ZP-gpZ" kind="show" identifier="modOrbitSegue" id="XpS-Jg-72O"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -794,7 +794,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6n-4O-8l7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1922" y="-735"/>
+            <point key="canvasLocation" x="-1876" y="540"/>
         </scene>
         <!--Home-->
         <scene sceneID="D0K-xj-ken">
@@ -898,7 +898,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ax-Ty-OLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1922" y="14"/>
+            <point key="canvasLocation" x="-2679" y="13"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ghV-od-f3n">
@@ -916,12 +916,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gmm-YU-Uac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2822" y="13"/>
+            <point key="canvasLocation" x="-3578" y="13"/>
         </scene>
         <!--Molniya Orbit-->
         <scene sceneID="s1C-sf-rDu">
             <objects>
-                <viewController id="04M-ZP-gpZ" customClass="d" sceneMemberID="viewController">
+                <viewController id="04M-ZP-gpZ" customClass="PCIOEViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ypz-sO-2Pm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -939,7 +939,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="jDg-Av-zdz" kind="show" id="0Ct-Yo-oW6"/>
+                                    <action selector="oeButtonClick:" destination="04M-ZP-gpZ" eventType="touchUpInside" id="MKh-4u-9vT"/>
+                                    <segue destination="jDg-Av-zdz" kind="show" identifier="oeSegue" id="0Ct-Yo-oW6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-3T-HDe">
@@ -955,7 +956,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="S9O-HX-tyw" kind="show" id="HBq-La-QhZ"/>
+                                    <action selector="pciButtonClick:" destination="04M-ZP-gpZ" eventType="touchUpInside" id="EMd-Ms-5dv"/>
+                                    <segue destination="S9O-HX-tyw" kind="show" identifier="pciSegue" id="HBq-La-QhZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Orbit: ISS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DiX-UB-lS6">
@@ -1023,6 +1025,9 @@
                                                             <integer key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <segue destination="Kmq-eH-Y7W" kind="show" id="7kq-QY-wra"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/3 Orbits Shown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-Uj-PhB">
                                                     <rect key="frame" x="32" y="11" width="255" height="22"/>
@@ -1085,7 +1090,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8z-CQ-rhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1922.4000000000001" y="1455.6650246305419"/>
+            <point key="canvasLocation" x="-2679" y="1066"/>
         </scene>
     </scenes>
     <resources>
@@ -1093,6 +1098,7 @@
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="78u-lo-LW7"/>
+        <segue reference="XpS-Jg-72O"/>
+        <segue reference="7kq-QY-wra"/>
     </inferredMetricsTieBreakers>
 </document>

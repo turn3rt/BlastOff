@@ -42,16 +42,16 @@ class OrbitsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrbitNameCell", for: indexPath)
-
-        
-        
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = "Default Orbitzzzzz"
             return cell
         case 1:
-            print("shit to enter = \(defaults.string(forKey: indexPath.row.description) ?? indexPath.row.description)")
-            cell.textLabel?.text = defaults.string(forKey: indexPath.row.description)
+            let orbitForRow = Orbit(name: defaults.string(forKey: indexPath.row.description)!,
+                                      rv: defaults.object(forKey: (indexPath.row+1).description) as? [Double] ?? [Double](),
+                                      oe: defaults.object(forKey: (indexPath.row+2).description) as? [Double] ?? [Double](),
+                                 isShown: defaults.bool(forKey: (indexPath.row+3).description))
+            cell.textLabel?.text = orbitForRow.name
             return cell
         default:
             return cell
@@ -75,6 +75,30 @@ class OrbitsTableViewController: UITableViewController {
             return "Error: No section"
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            print("Default Orbits selected")
+        case 1:
+            print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
+        default:
+            print("Error: No section")
+        }
+    }
+    
+    
+    
+//    func toDoubleArray(array: [Any]) -> [Double] {
+//        var arr = array
+//        for i in 0...arr.count {
+//            arr[i] = Double(arr[i])
+//        }
+//
+//        return [0.0]
+//
+//
+//    }
     
 
     /*
@@ -112,15 +136,27 @@ class OrbitsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
+    
+   
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+
+        case "modOrbitSegue":
+            if let pcioeController = segue.destination as? PCIOEViewController {
+                print("segue stuff started")
+                // TODO:
+            }
+
+        default:
+            print("error")
+        }
+
     }
-    */
+ 
 
     // MARK: - Data Management
     let defaults = UserDefaults.standard

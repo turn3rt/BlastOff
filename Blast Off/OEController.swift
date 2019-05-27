@@ -190,5 +190,8 @@ class OEController: UIViewController, UITextFieldDelegate {
     }
     // MARK: - Memory Management
     let defaults = UserDefaults.standard
+    var orbit = Orbit(name: String(), rv: [Double](), oe: [Double](), isShown: Bool())
+    var selectedIndexPathOfOrbit = Int()
+
 }
 

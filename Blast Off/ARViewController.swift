@@ -22,8 +22,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Math Variables
     let earthGravityParam = 398600.0 // kilometers^3/sec^2
     let scaleFactor = 200000.0// 200000000.0
-    lazy var earthRadiusAR = 6378.1000/scaleFactor // 6378100.0/scaleFactor // meters SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
-    let earthPosAR = simd_double3(0, 0, -0.3) // meters from point of origin (Phone pos. upon app start)
+    lazy var earthRadiusAR = 6378.1000/scaleFactor // kilometers // SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
+    let earthPosAR = simd_double3(0, -0.12, -0.3) // meters from point of origin (Phone pos. upon app start)
     
     
 //    MARK: - Override functions
@@ -46,25 +46,23 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         
 //        TODO: Animations
         rotate(node: Earth)
-        
-//    MARK: - UI Elements
-    
-        
     }
-    
-
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Run the view's session
+        sceneView.session.run(configuration)
+        
         // Create a session configuration
+        
        // let configuration = ARWorldTrackingConfiguration() // delcared up top
 //        configuration.planeDetection = .horizontal
 //        configuration.planeDetection = .vertical
         
-        // Run the view's session
-        sceneView.session.run(configuration)
+        
+        
+        print("View Will Appear")
+    
     }
     
     
@@ -242,7 +240,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // planet.firstMaterial?.diffuse.contents is single line func call for above func
         // diffuse is texture properties like color etc...
         
-        // planet.firstMaterial?.specular.contents = UIColor.white // specular is shiny-ness of objects,
+        // planet.firstMaterial!.specular.contents = #imageLiteral(resourceName: "EarthSpecular.png") // specular is shiny-ness of objects,
         
         
         return node
@@ -290,14 +288,16 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             let ans = oe2rv(oe: oe, mu: mu)
             let rNext = ans.rPCI
-            let rNextAR = [rNext[0]/scaleFactor, rNext[1]/scaleFactor, (rNext[2]/scaleFactor) + earthPosAR.z]
-            
+            let rNextAR = ([(rNext[0]/scaleFactor) + earthPosAR.x,
+                            (rNext[1]/scaleFactor) + earthPosAR.y,
+                            (rNext[2]/scaleFactor) + earthPosAR.z])
             let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
             let drawPoint = SCNSphere(radius: 0.0005)
             let drawNode = SCNNode(geometry: drawPoint)
             drawNode.position = SCNVector3(linePoint)
             
-            drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+            drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
+            // drawNode.geometry?.firstMaterial?.specular.contents = UIColor.white
             
             self.sceneView.scene.rootNode.addChildNode(drawNode)
             drawNode.name = "drawNode\(index)"
