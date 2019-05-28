@@ -24,6 +24,7 @@ class OrbitsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits")
+        defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as! [Bool]
         self.tableView.allowsMultipleSelection = true
         if isEditingShownOrbits != true {
             self.navigationItem.rightBarButtonItem = nil
@@ -105,7 +106,7 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            print("didSELECTRowAt function handle")
+            print("didselectRowAt function handle")
 
             if defaultOrbitisShown[indexPath.row] == false {
                 print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
