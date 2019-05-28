@@ -98,11 +98,11 @@ class SettingsTBController: UITableViewController {
         switch segue.identifier {
         case "editShownOrbits":
             if let orbitsTBController = segue.destination as? OrbitsTableViewController {
-                print("Segue from edit shown orbits button to orbitsTBController start")
+                print("User is editing shown orbits = true")
                 orbitsTBController.isEditingShownOrbits = true
             }
         default:
-            print("error at ljadlkjsdflkjfds")
+            print("No segue from settings TBcontroller")
         }
 
     }

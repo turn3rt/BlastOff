@@ -26,6 +26,7 @@
 		B3B2FED3229B7F84009AE1CD /* DefaultOrbitsAndVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2FED2229B7F84009AE1CD /* DefaultOrbitsAndVars.swift */; };
 		B3B2FED5229C5C69009AE1CD /* PCIOEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2FED4229C5C69009AE1CD /* PCIOEViewController.swift */; };
 		B3B2FED7229C68D4009AE1CD /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2FED6229C68D4009AE1CD /* DataStructure.swift */; };
+		B3B2FED9229DB4B0009AE1CD /* OrbitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2FED8229DB4B0009AE1CD /* OrbitCell.swift */; };
 		B3C6900D22973FC200AB80BF /* MainBGImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3C6900B22973FC200AB80BF /* MainBGImage.jpg */; };
 		B3C6900E22973FC200AB80BF /* rvBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3C6900C22973FC200AB80BF /* rvBG.jpg */; };
 		B3C6901122974ED100AB80BF /* PCIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6901022974ED100AB80BF /* PCIController.swift */; };
@@ -53,6 +54,7 @@
 		B3B2FED2229B7F84009AE1CD /* DefaultOrbitsAndVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultOrbitsAndVars.swift; sourceTree = "<group>"; };
 		B3B2FED4229C5C69009AE1CD /* PCIOEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCIOEViewController.swift; sourceTree = "<group>"; };
 		B3B2FED6229C68D4009AE1CD /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
+		B3B2FED8229DB4B0009AE1CD /* OrbitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitCell.swift; sourceTree = "<group>"; };
 		B3C6900B22973FC200AB80BF /* MainBGImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MainBGImage.jpg; sourceTree = "<group>"; };
 		B3C6900C22973FC200AB80BF /* rvBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rvBG.jpg; sourceTree = "<group>"; };
 		B3C6901022974ED100AB80BF /* PCIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCIController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				B3B2FED2229B7F84009AE1CD /* DefaultOrbitsAndVars.swift */,
 				B3AB187122931DE90084802A /* OrbitEquations.swift */,
 				B3B2FED6229C68D4009AE1CD /* DataStructure.swift */,
+				B3B2FED8229DB4B0009AE1CD /* OrbitCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B2FED9229DB4B0009AE1CD /* OrbitCell.swift in Sources */,
 				B3B2FED3229B7F84009AE1CD /* DefaultOrbitsAndVars.swift in Sources */,
 				B3935545229B344000F88C4A /* SettingsTBController.swift in Sources */,
 				B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */,

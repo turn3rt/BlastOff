@@ -56,7 +56,8 @@ let ISSoe = [aISS, eISS, capOmegaISS, incISS, omegaISS, nuISS]
 
 // Default Orbit Matrix
 let defaultOrbitNames = ["Molniya Orbit", "Tundra Orbit", "I.S.S Orbit"]
-let defaultOrbitsOEs = [MolniyaOE, tundra0oe, ISSoe]
+let defaultOrbitOEs = [MolniyaOE, tundra0oe, ISSoe]
+var defaultOrbitisShown = [true, true, true]
 let indexOfShownDefaultOrbits = [Double()]
 
 
@@ -93,7 +94,7 @@ let colors = [UIColor.orange,
               UIColor.magenta,
               UIColor.yellow,
               UIColor.brown,
-              UIColor.white,
+              UIColor.lightGray,
               UIColor.black]
 
 //MARK: - Data Management

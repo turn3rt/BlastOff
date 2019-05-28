@@ -767,18 +767,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ald-xF-SI5">
-                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="78" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrbitNameCell" id="QOr-dC-1OO">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrbitNameCell" rowHeight="50" id="QOr-dC-1OO" customClass="OrbitCell" customModule="Blast_Off" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QOr-dC-1OO" id="DA7-fx-En5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orbit Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9m4-d9-aNv">
+                                            <rect key="frame" x="16" y="8" width="343" height="33.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9m4-d9-aNv" firstAttribute="top" secondItem="DA7-fx-En5" secondAttribute="top" constant="8" id="GTg-ot-5FT"/>
+                                        <constraint firstItem="9m4-d9-aNv" firstAttribute="leading" secondItem="DA7-fx-En5" secondAttribute="leading" constant="16" id="Gft-UB-d51"/>
+                                        <constraint firstAttribute="bottom" secondItem="9m4-d9-aNv" secondAttribute="bottom" constant="8" id="Hmr-Km-Quo"/>
+                                        <constraint firstAttribute="trailing" secondItem="9m4-d9-aNv" secondAttribute="trailing" constant="16" id="q6V-ZK-qfS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="orbitName" destination="9m4-d9-aNv" id="QIS-L2-YOB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -788,12 +805,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Modify" id="baa-LE-2Pt">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="FPv-RJ-Tm8"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="FPv-RJ-Tm8">
+                            <connections>
+                                <action selector="doneButtonClick:" destination="Kmq-eH-Y7W" id="913-uM-HcO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="FPv-RJ-Tm8" id="28E-DM-keF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6n-4O-8l7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1884" y="460"/>
+            <point key="canvasLocation" x="-1884" y="459.60591133004925"/>
         </scene>
         <!--Home-->
         <scene sceneID="D0K-xj-ken">
@@ -1097,6 +1121,6 @@
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7kq-QY-wra"/>
+        <segue reference="oiW-EM-Y3I"/>
     </inferredMetricsTieBreakers>
 </document>

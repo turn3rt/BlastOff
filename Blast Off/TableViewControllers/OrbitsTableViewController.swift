@@ -10,11 +10,32 @@ import UIKit
 
 class OrbitsTableViewController: UITableViewController {
 
+    @IBOutlet var doneButton: UIBarButtonItem!
+    @IBAction func doneButtonClick(_ sender: Any) {
+        print("Done Button Clicked")
+        self.isEditingShownOrbits = false
+        self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
+        defaults.set(defaultOrbitisShown, forKey: "defaultOrbitisShown")
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits")
         self.tableView.allowsMultipleSelection = true
+        if isEditingShownOrbits != true {
+            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.title = "Modify Orbit"
+            //navigationController!.navigationItem.rightBarButtonItem = nil
+           // doneButton = nil
+           // doneButton.style = UIBarButtonItem.Style.pl
+        } else {
+            self.navigationItem.title = "Shown Orbits"
+            print("User came from settings vc. defaultOrbitisShown state: [\(defaultOrbitisShown)]")
+
+        }
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -25,7 +46,9 @@ class OrbitsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -43,23 +66,25 @@ class OrbitsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrbitNameCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrbitNameCell", for: indexPath) as! OrbitCell
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = defaultOrbitNames[indexPath.row]
-//            cell.selectionStyle = .default
-            cell.isSelected = true
-//            cell.accessoryType = .checkmark
-//            cell.isHighlighted = true
-//            cell.backgroundView?.backgroundColor = UIColor.lightGray
-            cell.selectionStyle = .blue
+            cell.orbit.oe = defaultOrbitOEs[indexPath.row]
+            cell.orbitName.text = defaultOrbitNames[indexPath.row]
+            cell.orbit.isShown = defaultOrbitisShown[indexPath.row] // will probably need to change this from mem
+            cell.tintColor = UIColor.green
+            if isEditingShownOrbits == true && defaultOrbitisShown[indexPath.row] == true {
+                cell.accessoryType = .checkmark
+                cell.isSelected = true
+                cell.setSelected(true, animated: false)
+            }
             return cell
         case 1:
-            let orbitForRow = Orbit(name: defaults.string(forKey: indexPath.row.description)!,
-                                      rv: defaults.object(forKey: (indexPath.row+1).description) as? [Double] ?? [Double](),
-                                      oe: defaults.object(forKey: (indexPath.row+2).description) as? [Double] ?? [Double](),
-                                 isShown: defaults.bool(forKey: (indexPath.row+3).description))
-            cell.textLabel?.text = orbitForRow.name
+            cell.orbit = Orbit(name: defaults.string(forKey: indexPath.row.description)!,
+                               rv: defaults.object(forKey: (indexPath.row+1).description) as? [Double] ?? [Double](),
+                               oe: defaults.object(forKey: (indexPath.row+2).description) as? [Double] ?? [Double](),
+                               isShown: defaults.bool(forKey: (indexPath.row+3).description))
+            cell.orbitName.text = cell.orbit.name
             return cell
         default:
             return cell
@@ -80,12 +105,22 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.accessoryType = .checkmark
-                //cell.selectionStyle = .blue
-                // cell.isSelected = false
+            print("didSELECTRowAt function handle")
+
+            if defaultOrbitisShown[indexPath.row] == false {
+                print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
+                defaultOrbitisShown[indexPath.row] = true
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    cell.accessoryType = .checkmark
+                }
+            } else {
+                print("User deselected: \(defaultOrbitNames[indexPath.row])")
+                defaultOrbitisShown[indexPath.row] = false
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    cell.accessoryType = .none
+                }
             }
+
         case 1:
             print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -99,10 +134,21 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            print("Default deselected")
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.accessoryType = .none
+            print("didDeselectRowAt function handle")
+            if defaultOrbitisShown[indexPath.row] == true {
+                print("User deselected: \(defaultOrbitNames[indexPath.row])")
+                defaultOrbitisShown[indexPath.row] = false
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    cell.accessoryType = .none
+                }
+            } else {
+                print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
+                defaultOrbitisShown[indexPath.row] = true
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    cell.accessoryType = .checkmark
+                }
             }
+
         case 1:
             print("User deselected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -111,70 +157,22 @@ class OrbitsTableViewController: UITableViewController {
         default:
             print("Error: No section")
         }
-        
-        
-        
-        
-        
-      
     }
     
- 
-    
-    
-//    func toDoubleArray(array: [Any]) -> [Double] {
-//        var arr = array
-//        for i in 0...arr.count {
-//            arr[i] = Double(arr[i])
-//        }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
 //
-//        return [0.0]
+//
 //
 //
 //    }
+ 
+    
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation
-    
-   
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
 
@@ -197,4 +195,17 @@ class OrbitsTableViewController: UITableViewController {
 
     
     
+}
+
+
+
+
+
+func negate(bool: Bool) -> Bool{
+    switch bool {
+    case true:
+        return false
+    case false:
+        return true
+    }
 }
