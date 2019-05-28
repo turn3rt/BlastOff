@@ -21,7 +21,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
 //    MARK: - Math Variables
     let earthGravityParam = 398600.0 // kilometers^3/sec^2
-    let scaleFactor = 200000.0// 200000000.0
+    let scaleFactor = 200000.0 // Default: 200000.0
     lazy var earthRadiusAR = 6378.1000/scaleFactor // kilometers // SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
     let earthPosAR = simd_double3(0, -0.12, -0.3) // meters from point of origin (Phone pos. upon app start)
     
@@ -93,11 +93,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - IBAction Functions
     
     @IBAction func launchTap(_ sender: UIButton) {
-        createOrbit(orbitalElements: tundra0oe)
-        createOrbit(orbitalElements: tundra45oe)
-        createOrbit(orbitalElements: tundra90oe)
-        createOrbit(orbitalElements: tundra135oe)
-        createOrbit(orbitalElements: tundra180oe)        
+        
+        createOrbit(orbitalElements: MolniyaOE, color: colors[0])
+        createOrbit(orbitalElements: tundra45oe, color: colors[1])
+        createOrbit(orbitalElements: ISSoe, color: colors[2])
+//        createOrbit(orbitalElements: tundra45oe)
+//        createOrbit(orbitalElements: tundra90oe)
+//        createOrbit(orbitalElements: tundra135oe)
+//        createOrbit(orbitalElements: tundra180oe)
     }
     
     @IBAction func resetClick(_ sender: UIButton) {
@@ -250,7 +253,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
     let numOfPoints = 1000
     var orbitExists = false
-    func createOrbit(orbitalElements: [Double]) {
+    func createOrbit(orbitalElements: [Double], color: UIColor) {
         print("createOrbit Start")
         // DEFINE GIVEN rPCI & vPCI & mu
         let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
@@ -292,11 +295,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                             (rNext[1]/scaleFactor) + earthPosAR.y,
                             (rNext[2]/scaleFactor) + earthPosAR.z])
             let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
-            let drawPoint = SCNSphere(radius: 0.0005)
+            let drawPoint = SCNSphere(radius: 0.0005) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
             drawNode.position = SCNVector3(linePoint)
             
-            drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
+            drawNode.geometry?.firstMaterial?.diffuse.contents = color
             // drawNode.geometry?.firstMaterial?.specular.contents = UIColor.white
             
             self.sceneView.scene.rootNode.addChildNode(drawNode)

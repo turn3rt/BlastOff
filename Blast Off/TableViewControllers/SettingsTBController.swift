@@ -35,6 +35,8 @@ class SettingsTBController: UITableViewController {
     
     // MARK: - IBActions
     @IBAction func resetDefaults(_ sender: UIButton) {
+        
+       // TODO: alert saying are you sure
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in
@@ -88,14 +90,24 @@ class SettingsTBController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "editShownOrbits":
+            if let orbitsTBController = segue.destination as? OrbitsTableViewController {
+                print("Segue from edit shown orbits button to orbitsTBController start")
+                orbitsTBController.isEditingShownOrbits = true
+            }
+        default:
+            print("error at ljadlkjsdflkjfds")
+        }
+
     }
-    */
+ 
+    
+    // MARK: - Data Management
 
 }

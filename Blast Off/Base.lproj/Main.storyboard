@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Controller-->
+        <!--PCIController -->
         <scene sceneID="34J-vM-Jgy">
             <objects>
-                <viewController id="S9O-HX-tyw" customClass="PCIController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S9O-HX-tyw" userLabel="PCIController " customClass="PCIController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rra-Gf-wzA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,10 +676,10 @@
             </objects>
             <point key="canvasLocation" x="-164" y="460"/>
         </scene>
-        <!--View Controller-->
+        <!--ARViewController-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ARViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" userLabel="ARViewController" customClass="ARViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -758,10 +758,10 @@
             </objects>
             <point key="canvasLocation" x="-3577" y="1066"/>
         </scene>
-        <!--Modify-->
+        <!--OrbitsTBController-->
         <scene sceneID="D9H-44-llK">
             <objects>
-                <tableViewController id="Kmq-eH-Y7W" customClass="OrbitsTableViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Kmq-eH-Y7W" userLabel="OrbitsTBController" customClass="OrbitsTableViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DLl-hM-b79">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -772,16 +772,13 @@
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrbitNameCell" id="QOr-dC-1OO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrbitNameCell" id="QOr-dC-1OO">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QOr-dC-1OO" id="DA7-fx-En5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="04M-ZP-gpZ" kind="show" identifier="modOrbitSegue" id="XpS-Jg-72O"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -790,11 +787,13 @@
                             <outlet property="delegate" destination="Kmq-eH-Y7W" id="CYY-kq-PzG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Modify" id="baa-LE-2Pt"/>
+                    <navigationItem key="navigationItem" title="Modify" id="baa-LE-2Pt">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="FPv-RJ-Tm8"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6n-4O-8l7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1876" y="540"/>
+            <point key="canvasLocation" x="-1884" y="460"/>
         </scene>
         <!--Home-->
         <scene sceneID="D0K-xj-ken">
@@ -918,10 +917,10 @@
             </objects>
             <point key="canvasLocation" x="-3578" y="13"/>
         </scene>
-        <!--Molniya Orbit-->
+        <!--PCIOEController-->
         <scene sceneID="s1C-sf-rDu">
             <objects>
-                <viewController id="04M-ZP-gpZ" customClass="PCIOEViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="04M-ZP-gpZ" userLabel="PCIOEController" customClass="PCIOEViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ypz-sO-2Pm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -985,7 +984,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrJ-Dc-mhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-932" y="13"/>
+            <point key="canvasLocation" x="-956" y="13"/>
         </scene>
         <!--Settings-->
         <scene sceneID="CVM-lr-X4u">
@@ -1026,7 +1025,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <segue destination="Kmq-eH-Y7W" kind="show" id="7kq-QY-wra"/>
+                                                        <segue destination="Kmq-eH-Y7W" kind="show" identifier="editShownOrbits" id="7kq-QY-wra"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/3 Orbits Shown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-Uj-PhB">
@@ -1098,7 +1097,6 @@
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XpS-Jg-72O"/>
         <segue reference="7kq-QY-wra"/>
     </inferredMetricsTieBreakers>
 </document>

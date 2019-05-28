@@ -13,7 +13,9 @@ class OrbitsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-        savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits") 
+        savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits")
+        self.tableView.allowsMultipleSelection = true
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,7 +33,7 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 5
+            return defaultOrbitNames.count
         case 1:
             return savedNumberOfOrbits
         default:
@@ -44,7 +46,13 @@ class OrbitsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrbitNameCell", for: indexPath)
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = "Default Orbitzzzzz"
+            cell.textLabel?.text = defaultOrbitNames[indexPath.row]
+//            cell.selectionStyle = .default
+            cell.isSelected = true
+//            cell.accessoryType = .checkmark
+//            cell.isHighlighted = true
+//            cell.backgroundView?.backgroundColor = UIColor.lightGray
+            cell.selectionStyle = .blue
             return cell
         case 1:
             let orbitForRow = Orbit(name: defaults.string(forKey: indexPath.row.description)!,
@@ -56,13 +64,6 @@ class OrbitsTableViewController: UITableViewController {
         default:
             return cell
         }
-        
-        
-        
-        
-        //cell.textLabel?.text = "yeet" //defaults.string(forKey: indexPath.description)//"Section \(indexPath.section) Row \(indexPath.row)"
-
-        //return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -79,14 +80,46 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            print("Default Orbits selected")
+            print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+                //cell.selectionStyle = .blue
+                // cell.isSelected = false
+            }
         case 1:
             print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+            }
         default:
             print("Error: No section")
         }
     }
     
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            print("Default deselected")
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .none
+            }
+        case 1:
+            print("User deselected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .none
+            }
+        default:
+            print("Error: No section")
+        }
+        
+        
+        
+        
+        
+      
+    }
+    
+ 
     
     
 //    func toDoubleArray(array: [Any]) -> [Double] {
@@ -160,6 +193,8 @@ class OrbitsTableViewController: UITableViewController {
 
     // MARK: - Data Management
     let defaults = UserDefaults.standard
+    var isEditingShownOrbits = false
+
     
     
 }

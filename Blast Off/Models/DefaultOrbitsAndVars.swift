@@ -13,15 +13,15 @@ import UIKit
 
 
 
+let earthRadius = 6378.1000 //km
+let earthGravityParam = 398600.0 // kilometers^3/sec^2
 
 // MARK: - Default Orbits
-let earthGravityParam = 398600.0 // kilometers^3/sec^2
 
 // Molniya Orbit
 let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];  //km
 let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222]; //km/s
-
-
+let MolniyaOE = rv2oe(rPCI: r0, vPCI: v0, mu: earthGravityParam)
 
 // Tundra Orbit
 let a = 4.224108006788328e+04
@@ -43,6 +43,21 @@ let tundra45oe = [a, e, deg2rad(45), inc, omega, nu]
 let tundra90oe = [a, e, deg2rad(90), inc, omega, nu]
 let tundra135oe = [a, e, deg2rad(135), inc, omega, nu]
 let tundra180oe = [a, e, deg2rad(180), inc, omega, nu]
+
+// International Space Station (https://heavens-above.com/orbit.aspx?satid=25544)
+let aISS = Double((408+earthRadius+418+earthRadius)/2)
+let eISS = 0.0007260
+let capOmegaISS = deg2rad(99.8697)
+let incISS = deg2rad(51.6409)
+let omegaISS = deg2rad(344.5645)
+let nuISS = 0.0
+
+let ISSoe = [aISS, eISS, capOmegaISS, incISS, omegaISS, nuISS]
+
+// Default Orbit Matrix
+let defaultOrbitNames = ["Molniya Orbit", "Tundra Orbit", "I.S.S Orbit"]
+let defaultOrbitsOEs = [MolniyaOE, tundra0oe, ISSoe]
+let indexOfShownDefaultOrbits = [Double()]
 
 
 // MARK: Helper Functions
