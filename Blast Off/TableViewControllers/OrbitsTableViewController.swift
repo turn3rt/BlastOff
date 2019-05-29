@@ -50,6 +50,7 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -76,8 +77,8 @@ class OrbitsTableViewController: UITableViewController {
             cell.tintColor = UIColor.green
             if isEditingShownOrbits == true && defaultOrbitisShown[indexPath.row] == true {
                 cell.accessoryType = .checkmark
-                cell.isSelected = true
-                cell.setSelected(true, animated: false)
+                self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                //myTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
             }
             return cell
         case 1:
@@ -167,27 +168,42 @@ class OrbitsTableViewController: UITableViewController {
 //
 //
 //    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    
+        
+        
+//        for num in 0...defaultOrbitisShown.count{
+//            if defaultOrbitisShown[num] == true {
+//                let indexPath = IndexPath(row: num, section: 0)
+//                myTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+//            }
+//
+//        }
+    }
  
     
     
 
 
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-
-        case "modOrbitSegue":
-            if let pcioeController = segue.destination as? PCIOEViewController {
-                print("segue stuff started")
-                // TODO:
-            }
-
-        default:
-            print("error")
-        }
-
-    }
+//    // MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch segue.identifier {
+//
+//        case "modOrbitSegue":
+//            if let pcioeController = segue.destination as? PCIOEViewController {
+//                print("segue stuff started")
+//                // TODO:
+//            }
+//
+//        default:
+//            print("error")
+//        }
+//
+//    }
  
 
     // MARK: - Data Management

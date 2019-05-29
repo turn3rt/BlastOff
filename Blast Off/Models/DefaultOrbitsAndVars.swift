@@ -58,7 +58,7 @@ let ISSoe = [aISS, eISS, capOmegaISS, incISS, omegaISS, nuISS]
 let defaultOrbitNames = ["Molniya Orbit", "Tundra Orbit", "I.S.S Orbit"]
 let defaultOrbitOEs = [MolniyaOE, tundra0oe, ISSoe]
 var defaultOrbitisShown = [true, true, true]
-let indexOfShownDefaultOrbits = [Double()]
+let indexOfShownDefaultOrbits = [IndexPath()]
 
 
 // MARK: Helper Functions
