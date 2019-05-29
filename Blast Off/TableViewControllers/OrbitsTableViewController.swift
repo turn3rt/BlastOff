@@ -10,6 +10,8 @@ import UIKit
 
 class OrbitsTableViewController: UITableViewController {
 
+    
+    
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBAction func doneButtonClick(_ sender: Any) {
         print("Done Button Clicked")
@@ -30,7 +32,9 @@ class OrbitsTableViewController: UITableViewController {
         savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits")
         defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown
         self.tableView.allowsMultipleSelection = true
+
         if isEditingShownOrbits != true {
+            self.tableView.allowsMultipleSelection = false
             self.navigationItem.rightBarButtonItem = nil
             self.navigationItem.title = "Modify Orbit"
             //navigationController!.navigationItem.rightBarButtonItem = nil
@@ -113,8 +117,8 @@ class OrbitsTableViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             print("didselectRowAt function handle")
-
-            if defaultOrbitisShown[indexPath.row] == false {
+            
+            if defaultOrbitisShown[indexPath.row] == false && isEditingShownOrbits == true {
                 print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
                 defaultOrbitisShown[indexPath.row] = true
                 if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
@@ -123,7 +127,7 @@ class OrbitsTableViewController: UITableViewController {
                     cell.orbitName.textColor = colors[indexPath.row]
                 }
             } else {
-                print("error with selecting tbcells")
+                print("Do segue for modifying orbit here")
 //                print("User deselected: \(defaultOrbitNames[indexPath.row])")
 //                defaultOrbitisShown[indexPath.row] = false
 //                if let cell = tableView.cellForRow(at: indexPath) {
@@ -145,7 +149,7 @@ class OrbitsTableViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             print("didDeselectRowAt function handle")
-            if defaultOrbitisShown[indexPath.row] == true {
+            if defaultOrbitisShown[indexPath.row] == true && isEditingShownOrbits == true {
                 print("User deselected: \(defaultOrbitNames[indexPath.row])")
                 defaultOrbitisShown[indexPath.row] = false
                 if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
