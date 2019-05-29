@@ -29,41 +29,94 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false // for productions and after back button has been added set to true
+        
+        
+        
         configureScene()
         // Create a new scene
         let scene = SCNScene()
         // Set the scene to the view
         sceneView.scene = scene
-        // Render Nodes
-        let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
-        // Add nodes to scene and name
-        scene.rootNode.addChildNode(Earth)
-        Earth.name = "Earth"
-        
-       // let yep = scene.rootNode.childNode(withName: "Earth", recursively: false)
-       // print(yep)
-        
-//        TODO: Animations
-        rotate(node: Earth)
+//        // Render Nodes
+//        let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
+//        // Add nodes to scene and name
+//        scene.rootNode.addChildNode(Earth)
+//        Earth.name = "Earth"
+//
+//       // let yep = scene.rootNode.childNode(withName: "Earth", recursively: false)
+//       // print(yep)
+//
+////        TODO: Animations
+//        rotate(node: Earth)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Run the view's session
-        sceneView.session.run(configuration)
+        sceneView.session.pause()
+        print("ARScene Resetting all nodes...")
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        } // clears everything
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
-        // Create a session configuration
+        // Adds Earth Back
+        let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
+        // Add nodes to scene and name
+        sceneView.scene.rootNode.addChildNode(Earth)
+        Earth.name = "Earth"
+        rotate(node: Earth)
         
-       // let configuration = ARWorldTrackingConfiguration() // delcared up top
-//        configuration.planeDetection = .horizontal
-//        configuration.planeDetection = .vertical
+        
+        if numOfDefaultOrbitsShown != 0 {
+            for num in 0...defaultOrbitNames.count-1 {
+                if defaultOrbitisShown[num] == true {
+                    createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
+                    print("created default orbit with name: \(defaultOrbitNames[num])")
+                }
+            }
+        }
+
+        
+//        // Load orbits to show from mem
+//        defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown
+//        if numOfDefaultOrbitsShown != 0 {
+//            for num in 0...defaultOrbitNames.count-1 {
+//                if defaultOrbitisShown[num] == true {
+//                    createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
+//                    print("created default orbit with name: \(defaultOrbitNames[num])")
+//                } else { // this means default orbit is NOT shown so remove node with name at num
+//                    for y in 1...numOfPoints {
+//                        let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "\(defaultOrbitNames[num])\(y)", recursively: false)
+//                        orbitNode?.removeFromParentNode()
+//                    }
+//                }
+//            }
+//        }
         
         
         
-        print("View Will Appear")
-    
     }
+
+    
+    
+//    else {
+//    let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "\(defaultOrbitNames[num])\(index)", recursively: false)
+//    orbitNode?.removeFromParentNode()
+//    }
+    
+//
+//                    if defaultOrbitisShown[num] == true {
+//                        createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
+//                    } else {
+//                for num in 1...numOfPoints{
+//                    let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "\(defaultOrbitNames[num])\(index)", recursively: false)
+//                    orbitNode?.removeFromParentNode()
+//                }
+//            print("removed \(defaultOrbitNames[num])")
+//            }
+//        }
     
     
     
@@ -94,9 +147,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
     @IBAction func launchTap(_ sender: UIButton) {
         
-        createOrbit(orbitalElements: MolniyaOE, color: colors[0])
-        createOrbit(orbitalElements: tundra45oe, color: colors[1])
-        createOrbit(orbitalElements: ISSoe, color: colors[2])
+//        createOrbit(orbitalElements: MolniyaOE, color: colors[0])
+//        createOrbit(orbitalElements: tundra45oe, color: colors[1])
+//        createOrbit(orbitalElements: ISSoe, color: colors[2])
 //        createOrbit(orbitalElements: tundra45oe)
 //        createOrbit(orbitalElements: tundra90oe)
 //        createOrbit(orbitalElements: tundra135oe)
@@ -253,7 +306,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
     let numOfPoints = 1000
     var orbitExists = false
-    func createOrbit(orbitalElements: [Double], color: UIColor) {
+    func createOrbit(name: String, orbitalElements: [Double], color: UIColor) {
         print("createOrbit Start")
         // DEFINE GIVEN rPCI & vPCI & mu
         let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
@@ -303,7 +356,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             // drawNode.geometry?.firstMaterial?.specular.contents = UIColor.white
             
             self.sceneView.scene.rootNode.addChildNode(drawNode)
-            drawNode.name = "drawNode\(index)"
+            drawNode.name = "\(name)\(index)"
         }
         
         let orbitTime = 2*Double.pi*sqrt((a*a*a)/mu)
@@ -329,5 +382,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         let repeatForever = SCNAction.repeatForever(rotateOnce)
         node.runAction(repeatForever)
     }
+    
+//    MARK: - Data management
+    let defaults = UserDefaults.standard
 
 }

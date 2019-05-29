@@ -56,9 +56,9 @@ let ISSoe = [aISS, eISS, capOmegaISS, incISS, omegaISS, nuISS]
 
 // Default Orbit Matrix
 let defaultOrbitNames = ["Molniya Orbit", "Tundra Orbit", "I.S.S Orbit"]
-let defaultOrbitOEs = [MolniyaOE, tundra0oe, ISSoe]
-var defaultOrbitisShown = [true, true, true]
-let indexOfShownDefaultOrbits = [IndexPath()]
+let defaultOrbitOEs = [MolniyaOE, tundra45oe, ISSoe]
+var defaultOrbitisShown = [true, true, true] // defaults to all orbits shown on launch button tap on fresh install
+var numOfDefaultOrbitsShown = 3
 
 
 // MARK: Helper Functions

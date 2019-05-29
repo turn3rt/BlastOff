@@ -16,15 +16,19 @@ class OrbitsTableViewController: UITableViewController {
         self.isEditingShownOrbits = false
         self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
         defaults.set(defaultOrbitisShown, forKey: "defaultOrbitisShown")
+        print("saved defaultOrbitIsShown as: \(defaultOrbitisShown)")
+        numOfDefaultOrbitsShown = defaultOrbitisShown.filter{$0}.count
+        print("and the number of default orbits shown is currently: \(numOfDefaultOrbitsShown)")
+//        let arr = [false, true, true, false, true]
+//        let numberOfTrue = arr.filter{$0}.count
+//        print(numberOfTrue) // 3
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits")
-        defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as! [Bool]
+        defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown
         self.tableView.allowsMultipleSelection = true
         if isEditingShownOrbits != true {
             self.navigationItem.rightBarButtonItem = nil
@@ -73,12 +77,13 @@ class OrbitsTableViewController: UITableViewController {
         case 0:
             cell.orbit.oe = defaultOrbitOEs[indexPath.row]
             cell.orbitName.text = defaultOrbitNames[indexPath.row]
-            cell.orbit.isShown = defaultOrbitisShown[indexPath.row] // will probably need to change this from mem
-            cell.tintColor = UIColor.green
+            cell.orbit.isShown = defaultOrbitisShown[indexPath.row]
+           // cell.tintColor = UIColor.green
             if isEditingShownOrbits == true && defaultOrbitisShown[indexPath.row] == true {
                 cell.accessoryType = .checkmark
+                cell.tintColor = colors[indexPath.row]
+                cell.orbitName.textColor = colors[indexPath.row]
                 self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-                //myTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
             }
             return cell
         case 1:
@@ -112,15 +117,18 @@ class OrbitsTableViewController: UITableViewController {
             if defaultOrbitisShown[indexPath.row] == false {
                 print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
                 defaultOrbitisShown[indexPath.row] = true
-                if let cell = tableView.cellForRow(at: indexPath) {
+                if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
                     cell.accessoryType = .checkmark
+                    cell.tintColor = colors[indexPath.row]
+                    cell.orbitName.textColor = colors[indexPath.row]
                 }
             } else {
-                print("User deselected: \(defaultOrbitNames[indexPath.row])")
-                defaultOrbitisShown[indexPath.row] = false
-                if let cell = tableView.cellForRow(at: indexPath) {
-                    cell.accessoryType = .none
-                }
+                print("error with selecting tbcells")
+//                print("User deselected: \(defaultOrbitNames[indexPath.row])")
+//                defaultOrbitisShown[indexPath.row] = false
+//                if let cell = tableView.cellForRow(at: indexPath) {
+//                    cell.accessoryType = .none
+//                }
             }
 
         case 1:
@@ -140,15 +148,18 @@ class OrbitsTableViewController: UITableViewController {
             if defaultOrbitisShown[indexPath.row] == true {
                 print("User deselected: \(defaultOrbitNames[indexPath.row])")
                 defaultOrbitisShown[indexPath.row] = false
-                if let cell = tableView.cellForRow(at: indexPath) {
+                if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
                     cell.accessoryType = .none
+                    cell.tintColor = UIColor.black
+                    cell.orbitName.textColor = UIColor.black
                 }
             } else {
-                print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
-                defaultOrbitisShown[indexPath.row] = true
-                if let cell = tableView.cellForRow(at: indexPath) {
-                    cell.accessoryType = .checkmark
-                }
+                print("error with selecting tbcells")
+//                print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
+//                defaultOrbitisShown[indexPath.row] = true
+//                if let cell = tableView.cellForRow(at: indexPath) {
+//                    cell.accessoryType = .checkmark
+//                }
             }
 
         case 1:
