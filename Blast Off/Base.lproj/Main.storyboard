@@ -692,9 +692,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQw-88-lgW">
                                         <rect key="frame" x="0.0" y="0.0" width="161" height="36"/>
-                                        <color key="backgroundColor" red="0.82745098039215681" green="0.18431372549019609" blue="0.18431372549019609" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.21568627450980393" green="0.0" blue="0.70196078431372544" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
-                                        <state key="normal" title="Launch">
+                                        <state key="normal" title="&lt;&lt; Back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -703,7 +703,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="launchTap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="A9Q-bI-48U"/>
+                                            <action selector="backButtonTap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="xIg-uf-27a"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3er-XG-DTM">

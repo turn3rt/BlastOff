@@ -29,10 +29,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false // for productions and after back button has been added set to true
-        
-        
-        
         configureScene()
         // Create a new scene
         let scene = SCNScene()
@@ -53,6 +49,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         // Run the view's session
         sceneView.session.pause()
         print("ARScene Resetting all nodes...")
@@ -77,56 +74,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                 }
             }
         }
-
-        
-//        // Load orbits to show from mem
-//        defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown
-//        if numOfDefaultOrbitsShown != 0 {
-//            for num in 0...defaultOrbitNames.count-1 {
-//                if defaultOrbitisShown[num] == true {
-//                    createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
-//                    print("created default orbit with name: \(defaultOrbitNames[num])")
-//                } else { // this means default orbit is NOT shown so remove node with name at num
-//                    for y in 1...numOfPoints {
-//                        let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "\(defaultOrbitNames[num])\(y)", recursively: false)
-//                        orbitNode?.removeFromParentNode()
-//                    }
-//                }
-//            }
-//        }
-        
-        
-        
     }
-
     
     
-//    else {
-//    let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "\(defaultOrbitNames[num])\(index)", recursively: false)
-//    orbitNode?.removeFromParentNode()
-//    }
-    
-//
-//                    if defaultOrbitisShown[num] == true {
-//                        createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
-//                    } else {
-//                for num in 1...numOfPoints{
-//                    let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "\(defaultOrbitNames[num])\(index)", recursively: false)
-//                    orbitNode?.removeFromParentNode()
-//                }
-//            print("removed \(defaultOrbitNames[num])")
-//            }
-//        }
-    
-    
-    
-    
-//    // MARK: - ARSCNViewDelegate
-//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-//        DispatchQueue.main.async {
-//            self.buttonHighlighted = self.button.isHighlighted
-//        }
-//    }
     
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         // this function iterates at 60 frames per second
@@ -138,148 +88,21 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         // Pause the view's session
         sceneView.session.pause()
     }
     
 //    MARK: - IBAction Functions
     
-    @IBAction func launchTap(_ sender: UIButton) {
-        
-//        createOrbit(orbitalElements: MolniyaOE, color: colors[0])
-//        createOrbit(orbitalElements: tundra45oe, color: colors[1])
-//        createOrbit(orbitalElements: ISSoe, color: colors[2])
-//        createOrbit(orbitalElements: tundra45oe)
-//        createOrbit(orbitalElements: tundra90oe)
-//        createOrbit(orbitalElements: tundra135oe)
-//        createOrbit(orbitalElements: tundra180oe)
+    @IBAction func backButtonTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func resetClick(_ sender: UIButton) {
-        // removing starter point
-        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
-        if drawNodeExists != nil {
-            drawNodeExists?.removeFromParentNode()
-        }
-        
-        // removing orbit
-        if orbitExists {
-            for index in 1...numOfPoints{
-                let orbitNode = self.sceneView.scene.rootNode.childNode(withName: "drawNode\(index)", recursively: false)
-                orbitNode?.removeFromParentNode()
-            }
-        }
-        
         sceneView.session.pause()
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         print("User Reset World Origin")
     }
-    
-    @IBAction func sliderChange(_ sender: UISlider) {
-//        uncomment if desired for step value when moving slider
-//        let step: Float = 1000
-//        let roundedValue = round(sender.value / step) * step
-//        sender.value = roundedValue
-        
-        let drawNodeExists = self.sceneView.scene.rootNode.childNode(withName: "drawNode", recursively: false)
-        
-        if drawNodeExists != nil {
-            drawNodeExists?.removeFromParentNode()
-        }
-        
-        let startPoint = earthPosAR + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
-
-        let drawPoint = SCNSphere(radius: 0.005)
-        let drawNode = SCNNode(geometry: drawPoint)
-        drawNode.position = SCNVector3(startPoint)
-        
-        drawNode.geometry?.firstMaterial?.diffuse.contents = UIColor.white
-        
-        self.sceneView.scene.rootNode.addChildNode(drawNode)
-        drawNode.name = "drawNode"
-        
-        print("slider value: \(sender.value)")
-        altitudeLabel.text = "Altitude = \(Int(sender.value)) km" // force cast to int rounds numbers to no decimal
-    }
-    
-    @IBAction func backButtonClick(_ sender: UIButton) {
-        self.dismiss(animated: true) {
-            print("User clicked back button")
-        }
-        //self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func variableButtonClick(_ sender: UIButton) {
-        
-        let alertController = UIAlertController(title: "Slider Variable", message: "Select a variable to change using the slider:", preferredStyle: .actionSheet)
-        
-        let aButton = UIAlertAction(title: "Semi-Major Axis [a]", style: .default, handler: { (action) -> Void in
-            self.variableButton.setTitle("a", for: UIControl.State.normal)
-            print("a: semi-major axis selected")
-        })
-        
-        let eButton = UIAlertAction(title: "Eccentricity [e]", style: .default, handler: { (action) -> Void in
-            self.variableButton.setTitle("e", for: UIControl.State.normal)
-            print("e: eccentricity selected")
-        })
-        
-        let capOmegaButton = UIAlertAction(title: "Longitude of Ascending Node [capOmega]", style: .default, handler: { (action) -> Void in
-            self.variableButton.setTitle("capOmega", for: UIControl.State.normal)
-            print("capOmega: long of asc. node selected")
-        })
-        
-        let incButton = UIAlertAction(title: "Inclination [inc]", style: .default, handler: { (action) -> Void in
-            self.variableButton.setTitle("inc", for: UIControl.State.normal)
-            print("inc: inclination selected")
-        })
-        
-        let omegaButton = UIAlertAction(title: "Argument of Periapsis [omega]", style: .default, handler: { (action) -> Void in
-            self.variableButton.setTitle("omega", for: UIControl.State.normal)
-            print("omega: arg of periapsis selected")
-        })
-        
-        let nuButton = UIAlertAction(title: "True Anomoly [nu]", style: .default, handler: { (action) -> Void in
-            self.variableButton.setTitle("nu", for: UIControl.State.normal)
-            print("nu: true anomoly selected")
-        })
-        
-//        let  deleteButton = UIAlertAction(title: "Delete forever", style: .destructive, handler: { (action) -> Void in
-//            print("Delete button tapped")
-//        })
-        
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
-            print("Cancel button tapped")
-        })
-        
-        
-        alertController.addAction(aButton)
-        alertController.addAction(eButton)
-        alertController.addAction(capOmegaButton)
-        alertController.addAction(incButton)
-        alertController.addAction(omegaButton)
-        alertController.addAction(nuButton)
-
-        alertController.addAction(cancelButton)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-//    MARK: - IBOulet Variables
-    
-    @IBOutlet weak var slider: UISlider! {
-        didSet{
-            slider.transform = CGAffineTransform(rotationAngle: -.pi/2)
-            slider.minimumValue = 0
-            slider.maximumValue = 35000 // in kilometers
-        }
-    }
-    
-    @IBOutlet weak var altitudeLabel: UILabel!
-    @IBOutlet weak var variableButton: UIButton!
-    
-    
-    
 
 //    MARK: - Internal Functions
     
@@ -292,45 +115,27 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: texture)
         planet.firstMaterial = material
-        
         // planet.firstMaterial?.diffuse.contents is single line func call for above func
         // diffuse is texture properties like color etc...
-        
         // planet.firstMaterial!.specular.contents = #imageLiteral(resourceName: "EarthSpecular.png") // specular is shiny-ness of objects,
-        
-        
         return node
     }
     
-    
-    
     let numOfPoints = 1000
-    var orbitExists = false
     func createOrbit(name: String, orbitalElements: [Double], color: UIColor) {
         print("createOrbit Start")
-        // DEFINE GIVEN rPCI & vPCI & mu
-        let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];   // km
-        let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222];  // km/s
-        let mu = 398600.0; // km^3/s^2
-        
-        // converts to AR unit system
-        // let r0AR = [r0[0]/scaleFactor, r0[1]/scaleFactor, r0[2]/scaleFactor]
-        // let v0AR = [v0[0]/scaleFactor, v0[1]/scaleFactor, v0[2]/scaleFactor]
-        
-//        var oe = rv2oe(rPCI: r0, vPCI: v0, mu: mu)
         var oe = orbitalElements
         // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
-        let a        = oe[0]/scaleFactor
+        // let a        = oe[0]/scaleFactor
         // let e        = oe[1]
         // let capOmega = oe[2]
         // let inc      = oe[3]
         // let omega    = oe[4]
         let nu0      = oe[5]
-        
+    
         let interval = 2*Double.pi/Double(numOfPoints) // divide by fraction to get fraction of orbit
         
         var nuStart = nu0
-        //var L = 0 // length of time matrix based on numOfPoints divided by 2*pi (one orbit)
         
         for index in 1...numOfPoints {
             if nuStart >= 2*Double.pi{
@@ -342,7 +147,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             oe[5] = nuNext
             
-            let ans = oe2rv(oe: oe, mu: mu)
+            let ans = oe2rv(oe: oe, mu: earthGravityParam)
             let rNext = ans.rPCI
             let rNextAR = ([(rNext[0]/scaleFactor) + earthPosAR.x,
                             (rNext[1]/scaleFactor) + earthPosAR.y,
@@ -359,10 +164,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             drawNode.name = "\(name)\(index)"
         }
         
-        let orbitTime = 2*Double.pi*sqrt((a*a*a)/mu)
-        print("Orbit time is: \(orbitTime*scaleFactor)")
-        print("CHECK OE'S HERE: \(oe)")
-        orbitExists = true
+        // timing is INCORRECT, code for use in other app.
+//        let orbitTime = 2*Double.pi*sqrt((a*a*a)/earthGravityParam)
+//        print("Orbit time is: \(orbitTime*scaleFactor)")
+//        print("CHECK OE'S HERE: \(oe)")
     }
     
     func configureScene(){
