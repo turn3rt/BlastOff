@@ -795,7 +795,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="orbitName" destination="9m4-d9-aNv" id="QIS-L2-YOB"/>
-                                    <segue destination="04M-ZP-gpZ" kind="show" id="hgb-bD-8tw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1122,7 +1121,6 @@
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="78u-lo-LW7"/>
         <segue reference="oiW-EM-Y3I"/>
     </inferredMetricsTieBreakers>
 </document>
