@@ -769,7 +769,7 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="ald-xF-SI5">
                             <rect key="frame" x="0.0" y="78" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrbitNameCell" rowHeight="50" id="QOr-dC-1OO" customClass="OrbitCell" customModule="Blast_Off" customModuleProvider="target">
@@ -782,10 +782,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orbit Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9m4-d9-aNv">
                                             <rect key="frame" x="16" y="8" width="343" height="33.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="9m4-d9-aNv" firstAttribute="top" secondItem="DA7-fx-En5" secondAttribute="top" constant="8" id="GTg-ot-5FT"/>
                                         <constraint firstItem="9m4-d9-aNv" firstAttribute="leading" secondItem="DA7-fx-En5" secondAttribute="leading" constant="16" id="Gft-UB-d51"/>
@@ -827,21 +828,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBGImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7bF-S2-VwT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrbitBGMain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7bF-S2-VwT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQ6-kI-XmG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="qWe-ce-PzQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Orbits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-76-Qqe">
-                                <rect key="frame" x="32" y="288" width="311" height="102"/>
+                                <rect key="frame" x="32" y="238" width="311" height="102"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="64"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -849,7 +840,7 @@
                                 <size key="shadowOffset" width="0.0" height="3"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-yR-m6r">
-                                <rect key="frame" x="100" y="456" width="175" height="172"/>
+                                <rect key="frame" x="100" y="406" width="175" height="172"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q56-01-Wbd">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="36"/>
@@ -904,13 +895,13 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="scK-4S-Puw" firstAttribute="trailing" secondItem="Meu-yR-m6r" secondAttribute="trailing" constant="100" id="2Di-G8-7eY"/>
-                            <constraint firstItem="scK-4S-Puw" firstAttribute="bottom" secondItem="Meu-yR-m6r" secondAttribute="bottom" constant="150" id="3bL-Cc-9UF"/>
+                            <constraint firstItem="scK-4S-Puw" firstAttribute="bottom" secondItem="Meu-yR-m6r" secondAttribute="bottom" constant="200" id="3bL-Cc-9UF"/>
                             <constraint firstItem="Meu-yR-m6r" firstAttribute="centerX" secondItem="ddp-MT-1vs" secondAttribute="centerX" id="57c-zJ-tmQ"/>
                             <constraint firstItem="7bF-S2-VwT" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" id="6nV-OB-XQT"/>
                             <constraint firstItem="jkQ-76-Qqe" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" constant="32" id="CQi-Aw-hir"/>
                             <constraint firstItem="7bF-S2-VwT" firstAttribute="trailing" secondItem="scK-4S-Puw" secondAttribute="trailing" id="Csa-Xc-B0r"/>
                             <constraint firstAttribute="bottom" secondItem="7bF-S2-VwT" secondAttribute="bottom" id="JFh-i4-axs"/>
-                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="top" secondItem="scK-4S-Puw" secondAttribute="top" constant="200" id="cYW-oP-bca"/>
+                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="top" secondItem="scK-4S-Puw" secondAttribute="top" constant="150" id="cYW-oP-bca"/>
                             <constraint firstItem="scK-4S-Puw" firstAttribute="trailing" secondItem="jkQ-76-Qqe" secondAttribute="trailing" constant="32" id="fjB-AX-p3m"/>
                             <constraint firstItem="Meu-yR-m6r" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" constant="100" id="uEW-pj-JiM"/>
                             <constraint firstItem="7bF-S2-VwT" firstAttribute="top" secondItem="ddp-MT-1vs" secondAttribute="top" id="wgj-KV-J1s"/>
@@ -921,7 +912,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ax-Ty-OLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2679" y="13"/>
+            <point key="canvasLocation" x="-2679.1999999999998" y="12.561576354679804"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ghV-od-f3n">
@@ -931,6 +922,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jgQ-AX-TlI">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -944,16 +940,24 @@
         <!--PCIOEController-->
         <scene sceneID="s1C-sf-rDu">
             <objects>
-                <viewController id="04M-ZP-gpZ" userLabel="PCIOEController" customClass="PCIOEViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PCIOEvc" title="PCIOEvc" automaticallyAdjustsScrollViewInsets="NO" id="04M-ZP-gpZ" userLabel="PCIOEController" customClass="PCIOEViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ypz-sO-2Pm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PCIOEBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="29u-J3-gMC">
+                                <rect key="frame" x="0.0" y="0.0" width="391" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZS-uQ-c91">
-                                <rect key="frame" x="107" y="495" width="161" height="36"/>
-                                <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="239" y="694" width="120" height="32"/>
+                                <color key="backgroundColor" red="0.0037635774095691413" green="0.64001855342390757" blue="0.58602049365056874" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="2rK-Hw-YfR"/>
+                                    <constraint firstAttribute="width" constant="120" id="rdF-PQ-3CB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
-                                <state key="normal" title="OE's ">
+                                <state key="normal" title="OE's">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -967,10 +971,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-3T-HDe">
-                                <rect key="frame" x="107" y="418" width="161" height="36"/>
-                                <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="50" y="196" width="120" height="32"/>
+                                <color key="backgroundColor" red="0.58989307023504634" green="0.42349781238551115" blue="0.80133015452373846" alpha="0.93689640410958885" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Zn5-vp-xy2"/>
+                                    <constraint firstAttribute="height" constant="32" id="mlp-h5-CrY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
-                                <state key="normal" title="rPCI &amp; vPCI">
+                                <state key="normal" title="PCI's">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -983,32 +991,64 @@
                                     <segue destination="S9O-HX-tyw" kind="show" identifier="pciSegue" id="HBq-La-QhZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Orbit: ISS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DiX-UB-lS6">
-                                <rect key="frame" x="16" y="188" width="343" height="24"/>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An orbit is created from initial position and velocity vectors in Planet-Centered Inertial (PCI) coordinates." lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DiX-UB-lS6">
+                                <rect key="frame" x="16" y="120" width="343" height="60"/>
+                                <fontDescription key="fontDescription" name="Courier-BoldOblique" family="Courier" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More commonly, six orbital elements (OE's) describe the orbit. They are quantified by N.A.S.A at the link below.  " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="PK6-xg-apn">
+                                <rect key="frame" x="100" y="565" width="259" height="75"/>
+                                <fontDescription key="fontDescription" name="Courier-BoldOblique" family="Courier" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRa-Fl-Smq">
+                                <rect key="frame" x="100" y="648" width="259" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="https://spaceflight.nasa.gov/"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently Modifying: Molniya Orbit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-T5-Ghb">
+                                <rect key="frame" x="87.666666666666686" y="368.66666666666669" width="200" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="LLP-ww-aIF"/>
+                                    <constraint firstAttribute="width" constant="200" id="YjO-bI-VfM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="DiX-UB-lS6" secondAttribute="trailing" constant="16" id="9n9-cf-hOA"/>
-                            <constraint firstItem="8BN-3T-HDe" firstAttribute="centerX" secondItem="DiX-UB-lS6" secondAttribute="centerX" id="J7A-di-R9Q"/>
-                            <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="FZS-uQ-c91" secondAttribute="leading" id="L5n-3c-uLF"/>
-                            <constraint firstItem="FZS-uQ-c91" firstAttribute="top" secondItem="8BN-3T-HDe" secondAttribute="bottom" constant="41" id="L6U-FI-IG2"/>
-                            <constraint firstItem="DiX-UB-lS6" firstAttribute="top" secondItem="kUS-9I-dBG" secondAttribute="top" constant="100" id="USq-2P-xwq"/>
-                            <constraint firstItem="kUS-9I-dBG" firstAttribute="bottom" secondItem="FZS-uQ-c91" secondAttribute="bottom" constant="247" id="W4N-Nn-QBH"/>
-                            <constraint firstItem="DiX-UB-lS6" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="16" id="ZKo-io-H8d"/>
-                            <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="107" id="ixw-NN-dJL"/>
-                            <constraint firstItem="8BN-3T-HDe" firstAttribute="trailing" secondItem="FZS-uQ-c91" secondAttribute="trailing" id="s6L-5y-J6R"/>
+                            <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerY" secondItem="Ypz-sO-2Pm" secondAttribute="centerY" id="4Y0-Na-Chz"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="bottom" secondItem="FZS-uQ-c91" secondAttribute="bottom" constant="52" id="8TK-Gi-uFG"/>
+                            <constraint firstItem="8BN-3T-HDe" firstAttribute="top" secondItem="DiX-UB-lS6" secondAttribute="bottom" constant="16" id="BOi-m2-XjN"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="PRa-Fl-Smq" secondAttribute="trailing" constant="16" id="IfK-sF-hM6"/>
+                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="top" secondItem="PK6-xg-apn" secondAttribute="bottom" constant="8" id="Lhq-uq-WKp"/>
+                            <constraint firstItem="DiX-UB-lS6" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="16" id="WSB-xF-grr"/>
+                            <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerX" secondItem="Ypz-sO-2Pm" secondAttribute="centerX" id="a80-1j-ukW"/>
+                            <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="50" id="acH-cA-ACl"/>
+                            <constraint firstItem="PK6-xg-apn" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="bzJ-Qw-k0w"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="FZS-uQ-c91" secondAttribute="trailing" constant="16" id="dDU-re-xxL"/>
+                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="eAE-kb-7x9"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="DiX-UB-lS6" secondAttribute="trailing" constant="16" id="eJv-cy-og8"/>
+                            <constraint firstItem="FZS-uQ-c91" firstAttribute="top" secondItem="PRa-Fl-Smq" secondAttribute="bottom" constant="16" id="f3m-hk-iBr"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="PK6-xg-apn" secondAttribute="trailing" constant="16" id="ngv-tr-6Mb"/>
+                            <constraint firstItem="DiX-UB-lS6" firstAttribute="top" secondItem="kUS-9I-dBG" secondAttribute="top" constant="32" id="vds-mm-FLw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kUS-9I-dBG"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Molniya Orbit" id="gir-Np-VdX"/>
+                    <navigationItem key="navigationItem" id="gir-Np-VdX"/>
+                    <connections>
+                        <outlet property="modOrbitLabel" destination="pYf-T5-Ghb" id="H7H-5X-3FW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrJ-Dc-mhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-956" y="13"/>
+            <point key="canvasLocation" x="-956" y="12.561576354679804"/>
         </scene>
         <!--Settings-->
         <scene sceneID="CVM-lr-X4u">
@@ -1117,7 +1157,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MainBGImage.jpg" width="552" height="1024"/>
+        <image name="OrbitBGMain.jpg" width="1440" height="2560"/>
+        <image name="PCIOEBackground.png" width="1080" height="1920"/>
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>

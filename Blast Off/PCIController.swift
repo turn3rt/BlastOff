@@ -53,12 +53,25 @@ class PCIController: UIViewController, UITextFieldDelegate {
     
     
     
-    
+    var isModifyingOrbitPCIOE = false
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
+        if isModifyingOrbitPCIOE == true {
+            rxTField.text = String(self.orbit.rv[0])
+            ryTField.text = String(self.orbit.rv[1])
+            rzTField.text = String(self.orbit.rv[2])
+            vxTField.text = String(self.orbit.rv[3])
+            vyTField.text = String(self.orbit.rv[4])
+            vzTField.text = String(self.orbit.rv[5])
+            
+            
+        }
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -130,8 +143,6 @@ class PCIController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-   
-    
     // MARK: - Useful Internal Controller Functions & Variables
     var nameOfOrbit = String()
     func showAddNameAlert(){
@@ -192,10 +203,19 @@ class PCIController: UIViewController, UITextFieldDelegate {
         }
         self.present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Internal Functions
+    
+    
+    
     // MARK: - Memory Management
     let defaults = UserDefaults.standard
     var orbit = Orbit(name: String(), rv: [Double](), oe: [Double](), isShown: Bool())
     var selectedIndexPathOfOrbit = Int()
-
 }
+
+
+
+
+
 

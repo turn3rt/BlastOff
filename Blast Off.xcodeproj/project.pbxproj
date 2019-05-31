@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B38A3F5722A06A0500F00DEB /* PCIOEBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */; };
+		B38A3F5922A06B5100F00DEB /* Matterhorn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */; };
+		B38A3F5B22A0A12E00F00DEB /* OrbitBGMain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */; };
 		B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553C2298770D00F88C4A /* HomeViewController.swift */; };
 		B393553F2299B89E00F88C4A /* OrbitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */; };
 		B39355412299C33200F88C4A /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39355402299C33200F88C4A /* Orbit.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCIOEBackground.png; sourceTree = "<group>"; };
+		B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Matterhorn.jpeg; sourceTree = "<group>"; };
+		B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OrbitBGMain.jpg; sourceTree = "<group>"; };
 		B393553C2298770D00F88C4A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitsTableViewController.swift; sourceTree = "<group>"; };
 		B39355402299C33200F88C4A /* Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orbit.swift; sourceTree = "<group>"; };
@@ -151,6 +157,9 @@
 		B3C6900F22973FC700AB80BF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */,
+				B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */,
+				B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */,
 				B3935542229A185B00F88C4A /* settingsIcon.png */,
 				B3C6900C22973FC200AB80BF /* rvBG.jpg */,
 				B3C6900B22973FC200AB80BF /* MainBGImage.jpg */,
@@ -219,8 +228,11 @@
 				B3AB1853228A4FED0084802A /* art.scnassets in Resources */,
 				B3935543229A185B00F88C4A /* settingsIcon.png in Resources */,
 				B3AB186F229062C70084802A /* DownArrow.png in Resources */,
+				B38A3F5922A06B5100F00DEB /* Matterhorn.jpeg in Resources */,
+				B38A3F5B22A0A12E00F00DEB /* OrbitBGMain.jpg in Resources */,
 				B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */,
 				B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */,
+				B38A3F5722A06A0500F00DEB /* PCIOEBackground.png in Resources */,
 				B3C6900E22973FC200AB80BF /* rvBG.jpg in Resources */,
 				B3AB1865228B1C160084802A /* EarthTexture.png in Resources */,
 				B3AB1870229062C70084802A /* UpArrow.png in Resources */,

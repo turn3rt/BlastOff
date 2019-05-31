@@ -57,6 +57,7 @@ let ISSoe = [aISS, eISS, capOmegaISS, incISS, omegaISS, nuISS]
 // Default Orbit Matrix
 let defaultOrbitNames = ["Molniya Orbit", "Tundra Orbit", "I.S.S Orbit"]
 let defaultOrbitOEs = [MolniyaOE, tundra45oe, ISSoe]
+
 var defaultOrbitisShown = [true, true, true] // defaults to all orbits shown on launch button tap on fresh install
 var numOfDefaultOrbitsShown = 3
 
@@ -100,3 +101,17 @@ let colors = [UIColor.orange,
 //MARK: - Data Management
 var savedNumberOfOrbits = UserDefaults.standard.integer(forKey: "savedNumberOfOrbits")
 
+
+
+
+func oe2rvArray(oe: [Double], mu: Double) -> [Double] {
+    let rOutput = oe2rv(oe: oe, mu: mu).rPCI
+    let vOutput = oe2rv(oe: oe, mu: mu).vPCI
+    let rvArray = [rOutput[0],
+                   rOutput[1],
+                   rOutput[2],
+                   vOutput[0],
+                   vOutput[1],
+                   vOutput[2],]
+    return rvArray
+}

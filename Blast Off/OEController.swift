@@ -53,12 +53,21 @@ class OEController: UIViewController, UITextFieldDelegate {
     
     
     
-    
+    var isModifyingOrbitPCIOE = false
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
+        
+        if isModifyingOrbitPCIOE == true {
+            aTField.text        = String(self.orbit.oe[0])
+            eTField.text        = String(self.orbit.oe[1])
+            capOmegaTField.text = String(rad2deg(self.orbit.oe[2]))
+            incTField.text      = String(rad2deg(self.orbit.oe[3]))
+            omegaTField.text    = String(rad2deg(self.orbit.oe[4]))
+            nuTField.text       = String(rad2deg(self.orbit.oe[5]))
+        }
     }
     
     override func viewWillAppear(_ animated:Bool) {

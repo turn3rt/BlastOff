@@ -32,11 +32,19 @@ class OrbitsTableViewController: UITableViewController {
         savedNumberOfOrbits = defaults.integer(forKey: "savedNumberOfOrbits")
         defaultOrbitisShown = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown
         self.tableView.allowsMultipleSelection = true
+       // self.tableView.tableHeaderView?.backgroundColor = .black
+        
+        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+        backgroundView.backgroundColor = UIColor.black
+        self.tableView.backgroundView = backgroundView
+        
+        
+        
 
         if isEditingShownOrbits != true {
             self.tableView.allowsMultipleSelection = false
             self.navigationItem.rightBarButtonItem = nil
-            self.navigationItem.title = "Modify Orbit"
+            self.navigationItem.title = "Modify"
             //navigationController!.navigationItem.rightBarButtonItem = nil
            // doneButton = nil
            // doneButton.style = UIBarButtonItem.Style.pl
@@ -74,7 +82,6 @@ class OrbitsTableViewController: UITableViewController {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrbitNameCell", for: indexPath) as! OrbitCell
         switch indexPath.section {
@@ -102,6 +109,13 @@ class OrbitsTableViewController: UITableViewController {
         }
     }
     
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.darkGray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -116,8 +130,7 @@ class OrbitsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            print("didselectRowAt function handle")
-            
+            print("didselectRowAt for drawing the orbit")
             if defaultOrbitisShown[indexPath.row] == false && isEditingShownOrbits == true {
                 print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
                 defaultOrbitisShown[indexPath.row] = true
@@ -127,12 +140,19 @@ class OrbitsTableViewController: UITableViewController {
                     cell.orbitName.textColor = colors[indexPath.row]
                 }
             } else {
-                print("Do segue for modifying orbit here")
-//                print("User deselected: \(defaultOrbitNames[indexPath.row])")
-//                defaultOrbitisShown[indexPath.row] = false
-//                if let cell = tableView.cellForRow(at: indexPath) {
-//                    cell.accessoryType = .none
-//                }
+                print("presenting PCIOE controller with selected row: \(indexPath.row)")
+                let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
+                // Prep for data passage
+                let orbitToPassName = defaultOrbitNames[indexPath.row]
+                let orbitToPassPCI = oe2rvArray(oe: defaultOrbitOEs[indexPath.row], mu: earthGravityParam)
+                let orbitToPassOE = defaultOrbitOEs[indexPath.row]
+                vc.isModifyingOrbitPCIOE = true
+                let orbitToPass = Orbit(name: orbitToPassName, rv: orbitToPassPCI, oe: orbitToPassOE, isShown: false)
+                
+                // Data Passage
+                vc.orbit = orbitToPass
+                navigationController?.pushViewController(vc, animated: true)
+                
             }
 
         case 1:
@@ -176,68 +196,26 @@ class OrbitsTableViewController: UITableViewController {
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//
-//
-//
-//    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    
-        
-        
-//        for num in 0...defaultOrbitisShown.count{
-//            if defaultOrbitisShown[num] == true {
-//                let indexPath = IndexPath(row: num, section: 0)
-//                myTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-//            }
-//
-//        }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1 {
+            return true
+        }
+        return false
     }
- 
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("User deleting object a: \(indexPath)")
+            //objects.remove(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            print("error wat")
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
     
-
-
-    
-//    // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        switch segue.identifier {
-//
-//        case "modOrbitSegue":
-//            if let pcioeController = segue.destination as? PCIOEViewController {
-//                print("segue stuff started")
-//                // TODO:
-//            }
-//
-//        default:
-//            print("error")
-//        }
-//
-//    }
- 
-
     // MARK: - Data Management
     let defaults = UserDefaults.standard
     var isEditingShownOrbits = false
-
-    
-    
-}
-
-
-
-
-
-func negate(bool: Bool) -> Bool{
-    switch bool {
-    case true:
-        return false
-    case false:
-        return true
-    }
 }
