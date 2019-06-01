@@ -59,7 +59,6 @@ class OEController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
-        
         if isModifyingOrbitPCIOE == true {
             aTField.text        = String(self.orbit.oe[0])
             eTField.text        = String(self.orbit.oe[1])
@@ -74,6 +73,16 @@ class OEController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - Keyboard Setup & Handling
@@ -121,16 +130,15 @@ class OEController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        
         if incTField.isEditing || omegaTField.isEditing || nuTField.isEditing == true {
-            if self.view.frame.origin.y == 0{
+            if self.view.frame.origin.y == 88 {
                 self.view.frame.origin.y -= 180 //keyboardSize.height
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0{
+        if self.view.frame.origin.y != 88 {
             self.view.frame.origin.y += 180 //keyboardSize.height
         }
     }

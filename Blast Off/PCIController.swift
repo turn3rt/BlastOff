@@ -10,6 +10,8 @@ import UIKit
 
 class PCIController: UIViewController, UITextFieldDelegate {
 
+    
+    
     // MARK: - IBOutlets
     @IBOutlet weak var rxTField: UITextField!
     @IBOutlet weak var ryTField: UITextField!
@@ -59,6 +61,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
+        self.view.frame.origin.y = 0
         if isModifyingOrbitPCIOE == true {
             rxTField.text = String(self.orbit.rv[0])
             ryTField.text = String(self.orbit.rv[1])
@@ -66,11 +69,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
             vxTField.text = String(self.orbit.rv[3])
             vyTField.text = String(self.orbit.rv[4])
             vzTField.text = String(self.orbit.rv[5])
-            
-            
         }
-        
-        
         
     }
     
@@ -78,6 +77,16 @@ class PCIController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - Keyboard Setup & Handling
@@ -127,14 +136,14 @@ class PCIController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         
         if vxTField.isEditing || vyTField.isEditing || vzTField.isEditing == true {
-            if self.view.frame.origin.y == 0{
+            if self.view.frame.origin.y == 88 {
                 self.view.frame.origin.y -= 180 //keyboardSize.height
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0{
+        if self.view.frame.origin.y != 88 {
             self.view.frame.origin.y += 180 //keyboardSize.height
         }
     }

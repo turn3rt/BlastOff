@@ -18,6 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rvBG.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mQs-kN-Elw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDe-7g-gsR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QUV-ta-jD5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="plV-Nu-PcB" userLabel="Position Stack">
                                 <rect key="frame" x="16" y="136" width="144" height="262"/>
                                 <subviews>
@@ -190,12 +202,12 @@
                                     <constraint firstAttribute="height" constant="262" id="9Ya-o7-gi6"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Position" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-w0-CtK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Position" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-w0-CtK">
                                 <rect key="frame" x="16" y="104" width="343" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="9Oq-pS-Wdn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -269,7 +281,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-VT-PGA">
                                 <rect key="frame" x="107" y="726" width="161" height="36"/>
-                                <color key="backgroundColor" red="0.89122001593299494" green="0.58363504185670534" blue="0.17620554327194435" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="4bt-Mv-s2p"/>
                                     <constraint firstAttribute="width" constant="161" id="egP-sg-V44"/>
@@ -287,26 +299,28 @@
                                     <action selector="saveOrbitClick:" destination="S9O-HX-tyw" eventType="touchUpInside" id="NUV-1a-wWF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Velocity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-a3-hGy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Velocity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-a3-hGy">
                                 <rect key="frame" x="16" y="422" width="343" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="1OV-lt-NHr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="plV-Nu-PcB" firstAttribute="top" secondItem="SXm-w0-CtK" secondAttribute="bottom" constant="8" id="10Z-ay-v4U"/>
                             <constraint firstItem="SXm-w0-CtK" firstAttribute="top" secondItem="NZm-pX-MdJ" secondAttribute="top" constant="16" id="1uC-Uk-cyb"/>
                             <constraint firstItem="SXm-w0-CtK" firstAttribute="leading" secondItem="NZm-pX-MdJ" secondAttribute="leading" constant="16" id="2sf-jy-Vx3"/>
+                            <constraint firstAttribute="trailing" secondItem="lDe-7g-gsR" secondAttribute="trailing" id="2wK-th-dT2"/>
                             <constraint firstItem="ysz-a3-hGy" firstAttribute="top" secondItem="plV-Nu-PcB" secondAttribute="bottom" constant="24" id="3xa-I2-inQ"/>
+                            <constraint firstItem="lDe-7g-gsR" firstAttribute="leading" secondItem="NZm-pX-MdJ" secondAttribute="leading" id="8YF-a4-7ZD"/>
                             <constraint firstItem="uvY-VT-PGA" firstAttribute="centerX" secondItem="rra-Gf-wzA" secondAttribute="centerX" id="NZb-j0-LAl"/>
                             <constraint firstItem="NZm-pX-MdJ" firstAttribute="trailing" secondItem="ysz-a3-hGy" secondAttribute="trailing" constant="16" id="Php-uW-0fv"/>
                             <constraint firstItem="ysz-a3-hGy" firstAttribute="leading" secondItem="NZm-pX-MdJ" secondAttribute="leading" constant="16" id="TQ5-l9-rpg"/>
+                            <constraint firstAttribute="bottom" secondItem="lDe-7g-gsR" secondAttribute="bottom" id="We5-uk-NaR"/>
                             <constraint firstItem="NZm-pX-MdJ" firstAttribute="trailing" secondItem="SXm-w0-CtK" secondAttribute="trailing" constant="16" id="aIg-dq-0tj"/>
                             <constraint firstItem="Mz5-FA-Qc7" firstAttribute="leading" secondItem="NZm-pX-MdJ" secondAttribute="leading" constant="16" id="cdw-ac-xVg"/>
                             <constraint firstItem="wIg-et-3bV" firstAttribute="centerY" secondItem="plV-Nu-PcB" secondAttribute="centerY" id="de2-7z-bWa"/>
@@ -314,6 +328,7 @@
                             <constraint firstItem="NZm-pX-MdJ" firstAttribute="trailing" secondItem="wIg-et-3bV" secondAttribute="trailing" constant="16" id="lTI-jb-kjn"/>
                             <constraint firstItem="wIg-et-3bV" firstAttribute="leading" secondItem="plV-Nu-PcB" secondAttribute="trailing" constant="24" id="tmk-cg-VdW"/>
                             <constraint firstItem="Mz5-FA-Qc7" firstAttribute="top" secondItem="ysz-a3-hGy" secondAttribute="bottom" id="u7U-gU-KvO"/>
+                            <constraint firstItem="lDe-7g-gsR" firstAttribute="top" secondItem="rra-Gf-wzA" secondAttribute="top" id="v6F-Gu-uNc"/>
                             <constraint firstItem="plV-Nu-PcB" firstAttribute="leading" secondItem="NZm-pX-MdJ" secondAttribute="leading" constant="16" id="wSg-nb-3Vf"/>
                             <constraint firstItem="NZm-pX-MdJ" firstAttribute="bottom" secondItem="uvY-VT-PGA" secondAttribute="bottom" constant="16" id="wal-Ry-fPA"/>
                             <constraint firstItem="Ybh-LB-N47" firstAttribute="centerY" secondItem="Mz5-FA-Qc7" secondAttribute="centerY" id="zN7-OM-sQa"/>
@@ -346,9 +361,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-164" y="-388"/>
+            <point key="canvasLocation" x="-164" y="-388.66995073891627"/>
         </scene>
-        <!--Orbital Elements-->
+        <!--Controller-->
         <scene sceneID="4lq-CB-hN8">
             <objects>
                 <viewController id="jDg-Av-zdz" customClass="OEController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
@@ -356,8 +371,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rvBG.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oZy-1W-ulK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pay-z1-Lho">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oGG-gL-XLa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
-                                <rect key="frame" x="16" y="180" width="345.66666666666669" height="262"/>
+                                <rect key="frame" x="16" y="164" width="345.66666666666669" height="262"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
                                         <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="90"/>
@@ -443,7 +469,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
-                                <rect key="frame" x="16" y="446" width="269" height="262"/>
+                                <rect key="frame" x="16" y="430" width="269" height="262"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
                                         <rect key="frame" x="0.0" y="0.0" width="269" height="90"/>
@@ -529,7 +555,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
-                                <rect key="frame" x="184" y="210" width="175" height="204"/>
+                                <rect key="frame" x="184" y="194" width="175" height="204"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-1217.394287109375" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
                                         <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
@@ -564,7 +590,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
-                                <rect key="frame" x="184" y="475" width="175" height="204"/>
+                                <rect key="frame" x="184" y="459" width="175" height="204"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="68" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
                                         <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
@@ -600,7 +626,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
                                 <rect key="frame" x="107" y="726" width="161" height="36"/>
-                                <color key="backgroundColor" red="0.8912200159" green="0.58363504190000004" blue="0.17620554329999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="BF2-4S-LkO"/>
                                     <constraint firstAttribute="height" constant="36" id="YjW-jP-roj"/>
@@ -619,11 +645,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Orbital Elements" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-yp-xQ4">
-                                <rect key="frame" x="16" y="120" width="343" height="44"/>
+                                <rect key="frame" x="16" y="104" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SAP-6J-c7V"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -631,27 +657,35 @@
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Pay-z1-Lho" secondAttribute="bottom" id="CeT-pU-Kbk"/>
                             <constraint firstItem="eBY-yp-xQ4" firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" id="DH1-OP-eNE"/>
                             <constraint firstItem="vbE-no-N3a" firstAttribute="bottom" secondItem="WQq-Ey-eV4" secondAttribute="bottom" constant="16" id="Dl2-6e-UOF"/>
                             <constraint firstItem="wtf-yP-Gd7" firstAttribute="top" secondItem="eBY-yp-xQ4" secondAttribute="bottom" constant="16" id="Fxf-HK-lSU"/>
+                            <constraint firstItem="Pay-z1-Lho" firstAttribute="trailing" secondItem="vbE-no-N3a" secondAttribute="trailing" id="JIi-Fd-2tk"/>
                             <constraint firstItem="vbE-no-N3a" firstAttribute="trailing" secondItem="cXT-iJ-rJM" secondAttribute="trailing" constant="16" id="Kx6-oz-aTN"/>
+                            <constraint firstItem="Pay-z1-Lho" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="MVr-8H-cVr"/>
                             <constraint firstItem="wtf-yP-Gd7" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="16" id="PLo-9r-GnR"/>
                             <constraint firstItem="Gz2-Z3-o5R" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="184" id="QxK-wp-iCy"/>
                             <constraint firstItem="eBY-yp-xQ4" firstAttribute="leading" secondItem="wtf-yP-Gd7" secondAttribute="leading" id="REO-gw-xEd"/>
-                            <constraint firstItem="eBY-yp-xQ4" firstAttribute="top" secondItem="vbE-no-N3a" secondAttribute="top" constant="32" id="WKs-yb-9FF"/>
+                            <constraint firstItem="eBY-yp-xQ4" firstAttribute="top" secondItem="vbE-no-N3a" secondAttribute="top" constant="16" id="WKs-yb-9FF"/>
                             <constraint firstItem="vbE-no-N3a" firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" constant="16" id="Zzu-r3-Xjx"/>
                             <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="4" id="bkb-XQ-d47"/>
                             <constraint firstItem="cXT-iJ-rJM" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="33" id="cC9-8c-2rF"/>
+                            <constraint firstItem="Pay-z1-Lho" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cS2-zs-IRv"/>
+                            <constraint firstItem="oZy-1W-ulK" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cde-p0-yJ8"/>
                             <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="Gz2-Z3-o5R" secondAttribute="bottom" constant="32" id="hRe-iH-nTs"/>
                             <constraint firstItem="t8j-K3-b4C" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="16" id="mNT-Rh-4yM"/>
+                            <constraint firstAttribute="bottom" secondItem="oZy-1W-ulK" secondAttribute="bottom" id="nC1-lv-Gew"/>
+                            <constraint firstItem="oZy-1W-ulK" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="ntG-he-T3X"/>
                             <constraint firstItem="WQq-Ey-eV4" firstAttribute="centerX" secondItem="NUe-qB-HHA" secondAttribute="centerX" id="reu-Zb-og2"/>
+                            <constraint firstAttribute="trailing" secondItem="oZy-1W-ulK" secondAttribute="trailing" id="rtg-mG-hbD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vbE-no-N3a"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="eIs-yA-qEH" appends="YES" id="QHd-EL-imh"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Orbital Elements" id="cGd-qE-UZs"/>
+                    <navigationItem key="navigationItem" id="cGd-qE-UZs"/>
                     <connections>
                         <outlet property="aSlider" destination="g91-C7-R67" id="6CZ-c3-R7k"/>
                         <outlet property="aTField" destination="fN2-zu-MyD" id="bBM-3k-fl8"/>
@@ -674,7 +708,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-164" y="460"/>
+            <point key="canvasLocation" x="-164" y="459.60591133004925"/>
         </scene>
         <!--ARViewController-->
         <scene sceneID="tXr-a1-R10">
@@ -860,7 +894,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-ma-Aua">
                                         <rect key="frame" x="0.0" y="68" width="175" height="36"/>
-                                        <color key="backgroundColor" red="0.21568627450980393" green="0.0" blue="0.70196078431372544" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.30233701470000002" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
                                         <state key="normal" title="New Orbit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1015,7 +1049,7 @@
                                     <constraint firstAttribute="width" constant="200" id="YjO-bI-VfM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="0.99460898583995905" blue="0.21104470105795126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="0.0" height="2"/>
@@ -1159,6 +1193,7 @@
     <resources>
         <image name="OrbitBGMain.jpg" width="1440" height="2560"/>
         <image name="PCIOEBackground.png" width="1080" height="1920"/>
+        <image name="rvBG.jpg" width="1242" height="2208"/>
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
