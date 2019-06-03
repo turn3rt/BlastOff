@@ -131,14 +131,14 @@ class OEController: UIViewController, UITextFieldDelegate {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if incTField.isEditing || omegaTField.isEditing || nuTField.isEditing == true {
-            if self.view.frame.origin.y == 88 {
+            if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 180 //keyboardSize.height
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 88 {
+        if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y += 180 //keyboardSize.height
         }
     }
@@ -162,14 +162,14 @@ class OEController: UIViewController, UITextFieldDelegate {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
-                self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits)")
+                self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits*4)")
                 let oe = [Double(self.aSlider.value),
                           Double(self.eSlider.value),
-                          Double(self.capOmegaSlider.value),
-                          Double(self.incSlider.value),
-                          Double(self.omegaSlider.value),
-                          Double(self.nuSlider.value)]
-                self.defaults.set(oe, forKey: "\(savedNumberOfOrbits+2)")
+                          Double(deg2rad(Double(self.capOmegaSlider.value))),
+                          Double(deg2rad(Double(self.incSlider.value))),
+                          Double(deg2rad(Double(self.omegaSlider.value))),
+                          Double(deg2rad(Double(self.nuSlider.value)))]
+                self.defaults.set(oe, forKey: "\((savedNumberOfOrbits*4)+2)")
                 print("and the following orbital element values: [\(oe)]")
 
                 let rvVals = oe2rv(oe: oe, mu: earthGravityParam)
@@ -180,14 +180,14 @@ class OEController: UIViewController, UITextFieldDelegate {
                                rvVals.vPCI[1],
                                rvVals.vPCI[2]]
                 
-                self.defaults.set(rvArray, forKey: "\(savedNumberOfOrbits+1)")
+                self.defaults.set(rvArray, forKey: "\((savedNumberOfOrbits*4)+1)")
                 print("with the following rv values: [\(rvArray)]")
                 // set default show setting to true for ARDrawing
-                self.defaults.set(true, forKey: "\(savedNumberOfOrbits+3)")
+                self.defaults.set(true, forKey: "\((savedNumberOfOrbits*4)+3)")
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
                 self.defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true) //.popViewController(animated: true)
                 print("Save Success")
             } else {
                 alert.message = "Error: Please enter a name as a single word with no spaces"

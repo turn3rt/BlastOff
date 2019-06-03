@@ -98,10 +98,10 @@ class OrbitsTableViewController: UITableViewController {
             }
             return cell
         case 1:
-            cell.orbit = Orbit(name: defaults.string(forKey: indexPath.row.description)!,
-                               rv: defaults.object(forKey: (indexPath.row+1).description) as? [Double] ?? [Double](),
-                               oe: defaults.object(forKey: (indexPath.row+2).description) as? [Double] ?? [Double](),
-                               isShown: defaults.bool(forKey: (indexPath.row+3).description))
+            cell.orbit = Orbit(name: defaults.string(forKey: (indexPath.row*4).description)!,
+                               rv: defaults.object(forKey: ((indexPath.row*4)+1).description) as? [Double] ?? [Double](),
+                               oe: defaults.object(forKey: ((indexPath.row*4)+2).description) as? [Double] ?? [Double](),
+                               isShown: defaults.bool(forKey: ((indexPath.row*4)+3).description))
             cell.orbitName.text = cell.orbit.name
             return cell
         default:
@@ -156,9 +156,28 @@ class OrbitsTableViewController: UITableViewController {
             }
 
         case 1:
-            print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.accessoryType = .checkmark
+            print("didselectRowAt for drawing the orbit")
+            print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: (indexPath.row*4).description)!)")
+            if isEditingShownOrbits == true && defaults.bool(forKey: "\(indexPath.row + 3)") == false {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    // @TODO: Selecting Cell for Drawing
+                    // cell.accessoryType = .checkmark
+                }
+            } else {
+                print("presenting PCIOE controller with selected row: \(indexPath.row)")
+                let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
+                // Prep for data passage
+                let orbitToPassName = defaults.string(forKey: "\(indexPath.row*4)")
+//                print("Printing orbitPCI's: \(defaults.array(forKey: "\((indexPath.row*4)+1)"))")
+                let orbitToPassPCI = defaults.array(forKey: "\((indexPath.row*4) + 1)") as! [Double] //oe2rvArray(oe: defaultOrbitOEs[indexPath.row], mu: earthGravityParam)
+                let orbitToPassOE = defaults.array(forKey: "\((indexPath.row*4) + 2)") as! [Double]
+                vc.isModifyingOrbitPCIOE = true
+                let orbitToPass = Orbit(name: orbitToPassName!, rv: orbitToPassPCI, oe: orbitToPassOE, isShown: false)
+
+                // Data Passage
+                vc.orbit = orbitToPass
+                navigationController?.pushViewController(vc, animated: true)
+                
             }
         default:
             print("Error: No section")
