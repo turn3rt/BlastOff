@@ -59,7 +59,7 @@ let defaultOrbitNames = ["Molniya Orbit", "Tundra Orbit", "I.S.S Orbit"]
 let defaultOrbitOEs = [MolniyaOE, tundra45oe, ISSoe]
 
 var defaultOrbitisShown = [true, true, true] // defaults to all orbits shown on launch button tap on fresh install
-var numOfDefaultOrbitsShown = 3
+var numOfDefaultOrbitsShown = defaultOrbitisShown.filter{$0}.count // default is number of default orbits
 
 
 // MARK: Helper Functions
@@ -100,6 +100,7 @@ let colors = [UIColor.orange,
 
 //MARK: - Data Management
 var savedNumberOfOrbits = UserDefaults.standard.integer(forKey: "savedNumberOfOrbits")
+// var totalNumberOfOrbits = UserDefaults.standard.integer(forKey: "totalNumberOfOrbits") // default is number of default orbits
 
 
 

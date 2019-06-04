@@ -557,7 +557,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
                                 <rect key="frame" x="184" y="194" width="175" height="204"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-1217.394287109375" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="24000" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
                                         <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="yni-Nk-sAo"/>
@@ -1093,9 +1093,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="K0U-q7-e87">
-                            <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="100" width="375" height="499"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <sections>
                             <tableViewSection id="UAp-e8-5VG">
@@ -1126,13 +1126,14 @@
                                                         <segue destination="Kmq-eH-Y7W" kind="show" identifier="editShownOrbits" id="7kq-QY-wra"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/3 Orbits Shown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-Uj-PhB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0 Orbits Shown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-Uj-PhB">
                                                     <rect key="frame" x="32" y="11" width="255" height="28"/>
                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="OVW-dW-eaO" firstAttribute="top" secondItem="jZz-iR-R0p" secondAttribute="top" constant="8" id="Bhq-iU-V9i"/>
                                                 <constraint firstAttribute="trailing" secondItem="OVW-dW-eaO" secondAttribute="trailing" constant="16" id="IhA-E2-xWq"/>
@@ -1184,10 +1185,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="7uo-s9-TLr"/>
+                    <connections>
+                        <outlet property="numOfOrbitsLabel" destination="ZSS-Uj-PhB" id="hhg-xQ-toe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8z-CQ-rhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2679" y="1066"/>
+            <point key="canvasLocation" x="-2679.1999999999998" y="1065.5172413793105"/>
         </scene>
     </scenes>
     <resources>
@@ -1197,6 +1201,6 @@
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oiW-EM-Y3I"/>
+        <segue reference="7kq-QY-wra"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,10 +9,16 @@
 import UIKit
 
 class SettingsTBController: UITableViewController {
-
+    @IBOutlet weak var numOfOrbitsLabel: UILabel!
+    var totalNumberOfOrbits = defaultOrbitNames.count
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if savedNumberOfOrbits != 0 {
+            totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,6 +37,17 @@ class SettingsTBController: UITableViewController {
 //        // #warning Incomplete implementation, return the number of rows
 //        return 0
 //    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        // let totalNumOfOrbits = defaults.value(forKey: "totalNumberOfOrbits") ?? defaultOrbitNames.count
+        let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? [true] //defaultOrbitisShown.filter{$0}.count
+        let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
+        let numOfShownOrbits = numOfDefaultOrbitsShown // need to add user selected orbits after
+        numOfOrbitsLabel.text = "\(numOfShownOrbits)/\(totalNumberOfOrbits) Orbits Shown"
+    }
     
     
     // MARK: - IBActions
@@ -109,5 +126,5 @@ class SettingsTBController: UITableViewController {
  
     
     // MARK: - Data Management
-
+    let defaults = UserDefaults.standard
 }

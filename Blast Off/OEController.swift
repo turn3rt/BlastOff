@@ -101,7 +101,6 @@ class OEController: UIViewController, UITextFieldDelegate {
         incTField.keyboardType = .numbersAndPunctuation
         omegaTField.keyboardType = .numbersAndPunctuation
         nuTField.keyboardType = .numbersAndPunctuation
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -158,6 +157,7 @@ class OEController: UIViewController, UITextFieldDelegate {
         // button creation
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
+            textField.autocapitalizationType = UITextAutocapitalizationType.words // why doesnt work
             if textField.text != "" && textField.text?.contains(" ") == false {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
@@ -187,6 +187,7 @@ class OEController: UIViewController, UITextFieldDelegate {
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
                 self.defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
+                //self.defaults.set(totalNumberOfOrbits, forKey: "totalNumberOfOrbits")
                 self.navigationController?.popToRootViewController(animated: true) //.popViewController(animated: true)
                 print("Save Success")
             } else {

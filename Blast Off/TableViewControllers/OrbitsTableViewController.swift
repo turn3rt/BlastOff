@@ -16,11 +16,12 @@ class OrbitsTableViewController: UITableViewController {
     @IBAction func doneButtonClick(_ sender: Any) {
         print("Done Button Clicked")
         self.isEditingShownOrbits = false
-        self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
         defaults.set(defaultOrbitisShown, forKey: "defaultOrbitisShown")
         print("saved defaultOrbitIsShown as: \(defaultOrbitisShown)")
-        numOfDefaultOrbitsShown = defaultOrbitisShown.filter{$0}.count
+        numOfDefaultOrbitsShown = defaultOrbitisShown.filter{$0}.count //  counts the number of "true" statements
         print("and the number of default orbits shown is currently: \(numOfDefaultOrbitsShown)")
+        self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
+
 //        let arr = [false, true, true, false, true]
 //        let numberOfTrue = arr.filter{$0}.count
 //        print(numberOfTrue) // 3
@@ -158,7 +159,7 @@ class OrbitsTableViewController: UITableViewController {
         case 1:
             print("didselectRowAt for drawing the orbit")
             print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: (indexPath.row*4).description)!)")
-            if isEditingShownOrbits == true && defaults.bool(forKey: "\(indexPath.row + 3)") == false {
+            if isEditingShownOrbits == true && defaults.bool(forKey: "\((indexPath.row*4) + 3)") == false {
                 if let cell = tableView.cellForRow(at: indexPath) {
                     // @TODO: Selecting Cell for Drawing
                     // cell.accessoryType = .checkmark
@@ -177,7 +178,6 @@ class OrbitsTableViewController: UITableViewController {
                 // Data Passage
                 vc.orbit = orbitToPass
                 navigationController?.pushViewController(vc, animated: true)
-                
             }
         default:
             print("Error: No section")

@@ -65,10 +65,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         Earth.name = "Earth"
         rotate(node: Earth)
         
-        
+        let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? [true] //defaultOrbitisShown.filter{$0}.count
+        let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
         if numOfDefaultOrbitsShown != 0 {
             for num in 0...defaultOrbitNames.count-1 {
-                if defaultOrbitisShown[num] == true {
+                if shownDefaultOrbitsArray[num] == true { //defaultOrbitisShown[num] == true {
                     createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
                     print("created default orbit with name: \(defaultOrbitNames[num])")
                 }
