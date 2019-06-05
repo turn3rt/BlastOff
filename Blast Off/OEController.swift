@@ -59,14 +59,7 @@ class OEController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
-        if isModifyingOrbitPCIOE == true {
-            aTField.text        = String(self.orbit.oe[0])
-            eTField.text        = String(self.orbit.oe[1])
-            capOmegaTField.text = String(rad2deg(self.orbit.oe[2]))
-            incTField.text      = String(rad2deg(self.orbit.oe[3]))
-            omegaTField.text    = String(rad2deg(self.orbit.oe[4]))
-            nuTField.text       = String(rad2deg(self.orbit.oe[5]))
-        }
+       
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -77,6 +70,17 @@ class OEController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
+        if isModifyingOrbitPCIOE == true {
+            aTField.text        = String(self.orbit.oe[0])
+            eTField.text        = String(self.orbit.oe[1])
+            capOmegaTField.text = String(rad2deg(self.orbit.oe[2]))
+            incTField.text      = String(rad2deg(self.orbit.oe[3]))
+            omegaTField.text    = String(rad2deg(self.orbit.oe[4]))
+            nuTField.text       = String(rad2deg(self.orbit.oe[5]))
+            
+            // @TODO: Set slider values
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -157,8 +161,7 @@ class OEController: UIViewController, UITextFieldDelegate {
         // button creation
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
-            textField.autocapitalizationType = UITextAutocapitalizationType.words // why doesnt work
-            if textField.text != "" && textField.text?.contains(" ") == false {
+            if textField.text != "" { // && textField.text?.contains(" ") == false {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
@@ -201,8 +204,9 @@ class OEController: UIViewController, UITextFieldDelegate {
         // adding to controller
         alert.addAction(save)
         alert.addAction(cancel)
-        alert.addTextField { (textField) in
+        alert.addTextField { (textField) in // text field var params go here
             textField.placeholder = "Ex: Molniya"
+            textField.autocapitalizationType = UITextAutocapitalizationType.words
         }
         self.present(alert, animated: true, completion: nil)
     }

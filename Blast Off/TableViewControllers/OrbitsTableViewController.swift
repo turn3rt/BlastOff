@@ -104,6 +104,13 @@ class OrbitsTableViewController: UITableViewController {
                                oe: defaults.object(forKey: ((indexPath.row*4)+2).description) as? [Double] ?? [Double](),
                                isShown: defaults.bool(forKey: ((indexPath.row*4)+3).description))
             cell.orbitName.text = cell.orbit.name
+            
+            if isEditingShownOrbits == true && defaults.bool(forKey: "\((indexPath.row*4) + 3)") == true {
+                cell.accessoryType = .checkmark
+                cell.tintColor = colors[indexPath.row  + defaultOrbitNames.count]
+                cell.orbitName.textColor = colors[indexPath.row + defaultOrbitNames.count]
+                self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
             return cell
         default:
             return cell
@@ -111,7 +118,7 @@ class OrbitsTableViewController: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.darkGray
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
@@ -153,16 +160,17 @@ class OrbitsTableViewController: UITableViewController {
                 // Data Passage
                 vc.orbit = orbitToPass
                 navigationController?.pushViewController(vc, animated: true)
-                
             }
 
         case 1:
             print("didselectRowAt for drawing the orbit")
             print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: (indexPath.row*4).description)!)")
             if isEditingShownOrbits == true && defaults.bool(forKey: "\((indexPath.row*4) + 3)") == false {
-                if let cell = tableView.cellForRow(at: indexPath) {
-                    // @TODO: Selecting Cell for Drawing
-                    // cell.accessoryType = .checkmark
+                defaults.set(true, forKey: "\((indexPath.row*4) + 3)")//defaults.bool(forKey: "\((indexPath.row*4) + 3)") == false
+                if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell{
+                    cell.accessoryType = .checkmark
+                    cell.tintColor = colors[indexPath.row + defaultOrbitNames.count]
+                    cell.orbitName.textColor = colors[indexPath.row + defaultOrbitNames.count ]
                 }
             } else {
                 print("presenting PCIOE controller with selected row: \(indexPath.row)")
@@ -196,19 +204,18 @@ class OrbitsTableViewController: UITableViewController {
                     cell.tintColor = UIColor.black
                     cell.orbitName.textColor = UIColor.black
                 }
-            } else {
-                print("error with selecting tbcells")
-//                print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
-//                defaultOrbitisShown[indexPath.row] = true
-//                if let cell = tableView.cellForRow(at: indexPath) {
-//                    cell.accessoryType = .checkmark
-//                }
             }
-
+            
         case 1:
-            print("User deselected \(indexPath.row) with orbit name: \(defaults.string(forKey: indexPath.row.description)!)")
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.accessoryType = .none
+            print("User deselected \(indexPath.row) with orbit name: \(defaults.string(forKey: (indexPath.row*4).description)!)")
+            if defaults.bool(forKey: "\((indexPath.row*4) + 3)") == true && isEditingShownOrbits == true {
+                print("User deselected: \(defaultOrbitNames[indexPath.row])")
+                defaults.set(false, forKey: "\((indexPath.row*4) + 3)")
+                if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
+                    cell.accessoryType = .none
+                    cell.tintColor = UIColor.black
+                    cell.orbitName.textColor = UIColor.black
+                }
             }
         default:
             print("Error: No section")

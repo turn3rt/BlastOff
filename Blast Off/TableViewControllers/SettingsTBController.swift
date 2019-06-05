@@ -45,7 +45,14 @@ class SettingsTBController: UITableViewController {
         // let totalNumOfOrbits = defaults.value(forKey: "totalNumberOfOrbits") ?? defaultOrbitNames.count
         let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? [true] //defaultOrbitisShown.filter{$0}.count
         let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
-        let numOfShownOrbits = numOfDefaultOrbitsShown // need to add user selected orbits after
+        var userOrbitsAreShownArray = [Bool()]
+        for y in 0...savedNumberOfOrbits-1 {
+            var keyNum = Int()
+            keyNum = y == 0 ? 3 : 3+(y*4) // if y = 0, keyNum = 3 else keyNum = y*4
+            userOrbitsAreShownArray.append(defaults.bool(forKey: "\(keyNum)")) //userOrbitsAreShownArray[y] = defaults.bool(forKey: "\(keyNum)")
+        }
+        let numOfUserOrbitsShown = userOrbitsAreShownArray.filter{$0}.count
+        let numOfShownOrbits = numOfDefaultOrbitsShown + numOfUserOrbitsShown // need to add user selected orbits after
         numOfOrbitsLabel.text = "\(numOfShownOrbits)/\(totalNumberOfOrbits) Orbits Shown"
     }
     
