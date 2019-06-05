@@ -104,7 +104,7 @@ let colors = [UIColor.orange,
               UIColor.purple]
 
 //MARK: - Data Management
-var savedNumberOfOrbits = UserDefaults.standard.integer(forKey: "savedNumberOfOrbits")
+var savedNumberOfOrbits = UserDefaults.standard.integer(forKey: "savedNumberOfOrbits") 
 // var totalNumberOfOrbits = UserDefaults.standard.integer(forKey: "totalNumberOfOrbits") // default is number of default orbits
 
 

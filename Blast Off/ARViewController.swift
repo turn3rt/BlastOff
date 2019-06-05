@@ -65,7 +65,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         Earth.name = "Earth"
         rotate(node: Earth)
         
-        let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? [true] //defaultOrbitisShown.filter{$0}.count
+        let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown //defaultOrbitisShown.filter{$0}.count
         let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
         if numOfDefaultOrbitsShown != 0 {
             for num in 0...defaultOrbitNames.count-1 {
@@ -75,6 +75,47 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                 }
             }
         }
+        
+        if savedNumberOfOrbits != 0 {
+            var userOrbitsAreShownArray = [Bool]()
+            for y in 0...savedNumberOfOrbits-1 {
+                var keyNum = Int()
+                keyNum = y == 0 ? 3 : 3+(y*4) // if y = 0, keyNum = 3 else keyNum = y*4
+                userOrbitsAreShownArray.append(defaults.bool(forKey: "\(keyNum)"))
+            }
+            
+            let indexOfShownUserOrbits = userOrbitsAreShownArray.enumerated().filter { $1 }.map { $0.0 } // finds indices of true vals in userOrbitsAreShownArray
+            print("var arr i need to know: \(indexOfShownUserOrbits)")
+            if indexOfShownUserOrbits != [] {
+                for z in 0...indexOfShownUserOrbits.count-1 {
+                    var nameKey = Int()
+                    nameKey = z == 0 ? 0 : (z*4) // if z = 0, keyNum = 0 else keyNum = z*4
+                    let userOrbitName = defaults.string(forKey: "\(nameKey)")!
+                    
+                    var oeKey = Int()
+                    oeKey = z == 0 ? 2 : 2 + (z*4)
+                    let userOrbitOE = defaults.value(forKey: "\(oeKey)") as! [Double]
+                    createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+z])
+                    print("created user orbit with name: \(userOrbitName)")
+                }
+            }
+
+           
+
+            
+
+        }
+        
+        
+        
+//        for y in 0...savedNumberOfOrbits-1 {
+//            var keyNum = Int()
+//            keyNum = y == 0 ? 3 : 3+(y*4) // if y = 0, keyNum = 3 else keyNum = y*4
+//            userOrbitsAreShownArray.append(defaults.bool(forKey: "\(keyNum)")) //userOrbitsAreShownArray[y] = defaults.bool(forKey: "\(keyNum)")
+//        }
+//        let numOfUserOrbitsShown = userOrbitsAreShownArray.filter{$0}.count
+//        let numOfShownOrbits = numOfDefaultOrbitsShown + numOfUserOrbitsShown // need to add user selected orbits after
+//        numOfOrbitsLabel.text = "\(numOfShownOrbits)/\(totalNumberOfOrbits) Orbits Shown"
     }
     
     
@@ -134,7 +175,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // let omega    = oe[4]
         let nu0      = oe[5]
     
-        let interval = 2*Double.pi/Double(numOfPoints) // divide by fraction to get fraction of orbit
+        let fraction = 1.0
+        let interval = (2*Double.pi/Double(numOfPoints))/fraction // divide by fraction to get fraction of orbit
         
         var nuStart = nu0
         
@@ -152,8 +194,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             let rNext = ans.rPCI
             let rNextAR = ([(rNext[0]/scaleFactor) + earthPosAR.x,
                             (rNext[1]/scaleFactor) + earthPosAR.y,
-                            (rNext[2]/scaleFactor) + earthPosAR.z])
+                            (rNext[2]/scaleFactor) + earthPosAR.z]) // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
+            // https://stackoverflow.com/questions/51760421/which-measuring-unit-is-used-in-scnvector3-position-for-x-y-and-z-in-arkit
             let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+            //print("linePoint is: \(linePoint)")
             let drawPoint = SCNSphere(radius: 0.0005) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
             drawNode.position = SCNVector3(linePoint)

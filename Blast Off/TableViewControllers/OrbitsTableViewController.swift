@@ -209,7 +209,7 @@ class OrbitsTableViewController: UITableViewController {
         case 1:
             print("User deselected \(indexPath.row) with orbit name: \(defaults.string(forKey: (indexPath.row*4).description)!)")
             if defaults.bool(forKey: "\((indexPath.row*4) + 3)") == true && isEditingShownOrbits == true {
-                print("User deselected: \(defaultOrbitNames[indexPath.row])")
+               // print("User deselected: \(defaultOrbitNames[indexPath.row])")
                 defaults.set(false, forKey: "\((indexPath.row*4) + 3)")
                 if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
                     cell.accessoryType = .none
