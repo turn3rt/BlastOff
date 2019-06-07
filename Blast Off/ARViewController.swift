@@ -23,13 +23,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     let earthGravityParam = 398600.0 // kilometers^3/sec^2
     let scaleFactor = 200000.0 // Default: 200000.0
     lazy var earthRadiusAR = 6378.1000/scaleFactor // kilometers // SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
-    let earthPosAR = simd_double3(0, -0.12, -0.3) // meters from point of origin (Phone pos. upon app start)
-    
+    let earthPosAR = simd_double3(0,0,0)//simd_double3(0, -0.12, -0.3) // meters from point of origin (Phone pos. upon app start)
     
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureScene()
+        // configureScene()
         // Create a new scene
         let scene = SCNScene()
         // Set the scene to the view
@@ -57,6 +56,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             node.removeFromParentNode()
         } // clears everything
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        configureScene()
         
         // Adds Earth Back
         let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
@@ -95,8 +95,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                     var oeKey = Int()
                     oeKey = z == 0 ? 2 : 2 + (z*4)
                     let userOrbitOE = defaults.value(forKey: "\(oeKey)") as! [Double]
-                    createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+z])
-                    print("created user orbit with name: \(userOrbitName)")
+                    if (defaultOrbitNames.count+z) >= colors.count {
+                        let k = Int(z/10)
+                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[z-(k*10)])
+                    } else {
+                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+z])
+                    }
+                    print("Succssfully created user orbit with name: \(userOrbitName)")
                 }
             }
 
@@ -194,9 +199,18 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             let rNext = ans.rPCI
             let rNextAR = ([(rNext[0]/scaleFactor) + earthPosAR.x,
                             (rNext[1]/scaleFactor) + earthPosAR.y,
-                            (rNext[2]/scaleFactor) + earthPosAR.z]) // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
+                            (rNext[2]/scaleFactor) + earthPosAR.z])
+            // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
             // https://stackoverflow.com/questions/51760421/which-measuring-unit-is-used-in-scnvector3-position-for-x-y-and-z-in-arkit
-            let linePoint = double3(rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+            
+//            let rotationAngle = -90.0
+//            let rotatedPoints = [rNextAR[0],
+//                                (rNextAR[1]*cos(rotationAngle)) - (rNextAR[2]*sin(rotationAngle)),
+//                                (rNextAR[1]*sin(rotationAngle)) + (rNextAR[2]*cos(rotationAngle))]
+//            https://www.siggraph.org/education/materials/HyperGraph/modeling/mod_tran/3drota.htm
+            
+            
+            let linePoint = double3(rNextAR) //rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
             //print("linePoint is: \(linePoint)")
             let drawPoint = SCNSphere(radius: 0.0005) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
