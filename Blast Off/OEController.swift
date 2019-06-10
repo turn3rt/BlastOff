@@ -79,13 +79,17 @@ class OEController: UIViewController, UITextFieldDelegate {
             omegaTField.text    = String(rad2deg(self.orbit.oe[4]))
             nuTField.text       = String(rad2deg(self.orbit.oe[5]))
             
+            aSlider.value        = Float(self.orbit.oe[0])
+            eSlider.value        = Float(self.orbit.oe[1])
+            capOmegaSlider.value = Float(rad2deg(self.orbit.oe[2]))
+            incSlider.value      = Float(rad2deg(self.orbit.oe[3]))
+            omegaSlider.value    = Float(rad2deg(self.orbit.oe[4]))
+            nuSlider.value       = Float(rad2deg(self.orbit.oe[5]))
+
             print("max slider values: aSlider: \(aSlider.maximumValue)")
             print("max slider values: eSlider: \(eSlider.maximumValue)")
             print("min slider values: aSlider: \(aSlider.minimumValue)")
             print("min slider values: aSlider: \(eSlider.minimumValue)")
-
-
-
             
             // @TODO: Set slider values
         }

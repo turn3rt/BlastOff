@@ -1360,7 +1360,13 @@
                             <outlet property="delegate" destination="YP3-CA-sLN" id="7fj-iu-SZk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="7uo-s9-TLr"/>
+                    <navigationItem key="navigationItem" title="Settings" id="7uo-s9-TLr">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="YjW-Qg-nBu">
+                            <connections>
+                                <action selector="doneButtonClick:" destination="YP3-CA-sLN" id="cJg-QE-qO3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="featurePointsSwitch" destination="Fre-fR-KZk" id="JNj-hk-iL9"/>
                         <outlet property="fractionControl" destination="mYX-73-3Fl" id="2Ew-dU-bVd"/>

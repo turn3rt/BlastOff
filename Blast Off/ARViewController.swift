@@ -27,6 +27,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        // sceneView.debugOptions = SCNDebugOptions.showWorldOrigin doesnt work 
     }
     
     override func viewWillAppear(_ animated: Bool) {

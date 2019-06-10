@@ -18,6 +18,10 @@ class SettingsTBController: UITableViewController {
 
     
     
+    @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func sizeControlChange(_ sender: UISegmentedControl) {
         switch sizeControl.selectedSegmentIndex {
         case 0: // small
@@ -100,6 +104,7 @@ class SettingsTBController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         // super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.setHidesBackButton(true, animated:true);
         // let totalNumOfOrbits = defaults.value(forKey: "totalNumberOfOrbits") ?? defaultOrbitNames.count
         let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown //defaultOrbitisShown.filter{$0}.count
         let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
