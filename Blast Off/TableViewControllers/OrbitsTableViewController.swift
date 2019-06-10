@@ -232,11 +232,68 @@ class OrbitsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("User deleting object a: \(indexPath)")
-            //objects.remove(at: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .fade)
+            print("User attempting to delete object at indexPath: \(indexPath)")
+            let tableViewIndexOfOrb2Del = indexPath.row
+            
+//            var orbitsBeforeDeletedIndex = [Orbit]()
+//            if memoryIndexOfOrb2Del != 0 {
+//                for n1 in 0...memoryIndexOfOrb2Del - 1 {
+//                    orbitsBeforeDeletedIndex.append(Orbit(name: defaults.string(forKey: (n1*4).description)!,
+//                                                         rv: defaults.object(forKey: ((n1*4)+1).description) as? [Double] ?? [Double](),
+//                                                         oe: defaults.object(forKey: ((n1*4)+2).description) as? [Double] ?? [Double](),
+//                                                         isShown: defaults.bool(forKey: ((n1*4)+3).description)))
+//                }
+//            }
+//            print("orbitsBeforeDeletedIndex: \(orbitsBeforeDeletedIndex)")
+            
+            // Get the Orbits after the row to be deleted
+            var orbitsAfterDeletedIndexRow = [Orbit]()
+            if tableViewIndexOfOrb2Del != (savedNumberOfOrbits - 1) { // check if the last row isn't the one being deleted
+                for n1 in (tableViewIndexOfOrb2Del + 1)...(savedNumberOfOrbits - 1) {
+                    orbitsAfterDeletedIndexRow.append(Orbit(name: defaults.string(forKey: (n1*4).description)!,
+                                                         rv: defaults.object(forKey: ((n1*4)+1).description) as? [Double] ?? [Double](),
+                                                         oe: defaults.object(forKey: ((n1*4)+2).description) as? [Double] ?? [Double](),
+                                                         isShown: defaults.bool(forKey: ((n1*4)+3).description)))
+                }
+                print("orbitsAfterDeletedIndex: \(orbitsAfterDeletedIndexRow)")
+
+                // minus one from the total number of saved orbits
+                savedNumberOfOrbits -= 1
+                defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
+                
+                // overwrite the userDefaults dicitonary values starting at the index that was deleted
+                var indexToAppendFrom = tableViewIndexOfOrb2Del
+                for n2 in 0...orbitsAfterDeletedIndexRow.count - 1  {
+                    print("New Mem index key-val pairs:")
+                    print("\(indexToAppendFrom*4):\(orbitsAfterDeletedIndexRow[n2].name)")
+                    print("\((indexToAppendFrom*4)+1):\(orbitsAfterDeletedIndexRow[n2].rv)")
+                    print("\((indexToAppendFrom*4)+2):\(orbitsAfterDeletedIndexRow[n2].oe)")
+                    print("\((indexToAppendFrom*4)+3):\(orbitsAfterDeletedIndexRow[n2].isShown)")
+                    
+                    defaults.set(orbitsAfterDeletedIndexRow[n2].name,    forKey: (indexToAppendFrom*4).description)
+                    defaults.set(orbitsAfterDeletedIndexRow[n2].rv,      forKey: ((indexToAppendFrom*4)+1).description)
+                    defaults.set(orbitsAfterDeletedIndexRow[n2].oe,      forKey: ((indexToAppendFrom*4)+2).description)
+                    defaults.set(orbitsAfterDeletedIndexRow[n2].isShown, forKey: ((indexToAppendFrom*4)+3).description)
+
+                    indexToAppendFrom += 1
+                }
+            } else { // assumes last row is one being deleted
+                // Memory Delete from UserDefaults
+                 print("Deleting orbit: \(defaults.string(forKey: (tableViewIndexOfOrb2Del*4).description)!) with memoryIndex starting at \(tableViewIndexOfOrb2Del*4)")
+                // Delete the last row from userDefaults
+                for n3 in (savedNumberOfOrbits*4)-4...(savedNumberOfOrbits*4)-1 {
+                    defaults.removeObject(forKey: n3.description)
+                }
+                savedNumberOfOrbits -= 1
+                defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
+            }
+
+            // Removing from Table View
+            tableView.reloadData()
+            
+            
         } else if editingStyle == .insert {
-            print("error wat")
+            print("error cannot insert anything to tableView")
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }

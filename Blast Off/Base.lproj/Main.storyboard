@@ -1194,7 +1194,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-4m-CDl">
                                                     <rect key="frame" x="300" y="16.666666666666671" width="51" height="31"/>
                                                     <connections>
-                                                        <action selector="worldOriginChange:" destination="YP3-CA-sLN" eventType="valueChanged" id="ftK-H3-q3G"/>
+                                                        <action selector="worldOriginChange:" destination="YP3-CA-sLN" eventType="valueChanged" id="IZL-V5-dfe"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -1319,6 +1319,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="Ez8-3Q-oOj" userLabel="Show Feature Points">
+                                        <rect key="frame" x="0.0" y="496" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ez8-3Q-oOj" id="tGQ-tu-pAc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIf-sj-daP">
+                                                    <rect key="frame" x="24" y="19" width="327" height="26"/>
+                                                    <color key="backgroundColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="Reset to Defaults">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="resetDefaults:" destination="YP3-CA-sLN" eventType="touchUpInside" id="U77-p0-ZeT"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="ZIf-sj-daP" firstAttribute="leading" secondItem="tGQ-tu-pAc" secondAttribute="leadingMargin" constant="8" id="Bv4-EQ-TBR"/>
+                                                <constraint firstItem="ZIf-sj-daP" firstAttribute="top" secondItem="tGQ-tu-pAc" secondAttribute="topMargin" constant="8" id="Gvv-bP-ir3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZIf-sj-daP" secondAttribute="bottom" constant="8" id="Khy-hj-DEf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZIf-sj-daP" secondAttribute="trailing" constant="8" id="bSF-Na-Xfz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1334,7 +1367,7 @@
                         <outlet property="numOfOrbitsLabel" destination="ZSS-Uj-PhB" id="hhg-xQ-toe"/>
                         <outlet property="orbitOriginSwitch" destination="HxX-jr-Tia" id="CmI-Pw-WIs"/>
                         <outlet property="sizeControl" destination="LIV-wc-app" id="o23-4W-JeF"/>
-                        <outlet property="worldOriginSwitch" destination="TOw-4m-CDl" id="mYh-Yv-rZL"/>
+                        <outlet property="worldOriginSwitch" destination="TOw-4m-CDl" id="qep-Bw-fWg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8z-CQ-rhD" userLabel="First Responder" sceneMemberID="firstResponder"/>

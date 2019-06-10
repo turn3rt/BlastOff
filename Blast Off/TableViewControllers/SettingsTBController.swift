@@ -20,19 +20,19 @@ class SettingsTBController: UITableViewController {
     
     @IBAction func sizeControlChange(_ sender: UISegmentedControl) {
         switch sizeControl.selectedSegmentIndex {
-        case 0:
+        case 0: // small
             scaleFactor = 300000.0
             defaults.set(scaleFactor, forKey: "scaleFactor")
             print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
-        case 1:
+        case 1: // medium
             scaleFactor = 200000.0
             defaults.set(scaleFactor, forKey: "scaleFactor")
             print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
-        case 2:
+        case 2: // large
             scaleFactor = 100000.0
             defaults.set(scaleFactor, forKey: "scaleFactor")
             print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
-        case 3:
+        case 3: // gigantic
             scaleFactor = 50000.0
             defaults.set(scaleFactor, forKey: "scaleFactor")
             print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
@@ -51,17 +51,17 @@ class SettingsTBController: UITableViewController {
     }
     
     @IBAction func worldOriginChange(_ sender: UISwitch) {
-        print("New worldOrigin State: \(worldOriginSwitch.state)")
+        print("New worldOrigin State: \(worldOriginSwitch.isOn)")
 
     }
     
     @IBAction func orbitOriginChange(_ sender: UISwitch) {
-        print("New orbitOrigin State: \(orbitOriginSwitch.state)")
+        print("New orbitOrigin State: \(orbitOriginSwitch.isOn)")
 
     }
     
     @IBAction func featurePointsChange(_ sender: UISwitch) {
-        print("New freaturePoints State: \(featurePointsSwitch.state)")
+        print("New freaturePoints State: \(featurePointsSwitch.isOn)")
 
     }
     
@@ -76,22 +76,6 @@ class SettingsTBController: UITableViewController {
         if savedNumberOfOrbits != 0 {
             totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
         }
-        
-        
-        
-        
-        
-        
-        // Loading Settings Values
-        if sizeValue != 1 {
-            sizeControl.selectedSegmentIndex = defaults.integer(forKey: "sizeValue")
-        }
-        if fractionValue != 4 {
-            fractionControl.selectedSegmentIndex = defaults.integer(forKey: "fractionValue")
-        }
-        
-        
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -133,9 +117,15 @@ class SettingsTBController: UITableViewController {
         let numOfShownOrbits = numOfDefaultOrbitsShown + numOfUserOrbitsShown // need to add user selected orbits after
         numOfOrbitsLabel.text = "\(numOfShownOrbits)/\(totalNumberOfOrbits) Orbits Shown"
         
-        
-        
-        
+
+        // Loading Settings Values
+        if sizeValue != 1 {
+            sizeControl.selectedSegmentIndex = defaults.integer(forKey: "sizeValue")
+        }
+        if fractionValue != 4 {
+            
+            fractionControl.selectedSegmentIndex = defaults.integer(forKey: "fractionValue")
+        }
         
     }
         

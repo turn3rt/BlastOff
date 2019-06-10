@@ -12,10 +12,10 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("printing key value pairs for NS UserDefaults: ")
-        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
-        }
+//        print("printing key value pairs for NS UserDefaults: ")
+//        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+//            print("\(key) = \(value) \n")
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
