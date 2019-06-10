@@ -21,9 +21,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
 //    MARK: - Math Variables
     let earthGravityParam = 398600.0 // kilometers^3/sec^2
-    let scaleFactor = 200000.0 // Default: 200000.0
-    lazy var earthRadiusAR = 6378.1000/scaleFactor // kilometers // SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
-    let earthPosAR = simd_double3(0,0,0)//simd_double3(0, -0.12, -0.3) // meters from point of origin (Phone pos. upon app start)
+    var earthRadiusAR = 6378.1000/scaleFactor // kilometers // SCALE FACTOR: 200thou smaller, double precision, converts to realistic ar rendering units from Kilometers!!!
+    let earthPosAR = simd_double3(0, -0.12, -0.3) // meters from point of origin (Phone pos. upon app start)
     
 //    MARK: - Override functions
     override func viewDidLoad() {
@@ -55,16 +54,34 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode()
         } // clears everything
+        
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         configureScene()
         
-        // Adds Earth Back
+        // Loading Settings Values
+        if sizeValue != 1 {
+            sizeValue = defaults.integer(forKey: "sizeValue")
+            scaleFactor = defaults.double(forKey: "scaleFactor")
+            //earthRadiusAR = earthRadius/scaleFactor
+        }
+        if fractionValue != 4 {
+            fractionValue = defaults.integer(forKey: "fractionValue")
+        }
+        earthRadiusAR = earthRadius/scaleFactor
+        
+        
+        
+        
+
+  
+        // Adds Earth Back to Scene
         let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
         // Add nodes to scene and name
         sceneView.scene.rootNode.addChildNode(Earth)
         Earth.name = "Earth"
         rotate(node: Earth)
         
+        // Default Orbit Drawing
         let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown //defaultOrbitisShown.filter{$0}.count
         let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
         if numOfDefaultOrbitsShown != 0 {
@@ -76,6 +93,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             }
         }
         
+        // Saved Orbit Drawing
         if savedNumberOfOrbits != 0 {
             var userOrbitsAreShownArray = [Bool]()
             for y in 0...savedNumberOfOrbits-1 {
@@ -104,23 +122,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                     print("Succssfully created user orbit with name: \(userOrbitName)")
                 }
             }
-
-           
-
-            
-
         }
         
         
         
-//        for y in 0...savedNumberOfOrbits-1 {
-//            var keyNum = Int()
-//            keyNum = y == 0 ? 3 : 3+(y*4) // if y = 0, keyNum = 3 else keyNum = y*4
-//            userOrbitsAreShownArray.append(defaults.bool(forKey: "\(keyNum)")) //userOrbitsAreShownArray[y] = defaults.bool(forKey: "\(keyNum)")
-//        }
-//        let numOfUserOrbitsShown = userOrbitsAreShownArray.filter{$0}.count
-//        let numOfShownOrbits = numOfDefaultOrbitsShown + numOfUserOrbitsShown // need to add user selected orbits after
-//        numOfOrbitsLabel.text = "\(numOfShownOrbits)/\(totalNumberOfOrbits) Orbits Shown"
+        
+        
+        
     }
     
     
@@ -180,13 +188,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // let omega    = oe[4]
         let nu0      = oe[5]
     
-        let fraction = 1.0
-        let interval = (2*Double.pi/Double(numOfPoints))/fraction // divide by fraction to get fraction of orbit
+        let fraction = 5.0
+        let interval = Double(fractionValue+1)*(2*Double.pi/Double(numOfPoints))/fraction // divide by fraction to get fraction of orbit
         
         var nuStart = nu0
         
         for index in 1...numOfPoints {
-            if nuStart >= 2*Double.pi{
+            if nuStart >= 2*Double.pi {
                 nuStart = nuStart - (2*Double.pi)
             }
             let nuNext = nuStart+interval

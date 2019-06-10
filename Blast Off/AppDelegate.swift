@@ -42,5 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    
+    // MARK: - Memory Mangement
+    let defaults = UserDefaults.standard
 }
+
 

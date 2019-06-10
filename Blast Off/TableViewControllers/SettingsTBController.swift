@@ -10,6 +10,64 @@ import UIKit
 
 class SettingsTBController: UITableViewController {
     @IBOutlet weak var numOfOrbitsLabel: UILabel!
+    @IBOutlet weak var sizeControl: UISegmentedControl!
+    @IBOutlet weak var fractionControl: UISegmentedControl!
+    @IBOutlet weak var worldOriginSwitch: UISwitch!
+    @IBOutlet weak var orbitOriginSwitch: UISwitch!
+    @IBOutlet weak var featurePointsSwitch: UISwitch!
+
+    
+    
+    @IBAction func sizeControlChange(_ sender: UISegmentedControl) {
+        switch sizeControl.selectedSegmentIndex {
+        case 0:
+            scaleFactor = 300000.0
+            defaults.set(scaleFactor, forKey: "scaleFactor")
+            print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
+        case 1:
+            scaleFactor = 200000.0
+            defaults.set(scaleFactor, forKey: "scaleFactor")
+            print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
+        case 2:
+            scaleFactor = 100000.0
+            defaults.set(scaleFactor, forKey: "scaleFactor")
+            print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
+        case 3:
+            scaleFactor = 50000.0
+            defaults.set(scaleFactor, forKey: "scaleFactor")
+            print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
+        default:
+            print("sizeControl.selectedSegmentIndex err with selection index")
+        }
+        
+        sizeValue = sizeControl.selectedSegmentIndex
+        defaults.set(sizeValue, forKey: "sizeValue")
+    }
+    
+    @IBAction func fractionControlChange(_ sender: UISegmentedControl) {
+        print("New fractionControl index: \(fractionControl.selectedSegmentIndex)")
+        fractionValue = fractionControl.selectedSegmentIndex
+        defaults.set(fractionValue, forKey: "fractionValue")
+    }
+    
+    @IBAction func worldOriginChange(_ sender: UISwitch) {
+        print("New worldOrigin State: \(worldOriginSwitch.state)")
+
+    }
+    
+    @IBAction func orbitOriginChange(_ sender: UISwitch) {
+        print("New orbitOrigin State: \(orbitOriginSwitch.state)")
+
+    }
+    
+    @IBAction func featurePointsChange(_ sender: UISwitch) {
+        print("New freaturePoints State: \(featurePointsSwitch.state)")
+
+    }
+    
+    
+    
+    
     var totalNumberOfOrbits = defaultOrbitNames.count
     
     override func viewDidLoad() {
@@ -18,6 +76,22 @@ class SettingsTBController: UITableViewController {
         if savedNumberOfOrbits != 0 {
             totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
         }
+        
+        
+        
+        
+        
+        
+        // Loading Settings Values
+        if sizeValue != 1 {
+            sizeControl.selectedSegmentIndex = defaults.integer(forKey: "sizeValue")
+        }
+        if fractionValue != 4 {
+            fractionControl.selectedSegmentIndex = defaults.integer(forKey: "fractionValue")
+        }
+        
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -58,6 +132,11 @@ class SettingsTBController: UITableViewController {
         }
         let numOfShownOrbits = numOfDefaultOrbitsShown + numOfUserOrbitsShown // need to add user selected orbits after
         numOfOrbitsLabel.text = "\(numOfShownOrbits)/\(totalNumberOfOrbits) Orbits Shown"
+        
+        
+        
+        
+        
     }
         
     

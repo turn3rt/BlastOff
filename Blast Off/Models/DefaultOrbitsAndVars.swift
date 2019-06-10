@@ -9,11 +9,10 @@
 import Foundation
 import UIKit
 
-
-
-
-
+var sizeValue = 1
+var fractionValue = 4
 let earthRadius = 6378.1000 //km
+var scaleFactor = 200000.0 // Default: 200000.0
 let earthGravityParam = 398600.0 // kilometers^3/sec^2
 
 // MARK: - Default Orbits
@@ -32,7 +31,7 @@ let omega1deg = 90.0
 let nu = 0.0
 
 
-let mew = 398600.0
+//let mew = 398600.0
 let tauHour = 24.0
 
 let inc = deg2rad(incDeg)
