@@ -446,7 +446,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-6173.40732877317" borderStyle="roundedRect" placeholder="Rz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-NS-RDl">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Rz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-NS-RDl">
                                                 <rect key="frame" x="0.0" y="30" width="144" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="144" id="ukm-kJ-Y6t"/>
@@ -480,7 +480,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9.88635815507896" borderStyle="roundedRect" placeholder="Vx Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-fP-ZGZ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vx Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-fP-ZGZ">
                                                 <rect key="frame" x="0.0" y="30" width="144" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="144" id="NyX-In-CoI"/>
@@ -506,7 +506,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-0.446121737099303" borderStyle="roundedRect" placeholder="Vy Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lwD-xY-ElP">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vy Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lwD-xY-ElP">
                                                 <rect key="frame" x="0.0" y="30" width="144" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="144" id="LMg-AP-2uj"/>
@@ -532,7 +532,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-0.890884522967222" borderStyle="roundedRect" placeholder="Vz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-vB-CkN">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-vB-CkN">
                                                 <rect key="frame" x="0.0" y="30" width="144" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="144" id="10T-Xw-akR"/>
@@ -1191,7 +1191,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-4m-CDl">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-4m-CDl">
                                                     <rect key="frame" x="300" y="16.666666666666671" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="worldOriginChange:" destination="YP3-CA-sLN" eventType="valueChanged" id="IZL-V5-dfe"/>
@@ -1223,7 +1223,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxX-jr-Tia">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HxX-jr-Tia">
                                                     <rect key="frame" x="300" y="16.666666666666671" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="orbitOriginChange:" destination="YP3-CA-sLN" eventType="valueChanged" id="2XC-T4-Bdp"/>
@@ -1255,7 +1255,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fre-fR-KZk">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fre-fR-KZk">
                                                     <rect key="frame" x="300" y="16.666666666666671" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="featurePointsChange:" destination="YP3-CA-sLN" eventType="valueChanged" id="Qft-Cx-XTt"/>

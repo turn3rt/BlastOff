@@ -11,6 +11,10 @@ import UIKit
 
 var sizeValue = 1
 var fractionValue = 4
+var orbitOriginIsShown = false
+var featurePointsAreShown = false
+var worldOriginIsShown = false
+
 let earthRadius = 6378.1000 //km
 var scaleFactor = 200000.0 // Default: 200000.0
 let earthGravityParam = 398600.0 // kilometers^3/sec^2
@@ -119,4 +123,10 @@ func oe2rvArray(oe: [Double], mu: Double) -> [Double] {
                    vOutput[1],
                    vOutput[2],]
     return rvArray
+}
+
+extension UserDefaults {
+    func contains(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
 }

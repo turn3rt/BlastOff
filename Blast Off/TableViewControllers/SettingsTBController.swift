@@ -56,17 +56,17 @@ class SettingsTBController: UITableViewController {
     
     @IBAction func worldOriginChange(_ sender: UISwitch) {
         print("New worldOrigin State: \(worldOriginSwitch.isOn)")
-
+        worldOriginIsShown = worldOriginSwitch.isOn
     }
     
     @IBAction func orbitOriginChange(_ sender: UISwitch) {
         print("New orbitOrigin State: \(orbitOriginSwitch.isOn)")
-
+        orbitOriginIsShown = orbitOriginSwitch.isOn
     }
     
     @IBAction func featurePointsChange(_ sender: UISwitch) {
         print("New freaturePoints State: \(featurePointsSwitch.isOn)")
-
+        featurePointsAreShown = featurePointsSwitch.isOn
     }
     
     
@@ -76,6 +76,7 @@ class SettingsTBController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         if savedNumberOfOrbits != 0 {
             totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
@@ -105,6 +106,8 @@ class SettingsTBController: UITableViewController {
         // super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+
         // let totalNumOfOrbits = defaults.value(forKey: "totalNumberOfOrbits") ?? defaultOrbitNames.count
         let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown //defaultOrbitisShown.filter{$0}.count
         let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
@@ -128,8 +131,16 @@ class SettingsTBController: UITableViewController {
             sizeControl.selectedSegmentIndex = defaults.integer(forKey: "sizeValue")
         }
         if fractionValue != 4 {
-            
             fractionControl.selectedSegmentIndex = defaults.integer(forKey: "fractionValue")
+        }
+        if orbitOriginIsShown != false {
+            orbitOriginSwitch.setOn(true, animated: false)
+        }
+        if featurePointsAreShown != false {
+            featurePointsSwitch.setOn(true, animated: false)
+        }
+        if worldOriginIsShown != false {
+            worldOriginSwitch.setOn(true, animated: false)
         }
         
     }

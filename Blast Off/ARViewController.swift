@@ -27,7 +27,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // sceneView.debugOptions = SCNDebugOptions.showWorldOrigin doesnt work 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,11 +53,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         }
         earthRadiusAR = earthRadius/scaleFactor
         
-        
-        
-        
-
-  
         // Adds Earth Back to Scene
         let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
         // Add nodes to scene and name
@@ -110,7 +104,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         }
         
         
-        
+        // Adding UserDefaults Settings
+//        showWorldAxis()
+//        showOrbitAxis()
         
         
         
@@ -196,7 +192,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
             // https://stackoverflow.com/questions/51760421/which-measuring-unit-is-used-in-scnvector3-position-for-x-y-and-z-in-arkit
             
-//            let rotationAngle = -90.0
+//            let rotationAngle = deg2rad(-90)
 //            let rotatedPoints = [rNextAR[0],
 //                                (rNextAR[1]*cos(rotationAngle)) - (rNextAR[2]*sin(rotationAngle)),
 //                                (rNextAR[1]*sin(rotationAngle)) + (rNextAR[2]*cos(rotationAngle))]
@@ -208,6 +204,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             let drawPoint = SCNSphere(radius: 0.0005) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
             drawNode.position = SCNVector3(linePoint)
+            
+            // Rotating Axis
+            // drawNode.eulerAngles = SCNVector3(0,Double.pi/2,0)
             
             drawNode.geometry?.firstMaterial?.diffuse.contents = color
             // drawNode.geometry?.firstMaterial?.specular.contents = UIColor.white
@@ -227,7 +226,31 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.delegate = self
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints] //, .showWireframe]
+        
+        // set Debug Options
+        switch worldOriginIsShown {
+        case true:
+            showWorldAxis()
+        default:
+            return
+        }
+        
+        switch orbitOriginIsShown {
+        case true:
+            showOrbitAxis()
+        default:
+            return
+        }
+        
+        switch featurePointsAreShown {
+        case true:
+            sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
+        default:
+            sceneView.debugOptions = []
+        }
+    
+        // sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints] //, .showWireframe]
+        
         // Lighting
         // sceneView.autoenablesDefaultLighting = true
     }
@@ -238,6 +261,116 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // ^^ duration is 1 day decreased by scale factor of 10,000 ^^
         let repeatForever = SCNAction.repeatForever(rotateOnce)
         node.runAction(repeatForever)
+    }
+    
+    func showWorldAxis() {
+        // Axis Drawing
+        let axisRadius = CGFloat(0.0025) // meters
+        let axisLength = CGFloat(0.19) // meters
+
+        let xAxisNode = SCNNode(geometry: SCNCapsule(capRadius: axisRadius, height: axisLength))
+        let yAxisNode = SCNNode(geometry: SCNCapsule(capRadius: axisRadius, height: axisLength))
+        let zAxisNode = SCNNode(geometry: SCNCapsule(capRadius: axisRadius, height: axisLength))
+
+        // Axis Position
+        xAxisNode.position = SCNVector3(axisLength/2, 0, 0)
+        yAxisNode.position = SCNVector3(0, axisLength/2, 0)
+        zAxisNode.position = SCNVector3(0, 0, axisLength/2)
+        
+//        yAxisNode.position = SCNVector3(0, 0, axisLength/2)
+//        zAxisNode.position = SCNVector3(0, axisLength/2, 0)
+
+        // Axis Color
+        xAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red// UIColor.red
+        yAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green// UIColor.green
+        zAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue // UIColor.blue
+        
+        // Axis Rotation
+        xAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2) // rotates about z-axis
+        zAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0)
+        //yAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0) // rotates about y-axis
+        
+        // Axis Labels
+        let xAxisLabel = SCNText(string: "X-Axis", extrusionDepth: 0.75)
+
+        
+        // Adding Nodes to Scene
+        sceneView.scene.rootNode.addChildNode(xAxisNode)
+        sceneView.scene.rootNode.addChildNode(yAxisNode)
+        sceneView.scene.rootNode.addChildNode(zAxisNode)
+    }
+    
+    func showOrbitAxis() {
+        
+        // Axis Drawing
+        let axisRadius = CGFloat(0.0025) // meters
+        let axisLength = CGFloat(earthRadiusAR) + 0.16 // CGFloat(0.19) // meters
+        
+        let xAxisNode = SCNNode(geometry: SCNCapsule(capRadius: axisRadius, height: axisLength))
+        let yAxisNode = SCNNode(geometry: SCNCapsule(capRadius: axisRadius, height: axisLength))
+        let zAxisNode = SCNNode(geometry: SCNCapsule(capRadius: axisRadius, height: axisLength))
+        
+        // Axis Position
+        xAxisNode.position = SCNVector3(CGFloat(earthPosAR.x), CGFloat(earthPosAR.y), (axisLength/2)+CGFloat(earthPosAR.z))
+        yAxisNode.position = SCNVector3((axisLength/2)+CGFloat(earthPosAR.x), CGFloat(earthPosAR.y), CGFloat(earthPosAR.z))
+        zAxisNode.position = SCNVector3(CGFloat(earthPosAR.x), (axisLength/2)+CGFloat(earthPosAR.y), CGFloat(earthPosAR.z))
+        
+        // Axis Color
+        xAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red // UIColor.red
+        yAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green // UIColor.green
+        zAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue // UIColor.blue
+        
+        // Axis Rotation
+        xAxisNode.eulerAngles = SCNVector3(Double.pi/2, 0, 0) // rotates about x-axis
+        yAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2)
+        
+        
+        // Axis Labels
+        let xAxisLabel = SCNText(string: "X-Axis", extrusionDepth: 1)
+        let yAxisLabel = SCNText(string: "Y-Axis", extrusionDepth: 1)
+        let zAxisLabel = SCNText(string: "Z-Axis", extrusionDepth: 1)
+
+        
+//        let xMat = SCNMaterial()
+//        let yMat = SCNMaterial()
+//        let zMat = SCNMaterial()
+//
+//        xMat.diffuse.contents = UIColor.red
+//        yMat.diffuse.contents = UIColor.green
+//        zMat.diffuse.contents = UIColor.blue
+//
+//        xAxisLabel.materials = [xMat]
+//        yAxisLabel.materials = [yMat]
+//        zAxisLabel.materials = [zMat]
+
+        let xLabelNode = SCNNode()
+        let yLabelNode = SCNNode()
+        let zLabelNode = SCNNode()
+
+        xLabelNode.position = SCNVector3(CGFloat(earthPosAR.x)-(0.016), CGFloat(earthPosAR.y), CGFloat(earthPosAR.z)+axisLength+0.005)
+        yLabelNode.position = SCNVector3(CGFloat(earthPosAR.x)+axisLength+0.005, CGFloat(earthPosAR.y), CGFloat(earthPosAR.z))
+        zLabelNode.position = SCNVector3(CGFloat(earthPosAR.x)-(0.016), CGFloat(earthPosAR.y)+axisLength+0.005, CGFloat(earthPosAR.z))
+
+        xLabelNode.scale = SCNVector3(0.001, 0.001, 0.001)
+        yLabelNode.scale = SCNVector3(0.001, 0.001, 0.001)
+        zLabelNode.scale = SCNVector3(0.001, 0.001, 0.001)
+
+        xLabelNode.geometry = xAxisLabel
+        yLabelNode.geometry = yAxisLabel
+        zLabelNode.geometry = zAxisLabel
+
+        //sceneView.autoenablesDefaultLighting = true
+        
+        // Adding Nodes to Scene
+        sceneView.scene.rootNode.addChildNode(xAxisNode)
+        sceneView.scene.rootNode.addChildNode(yAxisNode)
+        sceneView.scene.rootNode.addChildNode(zAxisNode)
+        
+        sceneView.scene.rootNode.addChildNode(xLabelNode)
+        sceneView.scene.rootNode.addChildNode(yLabelNode)
+        sceneView.scene.rootNode.addChildNode(zLabelNode)
+        
+        
     }
     
 //    MARK: - Data management
