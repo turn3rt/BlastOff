@@ -51,7 +51,26 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         if fractionValue != 4 {
             fractionValue = defaults.integer(forKey: "fractionValue")
         }
+        
+        switch sizeValue {
+        case 0: // small
+            numOfPoints = 1000
+            sizeOfPoints = 0.0005 // default size
+        case 1: // medium
+            numOfPoints = 1000
+            sizeOfPoints = 0.0009
+        case 2: // large
+            numOfPoints = 1000
+            sizeOfPoints = 0.002
+        case 3: // gigantic
+            numOfPoints = 1000
+            sizeOfPoints = 0.005
+        default:
+            print("Err: cannot find number and size of points to draw orbit")
+        }
+        
         earthRadiusAR = earthRadius/scaleFactor
+        
         
         // Adds Earth Back to Scene
         let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
@@ -77,7 +96,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             var userOrbitsAreShownArray = [Bool]()
             for y in 0...savedNumberOfOrbits-1 {
                 var keyNum = Int()
-                keyNum = y == 0 ? 3 : 3+(y*4) // if y = 0, keyNum = 3 else keyNum = y*4
+                keyNum = y == 0 ? 3 : 3+(y*4) // keyNum = y, but if y = 0, keyNum = 3 else keyNum = 3+ (y*4)
                 userOrbitsAreShownArray.append(defaults.bool(forKey: "\(keyNum)"))
             }
             
@@ -157,7 +176,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         return node
     }
     
-    let numOfPoints = 1000
+    var numOfPoints = 1000
+    var sizeOfPoints = 0.0005
     func createOrbit(name: String, orbitalElements: [Double], color: UIColor) {
         print("createOrbit Start")
         var oe = orbitalElements
@@ -201,7 +221,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             let linePoint = double3(rNextAR) //rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
             //print("linePoint is: \(linePoint)")
-            let drawPoint = SCNSphere(radius: 0.0005) // default: 0.0005
+            let drawPoint = SCNSphere(radius: CGFloat(sizeOfPoints)) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
             drawNode.position = SCNVector3(linePoint)
             
@@ -228,33 +248,21 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.showsStatistics = true
         
         // set Debug Options
-        switch worldOriginIsShown {
-        case true:
+        if worldOriginIsShown {
             showWorldAxis()
-        default:
-            return
         }
-        
-        switch orbitOriginIsShown {
-        case true:
+        if orbitOriginIsShown {
             showOrbitAxis()
-        default:
-            return
+        }
+        if featurePointsAreShown {
+            sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
         }
         
-        switch featurePointsAreShown {
-        case true:
-            sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
-        default:
-            sceneView.debugOptions = []
-        }
-    
         // sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints] //, .showWireframe]
         
         // Lighting
         // sceneView.autoenablesDefaultLighting = true
     }
-    
     
     func rotate(node: SCNNode) {
         let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(2*Float.pi), z: 0, duration: 86400/10000) // in seconds
@@ -276,9 +284,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         xAxisNode.position = SCNVector3(axisLength/2, 0, 0)
         yAxisNode.position = SCNVector3(0, axisLength/2, 0)
         zAxisNode.position = SCNVector3(0, 0, axisLength/2)
-        
-//        yAxisNode.position = SCNVector3(0, 0, axisLength/2)
-//        zAxisNode.position = SCNVector3(0, axisLength/2, 0)
 
         // Axis Color
         xAxisNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red// UIColor.red
@@ -289,10 +294,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         xAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2) // rotates about z-axis
         zAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0)
         //yAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0) // rotates about y-axis
-        
-        // Axis Labels
-        let xAxisLabel = SCNText(string: "X-Axis", extrusionDepth: 0.75)
-
         
         // Adding Nodes to Scene
         sceneView.scene.rootNode.addChildNode(xAxisNode)
@@ -324,13 +325,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         xAxisNode.eulerAngles = SCNVector3(Double.pi/2, 0, 0) // rotates about x-axis
         yAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2)
         
-        
         // Axis Labels
         let xAxisLabel = SCNText(string: "X-Axis", extrusionDepth: 1)
         let yAxisLabel = SCNText(string: "Y-Axis", extrusionDepth: 1)
         let zAxisLabel = SCNText(string: "Z-Axis", extrusionDepth: 1)
 
-        
 //        let xMat = SCNMaterial()
 //        let yMat = SCNMaterial()
 //        let zMat = SCNMaterial()
@@ -369,8 +368,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.scene.rootNode.addChildNode(xLabelNode)
         sceneView.scene.rootNode.addChildNode(yLabelNode)
         sceneView.scene.rootNode.addChildNode(zLabelNode)
-        
-        
     }
     
 //    MARK: - Data management
