@@ -27,6 +27,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //    MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = true // disables power saving mode when view is active dimming
     }
     
     override func viewWillAppear(_ animated: Bool) {

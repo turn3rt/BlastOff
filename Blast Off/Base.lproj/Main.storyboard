@@ -719,7 +719,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-TZ-LAd" userLabel="Bottom Stack View">
                                 <rect key="frame" x="16" y="718" width="343" height="36"/>
@@ -759,10 +759,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUw-yN-4mn">
-                                <rect key="frame" x="309" y="652" width="50" height="50"/>
+                                <rect key="frame" x="157.66666666666666" y="642" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="6ru-ON-WK6"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZcC-6q-xuu"/>
+                                    <constraint firstAttribute="width" constant="60" id="6ru-ON-WK6"/>
+                                    <constraint firstAttribute="height" constant="60" id="ZcC-6q-xuu"/>
                                 </constraints>
                                 <state key="normal" image="settingsIcon.png"/>
                                 <connections>
@@ -773,14 +773,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="xaF-TZ-LAd" secondAttribute="bottom" constant="24" id="ABa-n8-Kr9"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="FUw-yN-4mn" secondAttribute="trailing" constant="16" id="C4n-te-La5"/>
+                            <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="Fnx-fY-9Th"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="JaE-cq-Ijq"/>
                             <constraint firstAttribute="trailing" secondItem="xaF-TZ-LAd" secondAttribute="trailing" constant="16" id="V8t-Wa-15c"/>
                             <constraint firstItem="xaF-TZ-LAd" firstAttribute="top" secondItem="FUw-yN-4mn" secondAttribute="bottom" constant="16" id="YlB-mT-Bk0"/>
                             <constraint firstItem="xaF-TZ-LAd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="gKX-Uk-6nf"/>
                             <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="qff-7J-qFn"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="qvk-7m-DQi"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="srk-Cy-GN2"/>
+                            <constraint firstItem="FUw-yN-4mn" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="sqP-wj-58I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
@@ -790,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3577" y="1066"/>
+            <point key="canvasLocation" x="-3578.4000000000001" y="1065.5172413793105"/>
         </scene>
         <!--OrbitsTBController-->
         <scene sceneID="D9H-44-llK">
