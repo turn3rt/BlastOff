@@ -69,37 +69,18 @@ class SettingsTBController: UITableViewController {
         featurePointsAreShown = featurePointsSwitch.isOn
     }
     
-    
-    
-    
     var totalNumberOfOrbits = defaultOrbitNames.count
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
         
         if savedNumberOfOrbits != 0 {
             totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
         }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,61 +130,28 @@ class SettingsTBController: UITableViewController {
     
     // MARK: - IBActions
     @IBAction func resetDefaults(_ sender: UIButton) {
-        
-       // TODO: alert saying are you sure
-        let defaults = UserDefaults.standard
-        let dictionary = defaults.dictionaryRepresentation()
-        dictionary.keys.forEach { key in
-            defaults.removeObject(forKey: key)
+        //controller definition
+        let alert = UIAlertController(title:"Are you sure?", message: "This will erase any saved orbits you have created, and clear any derived data that could be causing performance issues.", preferredStyle: .alert)
+        // button creation
+        let reset = UIAlertAction(title: "Reset", style: .destructive) { (alertAction) in
+            let defaults = UserDefaults.standard
+            let dictionary = defaults.dictionaryRepresentation()
+            dictionary.keys.forEach { key in
+                defaults.removeObject(forKey: key)
+            }
+            print("User Reset to Default Settings")
         }
-        print("User Reset to Default Settings")
+        // button creation
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+            print("User Cancelled Reset")
+        }
+        
+        // adding to controller
+        alert.addAction(cancel)
+        alert.addAction(reset)
+        
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 

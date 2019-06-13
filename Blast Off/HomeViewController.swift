@@ -24,11 +24,13 @@ class HomeViewController: UIViewController {
 //        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
 //            print("\(key) = \(value) \n")
 //        }
-        print("MolniyaRV: \(MolniyaR) and \(MolniyaV)")
-        let MolniyaOE = rv2oe(rPCI: MolniyaR, vPCI: MolniyaV, mu: earthGravityParam)
-        print("MolniyaOE = \(MolniyaOE)")
-        let ReRV = oe2rvArray(oe: MolniyaOE, mu: earthGravityParam)
-        print("Convert Back: MolniyaRV: \(ReRV)")
+        
+        
+//        print("MolniyaRV: \(MolniyaR) and \(MolniyaV)")
+//        let MolniyaOE = rv2oe(rPCI: MolniyaR, vPCI: MolniyaV, mu: earthGravityParam)
+//        print("MolniyaOE = \(MolniyaOE)")
+//        let ReRV = oe2rvArray(oe: MolniyaOE, mu: earthGravityParam)
+//        print("Convert Back: MolniyaRV: \(ReRV)")
     }
     
 
