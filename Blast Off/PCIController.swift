@@ -10,8 +10,6 @@ import UIKit
 
 class PCIController: UIViewController, UITextFieldDelegate {
 
-    
-    
     // MARK: - IBOutlets
     @IBOutlet weak var rxTField: UITextField!
     @IBOutlet weak var ryTField: UITextField!
@@ -19,8 +17,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var vxTField: UITextField!
     @IBOutlet weak var vyTField: UITextField!
     @IBOutlet weak var vzTField: UITextField!
-
-
+    
     @IBOutlet weak var rxSlider: UISlider!
     @IBOutlet weak var rySlider: UISlider!
     @IBOutlet weak var rzSlider: UISlider!
@@ -52,25 +49,13 @@ class PCIController: UIViewController, UITextFieldDelegate {
         showAddNameAlert()
     }
     
-    
-    
-    
     var isModifyingOrbitPCIOE = false
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
-        self.view.frame.origin.y = 0
-        if isModifyingOrbitPCIOE == true {
-            rxTField.text = String(self.orbit.rv[0])
-            ryTField.text = String(self.orbit.rv[1])
-            rzTField.text = String(self.orbit.rv[2])
-            vxTField.text = String(self.orbit.rv[3])
-            vyTField.text = String(self.orbit.rv[4])
-            vzTField.text = String(self.orbit.rv[5])
-        }
-        
+        // self.view.frame.origin.y = 0
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -81,6 +66,23 @@ class PCIController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
+        if isModifyingOrbitPCIOE == true {
+            rxTField.text = String(self.orbit.rv[0])
+            ryTField.text = String(self.orbit.rv[1])
+            rzTField.text = String(self.orbit.rv[2])
+            vxTField.text = String(self.orbit.rv[3])
+            vyTField.text = String(self.orbit.rv[4])
+            vzTField.text = String(self.orbit.rv[5])
+            
+            rxSlider.value = Float(self.orbit.rv[0])
+            rySlider.value = Float(self.orbit.rv[1])
+            rzSlider.value = Float(self.orbit.rv[2])
+            vxSlider.value = Float(self.orbit.rv[3])
+            vySlider.value = Float(self.orbit.rv[4])
+            vzSlider.value = Float(self.orbit.rv[5])
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,36 +123,35 @@ class PCIController: UIViewController, UITextFieldDelegate {
             print("Please enter a numeric value, need to display alert controller for this")
         }
         
-        
         textField.resignFirstResponder()
         print("Return Key Press Success")
-//        rxTField.resignFirstResponder()
-//        ryTField.resignFirstResponder()
-//        rzTField.resignFirstResponder()
-//        vxTField.resignFirstResponder()
-//        vyTField.resignFirstResponder()
-//        vzTField.resignFirstResponder()
         return true
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         
         if vxTField.isEditing || vyTField.isEditing || vzTField.isEditing == true {
-            if self.view.frame.origin.y == 88 {
+            if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 180 //keyboardSize.height
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 88 {
+        if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y += 180 //keyboardSize.height
         }
     }
     
+    
+    
+    
+    
     @IBAction func tapOffKeyboard(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
+    
+    
     
     // MARK: - Useful Internal Controller Functions & Variables
     var nameOfOrbit = String()
@@ -161,20 +162,22 @@ class PCIController: UIViewController, UITextFieldDelegate {
         // button creation
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
-            if textField.text != "" && textField.text?.contains(" ") == false {
+            if textField.text != "" { //&& textField.text?.contains(" ") == false {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
+                print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
+                
+                self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits*4)")
                 let rvVals = [Double(self.rxSlider.value),
                               Double(self.rySlider.value),
                               Double(self.rzSlider.value),
                               Double(self.vxSlider.value),
                               Double(self.vySlider.value),
                               Double(self.vzSlider.value)]
-                //set [nameOfOrbit]rvValues
-                self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits)")
-                print("User saved \(self.nameOfOrbit)")
-                self.defaults.set(rvVals, forKey: "\(savedNumberOfOrbits+1)")
+                
+                self.defaults.set(rvVals, forKey: "\((savedNumberOfOrbits*4)+1)")
                 print("with the following rv values: [\(rvVals)]")
+                
                 let rVals = [rvVals[0],
                              rvVals[1],
                              rvVals[2]
@@ -185,16 +188,17 @@ class PCIController: UIViewController, UITextFieldDelegate {
                              ]
                 
                 let oe = rv2oe(rPCI: rVals, vPCI: vVals, mu: earthGravityParam)
-                //set [nameOfOrbit]oeValues
-                self.defaults.set(oe, forKey: "\(savedNumberOfOrbits+2)")
+                self.defaults.set(oe, forKey: "\((savedNumberOfOrbits*4)+2)")
+                
                 // set default show setting to true for ARDrawing
-                self.defaults.set(true, forKey: "\(savedNumberOfOrbits+3)")
-
+                self.defaults.set(true, forKey: "\((savedNumberOfOrbits*4)+3)")
+                
                 print("and the following oe values: [\(oe)]")
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
                 self.defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
-                self.navigationController?.popViewController(animated: true)
+                
+                self.navigationController?.popToRootViewController(animated: true)
                 print("Save Success")
             } else {
                 alert.message = "Error: Please enter a name as a single word with no spaces"

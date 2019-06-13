@@ -18,7 +18,6 @@ class OEController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var omegaTField: UITextField!
     @IBOutlet weak var nuTField: UITextField!
     
-    
     @IBOutlet weak var aSlider: UISlider!
     @IBOutlet weak var eSlider: UISlider!
     @IBOutlet weak var capOmegaSlider: UISlider!
@@ -49,10 +48,7 @@ class OEController: UIViewController, UITextFieldDelegate {
         print("Save Orbit Clicked, prior savedNumberOfOrbits: \(savedNumberOfOrbits)")
         showAddNameAlert()
     }
-    
-    
-    
-    
+
     var isModifyingOrbitPCIOE = false
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -132,15 +128,8 @@ class OEController: UIViewController, UITextFieldDelegate {
             print("Please enter a numeric value, need to display alert controller for this")
         }
         
-        
         textField.resignFirstResponder()
         print("Return Key Press Success")
-        //        rxTField.resignFirstResponder()
-        //        ryTField.resignFirstResponder()
-        //        rzTField.resignFirstResponder()
-        //        vxTField.resignFirstResponder()
-        //        vyTField.resignFirstResponder()
-        //        vzTField.resignFirstResponder()
         return true
     }
     
@@ -177,6 +166,7 @@ class OEController: UIViewController, UITextFieldDelegate {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
+                
                 self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits*4)")
                 let oe = [Double(self.aSlider.value),
                           Double(self.eSlider.value),
@@ -184,6 +174,7 @@ class OEController: UIViewController, UITextFieldDelegate {
                           Double(deg2rad(Double(self.incSlider.value))),
                           Double(deg2rad(Double(self.omegaSlider.value))),
                           Double(deg2rad(Double(self.nuSlider.value)))]
+                
                 self.defaults.set(oe, forKey: "\((savedNumberOfOrbits*4)+2)")
                 print("and the following orbital element values: [\(oe)]")
 
@@ -197,13 +188,15 @@ class OEController: UIViewController, UITextFieldDelegate {
                 
                 self.defaults.set(rvArray, forKey: "\((savedNumberOfOrbits*4)+1)")
                 print("with the following rv values: [\(rvArray)]")
+                
                 // set default show setting to true for ARDrawing
                 self.defaults.set(true, forKey: "\((savedNumberOfOrbits*4)+3)")
+                
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
                 self.defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
-                //self.defaults.set(totalNumberOfOrbits, forKey: "totalNumberOfOrbits")
-                self.navigationController?.popToRootViewController(animated: true) //.popViewController(animated: true)
+                
+                self.navigationController?.popToRootViewController(animated: true) 
                 print("Save Success")
             } else {
                 alert.message = "Error: Please enter a name as a single word with no spaces"

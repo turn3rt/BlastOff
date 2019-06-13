@@ -24,6 +24,8 @@ let earthGravityParam = 398600.0 // kilometers^3/sec^2
 // Molniya Orbit
 let r0 = [-1217.39430415697, -3091.41210822807, -6173.40732877317];  //km
 let v0 = [9.88635815507896, -0.446121737099303, -0.890884522967222]; //km/s
+let MolniyaR = [r0[0], r0[1], r0[2]]
+let MolniyaV = [v0[0], v0[1], v0[2]]
 let MolniyaOE = rv2oe(rPCI: r0, vPCI: v0, mu: earthGravityParam)
 
 // Tundra Orbit

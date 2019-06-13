@@ -213,7 +213,6 @@ func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
     let PtransformI = NtransformI*QtransformN*PtransformQ
     // %-----END TRANSFORMATIONS-----%
     
-
     
     // %-----NECCESARY MATHEMATICS-----%
     // % Need the semi-lattus rectum in order to calculate
@@ -231,9 +230,12 @@ func oe2rv(oe: [Double], mu: Double) -> (rPCI: [Double], vPCI: [Double]) {
                                 r*sin(nu),
                                        0])
     
-    let vInPeri = simd_double3([(-sin(nu)*sqrt(mu/p)),
-                               (e+cos(nu)*sqrt(mu/p)),
-                                                  0])
+    let vP1 = -sin(nu)*sqrt(mu/p)
+    let vP2 = (e+cos(nu))*sqrt(mu/p)
+    
+    let vInPeri = simd_double3([vP1,
+                                vP2,
+                                  0])
 
     // % Now that we have both the position and velocity vectors
     // % expressed in the perifocal basis, using the transformation
