@@ -87,7 +87,10 @@ class SettingsTBController: UITableViewController {
         // super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated:true);
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        
+        if self.navigationController?.navigationBar.barTintColor != UIColor.black{
+            self.navigationController?.navigationBar.barTintColor = UIColor.black
+        }
 
         // let totalNumOfOrbits = defaults.value(forKey: "totalNumberOfOrbits") ?? defaultOrbitNames.count
         let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown //defaultOrbitisShown.filter{$0}.count
@@ -125,8 +128,6 @@ class SettingsTBController: UITableViewController {
         }
         
     }
-        
-    
     
     // MARK: - IBActions
     @IBAction func resetDefaults(_ sender: UIButton) {
@@ -140,6 +141,7 @@ class SettingsTBController: UITableViewController {
                 defaults.removeObject(forKey: key)
             }
             print("User Reset to Default Settings")
+            self.navigationController?.popToRootViewController(animated: true)
         }
         // button creation
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in

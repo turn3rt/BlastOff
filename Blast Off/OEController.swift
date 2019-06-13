@@ -68,12 +68,12 @@ class OEController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.isTranslucent = true
         
         if isModifyingOrbitPCIOE == true {
-            aTField.text        = String(self.orbit.oe[0])
-            eTField.text        = String(self.orbit.oe[1])
-            capOmegaTField.text = String(rad2deg(self.orbit.oe[2]))
-            incTField.text      = String(rad2deg(self.orbit.oe[3]))
-            omegaTField.text    = String(rad2deg(self.orbit.oe[4]))
-            nuTField.text       = String(rad2deg(self.orbit.oe[5]))
+            aTField.text         = String(self.orbit.oe[0])
+            eTField.text         = String(self.orbit.oe[1])
+            capOmegaTField.text  = String(rad2deg(self.orbit.oe[2]))
+            incTField.text       = String(rad2deg(self.orbit.oe[3]))
+            omegaTField.text     = String(rad2deg(self.orbit.oe[4]))
+            nuTField.text        = String(rad2deg(self.orbit.oe[5]))
             
             aSlider.value        = Float(self.orbit.oe[0])
             eSlider.value        = Float(self.orbit.oe[1])
@@ -117,15 +117,50 @@ class OEController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if isDouble(number: textField.text!) {
+            // @TODO: can improve this later
             print("Valid Double Precision value entered")
-            aSlider.value = (aTField.text?.toFloat())!
-            eSlider.value = (eTField.text?.toFloat())!
+            aSlider.value        = (aTField.text?.toFloat())!
+            eSlider.value        = (eTField.text?.toFloat())!
             capOmegaSlider.value = (capOmegaTField.text?.toFloat())!
-            incSlider.value = (incTField.text?.toFloat())!
-            omegaSlider.value = (omegaTField.text?.toFloat())!
-            nuSlider.value = (nuTField.text?.toFloat())!
-        } else { // TODO: Error Handling
-            print("Please enter a numeric value, need to display alert controller for this")
+            incSlider.value      = (incTField.text?.toFloat())!
+            omegaSlider.value    = (omegaTField.text?.toFloat())!
+            nuSlider.value       = (nuTField.text?.toFloat())!
+        } else {
+            let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
+            // button creation
+            let confirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
+                let neuTextField = alert.textFields![0] as UITextField
+                if isDouble(number: neuTextField.text!) {
+                    textField.text = neuTextField.text
+                    
+                    self.aSlider.value        = (self.aTField.text?.toFloat())!
+                    self.eSlider.value        = (self.eTField.text?.toFloat())!
+                    self.capOmegaSlider.value = (self.capOmegaTField.text?.toFloat())!
+                    self.incSlider.value      = (self.incTField.text?.toFloat())!
+                    self.omegaSlider.value    = (self.omegaTField.text?.toFloat())!
+                    self.nuSlider.value       = (self.nuTField.text?.toFloat())!
+                    
+                    textField.resignFirstResponder()
+                } else {
+//                    alert.title = "Custom Title"
+//                    alert.message = "Custom Message"
+                    self.present(alert, animated: true, completion: nil)
+                }
+
+            }
+            // button creation
+//            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+//                print("User Cancelled Action")
+//                textField.resignFirstResponder()
+//            }
+            
+            // adding to controller
+//            alert.addAction(cancel)
+            alert.addAction(confirm)
+            alert.addTextField { (newTextField) in
+                newTextField.text = textField.text
+            }
+            self.present(alert, animated: true, completion: nil)
         }
         
         textField.resignFirstResponder()
@@ -199,7 +234,7 @@ class OEController: UIViewController, UITextFieldDelegate {
                 self.navigationController?.popToRootViewController(animated: true) 
                 print("Save Success")
             } else {
-                alert.message = "Error: Please enter a name as a single word with no spaces"
+                alert.message = "Error: Orbit name cannot be blank."
                 self.present(alert, animated: true, completion: nil)
             }
         }

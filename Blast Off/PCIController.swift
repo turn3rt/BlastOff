@@ -112,6 +112,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if isDouble(number: textField.text!) {
+            // @TODO: can improve this later
             print("Valid Double Precision value entered")
             rxSlider.value = (rxTField.text?.toFloat())!
             rySlider.value = (ryTField.text?.toFloat())!
@@ -120,7 +121,41 @@ class PCIController: UIViewController, UITextFieldDelegate {
             vySlider.value = (vyTField.text?.toFloat())!
             vzSlider.value = (vzTField.text?.toFloat())!
         } else { // TODO: Error Handling
-            print("Please enter a numeric value, need to display alert controller for this")
+            let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
+            // button creation
+            let confirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
+                let neuTextField = alert.textFields![0] as UITextField
+                if isDouble(number: neuTextField.text!) {
+                    textField.text = neuTextField.text
+                    
+                    self.rxSlider.value = (self.rxTField.text?.toFloat())!
+                    self.rySlider.value = (self.ryTField.text?.toFloat())!
+                    self.rzSlider.value = (self.rzTField.text?.toFloat())!
+                    self.vxSlider.value = (self.vxTField.text?.toFloat())!
+                    self.vySlider.value = (self.vyTField.text?.toFloat())!
+                    self.vzSlider.value = (self.vzTField.text?.toFloat())!
+                    
+                    textField.resignFirstResponder()
+                } else {
+                    //                    alert.title = "Custom Title"
+                    //                    alert.message = "Custom Message"
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+            }
+            // button creation
+//            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+//                print("User Cancelled Action")
+//                textField.resignFirstResponder()
+//            }
+            
+            // adding to controller
+//            alert.addAction(cancel)
+            alert.addAction(confirm)
+            alert.addTextField { (newTextField) in
+                newTextField.text = textField.text
+            }
+            self.present(alert, animated: true, completion: nil)
         }
         
         textField.resignFirstResponder()
@@ -201,7 +236,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
                 self.navigationController?.popToRootViewController(animated: true)
                 print("Save Success")
             } else {
-                alert.message = "Error: Please enter a name as a single word with no spaces"
+                alert.message = "Error: Orbit name cannot be blank."
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -212,7 +247,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
         alert.addAction(save)
         alert.addAction(cancel)
         alert.addTextField { (textField) in
-            textField.placeholder = "Ex: Molniya"
+            textField.placeholder = "Ex: Molniya Orbit"
         }
         self.present(alert, animated: true, completion: nil)
     }
