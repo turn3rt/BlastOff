@@ -41,7 +41,7 @@ class PCIOEViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.isTranslucent = false
-        self.isModifyingOrbitPCIOE = false
+        // self.isModifyingOrbitPCIOE = false
     }
     
     

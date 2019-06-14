@@ -55,7 +55,6 @@ class OEController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
-       
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -125,7 +124,7 @@ class OEController: UIViewController, UITextFieldDelegate {
             incSlider.value      = (incTField.text?.toFloat())!
             omegaSlider.value    = (omegaTField.text?.toFloat())!
             nuSlider.value       = (nuTField.text?.toFloat())!
-        } else {
+        } else { // Executes when user enters a non-valid number
             let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
             // button creation
             let confirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
@@ -254,6 +253,5 @@ class OEController: UIViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
     var orbit = Orbit(name: String(), rv: [Double](), oe: [Double](), isShown: Bool())
     var selectedIndexPathOfOrbit = Int()
-
 }
 

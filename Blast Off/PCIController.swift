@@ -26,6 +26,8 @@ class PCIController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var vzSlider: UISlider!
 
     // MARK: - IBActions
+    
+    
     @IBAction func rxSliderChange(_ sender: UISlider) {
         rxTField.text = String(rxSlider.value)
     }
@@ -48,6 +50,8 @@ class PCIController: UIViewController, UITextFieldDelegate {
         print("Save Orbit Clicked, prior savedNumberOfOrbits: \(savedNumberOfOrbits)")
         showAddNameAlert()
     }
+    
+    
     
     var isModifyingOrbitPCIOE = false
     // MARK: - Override Functions
@@ -81,6 +85,11 @@ class PCIController: UIViewController, UITextFieldDelegate {
             vxSlider.value = Float(self.orbit.rv[3])
             vySlider.value = Float(self.orbit.rv[4])
             vzSlider.value = Float(self.orbit.rv[5])
+            
+            print("max slider values: rxSlider: \(rxSlider.maximumValue)")
+            print("max slider values: vxSlider: \(vxSlider.maximumValue)")
+            print("min slider values: rxSlider: \(rxSlider.minimumValue)")
+            print("min slider values: vxSlider: \(vxSlider.minimumValue)")
             
         }
     }
@@ -120,7 +129,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
             vxSlider.value = (vxTField.text?.toFloat())!
             vySlider.value = (vyTField.text?.toFloat())!
             vzSlider.value = (vzTField.text?.toFloat())!
-        } else { // TODO: Error Handling
+        } else { // Executes when user enters a non-valid number
             let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
             // button creation
             let confirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
@@ -260,6 +269,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
     var orbit = Orbit(name: String(), rv: [Double](), oe: [Double](), isShown: Bool())
     var selectedIndexPathOfOrbit = Int()
+
 }
 
 
