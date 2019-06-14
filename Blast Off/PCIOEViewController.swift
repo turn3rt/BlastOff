@@ -44,15 +44,6 @@ class PCIOEViewController: UIViewController {
         // self.isModifyingOrbitPCIOE = false
     }
     
-    
-    
-    
-    
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
-    
     // MARK: - IBActions
     @IBAction func pciButtonClick(_ sender: UIButton) {
         

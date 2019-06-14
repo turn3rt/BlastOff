@@ -123,6 +123,9 @@ class PCIController: UIViewController, UITextFieldDelegate {
         if isDouble(number: textField.text!) {
             // @TODO: can improve this later
             print("Valid Double Precision value entered")
+            print("Checking if user entered text that is larger than max slider value...")
+
+            
             rxSlider.value = (rxTField.text?.toFloat())!
             rySlider.value = (ryTField.text?.toFloat())!
             rzSlider.value = (rzTField.text?.toFloat())!
@@ -212,12 +215,22 @@ class PCIController: UIViewController, UITextFieldDelegate {
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
                 
                 self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits*4)")
-                let rvVals = [Double(self.rxSlider.value),
-                              Double(self.rySlider.value),
-                              Double(self.rzSlider.value),
-                              Double(self.vxSlider.value),
-                              Double(self.vySlider.value),
-                              Double(self.vzSlider.value)]
+                
+                let rvVals = [Double(self.rxTField.text!),
+                              Double(self.ryTField.text!),
+                              Double(self.rzTField.text!),
+                              Double(self.vxTField.text!),
+                              Double(self.vyTField.text!),
+                              Double(self.vzTField.text!)]
+                
+                
+                
+//                let rvVals = [Double(self.rxSlider.value),
+//                              Double(self.rySlider.value),
+//                              Double(self.rzSlider.value),
+//                              Double(self.vxSlider.value),
+//                              Double(self.vySlider.value),
+//                              Double(self.vzSlider.value)]
                 
                 self.defaults.set(rvVals, forKey: "\((savedNumberOfOrbits*4)+1)")
                 print("with the following rv values: [\(rvVals)]")
@@ -231,7 +244,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
                              rvVals[5],
                              ]
                 
-                let oe = rv2oe(rPCI: rVals, vPCI: vVals, mu: earthGravityParam)
+                let oe = rv2oe(rPCI: rVals as! [Double], vPCI: vVals as! [Double], mu: earthGravityParam)
                 self.defaults.set(oe, forKey: "\((savedNumberOfOrbits*4)+2)")
                 
                 // set default show setting to true for ARDrawing
