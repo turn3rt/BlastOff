@@ -222,16 +222,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
                               Double(self.vxTField.text!),
                               Double(self.vyTField.text!),
                               Double(self.vzTField.text!)]
-                
-                
-                
-//                let rvVals = [Double(self.rxSlider.value),
-//                              Double(self.rySlider.value),
-//                              Double(self.rzSlider.value),
-//                              Double(self.vxSlider.value),
-//                              Double(self.vySlider.value),
-//                              Double(self.vzSlider.value)]
-                
+            
                 self.defaults.set(rvVals, forKey: "\((savedNumberOfOrbits*4)+1)")
                 print("with the following rv values: [\(rvVals)]")
                 
