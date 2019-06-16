@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PCIController: UIViewController, UITextFieldDelegate {
+class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
     // MARK: - IBOutlets
     @IBOutlet weak var rxTField: UITextField!
@@ -24,10 +24,12 @@ class PCIController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var vxSlider: UISlider!
     @IBOutlet weak var vySlider: UISlider!
     @IBOutlet weak var vzSlider: UISlider!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var initialHeightOfScroll: NSLayoutConstraint!
 
+    
     // MARK: - IBActions
-    
-    
     @IBAction func rxSliderChange(_ sender: UISlider) {
         rxTField.text = String(rxSlider.value)
     }
@@ -59,6 +61,7 @@ class PCIController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
+        scrollView.delegate = self
         // self.view.frame.origin.y = 0
     }
     
@@ -70,6 +73,8 @@ class PCIController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
+        setScrollPositionForUserDevice()
         
         if isModifyingOrbitPCIOE == true {
             rxTField.text = String(self.orbit.rv[0])
@@ -265,7 +270,43 @@ class PCIController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - Internal Functions
+    // https://stackoverflow.com/questions/46192280/detect-if-the-device-is-iphone-x
+    func setScrollPositionForUserDevice() -> (){
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("iPhone 5 or 5S or 5C or SE")
+                initialHeightOfScroll.constant = 56
+                
+            case 1334:
+                print("iPhone 6/6S/7/8")
+                initialHeightOfScroll.constant = 56
+
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+                initialHeightOfScroll.constant = 56
+                scrollView.isScrollEnabled = false
+                
+            case 2436:
+                print("iPhone X, XS")
+                scrollView.isScrollEnabled = false
+                
+            case 2688:
+                print("iPhone XS Max")
+                initialHeightOfScroll.constant = 132
+                scrollView.isScrollEnabled = false
+
+            case 1792:
+                print("iPhone XR")
+                initialHeightOfScroll.constant = 132
+                scrollView.isScrollEnabled = false
+
+            default:
+                print("Unknown")
+                
+            }
+        }
+    }
     
     
     

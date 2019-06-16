@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OEController: UIViewController, UITextFieldDelegate {
+class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     
     // MARK: - IBOutlets
     @IBOutlet weak var aTField: UITextField!
@@ -24,6 +24,9 @@ class OEController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var incSlider: UISlider!
     @IBOutlet weak var omegaSlider: UISlider!
     @IBOutlet weak var nuSlider: UISlider!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var initialHeightOfScroll: NSLayoutConstraint!
     
     // MARK: - IBActions
     @IBAction func aSliderChange(_ sender: UISlider) {
@@ -65,6 +68,9 @@ class OEController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
+        setScrollPositionForUserDevice()
+
         
         if isModifyingOrbitPCIOE == true {
             aTField.text         = String(self.orbit.oe[0])
@@ -249,6 +255,45 @@ class OEController: UIViewController, UITextFieldDelegate {
         }
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func setScrollPositionForUserDevice() -> (){
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("iPhone 5 or 5S or 5C or SE")
+                initialHeightOfScroll.constant = 56
+                
+            case 1334:
+                print("iPhone 6/6S/7/8")
+                initialHeightOfScroll.constant = 56
+                
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+                initialHeightOfScroll.constant = 56
+                scrollView.isScrollEnabled = false
+                
+            case 2436:
+                print("iPhone X, XS")
+                scrollView.isScrollEnabled = false
+                
+            case 2688:
+                print("iPhone XS Max")
+                initialHeightOfScroll.constant = 132
+                scrollView.isScrollEnabled = false
+                
+            case 1792:
+                print("iPhone XR")
+                initialHeightOfScroll.constant = 132
+                scrollView.isScrollEnabled = false
+                
+            default:
+                print("Unknown")
+                
+            }
+        }
+    }
+    
+    
     // MARK: - Memory Management
     let defaults = UserDefaults.standard
     var orbit = Orbit(name: String(), rv: [Double](), oe: [Double](), isShown: Bool())

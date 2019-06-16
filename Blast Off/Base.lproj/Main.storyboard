@@ -33,13 +33,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Position" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-w0-CtK">
-                                        <rect key="frame" x="16" y="88" width="343" height="20"/>
+                                        <rect key="frame" x="16" y="94" width="343" height="20"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="plV-Nu-PcB" userLabel="Position Stack">
-                                        <rect key="frame" x="16" y="112" width="144" height="262"/>
+                                        <rect key="frame" x="16" y="118" width="144" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Cn0-hT-Lj6">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="90"/>
@@ -57,8 +57,8 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVQ-vT-3IC">
-                                                        <rect key="frame" x="0.0" y="60" width="72.333333333333329" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="84.333333333333329" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -84,8 +84,8 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBV-Hd-3lK">
-                                                        <rect key="frame" x="0.0" y="60" width="72.333333333333329" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="84.333333333333329" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -111,8 +111,8 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-CN-Occ">
-                                                        <rect key="frame" x="0.0" y="60" width="72.333333333333329" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="84.333333333333329" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -128,7 +128,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-et-3bV" userLabel="Position Slider Stack">
-                                        <rect key="frame" x="176" y="141" width="183" height="204"/>
+                                        <rect key="frame" x="176" y="147" width="183" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="fHz-7Q-Zs8">
                                                 <rect key="frame" x="-2" y="0.0" width="187" height="31"/>
@@ -154,13 +154,13 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Velocity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-a3-hGy">
-                                        <rect key="frame" x="16" y="398" width="343" height="20"/>
+                                        <rect key="frame" x="16" y="404" width="343" height="20"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="Mz5-FA-Qc7" userLabel="Velocity Stack">
-                                        <rect key="frame" x="16" y="426" width="144" height="262"/>
+                                        <rect key="frame" x="16" y="432" width="144" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NDm-IQ-LOr">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="90"/>
@@ -178,8 +178,8 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers/Second" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aag-3W-Rq0">
-                                                        <rect key="frame" x="0.0" y="60" width="122.66666666666667" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -205,8 +205,8 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers/Second" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w9-a8-hgb">
-                                                        <rect key="frame" x="0.0" y="60" width="122.66666666666667" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -232,8 +232,8 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers/Second" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CE5-yz-DFA">
-                                                        <rect key="frame" x="0.0" y="60" width="122.66666666666667" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -249,7 +249,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-LB-N47" userLabel="Velocity Slider Stack">
-                                        <rect key="frame" x="176" y="455" width="183" height="204"/>
+                                        <rect key="frame" x="176" y="461" width="183" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="C7O-RC-lZh">
                                                 <rect key="frame" x="-2" y="0.0" width="187" height="31"/>
@@ -275,7 +275,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-VT-PGA">
-                                        <rect key="frame" x="108" y="712" width="159" height="36"/>
+                                        <rect key="frame" x="108" y="718" width="159" height="36"/>
                                         <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="6y0-hT-ZRJ"/>
@@ -295,7 +295,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="SXm-w0-CtK" firstAttribute="top" secondItem="3vo-WS-Bnk" secondAttribute="top" constant="88" id="7eY-wE-b09"/>
+                                    <constraint firstItem="SXm-w0-CtK" firstAttribute="top" secondItem="3vo-WS-Bnk" secondAttribute="top" constant="94" id="7eY-wE-b09"/>
                                     <constraint firstItem="ysz-a3-hGy" firstAttribute="top" secondItem="plV-Nu-PcB" secondAttribute="bottom" constant="24" id="Afv-QY-4o8"/>
                                     <constraint firstItem="wIg-et-3bV" firstAttribute="leading" secondItem="plV-Nu-PcB" secondAttribute="trailing" constant="16" id="BEr-Cy-VEK"/>
                                     <constraint firstItem="wIg-et-3bV" firstAttribute="top" secondItem="SXm-w0-CtK" secondAttribute="bottom" constant="33" id="Bh1-vu-xcg"/>
@@ -343,12 +343,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jpf-on-fTf"/>
                     <connections>
+                        <outlet property="initialHeightOfScroll" destination="7eY-wE-b09" id="z5R-Lg-dnw"/>
                         <outlet property="rxSlider" destination="fHz-7Q-Zs8" id="hgl-Qv-Mzl"/>
                         <outlet property="rxTField" destination="6y0-19-JvG" id="Ldr-TP-MJS"/>
                         <outlet property="rySlider" destination="ki1-C7-95F" id="kaW-kN-Cym"/>
                         <outlet property="ryTField" destination="cib-bP-jpj" id="40d-pU-qsC"/>
                         <outlet property="rzSlider" destination="JrT-S7-tjc" id="FVl-Jh-Mvm"/>
                         <outlet property="rzTField" destination="HgE-rb-jbB" id="bu8-6a-6A8"/>
+                        <outlet property="scrollView" destination="3vo-WS-Bnk" id="71Z-vq-2Fb"/>
                         <outlet property="vxSlider" destination="C7O-RC-lZh" id="CrU-id-91r"/>
                         <outlet property="vxTField" destination="pTD-fR-8XJ" id="T6b-uV-xOM"/>
                         <outlet property="vySlider" destination="xPW-fm-seF" id="vmQ-pl-TQo"/>
@@ -366,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="-164" y="-388.66995073891627"/>
         </scene>
-        <!--Controller-->
+        <!--OEController-->
         <scene sceneID="4lq-CB-hN8">
             <objects>
-                <viewController id="jDg-Av-zdz" customClass="OEController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jDg-Av-zdz" userLabel="OEController" customClass="OEController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NUe-qB-HHA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,303 +387,301 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
-                                <rect key="frame" x="16" y="164" width="345.66666666666669" height="262"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="Cl1-ct-j9H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
-                                        <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="90"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Orbital Elements" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-yp-xQ4">
+                                        <rect key="frame" x="16" y="94" width="343" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="BAh-xF-y9g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
+                                        <rect key="frame" x="16" y="164" width="387" height="262"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
-                                                <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6371.0" borderStyle="roundedRect" placeholder="Rx Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fN2-zu-MyD">
-                                                <rect key="frame" x="0.0" y="30" width="144" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="144" id="A68-DV-AKj"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-M8-1Y2">
-                                                <rect key="frame" x="0.0" y="60" width="60.333333333333336" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="10"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
+                                                <rect key="frame" x="0.0" y="0.0" width="387" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="α: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6371.0" borderStyle="roundedRect" placeholder="Rx Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fN2-zu-MyD">
+                                                        <rect key="frame" x="0.0" y="30" width="144" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="A68-DV-AKj"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-M8-1Y2">
+                                                        <rect key="frame" x="0.0" y="60" width="84.333333333333329" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
+                                                <rect key="frame" x="0.0" y="86" width="387" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Ry Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="iv3-3T-ibA">
+                                                        <rect key="frame" x="0.0" y="30" width="164" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="4pw-Zl-oSF"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unitless" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ9-Ai-vwu">
+                                                        <rect key="frame" x="0.0" y="60" width="67.333333333333329" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
+                                                <rect key="frame" x="0.0" y="172" width="387" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ω: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Rz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-NS-RDl">
+                                                        <rect key="frame" x="0.0" y="30" width="144" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="ukm-kJ-Y6t"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCY-8N-c9r">
+                                                        <rect key="frame" x="0.0" y="60" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="262" id="yX3-9i-8tY"/>
+                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
-                                        <rect key="frame" x="0.0" y="86" width="345.66666666666669" height="90"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
+                                        <rect key="frame" x="204" y="193" width="199" height="204"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
-                                                <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Ry Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="iv3-3T-ibA">
-                                                <rect key="frame" x="0.0" y="30" width="144" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="144" id="4pw-Zl-oSF"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unitless" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ9-Ai-vwu">
-                                                <rect key="frame" x="0.0" y="60" width="48.333333333333336" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="10"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6371" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
+                                                <rect key="frame" x="-2" y="0.0" width="203" height="31"/>
+                                                <connections>
+                                                    <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
+                                                <rect key="frame" x="-2" y="87" width="203" height="31"/>
+                                                <connections>
+                                                    <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
+                                                <rect key="frame" x="-2" y="174" width="203" height="31"/>
+                                                <connections>
+                                                    <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
+                                                </connections>
+                                            </slider>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="204" id="4GF-0F-4em"/>
+                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
-                                        <rect key="frame" x="0.0" y="172" width="345.66666666666669" height="90"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
+                                        <rect key="frame" x="16" y="430" width="387" height="262"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="capOmega: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
-                                                <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Rz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-NS-RDl">
-                                                <rect key="frame" x="0.0" y="30" width="144" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="144" id="ukm-kJ-Y6t"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCY-8N-c9r">
-                                                <rect key="frame" x="0.0" y="60" width="42.333333333333336" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="10"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
+                                                <rect key="frame" x="0.0" y="0.0" width="387" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vx Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-fP-ZGZ">
+                                                        <rect key="frame" x="0.0" y="30" width="144" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="NyX-In-CoI"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-7d-dHk">
+                                                        <rect key="frame" x="0.0" y="60" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
+                                                <rect key="frame" x="0.0" y="86" width="387" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ω: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
+                                                        <rect key="frame" x="0.0" y="0.0" width="230.66666666666666" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vy Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lwD-xY-ElP">
+                                                        <rect key="frame" x="0.0" y="30" width="144" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="LMg-AP-2uj"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTq-kN-RaJ">
+                                                        <rect key="frame" x="0.0" y="60" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
+                                                <rect key="frame" x="0.0" y="172" width="387" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ν: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-vB-CkN">
+                                                        <rect key="frame" x="0.0" y="30" width="144" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="10T-Xw-akR"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-Xu-uqc">
+                                                        <rect key="frame" x="0.0" y="60" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="262" id="rBY-S6-Q61"/>
+                                        </constraints>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
+                                        <rect key="frame" x="184" y="459" width="219" height="204"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
+                                                <rect key="frame" x="-2" y="0.0" width="223" height="31"/>
+                                                <connections>
+                                                    <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
+                                                <rect key="frame" x="-2" y="87" width="223" height="31"/>
+                                                <connections>
+                                                    <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
+                                                <rect key="frame" x="-2" y="174" width="223" height="31"/>
+                                                <connections>
+                                                    <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="204" id="oqs-a6-AUe"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
+                                        <rect key="frame" x="107" y="716" width="205" height="36"/>
+                                        <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="161" id="BF2-4S-LkO"/>
+                                            <constraint firstAttribute="height" constant="36" id="YjW-jP-roj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                        <state key="normal" title="Save Orbit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveOrbitClick:" destination="jDg-Av-zdz" eventType="touchUpInside" id="BgC-Fe-OVX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="262" id="yX3-9i-8tY"/>
+                                    <constraint firstItem="wtf-yP-Gd7" firstAttribute="top" secondItem="eBY-yp-xQ4" secondAttribute="bottom" constant="28" id="0ab-ng-Bzp"/>
+                                    <constraint firstAttribute="bottom" secondItem="eBY-yp-xQ4" secondAttribute="bottom" constant="685" id="0b4-Vq-IeQ"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="WQq-Ey-eV4" secondAttribute="trailing" constant="107" id="37k-AB-txy"/>
+                                    <constraint firstItem="cXT-iJ-rJM" firstAttribute="leading" secondItem="lwD-xY-ElP" secondAttribute="trailing" constant="24" id="4Ia-lj-26q"/>
+                                    <constraint firstItem="Gz2-Z3-o5R" firstAttribute="top" secondItem="eBY-yp-xQ4" secondAttribute="bottom" constant="57" id="AIH-HO-Adi"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eBY-yp-xQ4" secondAttribute="trailing" constant="16" id="AKB-aR-w2o"/>
+                                    <constraint firstAttribute="trailing" secondItem="cXT-iJ-rJM" secondAttribute="trailing" constant="16" id="HPB-es-GBD"/>
+                                    <constraint firstItem="WQq-Ey-eV4" firstAttribute="top" secondItem="t8j-K3-b4C" secondAttribute="bottom" constant="24" id="JAG-j6-Gf6"/>
+                                    <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="4" id="JEM-8g-SJu"/>
+                                    <constraint firstItem="cXT-iJ-rJM" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="33" id="Nvm-W7-0TR"/>
+                                    <constraint firstItem="t8j-K3-b4C" firstAttribute="leading" secondItem="Cl1-ct-j9H" secondAttribute="leading" constant="16" id="R3H-Gd-iUc"/>
+                                    <constraint firstItem="WQq-Ey-eV4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Cl1-ct-j9H" secondAttribute="leading" constant="107" id="SYV-yw-gW1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" constant="16" id="V7s-ye-27b"/>
+                                    <constraint firstItem="wtf-yP-Gd7" firstAttribute="leading" secondItem="Cl1-ct-j9H" secondAttribute="leading" constant="16" id="aPO-hr-2h4"/>
+                                    <constraint firstItem="eBY-yp-xQ4" firstAttribute="leading" secondItem="Cl1-ct-j9H" secondAttribute="leading" constant="16" id="dil-RP-CS3"/>
+                                    <constraint firstItem="eBY-yp-xQ4" firstAttribute="top" secondItem="Cl1-ct-j9H" secondAttribute="top" constant="94" id="gm5-XF-IXV"/>
+                                    <constraint firstItem="eBY-yp-xQ4" firstAttribute="centerX" secondItem="Cl1-ct-j9H" secondAttribute="centerX" id="ivK-fm-GWV"/>
+                                    <constraint firstAttribute="trailing" secondItem="wtf-yP-Gd7" secondAttribute="trailing" constant="16" id="pJK-ZK-jeW"/>
+                                    <constraint firstItem="Gz2-Z3-o5R" firstAttribute="leading" secondItem="iv3-3T-ibA" secondAttribute="trailing" constant="24" id="sfw-ic-YQ7"/>
+                                    <constraint firstAttribute="trailing" secondItem="t8j-K3-b4C" secondAttribute="trailing" constant="16" id="xLH-Zm-dGN"/>
                                 </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
-                                <rect key="frame" x="16" y="430" width="269" height="262"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
-                                        <rect key="frame" x="0.0" y="0.0" width="269" height="90"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="inc: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
-                                                <rect key="frame" x="0.0" y="0.0" width="211.33333333333334" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vx Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-fP-ZGZ">
-                                                <rect key="frame" x="0.0" y="30" width="144" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="144" id="NyX-In-CoI"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-7d-dHk">
-                                                <rect key="frame" x="0.0" y="60" width="42.333333333333336" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="10"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
-                                        <rect key="frame" x="0.0" y="86" width="269" height="90"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="omega: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
-                                                <rect key="frame" x="0.0" y="0.0" width="269" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vy Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lwD-xY-ElP">
-                                                <rect key="frame" x="0.0" y="30" width="144" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="144" id="LMg-AP-2uj"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTq-kN-RaJ">
-                                                <rect key="frame" x="0.0" y="60" width="42.333333333333336" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="10"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
-                                        <rect key="frame" x="0.0" y="172" width="269" height="90"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nu: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
-                                                <rect key="frame" x="0.0" y="0.0" width="153.66666666666666" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Vz Value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-vB-CkN">
-                                                <rect key="frame" x="0.0" y="30" width="144" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="144" id="10T-Xw-akR"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-Xu-uqc">
-                                                <rect key="frame" x="0.0" y="60" width="42.333333333333336" height="30"/>
-                                                <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="10"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="262" id="wuh-Om-OMf"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
-                                <rect key="frame" x="184" y="194" width="175" height="204"/>
-                                <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6371" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
-                                        <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="yni-Nk-sAo"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
-                                        </connections>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
-                                        <rect key="frame" x="-2" y="87" width="179" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="gkk-lR-Ghd"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
-                                        </connections>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
-                                        <rect key="frame" x="-2" y="174" width="179" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="vfP-ag-8Ej"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
-                                        </connections>
-                                    </slider>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="qq3-1a-Y1l"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
-                                <rect key="frame" x="184" y="459" width="175" height="204"/>
-                                <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
-                                        <rect key="frame" x="-2" y="0.0" width="179" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="5AS-qE-1qK"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
-                                        </connections>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
-                                        <rect key="frame" x="-2" y="87" width="179" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="2Zj-Nf-tTu"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
-                                        </connections>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="359" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
-                                        <rect key="frame" x="-2" y="174" width="179" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="yRm-xO-MST"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
-                                        </connections>
-                                    </slider>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="204" id="QLT-PF-jRb"/>
-                                </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
-                                <rect key="frame" x="107" y="726" width="161" height="36"/>
-                                <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="BF2-4S-LkO"/>
-                                    <constraint firstAttribute="height" constant="36" id="YjW-jP-roj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
-                                <state key="normal" title="Save Orbit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveOrbitClick:" destination="jDg-Av-zdz" eventType="touchUpInside" id="BgC-Fe-OVX"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intitial Planet-Centered Orbital Elements" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-yp-xQ4">
-                                <rect key="frame" x="16" y="104" width="343" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="SAP-6J-c7V"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Cl1-ct-j9H" secondAttribute="bottom" id="0Uq-tG-CAG"/>
+                            <constraint firstItem="Cl1-ct-j9H" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="2Az-cn-Wq6"/>
+                            <constraint firstItem="Cl1-ct-j9H" firstAttribute="trailing" secondItem="vbE-no-N3a" secondAttribute="trailing" id="4kF-2c-4fh"/>
                             <constraint firstAttribute="bottom" secondItem="Pay-z1-Lho" secondAttribute="bottom" id="CeT-pU-Kbk"/>
-                            <constraint firstItem="eBY-yp-xQ4" firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" id="DH1-OP-eNE"/>
-                            <constraint firstItem="vbE-no-N3a" firstAttribute="bottom" secondItem="WQq-Ey-eV4" secondAttribute="bottom" constant="16" id="Dl2-6e-UOF"/>
-                            <constraint firstItem="wtf-yP-Gd7" firstAttribute="top" secondItem="eBY-yp-xQ4" secondAttribute="bottom" constant="16" id="Fxf-HK-lSU"/>
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="trailing" secondItem="vbE-no-N3a" secondAttribute="trailing" id="JIi-Fd-2tk"/>
-                            <constraint firstItem="vbE-no-N3a" firstAttribute="trailing" secondItem="cXT-iJ-rJM" secondAttribute="trailing" constant="16" id="Kx6-oz-aTN"/>
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="MVr-8H-cVr"/>
-                            <constraint firstItem="wtf-yP-Gd7" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="16" id="PLo-9r-GnR"/>
-                            <constraint firstItem="Gz2-Z3-o5R" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="184" id="QxK-wp-iCy"/>
-                            <constraint firstItem="eBY-yp-xQ4" firstAttribute="leading" secondItem="wtf-yP-Gd7" secondAttribute="leading" id="REO-gw-xEd"/>
-                            <constraint firstItem="cXT-iJ-rJM" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="184" id="T76-IT-xhj"/>
-                            <constraint firstItem="eBY-yp-xQ4" firstAttribute="top" secondItem="vbE-no-N3a" secondAttribute="top" constant="16" id="WKs-yb-9FF"/>
-                            <constraint firstItem="vbE-no-N3a" firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" constant="16" id="Zzu-r3-Xjx"/>
-                            <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="4" id="bkb-XQ-d47"/>
-                            <constraint firstItem="cXT-iJ-rJM" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="33" id="cC9-8c-2rF"/>
+                            <constraint firstItem="Cl1-ct-j9H" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="QxC-3v-hLb"/>
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cS2-zs-IRv"/>
                             <constraint firstItem="oZy-1W-ulK" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cde-p0-yJ8"/>
-                            <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="Gz2-Z3-o5R" secondAttribute="bottom" constant="32" id="hRe-iH-nTs"/>
-                            <constraint firstItem="t8j-K3-b4C" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" constant="16" id="mNT-Rh-4yM"/>
                             <constraint firstAttribute="bottom" secondItem="oZy-1W-ulK" secondAttribute="bottom" id="nC1-lv-Gew"/>
                             <constraint firstItem="oZy-1W-ulK" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="ntG-he-T3X"/>
-                            <constraint firstItem="WQq-Ey-eV4" firstAttribute="centerX" secondItem="NUe-qB-HHA" secondAttribute="centerX" id="reu-Zb-og2"/>
                             <constraint firstAttribute="trailing" secondItem="oZy-1W-ulK" secondAttribute="trailing" id="rtg-mG-hbD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vbE-no-N3a"/>
@@ -699,10 +699,12 @@
                         <outlet property="eTField" destination="iv3-3T-ibA" id="AeX-8t-IrR"/>
                         <outlet property="incSlider" destination="bTF-tP-qx2" id="JJg-Ei-nUF"/>
                         <outlet property="incTField" destination="ZXE-fP-ZGZ" id="STt-J0-9Ns"/>
+                        <outlet property="initialHeightOfScroll" destination="gm5-XF-IXV" id="9un-8g-bx4"/>
                         <outlet property="nuSlider" destination="mnf-u7-baF" id="lgP-8U-GUd"/>
                         <outlet property="nuTField" destination="jWB-vB-CkN" id="Qpa-Ub-nxO"/>
                         <outlet property="omegaSlider" destination="yxg-kU-zzT" id="eMh-Sp-q9P"/>
                         <outlet property="omegaTField" destination="lwD-xY-ElP" id="wZW-FL-Bae"/>
+                        <outlet property="scrollView" destination="Cl1-ct-j9H" id="ZNW-3P-wAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDd-V0-rFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
