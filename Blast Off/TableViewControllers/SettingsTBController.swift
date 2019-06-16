@@ -17,9 +17,10 @@ class SettingsTBController: UITableViewController {
     @IBOutlet weak var featurePointsSwitch: UISwitch!
 
     
-    
+    // Mark: - IBActions
     @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
     }
     
     @IBAction func sizeControlChange(_ sender: UISegmentedControl) {
@@ -71,28 +72,27 @@ class SettingsTBController: UITableViewController {
     
     var totalNumberOfOrbits = defaultOrbitNames.count
     
+    // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
+//        self.navigationController?.navigationBar.barTintColor = UIColor.black
         
         if savedNumberOfOrbits != 0 {
             totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
         }
     }
-
-
-    
     
     override func viewWillAppear(_ animated: Bool) {
         // super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated:true);
         
-        if self.navigationController?.navigationBar.barTintColor != UIColor.black{
-            self.navigationController?.navigationBar.barTintColor = UIColor.black
-        }
-
-        // let totalNumOfOrbits = defaults.value(forKey: "totalNumberOfOrbits") ?? defaultOrbitNames.count
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
+        enableScrollForUserDevice()
+        
         let shownDefaultOrbitsArray = defaults.value(forKey: "defaultOrbitisShown") as? [Bool] ?? defaultOrbitisShown //defaultOrbitisShown.filter{$0}.count
         let numOfDefaultOrbitsShown = shownDefaultOrbitsArray.filter{$0}.count
         
@@ -129,7 +129,7 @@ class SettingsTBController: UITableViewController {
         
     }
     
-    // MARK: - IBActions
+    // MARK: - Reset
     @IBAction func resetDefaults(_ sender: UIButton) {
         //controller definition
         let alert = UIAlertController(title:"Are you sure?", message: "This will erase any saved orbits you have created, and clear any derived data that could be causing performance issues.", preferredStyle: .alert)
@@ -155,6 +155,43 @@ class SettingsTBController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    
+    
+    // MARK: - Internal Functions
+    
+    func enableScrollForUserDevice() -> (){
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("iPhone 5 or 5S or 5C or SE")
+                
+            case 1334:
+                print("iPhone 6/6S/7/8")
+                
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+                tableView.isScrollEnabled = false
+                
+            case 2436:
+                print("iPhone X, XS")
+                tableView.isScrollEnabled = false
+                
+            case 2688:
+                print("iPhone XS Max")
+                tableView.isScrollEnabled = false
+                
+            case 1792:
+                print("iPhone XR")
+                tableView.isScrollEnabled = false
+                
+            default:
+                print("Unknown")
+                
+            }
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -171,6 +208,8 @@ class SettingsTBController: UITableViewController {
 
     }
  
+    
+    
     
     // MARK: - Data Management
     let defaults = UserDefaults.standard
