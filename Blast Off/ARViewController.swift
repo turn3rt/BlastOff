@@ -293,13 +293,38 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         
         // Axis Rotation
         xAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2) // rotates about z-axis
-        zAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0)
-        //yAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0) // rotates about y-axis
+        zAxisNode.eulerAngles = SCNVector3(Double.pi/2,0,0) // rotates about x-axis
+        
+        // Axis Labels
+        let xAxisLabel = SCNText(string: "X-Axis", extrusionDepth: 1)
+        let yAxisLabel = SCNText(string: "Y-Axis", extrusionDepth: 1)
+        let zAxisLabel = SCNText(string: "Z-Axis", extrusionDepth: 1)
+        
+        let xLabelNode = SCNNode()
+        let yLabelNode = SCNNode()
+        let zLabelNode = SCNNode()
+        
+        xLabelNode.position = SCNVector3(axisLength+0.005, 0, 0)
+        yLabelNode.position = SCNVector3(-0.016, axisLength+0.005, 0)
+        zLabelNode.position = SCNVector3(-0.016, 0, axisLength+0.005)
+        
+        xLabelNode.scale = SCNVector3(0.001, 0.001, 0.001)
+        yLabelNode.scale = SCNVector3(0.001, 0.001, 0.001)
+        zLabelNode.scale = SCNVector3(0.001, 0.001, 0.001)
+        
+        xLabelNode.geometry = xAxisLabel
+        yLabelNode.geometry = yAxisLabel
+        zLabelNode.geometry = zAxisLabel
+        
         
         // Adding Nodes to Scene
         sceneView.scene.rootNode.addChildNode(xAxisNode)
         sceneView.scene.rootNode.addChildNode(yAxisNode)
         sceneView.scene.rootNode.addChildNode(zAxisNode)
+        
+        sceneView.scene.rootNode.addChildNode(xLabelNode)
+        sceneView.scene.rootNode.addChildNode(yLabelNode)
+        sceneView.scene.rootNode.addChildNode(zLabelNode)
     }
     
     func showOrbitAxis() {
@@ -324,25 +349,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         
         // Axis Rotation
         xAxisNode.eulerAngles = SCNVector3(Double.pi/2, 0, 0) // rotates about x-axis
-        yAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2)
+        yAxisNode.eulerAngles = SCNVector3(0,0,Double.pi/2) // rotates about z-axis
         
         // Axis Labels
         let xAxisLabel = SCNText(string: "X-Axis", extrusionDepth: 1)
         let yAxisLabel = SCNText(string: "Y-Axis", extrusionDepth: 1)
         let zAxisLabel = SCNText(string: "Z-Axis", extrusionDepth: 1)
-
-//        let xMat = SCNMaterial()
-//        let yMat = SCNMaterial()
-//        let zMat = SCNMaterial()
-//
-//        xMat.diffuse.contents = UIColor.red
-//        yMat.diffuse.contents = UIColor.green
-//        zMat.diffuse.contents = UIColor.blue
-//
-//        xAxisLabel.materials = [xMat]
-//        yAxisLabel.materials = [yMat]
-//        zAxisLabel.materials = [zMat]
-
+        
         let xLabelNode = SCNNode()
         let yLabelNode = SCNNode()
         let zLabelNode = SCNNode()
