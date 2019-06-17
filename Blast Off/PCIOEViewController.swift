@@ -45,12 +45,19 @@ class PCIOEViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func pciButtonClick(_ sender: UIButton) {
-        
+//    @IBAction func pciButtonClick(_ sender: UIButton) {
+//        
+//    }
+//    @IBAction func oeButtonClick(_ sender: UIButton) {
+//        
+//    }
+    
+    @IBAction func didTapHyperlink(_ sender: UIButton) {
+        if let url = URL(string: nasaLink) {
+            UIApplication.shared.open(url)
+        }
     }
-    @IBAction func oeButtonClick(_ sender: UIButton) {
-        
-    }
+    
     
     
     // MARK: - Memory Management

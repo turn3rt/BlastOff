@@ -213,10 +213,26 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
             // https://stackoverflow.com/questions/51760421/which-measuring-unit-is-used-in-scnvector3-position-for-x-y-and-z-in-arkit
             
-//            let rotationAngle = deg2rad(-90)
-//            let rotatedPoints = [rNextAR[0],
-//                                (rNextAR[1]*cos(rotationAngle)) - (rNextAR[2]*sin(rotationAngle)),
-//                                (rNextAR[1]*sin(rotationAngle)) + (rNextAR[2]*cos(rotationAngle))]
+            let rotationAngle = deg2rad(90)
+            let xTensorRows = [
+                simd_double3(1,  0,  0),
+                simd_double3(0,  0,  1),
+                simd_double3(0, -1,  0)
+            ]
+//            let xTensorRows = [
+//                simd_double3(1, 0, 0),
+//                simd_double3(0, sin(rotationAngle), cos(rotationAngle)),
+//                simd_double3(0, cos(rotationAngle), -sin(rotationAngle))
+//            ]
+            let xTensor = double3x3(rows: xTensorRows)
+            
+            let rNextARVector = double3(rNextAR)
+            let xAxisRotation = xTensor*rNextARVector
+            let firstNewAxis = [xAxisRotation[0], xAxisRotation[1]-earthPosAR.y, xAxisRotation[2]+earthPosAR.z+earthPosAR.z]
+            print("rNextAR: \(rNextAR)")
+
+            print("x:\(xAxisRotation)")
+            
 //            https://www.siggraph.org/education/materials/HyperGraph/modeling/mod_tran/3drota.htm
             
             
