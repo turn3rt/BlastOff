@@ -207,36 +207,37 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             let ans = oe2rv(oe: oe, mu: earthGravityParam)
             let rNext = ans.rPCI
-            let rNextAR = ([(rNext[0]/scaleFactor) + earthPosAR.x,
-                            (rNext[1]/scaleFactor) + earthPosAR.y,
-                            (rNext[2]/scaleFactor) + earthPosAR.z])
+            let rNextAR = ([(rNext[0]/scaleFactor),
+                            (rNext[1]/scaleFactor),
+                            (rNext[2]/scaleFactor)])
             // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
             // https://stackoverflow.com/questions/51760421/which-measuring-unit-is-used-in-scnvector3-position-for-x-y-and-z-in-arkit
             
-            let rotationAngle = deg2rad(90)
+            let firstRotation = deg2rad(-90)
             let xTensorRows = [
                 simd_double3(1,  0,  0),
-                simd_double3(0,  0,  1),
-                simd_double3(0, -1,  0)
+                simd_double3(0, cos(firstRotation), -sin(firstRotation)),
+                simd_double3(0, sin(firstRotation),  cos(firstRotation))
             ]
-//            let xTensorRows = [
-//                simd_double3(1, 0, 0),
-//                simd_double3(0, sin(rotationAngle), cos(rotationAngle)),
-//                simd_double3(0, cos(rotationAngle), -sin(rotationAngle))
-//            ]
             let xTensor = double3x3(rows: xTensorRows)
             
             let rNextARVector = double3(rNextAR)
             let xAxisRotation = xTensor*rNextARVector
-            let firstNewAxis = [xAxisRotation[0], xAxisRotation[1]-earthPosAR.y, xAxisRotation[2]+earthPosAR.z+earthPosAR.z]
-            print("rNextAR: \(rNextAR)")
-
-            print("x:\(xAxisRotation)")
+        
+            let secondRotation = deg2rad(-90)
+            let yTensorRows = [
+                simd_double3(cos(secondRotation), 0, sin(secondRotation)),
+                simd_double3(0, 1, 0),
+                simd_double3(-sin(secondRotation), 0, cos(secondRotation))
+            ]
+            let yTensor = double3x3(rows: yTensorRows)
             
-//            https://www.siggraph.org/education/materials/HyperGraph/modeling/mod_tran/3drota.htm
+            let yAxisRotation = yTensor*xAxisRotation
+        
+            let newAxis = [yAxisRotation[0]+earthPosAR.x, yAxisRotation[1]+earthPosAR.y, yAxisRotation[2]+earthPosAR.z]
+//          http://www.euclideanspace.com/maths/algebra/matrix/orthogonal/rotation/
             
-            
-            let linePoint = double3(rNextAR) //rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
+            let linePoint = double3(newAxis) //rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
             //print("linePoint is: \(linePoint)")
             let drawPoint = SCNSphere(radius: CGFloat(sizeOfPoints)) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
