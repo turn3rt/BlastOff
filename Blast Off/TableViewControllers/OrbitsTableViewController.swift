@@ -201,7 +201,7 @@ class OrbitsTableViewController: UITableViewController {
                 if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
                     cell.accessoryType = .none
                     cell.tintColor = UIColor.black
-                    cell.orbitName.textColor = UIColor.black
+                    cell.orbitName.textColor = UIColor.white
                 }
             }
             
@@ -213,7 +213,7 @@ class OrbitsTableViewController: UITableViewController {
                 if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell {
                     cell.accessoryType = .none
                     cell.tintColor = UIColor.black
-                    cell.orbitName.textColor = UIColor.black
+                    cell.orbitName.textColor = UIColor.white
                 }
             }
         default:
