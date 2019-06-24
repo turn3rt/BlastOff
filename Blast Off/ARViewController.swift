@@ -103,7 +103,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             let indexOfShownUserOrbits = userOrbitsAreShownArray.enumerated().filter { $1 }.map { $0.0 } // finds indices of true vals in userOrbitsAreShownArray
             print("Memory Index of shown Orbits: \(indexOfShownUserOrbits)")
-            if indexOfShownUserOrbits != [] {
+            if indexOfShownUserOrbits != [] && indexOfShownUserOrbits.first != userOrbitsAreShownArray.count - 1 {
                 for z in 0...indexOfShownUserOrbits.count-1 {
                     var nameKey = Int()
                     nameKey = z == 0 ? 0 : (z*4) // if z = 0, keyNum = 0 else keyNum = z*4
@@ -119,6 +119,21 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                         createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+z])
                     }
                     print("Succssfully created user orbit with name: \(userOrbitName)")
+                }
+            } else {
+                print("Displaying only last orbit with name: \(String(describing: defaults.string(forKey: "\(indexOfShownUserOrbits.first!*4)")))")
+                let lastOrbitNameKey = indexOfShownUserOrbits.first!*4
+                let lastOrbitName = defaults.string(forKey: "\(lastOrbitNameKey)")
+                
+                let lastOrbitOEKey = lastOrbitNameKey+2
+                let lastOrbitOE = defaults.value(forKey: "\(lastOrbitOEKey)") as! [Double]
+                
+                let colorsKey = defaultOrbitNames.count+indexOfShownUserOrbits.first!
+                if colorsKey >= colors.count-1 {
+                    let c = Int(colorsKey/10)
+                    createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[c])
+                } else {
+                    createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[colorsKey])
                 }
             }
         }
@@ -212,7 +227,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                             (rNext[2]/scaleFactor)])
             // NOTE: Y & Z AXIS FLIPPED LINK NEXT LINE
             // https://stackoverflow.com/questions/51760421/which-measuring-unit-is-used-in-scnvector3-position-for-x-y-and-z-in-arkit
-            
+            // http://www.euclideanspace.com/maths/algebra/matrix/orthogonal/rotation/
+
+            // Rotating Axis
             let firstRotation = deg2rad(-90)
             let xTensorRows = [
                 simd_double3(1,  0,  0),
@@ -235,16 +252,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             let yAxisRotation = yTensor*xAxisRotation
         
             let newAxis = [yAxisRotation[0]+earthPosAR.x, yAxisRotation[1]+earthPosAR.y, yAxisRotation[2]+earthPosAR.z]
-//          http://www.euclideanspace.com/maths/algebra/matrix/orthogonal/rotation/
             
-            let linePoint = double3(newAxis) //rNextAR) //earthPos + simd_double3([0, 0, earthRadiusAR + Double(slider.value)/(scaleFactor)])
-            //print("linePoint is: \(linePoint)")
+            // Plotting points
+            let linePoint = double3(newAxis)
             let drawPoint = SCNSphere(radius: CGFloat(sizeOfPoints)) // default: 0.0005
             let drawNode = SCNNode(geometry: drawPoint)
             drawNode.position = SCNVector3(linePoint)
-            
-            // Rotating Axis
-            // drawNode.eulerAngles = SCNVector3(0,Double.pi/2,0)
             
             drawNode.geometry?.firstMaterial?.diffuse.contents = color
             // drawNode.geometry?.firstMaterial?.specular.contents = UIColor.white
