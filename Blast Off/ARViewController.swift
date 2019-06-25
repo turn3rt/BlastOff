@@ -280,7 +280,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         // Set the view's delegate
         sceneView.delegate = self
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         
         // set Debug Options
         if worldOriginIsShown {
