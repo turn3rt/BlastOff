@@ -106,9 +106,18 @@ class OrbitsTableViewController: UITableViewController {
             
             if isEditingShownOrbits == true && defaults.bool(forKey: "\((indexPath.row*4) + 3)") == true {
                 cell.accessoryType = .checkmark
-                cell.tintColor = colors[indexPath.row  + defaultOrbitNames.count]
-                cell.orbitName.textColor = colors[indexPath.row + defaultOrbitNames.count]
-                self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                if indexPath.row >= colors.count - defaultOrbitNames.count {
+                    print("current index: \(indexPath.row)")
+                    let colorIndex = (indexPath.row - 7) - ((Int((indexPath.row + defaultOrbitNames.count)/10) - 1)*10)
+                    cell.tintColor = colors[colorIndex]
+                    cell.orbitName.textColor = colors[colorIndex]
+                    self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                } else {
+                    print("current index: \(indexPath.row)")
+                    cell.tintColor = colors[indexPath.row  + defaultOrbitNames.count]
+                    cell.orbitName.textColor = colors[indexPath.row + defaultOrbitNames.count]
+                    self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    }
             }
             return cell
         default:
@@ -168,8 +177,10 @@ class OrbitsTableViewController: UITableViewController {
                 defaults.set(true, forKey: "\((indexPath.row*4) + 3)")//defaults.bool(forKey: "\((indexPath.row*4) + 3)") == false
                 if let cell = tableView.cellForRow(at: indexPath) as? OrbitCell{
                     cell.accessoryType = .checkmark
-                    cell.tintColor = colors[indexPath.row + defaultOrbitNames.count]
-                    cell.orbitName.textColor = colors[indexPath.row + defaultOrbitNames.count ]
+                    let colorIndex = (indexPath.row - 7) - ((Int((indexPath.row + defaultOrbitNames.count)/10) - 1)*10)
+
+                    cell.tintColor = colors[colorIndex] // colors[indexPath.row + defaultOrbitNames.count]
+                    cell.orbitName.textColor = colors[colorIndex] // colors[indexPath.row + defaultOrbitNames.count ]
                 }
             } else {
                 print("presenting PCIOE controller with selected row: \(indexPath.row)")

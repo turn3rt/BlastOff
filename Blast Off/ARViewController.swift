@@ -103,31 +103,24 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             let indexOfShownUserOrbits = userOrbitsAreShownArray.enumerated().filter { $1 }.map { $0.0 } // finds indices of true vals in userOrbitsAreShownArray
             print("Memory Index of shown Orbits: \(indexOfShownUserOrbits)")
+            
+            
+            
+            
             if indexOfShownUserOrbits != [] && indexOfShownUserOrbits.first != userOrbitsAreShownArray.count - 1 {
-                for z in 0...indexOfShownUserOrbits.count-1 {
-                    var nameKey = Int()
-                    nameKey = z == 0 ? 0 : (z*4) // if z = 0, keyNum = 0 else keyNum = z*4
-                    let userOrbitName = defaults.string(forKey: "\(nameKey)")!
-                    
-                    var oeKey = Int()
-                    oeKey = z == 0 ? 2 : 2 + (z*4)
-                    let userOrbitOE = defaults.value(forKey: "\(oeKey)") as! [Double]
-                    if (defaultOrbitNames.count+z) >= colors.count {
-                        let k = Int(z/10)
-                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[z-(k*10)])
-                    } else {
-                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+z])
-                    }
-                    print("Succssfully created user orbit with name: \(userOrbitName)")
-                }
-            } else {
+              
+                
+                
+                
+                
+            } else if indexOfShownUserOrbits != [] {
                 print("Displaying only last orbit with name: \(String(describing: defaults.string(forKey: "\(indexOfShownUserOrbits.first!*4)")))")
                 let lastOrbitNameKey = indexOfShownUserOrbits.first!*4
                 let lastOrbitName = defaults.string(forKey: "\(lastOrbitNameKey)")
-                
+
                 let lastOrbitOEKey = lastOrbitNameKey+2
                 let lastOrbitOE = defaults.value(forKey: "\(lastOrbitOEKey)") as! [Double]
-                
+
                 let colorsKey = defaultOrbitNames.count+indexOfShownUserOrbits.first!
                 if colorsKey >= colors.count-1 {
                     let c = Int(colorsKey/10)
@@ -136,15 +129,59 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                     createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[colorsKey])
                 }
             }
+
+            
+            
+            
+            
+            
+            
+            
+            
+//            if indexOfShownUserOrbits != [] && indexOfShownUserOrbits.first != userOrbitsAreShownArray.count - 1 {
+//
+//
+//
+//                for z in 0...indexOfShownUserOrbits.count-1 {
+//                    var nameKey = Int()
+//                    nameKey = z == 0 ? 0 : (z*4) // if z = 0, keyNum = 0 else keyNum = z*4
+//                    let userOrbitName = defaults.string(forKey: "\(nameKey)")!
+//
+//                    var oeKey = Int()
+//                    oeKey = z == 0 ? 2 : 2 + (z*4)
+//                    let userOrbitOE = defaults.value(forKey: "\(oeKey)") as! [Double]
+//                    if (defaultOrbitNames.count+z) >= colors.count {
+//                        let k = Int(z/10)
+//                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[z-(k*10)])
+//                    } else {
+//                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+z])
+//                    }
+//                    print("Succssfully created user orbit with name: \(userOrbitName)")
+//                }
+//            }
+            
+//            } else if indexOfShownUserOrbits != [] {
+//                print("Displaying only last orbit with name: \(String(describing: defaults.string(forKey: "\(indexOfShownUserOrbits.first!*4)")))")
+//                let lastOrbitNameKey = indexOfShownUserOrbits.first!*4
+//                let lastOrbitName = defaults.string(forKey: "\(lastOrbitNameKey)")
+//
+//                let lastOrbitOEKey = lastOrbitNameKey+2
+//                let lastOrbitOE = defaults.value(forKey: "\(lastOrbitOEKey)") as! [Double]
+//
+//                let colorsKey = defaultOrbitNames.count+indexOfShownUserOrbits.first!
+//                if colorsKey >= colors.count-1 {
+//                    let c = Int(colorsKey/10)
+//                    createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[c])
+//                } else {
+//                    createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[colorsKey])
+//                }
+//            }
+            
+            
+            
+            
+            
         }
-        
-        
-        // Adding UserDefaults Settings
-//        showWorldAxis()
-//        showOrbitAxis()
-        
-        
-        
     }
     
     
