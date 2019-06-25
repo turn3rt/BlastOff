@@ -123,7 +123,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 
                 let colorsKey = defaultOrbitNames.count+indexOfShownUserOrbits.first!
                 if colorsKey >= colors.count-1 {
-                    let c = Int(colorsKey/10)
+                    
+                    
+                    
+                    let c = colorsKey - 10*Int(colorsKey/10)
                     createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[c])
                 } else {
                     createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[colorsKey])
