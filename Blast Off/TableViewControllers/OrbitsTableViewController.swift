@@ -26,6 +26,13 @@ class OrbitsTableViewController: UITableViewController {
 //        print(numberOfTrue) // 3
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -37,10 +44,7 @@ class OrbitsTableViewController: UITableViewController {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
         backgroundView.backgroundColor = UIColor.black
         self.tableView.backgroundView = backgroundView
-        
-        
-        
-
+    
         if isEditingShownOrbits != true {
             self.tableView.allowsMultipleSelection = false
             self.navigationItem.rightBarButtonItem = nil
