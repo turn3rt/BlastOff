@@ -108,7 +108,42 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             
             
             if indexOfShownUserOrbits != [] && indexOfShownUserOrbits.first != userOrbitsAreShownArray.count - 1 {
-              
+                for z in 0...indexOfShownUserOrbits.count-1 {
+                    
+                    var nameKey = Int()
+                    let zPrime = indexOfShownUserOrbits[z]
+                    
+                    nameKey = z == 0 ? indexOfShownUserOrbits.first!*4 : zPrime*4 // if z = 0, keyNum = indexOfShownUserOrbits.first else keyNum = zPrime
+                    let userOrbitName = defaults.string(forKey: "\(nameKey)")!
+                    
+                    var oeKey = Int()
+                    oeKey = z == 0 ? (indexOfShownUserOrbits.first!*4)+2 : 2 + zPrime*4
+                    let userOrbitOE = defaults.value(forKey: "\(oeKey)") as! [Double]
+                    
+                    if (defaultOrbitNames.count+zPrime) >= colors.count {
+                        if zPrime <= 16{
+                            createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[zPrime-7])
+                        } else {
+                            let a = (zPrime/10)*10
+                            let b = floor(Double(a)) // rounds to nearest 10's place of zPrime
+                            let c = zPrime - Int(b)  
+                            let d = c - 7
+                            createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[d])
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+//                        let k = Int(floor(Double(zPrime/10))*10) - 7
+//                         createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[k])
+                    } else {
+                        createOrbit(name: userOrbitName, orbitalElements: userOrbitOE, color: colors[defaultOrbitNames.count+zPrime])
+                    }
+                    print("Succssfully created user orbit with name: \(userOrbitName)")
+                }
                 
                 
                 
@@ -123,9 +158,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 
                 let colorsKey = defaultOrbitNames.count+indexOfShownUserOrbits.first!
                 if colorsKey >= colors.count-1 {
-                    
-                    
-                    
                     let c = colorsKey - 10*Int(colorsKey/10)
                     createOrbit(name: lastOrbitName!, orbitalElements: lastOrbitOE, color: colors[c])
                 } else {
