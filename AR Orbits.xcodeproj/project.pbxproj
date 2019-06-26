@@ -47,7 +47,7 @@
 		B3935542229A185B00F88C4A /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
 		B3935544229B344000F88C4A /* SettingsTBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTBController.swift; sourceTree = "<group>"; };
 		B3935547229B3C1300F88C4A /* OEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEController.swift; sourceTree = "<group>"; };
-		B3AB184D228A4FED0084802A /* Blast Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blast Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AB184D228A4FED0084802A /* AR Orbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Orbits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AB1850228A4FED0084802A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3AB1852228A4FED0084802A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		B3AB1854228A4FED0084802A /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		B3AB1844228A4FED0084802A = {
 			isa = PBXGroup;
 			children = (
-				B3AB184F228A4FED0084802A /* Blast Off */,
+				B3AB184F228A4FED0084802A /* AR Orbits */,
 				B3AB184E228A4FED0084802A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,12 +99,12 @@
 		B3AB184E228A4FED0084802A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3AB184D228A4FED0084802A /* Blast Off.app */,
+				B3AB184D228A4FED0084802A /* AR Orbits.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B3AB184F228A4FED0084802A /* Blast Off */ = {
+		B3AB184F228A4FED0084802A /* AR Orbits */ = {
 			isa = PBXGroup;
 			children = (
 				B3AB1850228A4FED0084802A /* AppDelegate.swift */,
@@ -124,7 +124,7 @@
 				B3AB185B228A4FEE0084802A /* LaunchScreen.storyboard */,
 				B3AB185E228A4FEE0084802A /* Info.plist */,
 			);
-			path = "Blast Off";
+			path = "AR Orbits";
 			sourceTree = "<group>";
 		};
 		B3AB186B229060140084802A /* Textures */ = {
@@ -173,9 +173,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3AB184C228A4FED0084802A /* Blast Off */ = {
+		B3AB184C228A4FED0084802A /* AR Orbits */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3AB1861228A4FEE0084802A /* Build configuration list for PBXNativeTarget "Blast Off" */;
+			buildConfigurationList = B3AB1861228A4FEE0084802A /* Build configuration list for PBXNativeTarget "AR Orbits" */;
 			buildPhases = (
 				B3AB1849228A4FED0084802A /* Sources */,
 				B3AB184A228A4FED0084802A /* Frameworks */,
@@ -185,9 +185,9 @@
 			);
 			dependencies = (
 			);
-			name = "Blast Off";
+			name = "AR Orbits";
 			productName = "Blast Off";
-			productReference = B3AB184D228A4FED0084802A /* Blast Off.app */;
+			productReference = B3AB184D228A4FED0084802A /* AR Orbits.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B3AB1848228A4FED0084802A /* Build configuration list for PBXProject "Blast Off" */;
+			buildConfigurationList = B3AB1848228A4FED0084802A /* Build configuration list for PBXProject "AR Orbits" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -218,7 +218,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3AB184C228A4FED0084802A /* Blast Off */,
+				B3AB184C228A4FED0084802A /* AR Orbits */,
 			);
 		};
 /* End PBXProject section */
@@ -412,13 +412,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37NWD4XUMT;
-				INFOPLIST_FILE = "Blast Off/Info.plist";
+				INFOPLIST_FILE = "AR Orbits/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.BlastOff.Blast-Off";
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.AROrbits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -431,13 +431,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37NWD4XUMT;
-				INFOPLIST_FILE = "Blast Off/Info.plist";
+				INFOPLIST_FILE = "AR Orbits/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.BlastOff.Blast-Off";
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.AROrbits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,7 +447,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3AB1848228A4FED0084802A /* Build configuration list for PBXProject "Blast Off" */ = {
+		B3AB1848228A4FED0084802A /* Build configuration list for PBXProject "AR Orbits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3AB185F228A4FEE0084802A /* Debug */,
@@ -456,7 +456,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3AB1861228A4FEE0084802A /* Build configuration list for PBXNativeTarget "Blast Off" */ = {
+		B3AB1861228A4FEE0084802A /* Build configuration list for PBXNativeTarget "AR Orbits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3AB1862228A4FEE0084802A /* Debug */,
