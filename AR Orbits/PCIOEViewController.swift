@@ -44,14 +44,6 @@ class PCIOEViewController: UIViewController {
         // self.isModifyingOrbitPCIOE = false
     }
     
-    // MARK: - IBActions
-//    @IBAction func pciButtonClick(_ sender: UIButton) {
-//        
-//    }
-//    @IBAction func oeButtonClick(_ sender: UIButton) {
-//        
-//    }
-    
     @IBAction func didTapHyperlink(_ sender: UIButton) {
         if let url = URL(string: nasaLink) {
             UIApplication.shared.open(url)

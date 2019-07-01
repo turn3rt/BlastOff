@@ -12,7 +12,7 @@
         <!--PCIController -->
         <scene sceneID="34J-vM-Jgy">
             <objects>
-                <viewController id="S9O-HX-tyw" userLabel="PCIController " customClass="PCIController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S9O-HX-tyw" userLabel="PCIController " customClass="PCIController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rra-Gf-wzA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,9 +340,10 @@
                             <outletCollection property="gestureRecognizers" destination="wyi-SK-dk9" appends="YES" id="e5b-fV-GnK"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Jpf-on-fTf"/>
+                    <navigationItem key="navigationItem" title="[orbitName]" id="eVm-xH-ay3"/>
                     <connections>
                         <outlet property="initialHeightOfScroll" destination="7eY-wE-b09" id="z5R-Lg-dnw"/>
+                        <outlet property="navBar" destination="eVm-xH-ay3" id="bm6-YH-UOr"/>
                         <outlet property="rxSlider" destination="fHz-7Q-Zs8" id="hgl-Qv-Mzl"/>
                         <outlet property="rxTField" destination="6y0-19-JvG" id="Ldr-TP-MJS"/>
                         <outlet property="rySlider" destination="ki1-C7-95F" id="kaW-kN-Cym"/>
@@ -370,7 +371,7 @@
         <!--OEController-->
         <scene sceneID="4lq-CB-hN8">
             <objects>
-                <viewController id="jDg-Av-zdz" userLabel="OEController" customClass="OEController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jDg-Av-zdz" userLabel="OEController" customClass="OEController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NUe-qB-HHA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -399,10 +400,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
-                                        <rect key="frame" x="16" y="164" width="447" height="262"/>
+                                        <rect key="frame" x="16" y="164" width="479" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
-                                                <rect key="frame" x="0.0" y="0.0" width="447" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="479" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="α: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
                                                         <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
@@ -428,7 +429,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
-                                                <rect key="frame" x="0.0" y="86" width="447" height="90"/>
+                                                <rect key="frame" x="0.0" y="86" width="479" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
                                                         <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
@@ -454,7 +455,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
-                                                <rect key="frame" x="0.0" y="172" width="447" height="90"/>
+                                                <rect key="frame" x="0.0" y="172" width="479" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ω: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
                                                         <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="30"/>
@@ -485,22 +486,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
-                                        <rect key="frame" x="184" y="193" width="279" height="204"/>
+                                        <rect key="frame" x="184" y="193" width="311" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6371" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
-                                                <rect key="frame" x="-2" y="0.0" width="283" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="315" height="31"/>
                                                 <connections>
                                                     <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
-                                                <rect key="frame" x="-2" y="87" width="283" height="31"/>
+                                                <rect key="frame" x="-2" y="87" width="315" height="31"/>
                                                 <connections>
                                                     <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
-                                                <rect key="frame" x="-2" y="174" width="283" height="31"/>
+                                                <rect key="frame" x="-2" y="174" width="315" height="31"/>
                                                 <connections>
                                                     <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
                                                 </connections>
@@ -511,10 +512,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
-                                        <rect key="frame" x="16" y="430" width="447" height="262"/>
+                                        <rect key="frame" x="16" y="430" width="479" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
-                                                <rect key="frame" x="0.0" y="0.0" width="447" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="479" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
                                                         <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
@@ -540,7 +541,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
-                                                <rect key="frame" x="0.0" y="86" width="447" height="90"/>
+                                                <rect key="frame" x="0.0" y="86" width="479" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ω: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
                                                         <rect key="frame" x="0.0" y="0.0" width="230.66666666666666" height="30"/>
@@ -566,7 +567,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
-                                                <rect key="frame" x="0.0" y="172" width="447" height="90"/>
+                                                <rect key="frame" x="0.0" y="172" width="479" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ν: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
                                                         <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
@@ -597,22 +598,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
-                                        <rect key="frame" x="184" y="459" width="279" height="204"/>
+                                        <rect key="frame" x="184" y="459" width="311" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
-                                                <rect key="frame" x="-2" y="0.0" width="283" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="315" height="31"/>
                                                 <connections>
                                                     <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
-                                                <rect key="frame" x="-2" y="87" width="283" height="31"/>
+                                                <rect key="frame" x="-2" y="87" width="315" height="31"/>
                                                 <connections>
                                                     <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
-                                                <rect key="frame" x="-2" y="174" width="283" height="31"/>
+                                                <rect key="frame" x="-2" y="174" width="315" height="31"/>
                                                 <connections>
                                                     <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
                                                 </connections>
@@ -623,7 +624,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
-                                        <rect key="frame" x="3" y="716" width="369" height="36"/>
+                                        <rect key="frame" x="-29" y="716" width="433" height="36"/>
                                         <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="161" id="BF2-4S-LkO"/>
@@ -719,7 +720,7 @@
         <!--ARViewController-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" userLabel="ARViewController" customClass="ARViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" userLabel="ARViewController" customClass="ARViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -804,7 +805,7 @@
         <!--OrbitsTBController-->
         <scene sceneID="D9H-44-llK">
             <objects>
-                <tableViewController id="Kmq-eH-Y7W" userLabel="OrbitsTBController" customClass="OrbitsTableViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Kmq-eH-Y7W" userLabel="OrbitsTBController" customClass="OrbitsTableViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DLl-hM-b79">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -815,7 +816,7 @@
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrbitNameCell" rowHeight="50" id="QOr-dC-1OO" customClass="OrbitCell" customModule="Blast_Off" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrbitNameCell" rowHeight="50" id="QOr-dC-1OO" customClass="OrbitCell" customModule="AR_Orbits" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QOr-dC-1OO" id="DA7-fx-En5">
@@ -867,7 +868,7 @@
         <!--Home-->
         <scene sceneID="D0K-xj-ken">
             <objects>
-                <viewController id="l8n-4J-cM3" customClass="HomeViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l8n-4J-cM3" customClass="HomeViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ddp-MT-1vs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -875,24 +876,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrbitBGMain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7bF-S2-VwT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Orbits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-76-Qqe">
-                                <rect key="frame" x="32" y="150" width="311" height="102"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="64"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="0.0" height="3"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-yR-m6r">
-                                <rect key="frame" x="100" y="318" width="175" height="172"/>
+                                <rect key="frame" x="105" y="368" width="165" height="172"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q56-01-Wbd">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="36"/>
                                         <color key="backgroundColor" red="0.73333333329999995" green="0.52549019610000003" blue="0.98823529409999999" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="wAt-5j-66Q"/>
+                                            <constraint firstAttribute="height" constant="36" id="228-jb-Trs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Modify Orbit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -906,12 +899,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-ma-Aua">
-                                        <rect key="frame" x="0.0" y="68" width="175" height="36"/>
+                                        <rect key="frame" x="0.0" y="68" width="165" height="36"/>
                                         <color key="backgroundColor" red="0.30233701470000002" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="H6g-pT-aW4"/>
+                                            <constraint firstAttribute="height" constant="36" id="Z3G-0x-Nqb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="New Orbit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -925,12 +918,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9W-ma-DpQ">
-                                        <rect key="frame" x="0.0" y="136" width="175" height="36"/>
+                                        <rect key="frame" x="0.0" y="136" width="165" height="36"/>
                                         <color key="backgroundColor" red="0.011764705882352941" green="0.85490196078431369" blue="0.77647058823529413" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="kPw-gH-5H8"/>
+                                            <constraint firstAttribute="height" constant="36" id="5RP-66-tBZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Launch">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -945,31 +938,118 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="tOo-Tr-rr2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="u89-lV-K0c"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconMain.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jbi-q7-FXC">
+                                <rect key="frame" x="112.66666666666669" y="80" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3gv-Iu-a2q"/>
+                                    <constraint firstAttribute="height" constant="150" id="Ycx-og-wb7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Orbits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-76-Qqe">
+                                <rect key="frame" x="16" y="246" width="343" height="58"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="54"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="3"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3HQ-PZ-aUh">
+                                <rect key="frame" x="105.66666666666669" y="628" width="164" height="27"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-f0-EfC">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="Hjk-vC-96S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Tutorial">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="VCm-ve-zsh" kind="show" id="zQq-Rb-5Ee"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-jP-yDa">
+                                        <rect key="frame" x="74.999999999999986" y="0.0" width="14" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="|">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpx-MM-c21">
+                                        <rect key="frame" x="94" y="0.0" width="70" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="About ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="8Fa-L9-aU1"/>
+                                    <constraint firstItem="ARv-jP-yDa" firstAttribute="centerX" secondItem="3HQ-PZ-aUh" secondAttribute="centerX" id="Zs4-ki-uCG"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="scK-4S-Puw" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Meu-yR-m6r" secondAttribute="trailing" constant="100" id="2Di-G8-7eY"/>
-                            <constraint firstItem="scK-4S-Puw" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Meu-yR-m6r" secondAttribute="bottom" constant="200" id="3bL-Cc-9UF"/>
-                            <constraint firstItem="Meu-yR-m6r" firstAttribute="centerX" secondItem="ddp-MT-1vs" secondAttribute="centerX" id="57c-zJ-tmQ"/>
-                            <constraint firstItem="7bF-S2-VwT" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" id="6nV-OB-XQT"/>
-                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" constant="32" id="CQi-Aw-hir"/>
-                            <constraint firstItem="7bF-S2-VwT" firstAttribute="trailing" secondItem="scK-4S-Puw" secondAttribute="trailing" id="Csa-Xc-B0r"/>
-                            <constraint firstItem="Meu-yR-m6r" firstAttribute="top" secondItem="jkQ-76-Qqe" secondAttribute="bottom" constant="66" id="El1-9e-ewv"/>
-                            <constraint firstAttribute="bottom" secondItem="7bF-S2-VwT" secondAttribute="bottom" id="JFh-i4-axs"/>
-                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="top" secondItem="scK-4S-Puw" secondAttribute="top" constant="150" id="cYW-oP-bca"/>
-                            <constraint firstItem="scK-4S-Puw" firstAttribute="trailing" secondItem="jkQ-76-Qqe" secondAttribute="trailing" constant="32" id="fjB-AX-p3m"/>
-                            <constraint firstItem="Meu-yR-m6r" firstAttribute="leading" relation="lessThanOrEqual" secondItem="scK-4S-Puw" secondAttribute="leading" constant="100" id="uEW-pj-JiM"/>
-                            <constraint firstItem="7bF-S2-VwT" firstAttribute="top" secondItem="ddp-MT-1vs" secondAttribute="top" id="wgj-KV-J1s"/>
+                            <constraint firstItem="3HQ-PZ-aUh" firstAttribute="centerX" secondItem="ddp-MT-1vs" secondAttribute="centerX" id="0ib-IV-qoA"/>
+                            <constraint firstItem="Meu-yR-m6r" firstAttribute="top" secondItem="jkQ-76-Qqe" secondAttribute="bottom" constant="64" id="203-yJ-gpl"/>
+                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" constant="16" id="35E-2e-I25"/>
+                            <constraint firstItem="Jbi-q7-FXC" firstAttribute="centerX" secondItem="ddp-MT-1vs" secondAttribute="centerX" id="3Tj-6C-e9K"/>
+                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="top" secondItem="Jbi-q7-FXC" secondAttribute="bottom" constant="16" id="46N-rj-gyx"/>
+                            <constraint firstItem="7bF-S2-VwT" firstAttribute="trailing" secondItem="scK-4S-Puw" secondAttribute="trailing" id="4sO-Ig-7Za"/>
+                            <constraint firstAttribute="bottom" secondItem="7bF-S2-VwT" secondAttribute="bottom" id="7Iy-wj-yye"/>
+                            <constraint firstItem="7bF-S2-VwT" firstAttribute="leading" secondItem="scK-4S-Puw" secondAttribute="leading" id="9lP-Cx-TVc"/>
+                            <constraint firstItem="Meu-yR-m6r" firstAttribute="centerX" secondItem="ddp-MT-1vs" secondAttribute="centerX" id="DJ1-ur-ost"/>
+                            <constraint firstItem="scK-4S-Puw" firstAttribute="trailing" secondItem="jkQ-76-Qqe" secondAttribute="trailing" constant="16" id="JPf-Y2-r1e"/>
+                            <constraint firstItem="jkQ-76-Qqe" firstAttribute="centerX" secondItem="ddp-MT-1vs" secondAttribute="centerX" id="UYh-56-QMZ"/>
+                            <constraint firstItem="7bF-S2-VwT" firstAttribute="top" secondItem="ddp-MT-1vs" secondAttribute="top" id="ccb-J5-bif"/>
+                            <constraint firstItem="Meu-yR-m6r" firstAttribute="leading" relation="lessThanOrEqual" secondItem="scK-4S-Puw" secondAttribute="leading" constant="105" id="dzX-qj-GXA"/>
+                            <constraint firstItem="3HQ-PZ-aUh" firstAttribute="top" secondItem="Meu-yR-m6r" secondAttribute="bottom" constant="88" id="evt-Xh-9HB"/>
+                            <constraint firstItem="Jbi-q7-FXC" firstAttribute="top" secondItem="scK-4S-Puw" secondAttribute="top" constant="80" id="gBS-Sp-Y0J"/>
+                            <constraint firstItem="scK-4S-Puw" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Meu-yR-m6r" secondAttribute="trailing" constant="105" id="mPd-di-Vfo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="scK-4S-Puw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="guq-aT-Wpk"/>
+                    <connections>
+                        <outlet property="botMargin" destination="evt-Xh-9HB" id="ctj-dm-4fm"/>
+                        <outlet property="midMargin" destination="203-yJ-gpl" id="5jE-HC-RLr"/>
+                        <outlet property="topMargin" destination="gBS-Sp-Y0J" id="H2t-wR-4X4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ax-Ty-OLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2679.1999999999998" y="12.561576354679804"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6tI-cT-aIq">
+            <objects>
+                <viewController id="VCm-ve-zsh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="doG-cc-chq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8x-rj-nbd">
+                                <rect key="frame" x="170.66666666666666" y="351.66666666666669" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F8x-rj-nbd" firstAttribute="centerY" secondItem="doG-cc-chq" secondAttribute="centerY" id="LVg-ww-S8l"/>
+                            <constraint firstItem="F8x-rj-nbd" firstAttribute="centerX" secondItem="doG-cc-chq" secondAttribute="centerX" id="OZP-3K-PQA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vz9-U4-dQo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N5Q-eH-bEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3578" y="-700"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ghV-od-f3n">
@@ -997,7 +1077,7 @@
         <!--PCIOEController-->
         <scene sceneID="s1C-sf-rDu">
             <objects>
-                <viewController storyboardIdentifier="PCIOEvc" title="PCIOEvc" automaticallyAdjustsScrollViewInsets="NO" id="04M-ZP-gpZ" userLabel="PCIOEController" customClass="PCIOEViewController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PCIOEvc" title="PCIOEvc" automaticallyAdjustsScrollViewInsets="NO" id="04M-ZP-gpZ" userLabel="PCIOEController" customClass="PCIOEViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ypz-sO-2Pm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1012,7 +1092,7 @@
                                     <constraint firstAttribute="height" constant="32" id="2rK-Hw-YfR"/>
                                     <constraint firstAttribute="width" constant="120" id="rdF-PQ-3CB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="OE's">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1026,13 +1106,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-3T-HDe">
-                                <rect key="frame" x="50" y="108" width="120" height="32"/>
+                                <rect key="frame" x="50" y="102" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.58989307023504634" green="0.42349781238551115" blue="0.80133015452373846" alpha="0.93689640410958885" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Zn5-vp-xy2"/>
                                     <constraint firstAttribute="height" constant="32" id="mlp-h5-CrY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="PCI's">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1046,14 +1126,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An orbit is created from initial position and velocity vectors in Planet-Centered Inertial (PCI) coordinates." lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DiX-UB-lS6">
-                                <rect key="frame" x="16" y="32" width="343" height="60"/>
-                                <fontDescription key="fontDescription" name="Courier-BoldOblique" family="Courier" pointSize="15"/>
+                                <rect key="frame" x="16" y="32" width="343" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More commonly, six orbital elements (OE's) describe the orbit. They are quantified by N.A.S.A at the link below.  " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="PK6-xg-apn">
-                                <rect key="frame" x="100" y="477" width="259" height="75"/>
-                                <fontDescription key="fontDescription" name="Courier-BoldOblique" family="Courier" pointSize="15"/>
+                                <rect key="frame" x="100" y="480.33333333333343" width="259" height="71.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1071,11 +1151,11 @@
                                     <constraint firstAttribute="height" constant="75" id="LLP-ww-aIF"/>
                                     <constraint firstAttribute="width" constant="200" id="YjO-bI-VfM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <color key="textColor" red="1" green="0.99460898583995905" blue="0.21104470105795126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="0.0" height="2"/>
+                                <color key="shadowColor" red="0.23832090736040612" green="0.23800627568858018" blue="0.051972935797583247" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <size key="shadowOffset" width="2" height="0.0"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1114,7 +1194,7 @@
         <!--Settings-->
         <scene sceneID="CVM-lr-X4u">
             <objects>
-                <tableViewController id="YP3-CA-sLN" customClass="SettingsTBController" customModule="Blast_Off" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="YP3-CA-sLN" customClass="SettingsTBController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sSx-eN-UZM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1421,12 +1501,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppIconMain.png" width="512" height="512"/>
         <image name="OrbitBGMain.jpg" width="1440" height="2560"/>
         <image name="PCIOEBackground.png" width="1080" height="1920"/>
         <image name="rvBG.jpg" width="1242" height="2208"/>
         <image name="settingsIcon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7kq-QY-wra"/>
+        <segue reference="oiW-EM-Y3I"/>
     </inferredMetricsTieBreakers>
 </document>

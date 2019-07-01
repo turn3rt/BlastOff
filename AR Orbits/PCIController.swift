@@ -11,6 +11,8 @@ import UIKit
 class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var navBar: UINavigationItem!
+    
     @IBOutlet weak var rxTField: UITextField!
     @IBOutlet weak var ryTField: UITextField!
     @IBOutlet weak var rzTField: UITextField!
@@ -74,6 +76,13 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
+        navBar.title = ""
+
+        
+//        self.navigationController?.navigationBar.topItem?.title = "TEST"
+//        self.navigationController?.navigationBar.backItem?.title = "yeet"
+
+
         setScrollPositionForUserDevice()
         
         if isModifyingOrbitPCIOE == true {
@@ -90,6 +99,9 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
             vxSlider.value = Float(self.orbit.rv[3])
             vySlider.value = Float(self.orbit.rv[4])
             vzSlider.value = Float(self.orbit.rv[5])
+            
+            // navBar.title = self.orbit.name
+
             
             print("max slider values: rxSlider: \(rxSlider.maximumValue)")
             print("max slider values: vxSlider: \(vxSlider.maximumValue)")
