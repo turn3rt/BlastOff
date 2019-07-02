@@ -11,7 +11,8 @@ import UIKit
 class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var posLabel: UILabel!
+    @IBOutlet weak var velLabel: UILabel!
     
     @IBOutlet weak var rxTField: UITextField!
     @IBOutlet weak var ryTField: UITextField!
@@ -55,8 +56,6 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
         showAddNameAlert()
     }
     
-    
-    
     var isModifyingOrbitPCIOE = false
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -76,13 +75,6 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-        navBar.title = ""
-
-        
-//        self.navigationController?.navigationBar.topItem?.title = "TEST"
-//        self.navigationController?.navigationBar.backItem?.title = "yeet"
-
-
         setScrollPositionForUserDevice()
         
         if isModifyingOrbitPCIOE == true {
@@ -100,9 +92,10 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
             vySlider.value = Float(self.orbit.rv[4])
             vzSlider.value = Float(self.orbit.rv[5])
             
-            // navBar.title = self.orbit.name
+            posLabel.text = "Intial Position of \(self.orbit.name)"
+            velLabel.text = "Intial Velocity of \(self.orbit.name)"
 
-            
+
             print("max slider values: rxSlider: \(rxSlider.maximumValue)")
             print("max slider values: vxSlider: \(vxSlider.maximumValue)")
             print("min slider values: rxSlider: \(rxSlider.minimumValue)")
@@ -133,15 +126,13 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
         vxTField.keyboardType = .numbersAndPunctuation
         vyTField.keyboardType = .numbersAndPunctuation
         vzTField.keyboardType = .numbersAndPunctuation
-
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if isDouble(number: textField.text!) {
             // @TODO: can improve this later
             print("Valid Double Precision value entered")
-            print("Checking if user entered text that is larger than max slider value...")
-
+            print("Check if user entered text that is larger than max slider value...")
             
             rxSlider.value = (rxTField.text?.toFloat())!
             rySlider.value = (ryTField.text?.toFloat())!
