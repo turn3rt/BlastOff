@@ -44,13 +44,19 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         configureScene()
         
         // Loading Settings Values
-        if sizeValue != 1 {
+        
+        
+        if defaults.contains(key: "sizeValue"){
             sizeValue = defaults.integer(forKey: "sizeValue")
             scaleFactor = defaults.double(forKey: "scaleFactor")
-            //earthRadiusAR = earthRadius/scaleFactor
+        } else {
+            sizeValue = 1
         }
-        if fractionValue != 4 {
+        
+        if defaults.contains(key: "fractionValue"){
             fractionValue = defaults.integer(forKey: "fractionValue")
+        } else {
+            fractionValue = 4
         }
         
         switch sizeValue {

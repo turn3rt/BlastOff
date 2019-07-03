@@ -28,7 +28,7 @@ class PCIOEViewController: UIViewController {
         print("Orbit contained in this controller is: \(self.orbit.name)")
         if isModifyingOrbitPCIOE == true {
             
-            topPar.text = "Here, you can edit the initial starting position & velocity of the \(self.orbit.name) in Planet Centered Inertial (PCI) coordinates"
+            topPar.text = "Here, you can edit the initial starting position & velocity of the \(self.orbit.name) in Planet Centered Inertial (PCI) coordinates."
             
             modOrbitLabel.text = ""
             

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B31283F222C2E4C300133212 /* AppIconMain.png in Resources */ = {isa = PBXBuildFile; fileRef = B31283F122C2E4C200133212 /* AppIconMain.png */; };
+		B37D9F3C22CCE748001384E3 /* P0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */; };
 		B38A3F5722A06A0500F00DEB /* PCIOEBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */; };
 		B38A3F5922A06B5100F00DEB /* Matterhorn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */; };
 		B38A3F5B22A0A12E00F00DEB /* OrbitBGMain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		B31283F122C2E4C200133212 /* AppIconMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconMain.png; sourceTree = "<group>"; };
+		B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P0Tutorial.swift; sourceTree = "<group>"; };
 		B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCIOEBackground.png; sourceTree = "<group>"; };
 		B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Matterhorn.jpeg; sourceTree = "<group>"; };
 		B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OrbitBGMain.jpg; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B37D9F3D22CCE7D8001384E3 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		B3935546229B34C800F88C4A /* TableViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 				B3C6901022974ED100AB80BF /* PCIController.swift */,
 				B3935547229B3C1300F88C4A /* OEController.swift */,
 				B3B2FED4229C5C69009AE1CD /* PCIOEViewController.swift */,
+				B37D9F3D22CCE7D8001384E3 /* Tutorial */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
 				B3AB186B229060140084802A /* Textures */,
@@ -263,6 +274,7 @@
 				B3C6901122974ED100AB80BF /* PCIController.swift in Sources */,
 				B393553F2299B89E00F88C4A /* OrbitsTableViewController.swift in Sources */,
 				B3B2FED7229C68D4009AE1CD /* DataStructure.swift in Sources */,
+				B37D9F3C22CCE748001384E3 /* P0Tutorial.swift in Sources */,
 				B3B2FED5229C5C69009AE1CD /* PCIOEViewController.swift in Sources */,
 				B3AB1851228A4FED0084802A /* AppDelegate.swift in Sources */,
 			);

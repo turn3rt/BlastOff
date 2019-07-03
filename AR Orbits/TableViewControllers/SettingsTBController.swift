@@ -30,7 +30,7 @@ class SettingsTBController: UITableViewController {
             defaults.set(scaleFactor, forKey: "scaleFactor")
             print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
         case 1: // medium
-            scaleFactor = 200000.0
+            scaleFactor = 200000.0 // default case
             defaults.set(scaleFactor, forKey: "scaleFactor")
             print("New sizeControl index: \(sizeControl.selectedSegmentIndex), with new scaleFactor Value: \(scaleFactor)")
         case 2: // large
@@ -58,11 +58,13 @@ class SettingsTBController: UITableViewController {
     @IBAction func worldOriginChange(_ sender: UISwitch) {
         print("New worldOrigin State: \(worldOriginSwitch.isOn)")
         worldOriginIsShown = worldOriginSwitch.isOn
+        defaults.set(worldOriginIsShown, forKey: "worldOriginIsShown")
     }
     
     @IBAction func orbitOriginChange(_ sender: UISwitch) {
         print("New orbitOrigin State: \(orbitOriginSwitch.isOn)")
         orbitOriginIsShown = orbitOriginSwitch.isOn
+        defaults.set(orbitOriginIsShown, forKey: "orbitOriginIsShown")
     }
     
     @IBAction func featurePointsChange(_ sender: UISwitch) {
@@ -111,6 +113,9 @@ class SettingsTBController: UITableViewController {
         
 
         // Loading Settings Values
+        
+        
+        
         if sizeValue != 1 {
             sizeControl.selectedSegmentIndex = defaults.integer(forKey: "sizeValue")
         }
