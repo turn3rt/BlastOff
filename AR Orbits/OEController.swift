@@ -11,6 +11,8 @@ import UIKit
 class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var aTField: UITextField!
     @IBOutlet weak var eTField: UITextField!
     @IBOutlet weak var capOmegaTField: UITextField!
@@ -86,6 +88,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             incSlider.value      = Float(rad2deg(self.orbit.oe[3]))
             omegaSlider.value    = Float(rad2deg(self.orbit.oe[4]))
             nuSlider.value       = Float(rad2deg(self.orbit.oe[5]))
+            
+            titleLabel.text = "Intitial Planet-Centered Orbital Elements of \(self.orbit.name)"
 
             print("max slider values: aSlider: \(aSlider.maximumValue)")
             print("max slider values: eSlider: \(eSlider.maximumValue)")
