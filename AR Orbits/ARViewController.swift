@@ -44,8 +44,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         configureScene()
         
         // Loading Settings Values
-        
-        
         if defaults.contains(key: "sizeValue"){
             sizeValue = defaults.integer(forKey: "sizeValue")
             scaleFactor = defaults.double(forKey: "scaleFactor")
@@ -57,6 +55,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             fractionValue = defaults.integer(forKey: "fractionValue")
         } else {
             fractionValue = 4
+        }
+        
+        if defaults.contains(key: "cameraFeedIsShown"){
+            cameraFeedIsShown = defaults.bool(forKey: "cameraFeedIsShown")
+        } else {
+            cameraFeedIsShown = true
         }
         
         switch sizeValue {
@@ -77,7 +81,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         }
         
         earthRadiusAR = earthRadius/scaleFactor
-        
         
         // Adds Earth Back to Scene
         let Earth = createPlanet(position: SCNVector3(earthPosAR), radius: CGFloat(earthRadiusAR), texture: "EarthTexture.png")
@@ -155,6 +158,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                 }
             }
         }
+     
+        
     }
     
     
@@ -186,7 +191,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     }
 
 //    MARK: - Internal Functions
-    
     func createPlanet(position: SCNVector3, radius: CGFloat, texture: String) -> SCNNode {
         
         let planet = SCNSphere(radius: radius)
@@ -295,8 +299,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         if orbitOriginIsShown {
             showOrbitAxis()
         }
-        if featurePointsAreShown {
-            sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
+        if cameraFeedIsShown == false {
+            createBoundBox() //sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
         }
         
         // sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints] //, .showWireframe]
@@ -422,6 +426,61 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.scene.rootNode.addChildNode(xLabelNode)
         sceneView.scene.rootNode.addChildNode(yLabelNode)
         sceneView.scene.rootNode.addChildNode(zLabelNode)
+    }
+    
+    func createBoundBox() {
+        // Adding Box around AR Origin if user disables camera feed
+        
+        // Front
+        let frontPlane = SCNBox(width: 20, height: 20, length: 0.001, chamferRadius: 0)
+        let frontPlaneNode = SCNNode(geometry: frontPlane)
+        frontPlaneNode.position = SCNVector3(0,0,-10)
+        
+        // Top
+        let topPlane = SCNBox(width: 20, height: 20, length: 0.001, chamferRadius: 0)
+        let topPlaneNode = SCNNode(geometry: topPlane)
+        topPlaneNode.position = SCNVector3(0,10,0)
+        topPlaneNode.eulerAngles = SCNVector3(deg2rad(90), 0, 0)
+        
+        // Right
+        let rightPlane = SCNBox(width: 20, height: 20, length: 0.001, chamferRadius: 0)
+        let rightPlaneNode = SCNNode(geometry: rightPlane)
+        rightPlaneNode.position = SCNVector3(10,0,0)
+        rightPlaneNode.eulerAngles = SCNVector3(0, deg2rad(90), 0)
+        
+        // Left
+        let leftPlane = SCNBox(width: 20, height: 20, length: 0.001, chamferRadius: 0)
+        let leftPlaneNode = SCNNode(geometry: leftPlane)
+        leftPlaneNode.position = SCNVector3(-10,0,0)
+        leftPlaneNode.eulerAngles = SCNVector3(0, deg2rad(90), 0)
+        
+        // Bottom
+        let botPlane = SCNBox(width: 20, height: 20, length: 0.001, chamferRadius: 0)
+        let botPlaneNode = SCNNode(geometry: botPlane)
+        botPlaneNode.position = SCNVector3(0,-10,0)
+        botPlaneNode.eulerAngles = SCNVector3(deg2rad(90), 0, 0)
+        
+        // Back
+        let backPlane = SCNBox(width: 20, height: 20, length: 0.001, chamferRadius: 0)
+        let backPlaneNode = SCNNode(geometry: backPlane)
+        backPlaneNode.position = SCNVector3(0,0,10)
+        
+        // Object Material Color
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.black
+        frontPlane.firstMaterial  = material
+        topPlane.firstMaterial    = material
+        rightPlane.firstMaterial  = material
+        leftPlane.firstMaterial   = material
+        botPlane.firstMaterial    = material
+        backPlane.firstMaterial   = material
+        
+        sceneView.scene.rootNode.addChildNode(frontPlaneNode)
+        sceneView.scene.rootNode.addChildNode(topPlaneNode)
+        sceneView.scene.rootNode.addChildNode(rightPlaneNode)
+        sceneView.scene.rootNode.addChildNode(leftPlaneNode)
+        sceneView.scene.rootNode.addChildNode(botPlaneNode)
+        sceneView.scene.rootNode.addChildNode(backPlaneNode)
     }
     
 //    MARK: - Data management

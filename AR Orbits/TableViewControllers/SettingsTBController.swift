@@ -14,7 +14,7 @@ class SettingsTBController: UITableViewController {
     @IBOutlet weak var fractionControl: UISegmentedControl!
     @IBOutlet weak var worldOriginSwitch: UISwitch!
     @IBOutlet weak var orbitOriginSwitch: UISwitch!
-    @IBOutlet weak var featurePointsSwitch: UISwitch!
+    @IBOutlet weak var cameraFeedSwitch: UISwitch!
 
     
     // Mark: - IBActions
@@ -67,9 +67,10 @@ class SettingsTBController: UITableViewController {
         defaults.set(orbitOriginIsShown, forKey: "orbitOriginIsShown")
     }
     
-    @IBAction func featurePointsChange(_ sender: UISwitch) {
-        print("New freaturePoints State: \(featurePointsSwitch.isOn)")
-        featurePointsAreShown = featurePointsSwitch.isOn
+    @IBAction func cameraFeedChange(_ sender: UISwitch) {
+        print("New cameraFeed State: \(cameraFeedSwitch.isOn)")
+        cameraFeedIsShown = cameraFeedSwitch.isOn
+        defaults.set(cameraFeedIsShown, forKey: "cameraFeedIsShown")
     }
     
     var totalNumberOfOrbits = defaultOrbitNames.count
@@ -113,9 +114,6 @@ class SettingsTBController: UITableViewController {
         
 
         // Loading Settings Values
-        
-        
-        
         if sizeValue != 1 {
             sizeControl.selectedSegmentIndex = defaults.integer(forKey: "sizeValue")
         }
@@ -125,8 +123,8 @@ class SettingsTBController: UITableViewController {
         if orbitOriginIsShown != false {
             orbitOriginSwitch.setOn(true, animated: false)
         }
-        if featurePointsAreShown != false {
-            featurePointsSwitch.setOn(true, animated: false)
+        if cameraFeedIsShown != true {
+            cameraFeedSwitch.setOn(false, animated: false)
         }
         if worldOriginIsShown != false {
             worldOriginSwitch.setOn(true, animated: false)

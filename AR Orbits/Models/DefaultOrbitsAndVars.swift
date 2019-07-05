@@ -18,7 +18,7 @@ import UIKit
 var sizeValue = UserDefaults.standard.integer(forKey: "sizeValue") // 1
 var fractionValue = UserDefaults.standard.integer(forKey: "fractionValue") // 4
 var orbitOriginIsShown = UserDefaults.standard.bool(forKey: "orbitOriginIsShown") // defaults to false
-var featurePointsAreShown = false
+var cameraFeedIsShown = UserDefaults.standard.bool(forKey: "cameraFeedIsShown") // defaults to false
 var worldOriginIsShown = UserDefaults.standard.bool(forKey: "worldOriginIsShown") // defaults to false
 
 let earthRadius = 6378.1000 //km

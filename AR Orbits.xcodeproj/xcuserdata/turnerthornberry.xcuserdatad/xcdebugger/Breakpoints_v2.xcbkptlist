@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AR Orbits/TableViewControllers/SettingsTBController.swift"
-            timestampString = "583867092.869023"
+            timestampString = "584047057.105044"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,13 +122,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AR Orbits/TableViewControllers/SettingsTBController.swift"
-            timestampString = "583867092.869933"
+            timestampString = "584047057.105109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AR Orbits/TableViewControllers/SettingsTBController.swift"
+            timestampString = "584047057.10516"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "cameraFeedChange(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AR Orbits/Models/DefaultOrbitsAndVars.swift"
+            timestampString = "584047057.1052051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_684E5CCF590DAFA55555F02FDCADE20A_func3"
+                  moduleName = "AR Orbits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turnerthornberry/Documents/AR%20Orbits/AR%20Orbits/Models/DefaultOrbitsAndVars.swift"
+                  timestampString = "584046920.5469331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AR_Orbits.cameraFeedIsShown.unsafeMutableAddressor : Swift.Bool"
+                  moduleName = "AR Orbits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turnerthornberry/Documents/AR%20Orbits/AR%20Orbits/Models/DefaultOrbitsAndVars.swift"
+                  timestampString = "584046920.550921"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
