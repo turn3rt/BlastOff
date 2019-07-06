@@ -9,28 +9,72 @@
 import UIKit
 
 class P0Tutorial: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var topMargin: NSLayoutConstraint!
+    @IBOutlet weak var logoWidth: NSLayoutConstraint!
+    @IBOutlet weak var logoHeight: NSLayoutConstraint!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = false
+        configureAutoLayoutForDevice()
     }
     
+    // MARK: - Internal Functions
+    func configureAutoLayoutForDevice() -> () {
+        print("Native Device Height: \(UIScreen.main.nativeBounds.height)")
+        if UIDevice().userInterfaceIdiom == .phone || UIDevice().userInterfaceIdiom == .pad  {
+            switch UIScreen.main.nativeBounds.height {
+            // iPhones
+            case 1136:
+                print("iPhone 5 or 5S or 5C or SE")
+                topMargin.constant = 16
+                logoWidth.constant = 125
+                logoHeight.constant = 125
+                
+            case 1334:
+                print("iPhone 6/6S/7/8")
+       
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+    
+            case 2436:
+                print("iPhone X, XS")
+                topMargin.constant = 64
+                
+            case 2688:
+                print("iPhone XS Max")
+                
+            case 1792:
+                print("iPhone XR")
+                
+            // iPads
+            case 2048:
+                print("iPad Mini, Air, Pro 9.7in") // this is what i own
+                topMargin.constant = 42
+//                logoWidth.constant = 224
+//                logoHeight.constant = 224
+                
+            case 1668, 2224:
+                print("iPad Pro 10.5in")
+                topMargin.constant = 42
+                
+            case 2388:
+                print("iPad Pro 11in")
+                
+            case 2732:
+                print("iPad Pro 12.9in")
+                topMargin.constant = 100
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+                
+            default:
+                print("Unknown Device")
+                
+            }
+        }
     }
-    */
 
+    
+    
 }

@@ -147,53 +147,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AR Orbits/Models/DefaultOrbitsAndVars.swift"
-            timestampString = "584047057.1052051"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_684E5CCF590DAFA55555F02FDCADE20A_func3"
-                  moduleName = "AR Orbits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/turnerthornberry/Documents/AR%20Orbits/AR%20Orbits/Models/DefaultOrbitsAndVars.swift"
-                  timestampString = "584046920.5469331"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AR_Orbits.cameraFeedIsShown.unsafeMutableAddressor : Swift.Bool"
-                  moduleName = "AR Orbits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/turnerthornberry/Documents/AR%20Orbits/AR%20Orbits/Models/DefaultOrbitsAndVars.swift"
-                  timestampString = "584046920.550921"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
