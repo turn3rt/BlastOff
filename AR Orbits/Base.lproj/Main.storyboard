@@ -401,10 +401,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
-                                        <rect key="frame" x="16" y="164" width="559" height="262"/>
+                                        <rect key="frame" x="16" y="164" width="567" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
-                                                <rect key="frame" x="0.0" y="0.0" width="559" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="567" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="α: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
                                                         <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
@@ -430,7 +430,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
-                                                <rect key="frame" x="0.0" y="86" width="559" height="90"/>
+                                                <rect key="frame" x="0.0" y="86" width="567" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
                                                         <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
@@ -456,7 +456,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
-                                                <rect key="frame" x="0.0" y="172" width="559" height="90"/>
+                                                <rect key="frame" x="0.0" y="172" width="567" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ω: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
                                                         <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="30"/>
@@ -487,22 +487,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
-                                        <rect key="frame" x="184" y="193" width="391" height="204"/>
+                                        <rect key="frame" x="184" y="193" width="399" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6371" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
-                                                <rect key="frame" x="-2" y="0.0" width="395" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="403" height="31"/>
                                                 <connections>
                                                     <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
-                                                <rect key="frame" x="-2" y="87" width="395" height="31"/>
+                                                <rect key="frame" x="-2" y="87" width="403" height="31"/>
                                                 <connections>
                                                     <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
-                                                <rect key="frame" x="-2" y="174" width="395" height="31"/>
+                                                <rect key="frame" x="-2" y="174" width="403" height="31"/>
                                                 <connections>
                                                     <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
                                                 </connections>
@@ -513,10 +513,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
-                                        <rect key="frame" x="16" y="430" width="559" height="262"/>
+                                        <rect key="frame" x="16" y="430" width="567" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
-                                                <rect key="frame" x="0.0" y="0.0" width="559" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="567" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
                                                         <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
@@ -542,7 +542,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
-                                                <rect key="frame" x="0.0" y="86" width="559" height="90"/>
+                                                <rect key="frame" x="0.0" y="86" width="567" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ω: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
                                                         <rect key="frame" x="0.0" y="0.0" width="230.66666666666666" height="30"/>
@@ -568,7 +568,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
-                                                <rect key="frame" x="0.0" y="172" width="559" height="90"/>
+                                                <rect key="frame" x="0.0" y="172" width="567" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ν: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
                                                         <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
@@ -599,22 +599,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
-                                        <rect key="frame" x="184" y="459" width="391" height="204"/>
+                                        <rect key="frame" x="184" y="459" width="399" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
-                                                <rect key="frame" x="-2" y="0.0" width="395" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="403" height="31"/>
                                                 <connections>
                                                     <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
-                                                <rect key="frame" x="-2" y="87" width="395" height="31"/>
+                                                <rect key="frame" x="-2" y="87" width="403" height="31"/>
                                                 <connections>
                                                     <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
-                                                <rect key="frame" x="-2" y="174" width="395" height="31"/>
+                                                <rect key="frame" x="-2" y="174" width="403" height="31"/>
                                                 <connections>
                                                     <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
                                                 </connections>
@@ -625,7 +625,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
-                                        <rect key="frame" x="-109" y="716" width="593" height="36"/>
+                                        <rect key="frame" x="-117" y="716" width="609" height="36"/>
                                         <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="161" id="BF2-4S-LkO"/>
@@ -987,6 +987,9 @@
                                         <state key="normal" title="About ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yQN-HD-foc" kind="show" id="Xbs-iv-gbD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1025,6 +1028,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ax-Ty-OLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2679.1999999999998" y="12.561576354679804"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="lbj-Ti-XLu">
+            <objects>
+                <viewController id="scL-RC-HrD" customClass="N0Tutorial" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8KT-u5-L83">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rWL-Zf-V9X"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="smC-aR-Uac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1884" y="-1137"/>
         </scene>
         <!--Tutorial-->
         <scene sceneID="6tI-cT-aIq">
@@ -1079,6 +1097,9 @@
                                                 <size key="value" width="0.0" height="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="rjY-jb-aua" kind="show" id="bad-uo-RIO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY3-Fs-UX2" customClass="UIButtonX" customModule="AR_Orbits" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="78" width="165" height="36"/>
@@ -1108,6 +1129,9 @@
                                                 <size key="value" width="0.0" height="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="newOrbitTutClick:" destination="VCm-ve-zsh" eventType="touchUpInside" id="jEE-xE-cgt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
@@ -1124,7 +1148,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xbF-tD-ibj" firstAttribute="centerX" secondItem="doG-cc-chq" secondAttribute="centerX" id="7Go-so-U2c"/>
                             <constraint firstItem="gsK-Vg-abp" firstAttribute="leading" secondItem="Vz9-U4-dQo" secondAttribute="leading" constant="32" id="LcF-Gk-P0h"/>
@@ -1142,16 +1166,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vz9-U4-dQo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tutorial" id="DGX-mV-eCv"/>
+                    <navigationItem key="navigationItem" id="DGX-mV-eCv"/>
                     <connections>
                         <outlet property="logoHeight" destination="kTO-JR-NMc" id="B5C-hG-b9d"/>
                         <outlet property="logoWidth" destination="yyD-LT-drF" id="21V-ti-MBs"/>
+                        <outlet property="midMargin" destination="ukT-xo-Atp" id="DfG-N2-Nl1"/>
                         <outlet property="topMargin" destination="RWI-I1-KoO" id="4dm-9w-CqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5Q-eH-bEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1884" y="-1402"/>
+            <point key="canvasLocation" x="-1884" y="-389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ghV-od-f3n">
@@ -1247,10 +1272,11 @@
                                     <action selector="didTapHyperlink:" destination="04M-ZP-gpZ" eventType="touchUpInside" id="xEr-Lc-T3E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-T5-Ghb">
-                                <rect key="frame" x="87.666666666666686" y="324.66666666666669" width="200" height="75"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-T5-Ghb">
+                                <rect key="frame" x="87.666666666666686" y="277" width="200" height="195"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="LLP-ww-aIF"/>
+                                    <constraint firstAttribute="height" constant="195" id="LLP-ww-aIF"/>
                                     <constraint firstAttribute="width" constant="200" id="YjO-bI-VfM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
@@ -1258,29 +1284,44 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.23832090736040612" green="0.23800627568858018" blue="0.051972935797583247" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <size key="shadowOffset" width="2" height="0.0"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="YE8-Mi-5Vk" appends="YES" id="lel-94-Z8q"/>
+                                </connections>
                             </label>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXG-XK-sVf">
+                                <rect key="frame" x="0.0" y="-88" width="375" height="319"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fvd-tR-siA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerY" secondItem="Ypz-sO-2Pm" secondAttribute="centerY" id="4Y0-Na-Chz"/>
+                            <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerY" secondItem="Ypz-sO-2Pm" secondAttribute="centerY" constant="12.5" id="4Y0-Na-Chz"/>
+                            <constraint firstItem="HXG-XK-sVf" firstAttribute="top" secondItem="Ypz-sO-2Pm" secondAttribute="top" constant="-88" id="7Ac-5R-K7P"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="bottom" secondItem="FZS-uQ-c91" secondAttribute="bottom" constant="52" id="8TK-Gi-uFG"/>
                             <constraint firstItem="8BN-3T-HDe" firstAttribute="top" secondItem="DiX-UB-lS6" secondAttribute="bottom" constant="16" id="BOi-m2-XjN"/>
                             <constraint firstItem="29u-J3-gMC" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" id="Fqg-Fj-XAq"/>
                             <constraint firstAttribute="bottom" secondItem="29u-J3-gMC" secondAttribute="bottom" id="Hqz-3o-gxI"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="PRa-Fl-Smq" secondAttribute="trailing" constant="16" id="IfK-sF-hM6"/>
                             <constraint firstItem="PRa-Fl-Smq" firstAttribute="top" secondItem="PK6-xg-apn" secondAttribute="bottom" constant="8" id="Lhq-uq-WKp"/>
+                            <constraint firstItem="HXG-XK-sVf" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" id="MG6-1E-sX7"/>
                             <constraint firstItem="DiX-UB-lS6" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="16" id="WSB-xF-grr"/>
                             <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerX" secondItem="Ypz-sO-2Pm" secondAttribute="centerX" id="a80-1j-ukW"/>
                             <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="50" id="acH-cA-ACl"/>
                             <constraint firstItem="29u-J3-gMC" firstAttribute="top" secondItem="Ypz-sO-2Pm" secondAttribute="top" id="aoa-Nl-Sc1"/>
                             <constraint firstItem="PK6-xg-apn" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="bzJ-Qw-k0w"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="FZS-uQ-c91" secondAttribute="trailing" constant="16" id="dDU-re-xxL"/>
+                            <constraint firstItem="HXG-XK-sVf" firstAttribute="trailing" secondItem="kUS-9I-dBG" secondAttribute="trailing" id="dN9-vo-5eD"/>
                             <constraint firstItem="PRa-Fl-Smq" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="eAE-kb-7x9"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="DiX-UB-lS6" secondAttribute="trailing" constant="16" id="eJv-cy-og8"/>
                             <constraint firstItem="FZS-uQ-c91" firstAttribute="top" secondItem="PRa-Fl-Smq" secondAttribute="bottom" constant="16" id="f3m-hk-iBr"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="PK6-xg-apn" secondAttribute="trailing" constant="16" id="ngv-tr-6Mb"/>
                             <constraint firstAttribute="trailing" secondItem="29u-J3-gMC" secondAttribute="trailing" constant="-8" id="uOJ-eh-KY2"/>
                             <constraint firstItem="DiX-UB-lS6" firstAttribute="top" secondItem="kUS-9I-dBG" secondAttribute="top" constant="32" id="vds-mm-FLw"/>
+                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="top" secondItem="HXG-XK-sVf" secondAttribute="bottom" constant="329" id="z0U-J6-H2x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kUS-9I-dBG"/>
                     </view>
@@ -1288,10 +1329,19 @@
                     <connections>
                         <outlet property="botPar" destination="PK6-xg-apn" id="PIz-Ku-PLk"/>
                         <outlet property="modOrbitLabel" destination="pYf-T5-Ghb" id="Fig-Bb-8xk"/>
+                        <outlet property="nasaLinkButton" destination="PRa-Fl-Smq" id="qKl-i5-5gp"/>
+                        <outlet property="oeButton" destination="FZS-uQ-c91" id="4qc-XN-PKc"/>
+                        <outlet property="pciButton" destination="8BN-3T-HDe" id="mzz-Zz-1Gz"/>
+                        <outlet property="tapRecognizer" destination="YE8-Mi-5Vk" id="Wy3-d2-wFv"/>
                         <outlet property="topPar" destination="DiX-UB-lS6" id="VeZ-JF-bC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrJ-Dc-mhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="YE8-Mi-5Vk">
+                    <connections>
+                        <action selector="planetTap:" destination="04M-ZP-gpZ" id="Jjw-B4-BYp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-956" y="12.561576354679804"/>
         </scene>
@@ -1602,6 +1652,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8z-CQ-rhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2679.1999999999998" y="1065.5172413793105"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="Jfi-qZ-aGR">
+            <objects>
+                <viewController id="rjY-jb-aua" customClass="M0Tutorial" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VA6-2M-tWy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hFd-no-QeY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ls-tL-HGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1884" y="-1839"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="yJe-wF-q7o">
+            <objects>
+                <viewController id="yQN-HD-foc" customClass="AboutViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ns-RF-Jrx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="l8U-nA-MGS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5h-oQ-zRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4450" y="1066"/>
         </scene>
     </scenes>
     <resources>

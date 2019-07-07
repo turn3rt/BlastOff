@@ -12,6 +12,9 @@
 		B30764F522D1310400C2AD66 /* UILabelX.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764F122D1310400C2AD66 /* UILabelX.swift */; };
 		B30764F622D1310400C2AD66 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764F222D1310400C2AD66 /* UIImageViewX.swift */; };
 		B30764F722D1310400C2AD66 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764F322D1310400C2AD66 /* UIViewX.swift */; };
+		B30764F922D155FF00C2AD66 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764F822D155FF00C2AD66 /* AboutViewController.swift */; };
+		B30764FB22D1581200C2AD66 /* M0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764FA22D1581200C2AD66 /* M0Tutorial.swift */; };
+		B30764FD22D159AA00C2AD66 /* N0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764FC22D159AA00C2AD66 /* N0Tutorial.swift */; };
 		B31283F222C2E4C300133212 /* AppIconMain.png in Resources */ = {isa = PBXBuildFile; fileRef = B31283F122C2E4C200133212 /* AppIconMain.png */; };
 		B318F23622CF96E2008A524E /* minTutBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B318F23522CF96E2008A524E /* minTutBG.jpg */; };
 		B37D9F3C22CCE748001384E3 /* P0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */; };
@@ -49,6 +52,9 @@
 		B30764F122D1310400C2AD66 /* UILabelX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelX.swift; sourceTree = "<group>"; };
 		B30764F222D1310400C2AD66 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
 		B30764F322D1310400C2AD66 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		B30764F822D155FF00C2AD66 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B30764FA22D1581200C2AD66 /* M0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M0Tutorial.swift; sourceTree = "<group>"; };
+		B30764FC22D159AA00C2AD66 /* N0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N0Tutorial.swift; sourceTree = "<group>"; };
 		B31283F122C2E4C200133212 /* AppIconMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconMain.png; sourceTree = "<group>"; };
 		B318F23522CF96E2008A524E /* minTutBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = minTutBG.jpg; sourceTree = "<group>"; };
 		B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P0Tutorial.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */,
+				B30764FA22D1581200C2AD66 /* M0Tutorial.swift */,
+				B30764FC22D159AA00C2AD66 /* N0Tutorial.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 				B3C6901022974ED100AB80BF /* PCIController.swift */,
 				B3935547229B3C1300F88C4A /* OEController.swift */,
 				B3B2FED4229C5C69009AE1CD /* PCIOEViewController.swift */,
+				B30764F822D155FF00C2AD66 /* AboutViewController.swift */,
 				B37D9F3D22CCE7D8001384E3 /* Tutorial */,
 				B3AB1856228A4FED0084802A /* Main.storyboard */,
 				B3AB1859228A4FEE0084802A /* Assets.xcassets */,
@@ -296,12 +305,15 @@
 				B3935545229B344000F88C4A /* SettingsTBController.swift in Sources */,
 				B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */,
 				B3935548229B3C1300F88C4A /* OEController.swift in Sources */,
+				B30764FD22D159AA00C2AD66 /* N0Tutorial.swift in Sources */,
 				B30764F622D1310400C2AD66 /* UIImageViewX.swift in Sources */,
 				B3AB187222931DE90084802A /* OrbitEquations.swift in Sources */,
 				B39355412299C33200F88C4A /* Orbit.swift in Sources */,
 				B3AB1855228A4FED0084802A /* ARViewController.swift in Sources */,
+				B30764F922D155FF00C2AD66 /* AboutViewController.swift in Sources */,
 				B3C6901122974ED100AB80BF /* PCIController.swift in Sources */,
 				B393553F2299B89E00F88C4A /* OrbitsTableViewController.swift in Sources */,
+				B30764FB22D1581200C2AD66 /* M0Tutorial.swift in Sources */,
 				B3B2FED7229C68D4009AE1CD /* DataStructure.swift in Sources */,
 				B30764F422D1310400C2AD66 /* UIButtonX.swift in Sources */,
 				B37D9F3C22CCE748001384E3 /* P0Tutorial.swift in Sources */,

@@ -12,6 +12,7 @@ class P0Tutorial: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var topMargin: NSLayoutConstraint!
+    @IBOutlet weak var midMargin: NSLayoutConstraint!
     @IBOutlet weak var logoWidth: NSLayoutConstraint!
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
     
@@ -21,6 +22,13 @@ class P0Tutorial: UIViewController {
         configureAutoLayoutForDevice()
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func newOrbitTutClick(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
+        vc.isInTutorialMode = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     // MARK: - Internal Functions
     func configureAutoLayoutForDevice() -> () {
         print("Native Device Height: \(UIScreen.main.nativeBounds.height)")
@@ -42,12 +50,15 @@ class P0Tutorial: UIViewController {
             case 2436:
                 print("iPhone X, XS")
                 topMargin.constant = 64
+                midMargin.constant = 16
                 
             case 2688:
                 print("iPhone XS Max")
-                
+                topMargin.constant = 64
+
             case 1792:
                 print("iPhone XR")
+                topMargin.constant = 64
                 
             // iPads
             case 2048:

@@ -15,10 +15,13 @@ class PCIOEViewController: UIViewController {
     @IBOutlet weak var topPar: UILabel!
     @IBOutlet weak var modOrbitLabel: UILabel!
     @IBOutlet weak var botPar: UILabel!
-    
-    
+    @IBOutlet weak var nasaLinkButton: UIButton!
+    @IBOutlet weak var pciButton: UIButton!
+    @IBOutlet weak var oeButton: UIButton!
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer! // attatched to modOrbitLabel [Planet]
     
     var isModifyingOrbitPCIOE = false
+    var isInTutorialMode = false
     let nasaLink = "https://spaceflight.nasa.gov/realdata/elements/"
     
     
@@ -27,13 +30,19 @@ class PCIOEViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         print("Orbit contained in this controller is: \(self.orbit.name)")
         if isModifyingOrbitPCIOE == true {
-            
             topPar.text = "Here, you can edit the initial starting position & velocity of the \(self.orbit.name) in Planet Centered Inertial (PCI) coordinates."
-            
             modOrbitLabel.text = ""
-            
-             botPar.text = "Typically, it is easier to maniuplate the Orbital Elements (OE's) of the \(self.orbit.name). They are quantified by N.A.S.A the link below."
+            botPar.text = "Typically, it is easier to maniuplate the Orbital Elements (OE's) of the \(self.orbit.name). They are quantified by N.A.S.A the link below."
         }
+        if isInTutorialMode == true {
+            nasaLinkButton.isHidden = true
+            pciButton.isHidden = true
+            oeButton.isHidden = true
+            tapRecognizer.isEnabled = true 
+            botPar.text = "More commonly, six orbital elements (OE's) describe the orbit. Tap the planet to continue the tutorial."
+        }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +104,12 @@ class PCIOEViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+    @IBAction func planetTap(_ sender: Any) {
+        print("Yeet")
+    }
+    
+    
+   // MARK: - IBActions
     
 
 }
