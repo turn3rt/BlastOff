@@ -30,6 +30,12 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var initialHeightOfScroll: NSLayoutConstraint!
     
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var initialTutText: UILabel!
+    @IBOutlet weak var scrollTutText: UILabel!
+    @IBOutlet var tutorialTapRecognizer: UITapGestureRecognizer!
+    
+    
     // MARK: - IBActions
     @IBAction func aSliderChange(_ sender: UISlider) {
         aTField.text = String(aSlider.value)
@@ -53,13 +59,20 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         print("Save Orbit Clicked, prior savedNumberOfOrbits: \(savedNumberOfOrbits)")
         showAddNameAlert()
     }
-
+    
+    // Local vars
     var isModifyingOrbitPCIOE = false
+    var isInTutorialMode = false
+    
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
+        if isInTutorialMode {
+            blurView.isHidden = false
+            blurView.isUserInteractionEnabled = true
+        }
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -157,14 +170,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 }
 
             }
-            // button creation
-//            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
-//                print("User Cancelled Action")
-//                textField.resignFirstResponder()
-//            }
-            
-            // adding to controller
-//            alert.addAction(cancel)
+
             alert.addAction(confirm)
             alert.addTextField { (newTextField) in
                 newTextField.text = textField.text
@@ -191,9 +197,17 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         }
     }
     
+    
+    // MARK: - IBActions
     @IBAction func tapOffKeyboard(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
+    
+    @IBAction func tutorialTap(_ sender: UITapGestureRecognizer) {
+        animateBlurView()
+    }
+    
+    
     
     
     
@@ -297,6 +311,16 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         }
     }
     
+    
+    // MARK: - Animations
+    func animateBlurView() {
+        let finalBlurPos = blurView.center.y + 344
+        UIView.animate(withDuration: 1.0, animations: {
+            self.blurView.center.y = finalBlurPos
+            self.initialTutText.alpha = 0.0
+            self.scrollTutText.alpha = 1.0
+        })
+    }
     
     // MARK: - Memory Management
     let defaults = UserDefaults.standard

@@ -19,9 +19,15 @@ class PCIOEViewController: UIViewController {
     @IBOutlet weak var pciButton: UIButton!
     @IBOutlet weak var oeButton: UIButton!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer! // attatched to modOrbitLabel [Planet]
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var topBlurLabel: UILabel!
+    @IBOutlet weak var botBlurLabel: UILabel!
+    @IBOutlet weak var blurMargin: NSLayoutConstraint!
+    
     
     var isModifyingOrbitPCIOE = false
     var isInTutorialMode = false
+    var ogBlurCenter = CGPoint()
     let nasaLink = "https://spaceflight.nasa.gov/realdata/elements/"
     
     
@@ -38,8 +44,14 @@ class PCIOEViewController: UIViewController {
             nasaLinkButton.isHidden = true
             pciButton.isHidden = true
             oeButton.isHidden = true
-            tapRecognizer.isEnabled = true 
-            botPar.text = "More commonly, six orbital elements (OE's) describe the orbit. Tap the planet to continue the tutorial."
+            tapRecognizer.isEnabled = true
+            botPar.isHidden = true
+            botPar.text = "More commonly, six orbital elements (OE's) describe the orbit. Tap the planet to continue the tutorial..."
+            // animateTopPar()
+            delay(bySeconds: 0, closure: {
+                self.botPar.isHidden = false
+                self.animateBotPar()
+            })
         }
         
         
@@ -97,6 +109,9 @@ class PCIOEViewController: UIViewController {
                     oeController.isModifyingOrbitPCIOE = true
                     print("sent orbit with name & OE's: \(self.orbit.name) and [\(self.orbit.oe)] to OEController")
                 }
+                if isInTutorialMode == true {
+                    oeController.isInTutorialMode = true
+                }
             }
         default:
             print("error")
@@ -104,12 +119,103 @@ class PCIOEViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+    
+    
+    // MARK: - IBActions
     @IBAction func planetTap(_ sender: Any) {
-        print("Yeet")
+        tapRecognizer.isEnabled = false
+        animateBlurView()
+        delay(bySeconds: 1.0, closure: {
+            self.animateBlurView2()
+        })
+        nasaLinkButton.isHidden = false
+        oeButton.isHidden = false
+    }
+    
+    var originalCenter = CGPoint()
+    @IBAction func didPanBlurView(sender: UIPanGestureRecognizer) {
+        // let translation = sender.translation(in: view)
+        // print("translation \(translation)")
+        //originalCenter = blurView.center
+        print("original center is : \(originalCenter)")
+        if sender.state == .began {
+           // originalCenter = blurView.center
+        } else if sender.state == .changed {
+            //blurView.center = CGPoint(x: originalCenter.x, y: originalCenter.y + translation.y/5)
+            
+        } else if sender.state == .ended {
+            let velocity = sender.velocity(in: view)
+            let blurOffset = blurMargin.constant - 11
+            
+            if velocity.y > 0 { // user swipes down
+                UIView.animate(withDuration: 0.24) {
+                    self.blurView.center.y = self.ogBlurCenter.y
+                    self.botBlurLabel.alpha = 0.0
+                    self.topBlurLabel.alpha = 1.0
+                }
+            } else {
+                UIView.animate(withDuration: 0.24) { // user swipes up
+                    self.blurView.center.y = self.ogBlurCenter.y + blurOffset
+                    self.botBlurLabel.alpha = 1.0
+                    self.topBlurLabel.alpha = 0.0
+                }
+            }
+        }
     }
     
     
-   // MARK: - IBActions
+   // MARK: - Internal Functions
     
+//    func animateTopPar() {
+//        topPar.alpha = 0.0
+//        let finalPos = self.topPar.center.x
+//        self.topPar.center.x = self.view.bounds.width + 100
+//        UIView.animate(withDuration: 0.64, animations:{
+//            self.topPar.center.x = finalPos
+//            self.topPar.alpha = 1.0
+//        })
+//    }
 
+    func animateBotPar() {
+        botPar.alpha = 0.0
+        let finalPos = self.botPar.center.x
+        self.botPar.center.x = -self.view.bounds.width //- 100
+        UIView.animate(withDuration: 0.64, animations:{
+            self.botPar.center.x = finalPos
+            self.botPar.alpha = 1.0
+        })
+    }
+    
+    func animateBlurView() {
+        let finalBlurPos = blurView.center.y
+        ogBlurCenter = self.blurView.center
+        blurView.center.y = self.view.bounds.height
+        blurView.alpha = 0.0
+        blurView.isHidden = false
+        
+        let finalButPos = pciButton.center.y
+        pciButton.center.y = self.view.bounds.height
+        pciButton.alpha = 0.0
+        pciButton.isHidden = false
+        pciButton.isEnabled = false
+        
+        UIView.animate(withDuration: 0.64, animations:{
+            self.blurView.center.y = finalBlurPos
+            self.pciButton.center.y = finalButPos
+            self.blurView.alpha = 1.0
+            self.pciButton.alpha = 1.0
+            self.topBlurLabel.alpha = 1.0
+        })
+    }
+    
+    func animateBlurView2() {
+        let finalBlurPos = blurView.center.y + blurMargin.constant - 11
+        UIView.animate(withDuration: 2, animations:{
+            self.blurView.center.y = finalBlurPos
+            self.botBlurLabel.alpha = 1.0
+            self.topBlurLabel.alpha = 0.0
+        })
+    }
+    
+    
 }

@@ -78,7 +78,6 @@ class P0Tutorial: UIViewController {
                 print("iPad Pro 12.9in")
                 topMargin.constant = 100
 
-                
             default:
                 print("Unknown Device")
                 

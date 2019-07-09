@@ -401,10 +401,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
-                                        <rect key="frame" x="16" y="164" width="567" height="262"/>
+                                        <rect key="frame" x="16" y="164" width="547" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
-                                                <rect key="frame" x="0.0" y="0.0" width="567" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="547" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="α: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
                                                         <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
@@ -430,7 +430,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
-                                                <rect key="frame" x="0.0" y="86" width="567" height="90"/>
+                                                <rect key="frame" x="0.0" y="86" width="547" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
                                                         <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
@@ -456,7 +456,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
-                                                <rect key="frame" x="0.0" y="172" width="567" height="90"/>
+                                                <rect key="frame" x="0.0" y="172" width="547" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ω: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
                                                         <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="30"/>
@@ -487,22 +487,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
-                                        <rect key="frame" x="184" y="193" width="399" height="204"/>
+                                        <rect key="frame" x="184" y="193" width="379" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6371" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
-                                                <rect key="frame" x="-2" y="0.0" width="403" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="383" height="31"/>
                                                 <connections>
                                                     <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
-                                                <rect key="frame" x="-2" y="87" width="403" height="31"/>
+                                                <rect key="frame" x="-2" y="87" width="383" height="31"/>
                                                 <connections>
                                                     <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
-                                                <rect key="frame" x="-2" y="174" width="403" height="31"/>
+                                                <rect key="frame" x="-2" y="174" width="383" height="31"/>
                                                 <connections>
                                                     <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
                                                 </connections>
@@ -513,10 +513,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
-                                        <rect key="frame" x="16" y="430" width="567" height="262"/>
+                                        <rect key="frame" x="16" y="430" width="547" height="262"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
-                                                <rect key="frame" x="0.0" y="0.0" width="567" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="547" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
                                                         <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="30"/>
@@ -542,7 +542,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
-                                                <rect key="frame" x="0.0" y="86" width="567" height="90"/>
+                                                <rect key="frame" x="0.0" y="86" width="547" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ω: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
                                                         <rect key="frame" x="0.0" y="0.0" width="230.66666666666666" height="30"/>
@@ -568,7 +568,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
-                                                <rect key="frame" x="0.0" y="172" width="567" height="90"/>
+                                                <rect key="frame" x="0.0" y="172" width="547" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ν: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
                                                         <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="30"/>
@@ -599,22 +599,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
-                                        <rect key="frame" x="184" y="459" width="399" height="204"/>
+                                        <rect key="frame" x="184" y="459" width="379" height="204"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
-                                                <rect key="frame" x="-2" y="0.0" width="403" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="383" height="31"/>
                                                 <connections>
                                                     <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
-                                                <rect key="frame" x="-2" y="87" width="403" height="31"/>
+                                                <rect key="frame" x="-2" y="87" width="383" height="31"/>
                                                 <connections>
                                                     <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
-                                                <rect key="frame" x="-2" y="174" width="403" height="31"/>
+                                                <rect key="frame" x="-2" y="174" width="383" height="31"/>
                                                 <connections>
                                                     <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
                                                 </connections>
@@ -625,7 +625,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
-                                        <rect key="frame" x="-117" y="716" width="609" height="36"/>
+                                        <rect key="frame" x="-97" y="716" width="569" height="36"/>
                                         <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="161" id="BF2-4S-LkO"/>
@@ -669,6 +669,42 @@
                                     <constraint firstAttribute="trailing" secondItem="t8j-K3-b4C" secondAttribute="trailing" constant="16" id="xLH-Zm-dGN"/>
                                 </constraints>
                             </scrollView>
+                            <visualEffectView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDf-Ik-AP7">
+                                <rect key="frame" x="0.0" y="-90" width="375" height="814"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="n14-64-u1Q">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="814"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.01" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spuntik I had a semi-major axis of 6955.2 km. Enter this value and press the return key..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-d7-QZ7">
+                                            <rect key="frame" x="16" y="16" width="343" height="198.33333333333334"/>
+                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="34"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-Or-jj8">
+                                            <rect key="frame" x="16" y="323.66666666666669" width="343" height="317.00000000000006"/>
+                                            <string key="text">Here, you can input the Orbital Elements. We are going to be recreating the orbit of Sputnik I, the first man-made object in space. Tap to continue...</string>
+                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="34"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstItem="aOk-Or-jj8" firstAttribute="centerY" secondItem="n14-64-u1Q" secondAttribute="centerY" constant="75" id="4Hi-AZ-S3a"/>
+                                        <constraint firstItem="NGV-d7-QZ7" firstAttribute="top" secondItem="n14-64-u1Q" secondAttribute="top" constant="16" id="Hyc-nP-7MA"/>
+                                        <constraint firstAttribute="trailing" secondItem="NGV-d7-QZ7" secondAttribute="trailing" constant="16" id="UYx-hh-yHH"/>
+                                        <constraint firstItem="aOk-Or-jj8" firstAttribute="leading" secondItem="n14-64-u1Q" secondAttribute="leading" constant="16" id="VNR-8x-nzA"/>
+                                        <constraint firstItem="NGV-d7-QZ7" firstAttribute="leading" secondItem="n14-64-u1Q" secondAttribute="leading" constant="16" id="aCm-fh-mZt"/>
+                                        <constraint firstItem="aOk-Or-jj8" firstAttribute="centerX" secondItem="n14-64-u1Q" secondAttribute="centerX" id="mJp-4J-fi0"/>
+                                        <constraint firstAttribute="trailing" secondItem="aOk-Or-jj8" secondAttribute="trailing" constant="16" id="uxD-ES-XYf"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="QGj-gu-vLr" appends="YES" id="gdF-go-iI8"/>
+                                    </connections>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -680,8 +716,12 @@
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="trailing" secondItem="vbE-no-N3a" secondAttribute="trailing" id="JIi-Fd-2tk"/>
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="MVr-8H-cVr"/>
                             <constraint firstItem="Cl1-ct-j9H" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="QxC-3v-hLb"/>
+                            <constraint firstItem="GDf-Ik-AP7" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="Vj5-42-RQF"/>
+                            <constraint firstAttribute="bottom" secondItem="GDf-Ik-AP7" secondAttribute="bottom" id="XhT-l5-nlR"/>
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cS2-zs-IRv"/>
                             <constraint firstItem="oZy-1W-ulK" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cde-p0-yJ8"/>
+                            <constraint firstItem="GDf-Ik-AP7" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" constant="-90" id="kjO-hk-TXT"/>
+                            <constraint firstItem="GDf-Ik-AP7" firstAttribute="trailing" secondItem="vbE-no-N3a" secondAttribute="trailing" id="l9K-yg-bHW"/>
                             <constraint firstAttribute="bottom" secondItem="oZy-1W-ulK" secondAttribute="bottom" id="nC1-lv-Gew"/>
                             <constraint firstItem="oZy-1W-ulK" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="ntG-he-T3X"/>
                             <constraint firstAttribute="trailing" secondItem="oZy-1W-ulK" secondAttribute="trailing" id="rtg-mG-hbD"/>
@@ -695,6 +735,7 @@
                     <connections>
                         <outlet property="aSlider" destination="g91-C7-R67" id="6CZ-c3-R7k"/>
                         <outlet property="aTField" destination="fN2-zu-MyD" id="bBM-3k-fl8"/>
+                        <outlet property="blurView" destination="GDf-Ik-AP7" id="oX3-bH-36Q"/>
                         <outlet property="capOmegaSlider" destination="4bp-Eq-qKn" id="5xG-CT-U7Q"/>
                         <outlet property="capOmegaTField" destination="xLi-NS-RDl" id="T8W-JG-8LX"/>
                         <outlet property="eSlider" destination="SEf-Hr-koI" id="BrD-yk-QUi"/>
@@ -702,18 +743,26 @@
                         <outlet property="incSlider" destination="bTF-tP-qx2" id="JJg-Ei-nUF"/>
                         <outlet property="incTField" destination="ZXE-fP-ZGZ" id="STt-J0-9Ns"/>
                         <outlet property="initialHeightOfScroll" destination="gm5-XF-IXV" id="9un-8g-bx4"/>
+                        <outlet property="initialTutText" destination="aOk-Or-jj8" id="jO6-on-CRP"/>
                         <outlet property="nuSlider" destination="mnf-u7-baF" id="lgP-8U-GUd"/>
                         <outlet property="nuTField" destination="jWB-vB-CkN" id="Qpa-Ub-nxO"/>
                         <outlet property="omegaSlider" destination="yxg-kU-zzT" id="eMh-Sp-q9P"/>
                         <outlet property="omegaTField" destination="lwD-xY-ElP" id="wZW-FL-Bae"/>
+                        <outlet property="scrollTutText" destination="NGV-d7-QZ7" id="f8d-uk-39K"/>
                         <outlet property="scrollView" destination="Cl1-ct-j9H" id="ZNW-3P-wAA"/>
                         <outlet property="titleLabel" destination="eBY-yp-xQ4" id="EYp-fx-Rpt"/>
+                        <outlet property="tutorialTapRecognizer" destination="QGj-gu-vLr" id="Dxa-rw-94Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDd-V0-rFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="eIs-yA-qEH">
+                <tapGestureRecognizer id="eIs-yA-qEH" userLabel="Keyboard Tap Gesture Recognizer">
                     <connections>
                         <action selector="tapOffKeyboard:" destination="jDg-Av-zdz" id="Yj9-E8-pgm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="QGj-gu-vLr" userLabel="Tutorial Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="tutorialTap:" destination="jDg-Av-zdz" id="5pX-hw-qI9"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1055,6 +1104,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waves.png" translatesAutoresizingMaskIntoConstraints="NO" id="vaK-zp-EUC">
                                 <rect key="frame" x="0.0" y="-89" width="375" height="813"/>
                             </imageView>
+                            <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1co-IM-c6x" customClass="UIViewX" customModule="AR_Orbits" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="201" width="375" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the AR Orbits tutorial. Please make a selection from above to begin." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gsK-Vg-abp">
                                 <rect key="frame" x="32" y="548" width="311" height="100"/>
                                 <constraints>
@@ -1176,7 +1238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5Q-eH-bEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1884" y="-389"/>
+            <point key="canvasLocation" x="-1884" y="-389.40886699507394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ghV-od-f3n">
@@ -1213,7 +1275,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="383" height="724"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZS-uQ-c91">
-                                <rect key="frame" x="239" y="606" width="120" height="32"/>
+                                <rect key="frame" x="239" y="622" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.0037635774095691413" green="0.64001855342390757" blue="0.58602049365056874" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="2rK-Hw-YfR"/>
@@ -1233,7 +1295,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-3T-HDe">
-                                <rect key="frame" x="50" y="102" width="120" height="32"/>
+                                <rect key="frame" x="50" y="105.33333333333334" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.58989307023504634" green="0.42349781238551115" blue="0.80133015452373846" alpha="0.93689640410958885" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Zn5-vp-xy2"/>
@@ -1253,20 +1315,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An orbit is created from initial position and velocity vectors in Planet-Centered Inertial (PCI) coordinates." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DiX-UB-lS6">
-                                <rect key="frame" x="16" y="32" width="343" height="54"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <rect key="frame" x="16" y="32" width="343" height="57.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More commonly, six orbital elements (OE's) describe the orbit. They are quantified by N.A.S.A at the link below.  " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="PK6-xg-apn">
-                                <rect key="frame" x="100" y="480.33333333333343" width="259" height="71.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <rect key="frame" x="100" y="489.33333333333343" width="259" height="76.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRa-Fl-Smq">
-                                <rect key="frame" x="100" y="560" width="259" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <rect key="frame" x="100" y="574" width="259" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="https://spaceflight.nasa.gov/"/>
                                 <connections>
                                     <action selector="didTapHyperlink:" destination="04M-ZP-gpZ" eventType="touchUpInside" id="xEr-Lc-T3E"/>
@@ -1289,10 +1351,44 @@
                                 </connections>
                             </label>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXG-XK-sVf">
-                                <rect key="frame" x="0.0" y="-88" width="375" height="319"/>
+                                <rect key="frame" x="0.0" y="169.33333333333331" width="375" height="659.66666666666674"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fvd-tR-siA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="659.66666666666674"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You could create an orbit with these..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-Ms-bX7">
+                                            <rect key="frame" x="16" y="16" width="343" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="pqu-SW-qAJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="34"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.01" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3vU-nu-gIj">
+                                            <rect key="frame" x="16" y="394" width="343" height="250"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="gb9-TG-0SM"/>
+                                                <constraint firstAttribute="height" constant="250" id="k3n-ic-cjB"/>
+                                            </constraints>
+                                            <string key="text">But for this tutorial, we're going to start with the Orbital Elements (OE's). The link from N.A.S.A has more information on OE's if desired.</string>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Ct5-Ms-bX7" secondAttribute="trailing" constant="16" id="3Ne-YT-UnE"/>
+                                        <constraint firstAttribute="trailing" secondItem="3vU-nu-gIj" secondAttribute="trailing" constant="16" id="JcL-MK-wIE"/>
+                                        <constraint firstAttribute="bottom" secondItem="3vU-nu-gIj" secondAttribute="bottom" constant="16" id="PYf-Xf-Ndg"/>
+                                        <constraint firstItem="Ct5-Ms-bX7" firstAttribute="top" secondItem="fvd-tR-siA" secondAttribute="top" constant="16" id="Yr4-wk-gQW"/>
+                                        <constraint firstItem="Ct5-Ms-bX7" firstAttribute="leading" secondItem="fvd-tR-siA" secondAttribute="leading" constant="16" id="w7t-Ih-v4e"/>
+                                        <constraint firstItem="3vU-nu-gIj" firstAttribute="leading" secondItem="fvd-tR-siA" secondAttribute="leading" constant="16" id="yhw-EY-5ZI"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="7op-S3-HEh" appends="YES" id="Yco-Cq-i7G"/>
+                                    </connections>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -1300,14 +1396,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerY" secondItem="Ypz-sO-2Pm" secondAttribute="centerY" constant="12.5" id="4Y0-Na-Chz"/>
-                            <constraint firstItem="HXG-XK-sVf" firstAttribute="top" secondItem="Ypz-sO-2Pm" secondAttribute="top" constant="-88" id="7Ac-5R-K7P"/>
-                            <constraint firstItem="kUS-9I-dBG" firstAttribute="bottom" secondItem="FZS-uQ-c91" secondAttribute="bottom" constant="52" id="8TK-Gi-uFG"/>
+                            <constraint firstItem="kUS-9I-dBG" firstAttribute="bottom" secondItem="FZS-uQ-c91" secondAttribute="bottom" constant="36" id="8TK-Gi-uFG"/>
                             <constraint firstItem="8BN-3T-HDe" firstAttribute="top" secondItem="DiX-UB-lS6" secondAttribute="bottom" constant="16" id="BOi-m2-XjN"/>
                             <constraint firstItem="29u-J3-gMC" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" id="Fqg-Fj-XAq"/>
                             <constraint firstAttribute="bottom" secondItem="29u-J3-gMC" secondAttribute="bottom" id="Hqz-3o-gxI"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="PRa-Fl-Smq" secondAttribute="trailing" constant="16" id="IfK-sF-hM6"/>
                             <constraint firstItem="PRa-Fl-Smq" firstAttribute="top" secondItem="PK6-xg-apn" secondAttribute="bottom" constant="8" id="Lhq-uq-WKp"/>
                             <constraint firstItem="HXG-XK-sVf" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" id="MG6-1E-sX7"/>
+                            <constraint firstItem="HXG-XK-sVf" firstAttribute="top" secondItem="8BN-3T-HDe" secondAttribute="bottom" constant="32" id="RhU-jK-UjM"/>
                             <constraint firstItem="DiX-UB-lS6" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="16" id="WSB-xF-grr"/>
                             <constraint firstItem="pYf-T5-Ghb" firstAttribute="centerX" secondItem="Ypz-sO-2Pm" secondAttribute="centerX" id="a80-1j-ukW"/>
                             <constraint firstItem="8BN-3T-HDe" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="50" id="acH-cA-ACl"/>
@@ -1315,24 +1411,28 @@
                             <constraint firstItem="PK6-xg-apn" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="bzJ-Qw-k0w"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="FZS-uQ-c91" secondAttribute="trailing" constant="16" id="dDU-re-xxL"/>
                             <constraint firstItem="HXG-XK-sVf" firstAttribute="trailing" secondItem="kUS-9I-dBG" secondAttribute="trailing" id="dN9-vo-5eD"/>
-                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="leading" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="eAE-kb-7x9"/>
+                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kUS-9I-dBG" secondAttribute="leading" constant="100" id="eAE-kb-7x9"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="DiX-UB-lS6" secondAttribute="trailing" constant="16" id="eJv-cy-og8"/>
                             <constraint firstItem="FZS-uQ-c91" firstAttribute="top" secondItem="PRa-Fl-Smq" secondAttribute="bottom" constant="16" id="f3m-hk-iBr"/>
                             <constraint firstItem="kUS-9I-dBG" firstAttribute="trailing" secondItem="PK6-xg-apn" secondAttribute="trailing" constant="16" id="ngv-tr-6Mb"/>
                             <constraint firstAttribute="trailing" secondItem="29u-J3-gMC" secondAttribute="trailing" constant="-8" id="uOJ-eh-KY2"/>
                             <constraint firstItem="DiX-UB-lS6" firstAttribute="top" secondItem="kUS-9I-dBG" secondAttribute="top" constant="32" id="vds-mm-FLw"/>
-                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="top" secondItem="HXG-XK-sVf" secondAttribute="bottom" constant="329" id="z0U-J6-H2x"/>
+                            <constraint firstItem="PRa-Fl-Smq" firstAttribute="top" secondItem="HXG-XK-sVf" secondAttribute="bottom" constant="-255" id="z0U-J6-H2x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kUS-9I-dBG"/>
                     </view>
                     <navigationItem key="navigationItem" id="gir-Np-VdX"/>
                     <connections>
+                        <outlet property="blurMargin" destination="z0U-J6-H2x" id="okb-QK-DrI"/>
+                        <outlet property="blurView" destination="HXG-XK-sVf" id="kHW-gZ-CIV"/>
+                        <outlet property="botBlurLabel" destination="3vU-nu-gIj" id="Q4q-fE-jqp"/>
                         <outlet property="botPar" destination="PK6-xg-apn" id="PIz-Ku-PLk"/>
                         <outlet property="modOrbitLabel" destination="pYf-T5-Ghb" id="Fig-Bb-8xk"/>
                         <outlet property="nasaLinkButton" destination="PRa-Fl-Smq" id="qKl-i5-5gp"/>
                         <outlet property="oeButton" destination="FZS-uQ-c91" id="4qc-XN-PKc"/>
                         <outlet property="pciButton" destination="8BN-3T-HDe" id="mzz-Zz-1Gz"/>
                         <outlet property="tapRecognizer" destination="YE8-Mi-5Vk" id="Wy3-d2-wFv"/>
+                        <outlet property="topBlurLabel" destination="Ct5-Ms-bX7" id="8aA-nC-mO4"/>
                         <outlet property="topPar" destination="DiX-UB-lS6" id="VeZ-JF-bC8"/>
                     </connections>
                 </viewController>
@@ -1342,6 +1442,11 @@
                         <action selector="planetTap:" destination="04M-ZP-gpZ" id="Jjw-B4-BYp"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="7op-S3-HEh">
+                    <connections>
+                        <action selector="didPanBlurViewWithSender:" destination="04M-ZP-gpZ" id="g6u-EB-Rmz"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-956" y="12.561576354679804"/>
         </scene>
