@@ -63,6 +63,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     // Local vars
     var isModifyingOrbitPCIOE = false
     var isInTutorialMode = false
+    var numOfTutTaps = 0
     
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -204,7 +205,11 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     }
     
     @IBAction func tutorialTap(_ sender: UITapGestureRecognizer) {
-        animateBlurView()
+        if numOfTutTaps == 0{
+            animateBlurView()
+            numOfTutTaps += 1
+        }
+        
     }
     
     
