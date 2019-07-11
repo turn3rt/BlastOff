@@ -124,12 +124,29 @@ class PCIOEViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func planetTap(_ sender: Any) {
         tapRecognizer.isEnabled = false
+        nasaLinkButton.alpha = 0.0
+        oeButton.alpha = 0.0
         animateBlurView()
         delay(bySeconds: 1.0, closure: {
             self.animateBlurView2()
         })
+    
         nasaLinkButton.isHidden = false
         oeButton.isHidden = false
+        oeButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        UIView.animate(withDuration: 60.0,
+                       delay: 2,
+                       usingSpringWithDamping: CGFloat(0.01),
+                       initialSpringVelocity: CGFloat(0.064),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        self.oeButton.transform = CGAffineTransform.identity
+        },
+                       completion: { Void in()  }
+        )
+        
+//        nasaLinkButton.isHidden = false
+//        oeButton.isHidden = false
     }
     
     var originalCenter = CGPoint()
@@ -214,8 +231,12 @@ class PCIOEViewController: UIViewController {
             self.blurView.center.y = finalBlurPos
             self.botBlurLabel.alpha = 1.0
             self.topBlurLabel.alpha = 0.0
+            self.oeButton.alpha = 1.0
+            self.nasaLinkButton.alpha = 1.0
         })
     }
+    
+    
     
     
 }

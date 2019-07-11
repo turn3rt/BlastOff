@@ -74,6 +74,7 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        self.scrollView.clipsToBounds = true
         
         setScrollPositionForUserDevice()
         
@@ -279,15 +280,15 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
             switch UIScreen.main.nativeBounds.height {
             case 1136:
                 print("iPhone 5 or 5S or 5C or SE")
-                initialHeightOfScroll.constant = 56
+                // initialHeightOfScroll.constant = 56
                 
             case 1334:
                 print("iPhone 6/6S/7/8")
-                initialHeightOfScroll.constant = 56
+                // initialHeightOfScroll.constant = 56
 
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
-                initialHeightOfScroll.constant = 56
+                // initialHeightOfScroll.constant = 56
                 scrollView.isScrollEnabled = false
                 
             case 2436:
@@ -296,12 +297,12 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
                 
             case 2688:
                 print("iPhone XS Max")
-                initialHeightOfScroll.constant = 132
+                initialHeightOfScroll.constant = 42 //132
                 scrollView.isScrollEnabled = false
 
             case 1792:
                 print("iPhone XR")
-                initialHeightOfScroll.constant = 132
+                initialHeightOfScroll.constant = 42
                 scrollView.isScrollEnabled = false
 
             default:
