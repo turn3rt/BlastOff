@@ -34,6 +34,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     @IBOutlet weak var initialTutText: UILabel!
     @IBOutlet weak var scrollTutText: UILabel!
     @IBOutlet var tutorialTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet var tapOffKeyboardRecognizer: UITapGestureRecognizer!
     
     
     // MARK: - IBActions
@@ -64,6 +65,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     var isModifyingOrbitPCIOE = false
     var isInTutorialMode = false
     var numOfTutTaps = 0
+    var initialScrollPos = CGFloat()
+    var finalBlurViewPos = CGFloat()
     
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -73,7 +76,10 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         if isInTutorialMode {
             blurView.isHidden = false
             blurView.isUserInteractionEnabled = true
+            tapOffKeyboardRecognizer.isEnabled = false
+            disableSliders()
         }
+        initialScrollPos = scrollView.center.y
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -141,6 +147,15 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if isDouble(number: textField.text!) {
             // @TODO: can improve this later
+            if isInTutorialMode {
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.scrollView.contentOffset.y += 90
+                    self.scrollTutText.alpha = 0.0
+                    self.numOfTutTaps += 1
+                    print("num of tut taps: \(self.numOfTutTaps)")
+                })
+            }
+            
             print("Valid Double Precision value entered")
             aSlider.value        = (aTField.text?.toFloat())!
             eSlider.value        = (eTField.text?.toFloat())!
@@ -148,6 +163,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             incSlider.value      = (incTField.text?.toFloat())!
             omegaSlider.value    = (omegaTField.text?.toFloat())!
             nuSlider.value       = (nuTField.text?.toFloat())!
+            
         } else { // Executes when user enters a non-valid number
             let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
             // button creation
@@ -163,7 +179,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                     self.omegaSlider.value    = (self.omegaTField.text?.toFloat())!
                     self.nuSlider.value       = (self.nuTField.text?.toFloat())!
                     
-                    textField.resignFirstResponder()
+                    if !self.isInTutorialMode {textField.resignFirstResponder()}
                 } else {
 //                    alert.title = "Custom Title"
 //                    alert.message = "Custom Message"
@@ -178,8 +194,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             }
             self.present(alert, animated: true, completion: nil)
         }
-        
-        textField.resignFirstResponder()
+        // TODO: fix this next line to add if final tutorial tap
+        if !self.isInTutorialMode {textField.resignFirstResponder()} //
         print("Return Key Press Success")
         return true
     }
@@ -198,6 +214,15 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         }
     }
     
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        blurView.isHidden = true
+//    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        blurView.center.y = finalBlurViewPos
+        print("skurrrt")
+        return true
+    }
     
     // MARK: - IBActions
     @IBAction func tapOffKeyboard(_ sender: UITapGestureRecognizer) {
@@ -205,11 +230,10 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     }
     
     @IBAction func tutorialTap(_ sender: UITapGestureRecognizer) {
-        if numOfTutTaps == 0{
+        if numOfTutTaps == 0 {
             animateBlurView()
             numOfTutTaps += 1
         }
-        
     }
     
     
@@ -316,12 +340,25 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         }
     }
     
+    func disableSliders() {
+        aSlider.isUserInteractionEnabled = false
+        eSlider.isUserInteractionEnabled = false
+        capOmegaSlider.isUserInteractionEnabled = false
+        incSlider.isUserInteractionEnabled = false
+        omegaSlider.isUserInteractionEnabled = false
+        nuSlider.isUserInteractionEnabled = false
+    }
+    
+    func setFinalBlurPosForDevice() {
+        finalBlurViewPos = blurView.center.y + 344
+    }
     
     // MARK: - Animations
     func animateBlurView() {
-        let finalBlurPos = blurView.center.y + 344
+         setFinalBlurPosForDevice()
+        // let finalBlurPos = blurView.center.y + 344
         UIView.animate(withDuration: 1.0, animations: {
-            self.blurView.center.y = finalBlurPos
+            self.blurView.center.y = self.finalBlurViewPos
             self.initialTutText.alpha = 0.0
             self.scrollTutText.alpha = 1.0
         })

@@ -751,6 +751,7 @@
                         <outlet property="omegaTField" destination="lwD-xY-ElP" id="wZW-FL-Bae"/>
                         <outlet property="scrollTutText" destination="NGV-d7-QZ7" id="f8d-uk-39K"/>
                         <outlet property="scrollView" destination="Cl1-ct-j9H" id="ZNW-3P-wAA"/>
+                        <outlet property="tapOffKeyboardRecognizer" destination="eIs-yA-qEH" id="Bry-Rb-kyR"/>
                         <outlet property="titleLabel" destination="eBY-yp-xQ4" id="EYp-fx-Rpt"/>
                         <outlet property="tutorialTapRecognizer" destination="QGj-gu-vLr" id="Dxa-rw-94Y"/>
                     </connections>
