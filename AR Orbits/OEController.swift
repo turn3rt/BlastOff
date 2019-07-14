@@ -20,6 +20,13 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     @IBOutlet weak var omegaTField: UITextField!
     @IBOutlet weak var nuTField: UITextField!
     
+    @IBOutlet weak var aStack: UIStackView!
+    @IBOutlet weak var eStack: UIStackView!
+    @IBOutlet weak var capOmegaStack: UIStackView!
+    @IBOutlet weak var incStack: UIStackView!
+    @IBOutlet weak var omegaStack: UIStackView!
+    @IBOutlet weak var nuStack: UIStackView!
+    
     @IBOutlet weak var aSlider: UISlider!
     @IBOutlet weak var eSlider: UISlider!
     @IBOutlet weak var capOmegaSlider: UISlider!
@@ -27,12 +34,19 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     @IBOutlet weak var omegaSlider: UISlider!
     @IBOutlet weak var nuSlider: UISlider!
     
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var initialHeightOfScroll: NSLayoutConstraint!
     
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var blurView2: UIVisualEffectView!
+    
     @IBOutlet weak var initialTutText: UILabel!
     @IBOutlet weak var scrollTutText: UILabel!
+    @IBOutlet weak var scrollTutText2: UILabel!
+    
     @IBOutlet var tutorialTapRecognizer: UITapGestureRecognizer!
     @IBOutlet var tapOffKeyboardRecognizer: UITapGestureRecognizer!
     
@@ -79,7 +93,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             tapOffKeyboardRecognizer.isEnabled = false
             disableSliders()
         }
-        initialScrollPos = scrollView.center.y
+        initialScrollPos = scrollView.contentOffset.y
     }
     
     override func viewWillAppear(_ animated:Bool) {
@@ -91,6 +105,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
+        self.blurView2.isHidden = true
         setScrollPositionForUserDevice()
 
         
@@ -145,15 +160,76 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if isDouble(number: textField.text!) {
+        if isDouble(number: textField.text!) { // user enters valid number
             // @TODO: can improve this later
             if isInTutorialMode {
-                UIView.animate(withDuration: 1.0, animations: {
-                    self.scrollView.contentOffset.y += 90
-                    self.scrollTutText.alpha = 0.0
-                    self.numOfTutTaps += 1
-                    print("num of tut taps: \(self.numOfTutTaps)")
-                })
+                
+                self.numOfTutTaps += 1
+                print("num of tut taps: \(self.numOfTutTaps)")
+                switch self.numOfTutTaps {
+                case 2:
+                    if textField.text != "6955.2" { // user enters a value
+                        print("Buzz phone and shake text")
+                        self.numOfTutTaps -= 1
+                    } else {
+                        self.scrollTutText2.text = "Its orbit was almost circular, having an eccentricity value of 0.052. Enter this value and press the return key..."
+                        animateScrollView()
+                    }
+                case 3:
+                    if textField.text != "0.052" { // user enters e value
+                        print("Buzz phone and shake text")
+                        self.numOfTutTaps -= 1
+                    } else {
+                        self.scrollTutText2.text = "Its ascending node was 0.0. Enter this value and press the return key..."
+                        animateScrollView()
+                    }
+                case 4:
+                    if textField.text != "0.0" { // user enters capOmega value
+                        print("Buzz phone and shake text")
+                        self.numOfTutTaps -= 1
+                    } else {
+                        self.scrollTutText2.text = "Common in many satellites launched from modern-day Russia, its inclination was 65.1. Enter this value and press the return key..."
+                        animateScrollView()
+                    }
+                case 5:
+                    if textField.text != "65.1" { // user enters inc value
+                        print("Buzz phone and shake text")
+                        self.numOfTutTaps -= 1
+                    } else {
+                        self.scrollTutText2.text = "Its argument of periapsis was 0.0. Enter this value and press the return key..."
+                        animateScrollView()
+                    }
+                case 6:
+                    if textField.text != "0.0" { // user enters omega value
+                        print("Buzz phone and shake text")
+                        self.numOfTutTaps -= 1
+                    } else {
+                        self.scrollTutText2.text = "We want to start at the beginning of the orbit, so its true anomoly value should be 0.0. Enter this value and press the return key..."
+                        animateScrollView()
+                    }
+                case 7:  // user enters nu value
+                    self.scrollTutText2.text = "Now, we just need to save and name the orbit..."
+                    animateScrollView()
+                    textField.resignFirstResponder()
+                    delay(bySeconds: 2, closure: {
+                        self.animateToOriginalViewLayout()
+                        
+                        self.saveButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+                        UIView.animate(withDuration: 60.0,
+                                       delay: 0.0,
+                                       usingSpringWithDamping: CGFloat(0.01),
+                                       initialSpringVelocity: CGFloat(0.064),
+                                       options: UIView.AnimationOptions.allowUserInteraction,
+                                       animations: {
+                                        self.saveButton.transform = CGAffineTransform.identity
+                        }, completion: { Void in })
+                        
+                    })
+                default: // user did not enter correct value
+                    print("Error in num of tutorial taps")
+
+                }
+    
             }
             
             print("Valid Double Precision value entered")
@@ -214,13 +290,14 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         }
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        blurView.isHidden = true
-//    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        blurView.center.y = finalBlurViewPos
-        print("skurrrt")
+        if isInTutorialMode {
+            blurView.isHidden = true
+            blurView2.isHidden = false
+           // blurView.center.y = finalBlurViewPos
+            print("Blur Views Swapped")
+        }
         return true
     }
     
@@ -233,12 +310,9 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         if numOfTutTaps == 0 {
             animateBlurView()
             numOfTutTaps += 1
+            //self.blurView.center.y = self.finalBlurViewPos
         }
     }
-    
-    
-    
-    
     
     // MARK: - Useful Internal Controller Functions & Variables
     var nameOfOrbit = String()
@@ -347,11 +421,63 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         incSlider.isUserInteractionEnabled = false
         omegaSlider.isUserInteractionEnabled = false
         nuSlider.isUserInteractionEnabled = false
+        
+        aSlider.alpha = 0.32
+        eSlider.alpha = 0.32
+        capOmegaSlider.alpha = 0.32
+        incSlider.alpha = 0.32
+        omegaSlider.alpha = 0.32
+        nuSlider.alpha = 0.32
     }
     
-    func setFinalBlurPosForDevice() {
-        finalBlurViewPos = blurView.center.y + 344
+    func setFinalBlurPosForDevice() { // TODO: FINISH THIS
+        print("Native Device Height: \(UIScreen.main.nativeBounds.height)")
+        if UIDevice().userInterfaceIdiom == .phone || UIDevice().userInterfaceIdiom == .pad  {
+            switch UIScreen.main.nativeBounds.height {
+            // iPhones
+            case 1136:
+                print("iPhone 5 or 5S or 5C or SE")
+                
+            case 1334:
+                print("iPhone 6/6S/7/8")
+                
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+                
+            case 2436:
+                print("iPhone X, XS")
+                finalBlurViewPos = blurView.center.y + 344 // default
+                
+            case 2688:
+                print("iPhone XS Max")
+                
+            case 1792:
+                print("iPhone XR")
+                
+            // iPads
+            case 2048:
+                print("iPad Mini, Air, Pro 9.7in")
+                
+            case 1668, 2224:
+                print("iPad Pro 10.5in")
+ 
+            case 2388:
+                print("iPad Pro 11in")
+                finalBlurViewPos = blurView.center.y + 325
+     
+            case 2732:
+                print("iPad Pro 12.9in")
+                finalBlurViewPos = blurView.center.y + 325 //314
+                
+            default:
+                print("Unknown Device")
+                
+            }
+        }
+        
     }
+    
+    
     
     // MARK: - Animations
     func animateBlurView() {
@@ -363,6 +489,75 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             self.scrollTutText.alpha = 1.0
         })
     }
+    
+    func animateScrollView(){
+        UIView.animate(withDuration: 1.0, animations: {
+            self.scrollView.contentOffset.y += 85 // scrolls view "up"
+            self.scrollTutText2.alpha = 0.0
+            self.viewsToFade(numberOfTutTaps: self.numOfTutTaps).stack.alpha = 0.0
+            self.viewsToFade(numberOfTutTaps: self.numOfTutTaps).slider.alpha = 0.0
+            self.scrollTutText2.alpha = 1.0
+        })
+    }
+    
+    func viewsToFade(numberOfTutTaps: Int) -> (stack: UIStackView, slider: UISlider) {
+        switch numberOfTutTaps{
+        case 2:
+            eTField.becomeFirstResponder()
+            return (aStack, aSlider)
+        case 3:
+            capOmegaTField.becomeFirstResponder()
+            return (eStack, eSlider)
+        case 4:
+            incTField.becomeFirstResponder()
+            return (capOmegaStack, capOmegaSlider)
+        case 5:
+            omegaTField.becomeFirstResponder()
+            return (incStack, incSlider)
+        case 6:
+            nuTField.becomeFirstResponder()
+            return (omegaStack, omegaSlider)
+        case 7:
+            saveButton.alpha = 0.0
+            return (nuStack, nuSlider)
+        default:
+            print("Did Not Return Valid Stack")
+            return (UIStackView(), UISlider())
+        }
+    }
+    
+    func animateToOriginalViewLayout() {
+        UIView.animate(withDuration: 1.0, animations: {
+          // fade in view stacks
+            self.aStack.alpha = 1.0
+            self.eStack.alpha = 1.0
+            self.capOmegaStack.alpha = 1.0
+            self.incStack.alpha = 1.0
+            self.omegaStack.alpha = 1.0
+            self.nuStack.alpha = 1.0
+            
+            // fade in view sliders
+            self.aSlider.alpha = 1.0
+            self.eSlider.alpha = 1.0
+            self.capOmegaSlider.alpha = 1.0
+            self.incSlider.alpha = 1.0
+            self.omegaSlider.alpha = 1.0
+            self.nuSlider.alpha = 1.0
+            
+            // recenter scroll view
+            self.scrollView.contentOffset.y = self.initialScrollPos
+            
+            // move blur view to bottom
+            self.blurView2.center.y += self.blurView2.bounds.height
+            
+            // fade in save button
+            self.saveButton.alpha = 1.0
+    
+        })
+    }
+    
+    
+    
     
     // MARK: - Memory Management
     let defaults = UserDefaults.standard

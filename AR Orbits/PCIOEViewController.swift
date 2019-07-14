@@ -141,20 +141,15 @@ class PCIOEViewController: UIViewController {
                        options: UIView.AnimationOptions.allowUserInteraction,
                        animations: {
                         self.oeButton.transform = CGAffineTransform.identity
-        },
-                       completion: { Void in()  }
-        )
-        
-//        nasaLinkButton.isHidden = false
-//        oeButton.isHidden = false
+        }, completion: { Void in })
     }
     
     var originalCenter = CGPoint()
     @IBAction func didPanBlurView(sender: UIPanGestureRecognizer) {
         // let translation = sender.translation(in: view)
         // print("translation \(translation)")
-        //originalCenter = blurView.center
-        print("original center is : \(originalCenter)")
+        // originalCenter = blurView.center
+        // print("original center is : \(originalCenter)")
         if sender.state == .began {
            // originalCenter = blurView.center
         } else if sender.state == .changed {
