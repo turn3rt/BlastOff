@@ -14,8 +14,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var topMargin: NSLayoutConstraint! // default is 80 - normalized for iPhone X, XS
     @IBOutlet weak var midMargin: NSLayoutConstraint! // default is 64 - normalized for iPhone X, XS
     @IBOutlet weak var botMargin: NSLayoutConstraint! // default is 88 - normalized for iPhone X, XS
-    
 
+    @IBOutlet weak var modifyButton: UIButton!
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var launchButton: UIButton!
+    @IBOutlet weak var tutorialAboutStack: UIStackView!
+    
+    
+    
+    var isInTutorialMode = false
     
     // MARK: - Override Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +30,27 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         configureAutoLayoutForDevice()
         showUserDefaultValues()
+        
+        if isInTutorialMode {
+            modifyButton.isHidden = true
+            newButton.isHidden = true
+            tutorialAboutStack.isHidden = true
+            
+            launchButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            UIView.animate(withDuration: 60.0, // springloads button
+                           delay: 0,
+                           usingSpringWithDamping: CGFloat(0.01),
+                           initialSpringVelocity: CGFloat(0.064),
+                           options: UIView.AnimationOptions.allowUserInteraction,
+                           animations: {
+                            self.launchButton.transform = CGAffineTransform.identity
+            }, completion: { Void in })
+            
+        } else {
+            modifyButton.isHidden = false
+            newButton.isHidden = false
+            tutorialAboutStack.isHidden = false
+        }
     }
 
     /*

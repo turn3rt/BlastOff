@@ -75,7 +75,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         showAddNameAlert()
     }
     
-    // Local vars
+    // MARK: - Local Vars
     var isModifyingOrbitPCIOE = false
     var isInTutorialMode = false
     var numOfTutTaps = 0
@@ -211,9 +211,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                     self.scrollTutText2.text = "Now, we just need to save and name the orbit..."
                     animateScrollView()
                     textField.resignFirstResponder()
-                    delay(bySeconds: 2, closure: {
+                    delay(bySeconds: 1.64, closure: {
                         self.animateToOriginalViewLayout()
-                        
                         self.saveButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
                         UIView.animate(withDuration: 60.0,
                                        delay: 0.0,
@@ -227,9 +226,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                     })
                 default: // user did not enter correct value
                     print("Error in num of tutorial taps")
-
                 }
-    
             }
             
             print("Valid Double Precision value entered")
@@ -240,7 +237,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             omegaSlider.value    = (omegaTField.text?.toFloat())!
             nuSlider.value       = (nuTField.text?.toFloat())!
             
-        } else { // Executes when user enters a non-valid number
+        } else if !isInTutorialMode { // Executes when user enters a non-valid number
             let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
             // button creation
             let confirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
@@ -271,13 +268,14 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             self.present(alert, animated: true, completion: nil)
         }
         // TODO: fix this next line to add if final tutorial tap
-        if !self.isInTutorialMode {textField.resignFirstResponder()} //
+        if !self.isInTutorialMode {textField.resignFirstResponder()}
+       else { print("wat") }//
         print("Return Key Press Success")
         return true
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if incTField.isEditing || omegaTField.isEditing || nuTField.isEditing == true {
+        if (incTField.isEditing || omegaTField.isEditing || nuTField.isEditing == true) && isInTutorialMode == false {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 180 //keyboardSize.height
             }
@@ -319,11 +317,10 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     func showAddNameAlert(){
         //controller definition
         let alert = UIAlertController(title:"Add Name", message: "Please add a name for your orbit", preferredStyle: .alert)
-        
         // button creation
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
-            if textField.text != "" { // && textField.text?.contains(" ") == false {
+            if textField.text != "" && !self.isInTutorialMode || textField.text == "Sputnik" {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
@@ -356,11 +353,18 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
                 self.defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
-                
-                self.navigationController?.popToRootViewController(animated: true) 
+                if !self.isInTutorialMode {self.navigationController?.popToRootViewController(animated: true)}
+                else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+                    vc.isInTutorialMode = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
                 print("Save Success")
-            } else {
+            } else if !self.isInTutorialMode {
                 alert.message = "Error: Orbit name cannot be blank."
+                self.present(alert, animated: true, completion: nil)
+            } else if self.isInTutorialMode && textField.text != "Sputnik" {
+                alert.message = "Error: Please enter Sputnik as the name of the orbit."
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -371,7 +375,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         alert.addAction(save)
         alert.addAction(cancel)
         alert.addTextField { (textField) in // text field var params go here
-            textField.placeholder = "Ex: Molniya"
+            textField.placeholder = "Ex: Sputnik"
             textField.autocapitalizationType = UITextAutocapitalizationType.words
         }
         self.present(alert, animated: true, completion: nil)
@@ -519,6 +523,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             return (omegaStack, omegaSlider)
         case 7:
             saveButton.alpha = 0.0
+            saveButton.isHidden = true
             return (nuStack, nuSlider)
         default:
             print("Did Not Return Valid Stack")
@@ -551,8 +556,16 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             self.blurView2.center.y += self.blurView2.bounds.height
             
             // fade in save button
+            self.saveButton.isHidden = false
             self.saveButton.alpha = 1.0
-    
+            
+            // disable user interaction on text fields
+            self.aTField.isUserInteractionEnabled = false
+            self.eTField.isUserInteractionEnabled = false
+            self.capOmegaTField.isUserInteractionEnabled = false
+            self.incTField.isUserInteractionEnabled = false
+            self.omegaTField.isUserInteractionEnabled = false
+            self.nuTField.isUserInteractionEnabled = false
         })
     }
     
