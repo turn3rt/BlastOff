@@ -12,10 +12,28 @@ class AboutViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+         self.navigationController?.navigationBar.isTranslucent = true
 //        configureAutoLayoutForDevice()
     }
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        
+        
+//        oeButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+//        UIView.animate(withDuration: 60.0,
+//                       delay: 2,
+//                       usingSpringWithDamping: CGFloat(0.01),
+//                       initialSpringVelocity: CGFloat(0.064),
+//                       options: UIView.AnimationOptions.allowUserInteraction,
+//                       animations: {
+//                        self.oeButton.transform = CGAffineTransform.identity
+//        }, completion: { Void in })
+
+    }
 
     /*
     // MARK: - Navigation

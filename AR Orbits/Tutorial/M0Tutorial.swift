@@ -13,6 +13,7 @@ class M0Tutorial: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isTranslucent = false
         //        configureAutoLayoutForDevice()
     }
     

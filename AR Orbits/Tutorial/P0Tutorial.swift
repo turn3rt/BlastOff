@@ -56,7 +56,7 @@ class P0Tutorial: UIViewController {
             case 2436:
                 print("iPhone X, XS") // TODO: Fix these by adding 42 to all top margins
                 topMargin.constant = 64 + 42
-                midMargin.constant = 16
+                midMargin.constant = 24
                 
             case 2688:
                 print("iPhone XS Max")
