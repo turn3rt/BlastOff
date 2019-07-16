@@ -19,12 +19,14 @@ class P0Tutorial: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        
         configureAutoLayoutForDevice()
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = true 
     }
+    
     
     // MARK: - IBActions
     
@@ -52,17 +54,21 @@ class P0Tutorial: UIViewController {
                 print("iPhone 6+/6S+/7+/8+")
     
             case 2436:
-                print("iPhone X, XS")
-                topMargin.constant = 64
+                print("iPhone X, XS") // TODO: Fix these by adding 42 to all top margins
+                topMargin.constant = 64 + 42
                 midMargin.constant = 16
                 
             case 2688:
                 print("iPhone XS Max")
-                topMargin.constant = 64
+                topMargin.constant = 64 + 42
+                midMargin.constant = 24
+
 
             case 1792:
                 print("iPhone XR")
-                topMargin.constant = 64
+                topMargin.constant = 64 + 42
+                midMargin.constant = 24
+
                 
             // iPads
             case 2048:

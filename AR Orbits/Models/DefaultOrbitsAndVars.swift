@@ -118,9 +118,6 @@ let colors = [UIColor.orange,
 var savedNumberOfOrbits = UserDefaults.standard.integer(forKey: "savedNumberOfOrbits") 
 // var totalNumberOfOrbits = UserDefaults.standard.integer(forKey: "totalNumberOfOrbits") // default is number of default orbits
 
-
-
-
 func oe2rvArray(oe: [Double], mu: Double) -> [Double] {
     let rOutput = oe2rv(oe: oe, mu: mu).rPCI
     let vOutput = oe2rv(oe: oe, mu: mu).vPCI

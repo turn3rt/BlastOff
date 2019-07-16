@@ -810,7 +810,7 @@
         <!--ARViewController-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" userLabel="ARViewController" customClass="ARViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARvc" id="BV1-FR-VrT" userLabel="ARViewController" customClass="ARViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -833,9 +833,6 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="backButtonTap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="xIg-uf-27a"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3er-XG-DTM">
                                         <rect key="frame" x="182" y="0.0" width="161" height="42"/>
@@ -869,22 +866,67 @@
                                     <segue destination="YP3-CA-sLN" kind="show" id="iNj-XS-35g"/>
                                 </connections>
                             </button>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-b6-ejD">
+                                <rect key="frame" x="0.0" y="-90" width="375" height="814"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ko8-kH-02V">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="814"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The yellow settings button allows you to edit properties of how the orbit is plotted. Tap it to continue..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MxR-sP-tUs">
+                                            <rect key="frame" x="16" y="307" width="343" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="XxM-NI-lHx"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="svX-Fb-hRn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="34"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IL8-wc-mQp">
+                                            <rect key="frame" x="151.66666666666666" y="539" width="72" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="72" id="7Wc-3F-m3V"/>
+                                                <constraint firstAttribute="width" constant="72" id="VI8-E7-unm"/>
+                                            </constraints>
+                                            <state key="normal" image="settingsIcon.png"/>
+                                            <connections>
+                                                <action selector="settingsFromTutClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Fq5-HL-GBx"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MxR-sP-tUs" firstAttribute="leading" secondItem="ko8-kH-02V" secondAttribute="leading" constant="16" id="OJl-s9-7Q0"/>
+                                        <constraint firstItem="IL8-wc-mQp" firstAttribute="centerX" secondItem="ko8-kH-02V" secondAttribute="centerX" id="YMc-Dx-6pj"/>
+                                        <constraint firstItem="MxR-sP-tUs" firstAttribute="centerX" secondItem="ko8-kH-02V" secondAttribute="centerX" id="l9f-0K-BAb"/>
+                                        <constraint firstAttribute="trailing" secondItem="MxR-sP-tUs" secondAttribute="trailing" constant="16" id="t8M-Um-9al"/>
+                                        <constraint firstItem="IL8-wc-mQp" firstAttribute="top" secondItem="MxR-sP-tUs" secondAttribute="bottom" constant="32" id="yLc-vN-Fdh"/>
+                                        <constraint firstItem="MxR-sP-tUs" firstAttribute="centerY" secondItem="ko8-kH-02V" secondAttribute="centerY" id="zKw-sY-Gzk"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Jfs-b6-ejD" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="24A-pL-qsd"/>
+                            <constraint firstAttribute="bottom" secondItem="Jfs-b6-ejD" secondAttribute="bottom" id="55S-4C-Ubt"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="xaF-TZ-LAd" secondAttribute="bottom" constant="16" id="ABa-n8-Kr9"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="Fnx-fY-9Th"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="JaE-cq-Ijq"/>
                             <constraint firstAttribute="trailing" secondItem="xaF-TZ-LAd" secondAttribute="trailing" constant="16" id="V8t-Wa-15c"/>
                             <constraint firstItem="xaF-TZ-LAd" firstAttribute="top" secondItem="FUw-yN-4mn" secondAttribute="bottom" constant="16" id="YlB-mT-Bk0"/>
+                            <constraint firstItem="Jfs-b6-ejD" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" constant="-90" id="cpc-FI-jPu"/>
                             <constraint firstItem="xaF-TZ-LAd" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="gKX-Uk-6nf"/>
                             <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="qff-7J-qFn"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="qvk-7m-DQi"/>
                             <constraint firstItem="FUw-yN-4mn" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="sqP-wj-58I"/>
+                            <constraint firstItem="Jfs-b6-ejD" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="wy6-d0-6EP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZDg-Dw-x3c"/>
                     <connections>
+                        <outlet property="blurView" destination="Jfs-b6-ejD" id="try-JK-gFL"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
@@ -895,13 +937,13 @@
         <!--OrbitsTBController-->
         <scene sceneID="D9H-44-llK">
             <objects>
-                <tableViewController id="Kmq-eH-Y7W" userLabel="OrbitsTBController" customClass="OrbitsTableViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OrbitsTBVC" id="Kmq-eH-Y7W" userLabel="OrbitsTBController" customClass="OrbitsTableViewController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DLl-hM-b79">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="ald-xF-SI5">
-                            <rect key="frame" x="0.0" y="78" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
@@ -913,7 +955,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="49.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orbit Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9m4-d9-aNv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orbit Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9m4-d9-aNv">
                                             <rect key="frame" x="16" y="8" width="343" height="33.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -930,6 +972,32 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="orbitName" destination="9m4-d9-aNv" id="QIS-L2-YOB"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tutorialCell" rowHeight="50" id="oaL-h1-vdS">
+                                <rect key="frame" x="0.0" y="78" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oaL-h1-vdS" id="PJ7-ip-wRh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select or deselect the orbits to plot. Swipe to delete. Press done to end the tutorial..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fWj-l9-qzv">
+                                            <rect key="frame" x="16" y="8" width="343" height="33.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="fWj-l9-qzv" secondAttribute="bottom" constant="8" id="YVW-oe-qUV"/>
+                                        <constraint firstAttribute="trailing" secondItem="fWj-l9-qzv" secondAttribute="trailing" constant="16" id="Z3J-4H-hoX"/>
+                                        <constraint firstItem="fWj-l9-qzv" firstAttribute="top" secondItem="PJ7-ip-wRh" secondAttribute="top" constant="8" id="ann-Mq-Rww"/>
+                                        <constraint firstItem="fWj-l9-qzv" firstAttribute="leading" secondItem="PJ7-ip-wRh" secondAttribute="leading" constant="16" id="v7e-k4-jDO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="orbitName" destination="fWj-l9-qzv" id="XRJ-7v-Uh5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1023,7 +1091,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="show" id="49Z-N3-lQO"/>
+                                            <segue destination="BV1-FR-VrT" kind="show" identifier="launchSegue" id="49Z-N3-lQO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1481,7 +1549,7 @@
         <!--Settings-->
         <scene sceneID="CVM-lr-X4u">
             <objects>
-                <tableViewController id="YP3-CA-sLN" customClass="SettingsTBController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsVC" id="YP3-CA-sLN" customClass="SettingsTBController" customModule="AR_Orbits" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sSx-eN-UZM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1774,11 +1842,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cameraFeedLabel" destination="zpg-FT-InB" id="4GF-xV-UIv"/>
                         <outlet property="cameraFeedSwitch" destination="Fre-fR-KZk" id="fSQ-hd-C5R"/>
+                        <outlet property="editButton" destination="OVW-dW-eaO" id="Mak-S9-yM7"/>
                         <outlet property="fractionControl" destination="mYX-73-3Fl" id="2Ew-dU-bVd"/>
+                        <outlet property="fractionLabel" destination="VhQ-Ry-mcY" id="SM0-qV-cgA"/>
                         <outlet property="numOfOrbitsLabel" destination="ZSS-Uj-PhB" id="hhg-xQ-toe"/>
+                        <outlet property="orbitOriginLabel" destination="MOE-e5-o0K" id="qRP-1T-wxb"/>
                         <outlet property="orbitOriginSwitch" destination="HxX-jr-Tia" id="CmI-Pw-WIs"/>
+                        <outlet property="resetButton" destination="ZIf-sj-daP" id="LVv-Ad-7UY"/>
                         <outlet property="sizeControl" destination="LIV-wc-app" id="o23-4W-JeF"/>
+                        <outlet property="sizeLabel" destination="Y3m-jS-VTd" id="a5Y-uy-uWy"/>
+                        <outlet property="worldOriginLabel" destination="056-gx-548" id="Nef-l8-bGe"/>
                         <outlet property="worldOriginSwitch" destination="TOw-4m-CDl" id="qep-Bw-fWg"/>
                     </connections>
                 </tableViewController>
@@ -1826,6 +1901,6 @@
         <image name="waves.png" width="768" height="1287"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oiW-EM-Y3I"/>
+        <segue reference="7kq-QY-wra"/>
     </inferredMetricsTieBreakers>
 </document>

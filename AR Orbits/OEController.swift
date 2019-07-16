@@ -320,7 +320,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         // button creation
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
-            if textField.text != "" && !self.isInTutorialMode || textField.text == "Sputnik" {
+            if textField.text != "" && !self.isInTutorialMode || textField.text == "Sputnik Orbit" {
                 print("User saving with name: \(textField.text!)")
                 self.nameOfOrbit = textField.text!
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
@@ -363,8 +363,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             } else if !self.isInTutorialMode {
                 alert.message = "Error: Orbit name cannot be blank."
                 self.present(alert, animated: true, completion: nil)
-            } else if self.isInTutorialMode && textField.text != "Sputnik" {
-                alert.message = "Error: Please enter Sputnik as the name of the orbit."
+            } else if self.isInTutorialMode && textField.text != "Sputnik Orbit" {
+                alert.message = "Error: Please enter Sputnik Orbit as the name of the orbit."
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -375,7 +375,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         alert.addAction(save)
         alert.addAction(cancel)
         alert.addTextField { (textField) in // text field var params go here
-            textField.placeholder = "Ex: Sputnik"
+            textField.placeholder = "Ex: Sputnik Orbit"
             textField.autocapitalizationType = UITextAutocapitalizationType.words
         }
         self.present(alert, animated: true, completion: nil)

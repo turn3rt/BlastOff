@@ -8,7 +8,12 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, ARViewControllerDelegate {
+    // MARK: - Protocol stubs
+    func finishTutorial(isInTutorialMode: Bool) { // executes in ARViewController when user clicks the back button
+        self.isInTutorialMode = isInTutorialMode
+    }
+    
 
     // MARK: - IBOutlets
     @IBOutlet weak var topMargin: NSLayoutConstraint! // default is 80 - normalized for iPhone X, XS
@@ -20,14 +25,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var launchButton: UIButton!
     @IBOutlet weak var tutorialAboutStack: UIStackView!
     
-    
-    
-    var isInTutorialMode = false
+    var isInTutorialMode = Bool()
     
     // MARK: - Override Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
         configureAutoLayoutForDevice()
         showUserDefaultValues()
         
@@ -53,15 +57,15 @@ class HomeViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+         if let arController = segue.destination as? ARViewController {
+            arController.isInTutorialMode = self.isInTutorialMode
+            arController.tutorialDelegate = self
+        }
     }
-    */
+    
     
     // MARK: - Internal Functions
     func configureAutoLayoutForDevice() -> () {
@@ -133,4 +137,13 @@ class HomeViewController: UIViewController {
             print("\(key) = \(value) \n")
         }
     }
+    
+    // MARK: - IBActions
+//    @IBAction func launchButtonClick(_ sender: UIButton) {
+//        if self.isInTutorialMode {
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "ARvc") as! ARViewController
+//            vc.isInTutorialMode = true
+//        }
+//    }
+    
 }

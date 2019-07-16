@@ -9,19 +9,39 @@
 import UIKit
 
 class SettingsTBController: UITableViewController {
-    @IBOutlet weak var numOfOrbitsLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var fractionLabel: UILabel!
+    @IBOutlet weak var orbitOriginLabel: UILabel!
+    @IBOutlet weak var cameraFeedLabel: UILabel!
+    @IBOutlet weak var worldOriginLabel: UILabel!
+    
     @IBOutlet weak var sizeControl: UISegmentedControl!
     @IBOutlet weak var fractionControl: UISegmentedControl!
     @IBOutlet weak var worldOriginSwitch: UISwitch!
     @IBOutlet weak var orbitOriginSwitch: UISwitch!
     @IBOutlet weak var cameraFeedSwitch: UISwitch!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    @IBOutlet weak var numOfOrbitsLabel: UILabel!
+
 
     
-    // Mark: - IBActions
+    // MARK: - IBActions
     @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        if !isInTutorialMode {
+            self.navigationController?.popViewController(animated: true) // TODO: pop to ARController
+            self.navigationController?.navigationBar.barTintColor = UIColor.black
+        }
     }
+//    @IBAction func editClick(_ sender: UIButton) {
+//        if isInTutorialMode {
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "OrbitsTBVC") as! OrbitsTableViewController
+//            vc.isInTutorialMode = true
+//        }
+//    }
+    
+    
     
     @IBAction func sizeControlChange(_ sender: UISegmentedControl) {
         switch sizeControl.selectedSegmentIndex {
@@ -73,7 +93,10 @@ class SettingsTBController: UITableViewController {
         defaults.set(cameraFeedIsShown, forKey: "cameraFeedIsShown")
     }
     
+    // MARK: - Internal Vars
     var totalNumberOfOrbits = defaultOrbitNames.count
+    var isInTutorialMode = Bool()
+    
     
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -130,6 +153,9 @@ class SettingsTBController: UITableViewController {
             worldOriginSwitch.setOn(true, animated: false)
         }
         
+        // Determining if is in tutorial mode
+        if isInTutorialMode {enableTutorialMode()}
+        
     }
     
     // MARK: - Reset
@@ -162,7 +188,6 @@ class SettingsTBController: UITableViewController {
     
     
     // MARK: - Internal Functions
-    
     func enableScrollForUserDevice() -> (){
         if UIDevice().userInterfaceIdiom == .phone {
             switch UIScreen.main.nativeBounds.height {
@@ -195,6 +220,41 @@ class SettingsTBController: UITableViewController {
         }
     }
     
+    func enableTutorialMode() {
+        self.sizeLabel.alpha = 0.32
+        self.fractionLabel.alpha = 0.32
+        self.worldOriginLabel.alpha = 0.32
+        self.orbitOriginLabel.alpha = 0.32
+        self.cameraFeedLabel.alpha = 0.32
+        
+        self.sizeControl.alpha = 0.32
+        self.fractionControl.alpha = 0.32
+        self.worldOriginSwitch.alpha = 0.32
+        self.orbitOriginSwitch.alpha = 0.32
+        self.cameraFeedSwitch.alpha = 0.32
+        
+        self.sizeControl.isUserInteractionEnabled = false
+        self.fractionControl.isUserInteractionEnabled = false
+        self.worldOriginSwitch.isUserInteractionEnabled = false
+        self.orbitOriginSwitch.isUserInteractionEnabled = false
+        self.cameraFeedSwitch.isUserInteractionEnabled = false
+        // self.resetButton.isUserInteractionEnabled = false
+        
+        self.resetButton.isHidden = true
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+        
+        self.editButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        UIView.animate(withDuration: 60.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: CGFloat(0.01),
+                       initialSpringVelocity: CGFloat(0.064),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        self.editButton.transform = CGAffineTransform.identity
+        }, completion: { Void in })
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -204,6 +264,7 @@ class SettingsTBController: UITableViewController {
             if let orbitsTBController = segue.destination as? OrbitsTableViewController {
                 print("User is editing shown orbits = true")
                 orbitsTBController.isEditingShownOrbits = true
+                orbitsTBController.isInTutorialMode = self.isInTutorialMode
             }
         default:
             print("No segue from settings TBcontroller")

@@ -10,6 +10,8 @@ import UIKit
 
 class OrbitsTableViewController: UITableViewController {
 
+    var isInTutorialMode = Bool()
+   // var ARvc: ARViewController?
     
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBAction func doneButtonClick(_ sender: Any) {
@@ -19,7 +21,17 @@ class OrbitsTableViewController: UITableViewController {
         print("saved defaultOrbitIsShown as: \(defaultOrbitisShown)")
         numOfDefaultOrbitsShown = defaultOrbitisShown.filter{$0}.count //  counts the number of "true" statements
         print("and the number of default orbits shown is currently: \(numOfDefaultOrbitsShown)")
-        self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
+        
+        if !isInTutorialMode{self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)}
+        else {
+            for vc in (self.navigationController?.viewControllers ?? []) {
+                if vc is ARViewController {
+                    _ = self.navigationController?.popToViewController(vc, animated: true)
+                     // ARvc?.onDoneTap(data: false)
+                    break
+                }
+            }
+        }
 
 //        let arr = [false, true, true, false, true]
 //        let numberOfTrue = arr.filter{$0}.count
@@ -72,7 +84,7 @@ class OrbitsTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return isInTutorialMode ? 3: 2 // if isInTutorialMode, return 3 else return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,7 +94,7 @@ class OrbitsTableViewController: UITableViewController {
         case 1:
             return savedNumberOfOrbits
         default:
-            return 0
+            return 1 // tutorial cell
         }
     }
 
@@ -124,7 +136,8 @@ class OrbitsTableViewController: UITableViewController {
                     }
             }
             return cell
-        default:
+        default: // tutorial cell
+            cell.orbitName.text = "Select or deselect the orbits to plot. Swipe to delete. Press done to end the tutorial..."
             return cell
         }
     }
@@ -142,8 +155,8 @@ class OrbitsTableViewController: UITableViewController {
             return "Default Orbits"
         case 1:
             return "My Orbits"
-        default:
-            return "Error: No section"
+        default: // tutorial
+            return "Tutorial Comments"
         }
     }
     

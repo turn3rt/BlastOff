@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ARViewController.swift
 //  Blast Off
 //
 //  Created by Turner Thornberry on 5/13/19.
@@ -11,13 +11,25 @@ import SceneKit
 import ARKit
 import Foundation
 
+
+// MARK: - Protocols
+protocol ARViewControllerDelegate {
+    func finishTutorial(isInTutorialMode: Bool)
+}
+
+
+
 class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate {
+    //    MARK: - Delegate Vars
+    var tutorialDelegate: ARViewControllerDelegate?
     
 //    MARK: - IBOutlets
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
-//    MARK: - Local Controller Variables
+    //    MARK: - Local Controller Variables
     let configuration = ARWorldTrackingConfiguration()
+    var isInTutorialMode = false
     
 //    MARK: - Math Variables
     let earthGravityParam = 398600.0 // kilometers^3/sec^2
@@ -28,11 +40,20 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true // disables power saving mode when view is active dimming
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+
+        if isInTutorialMode {
+            self.blurView.isHidden = false
+        }
+        
         // Run the view's session
         sceneView.session.pause()
         print("ARScene Resetting all nodes...")
@@ -178,10 +199,28 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.session.pause()
     }
     
-//    MARK: - IBAction Functions
+    // handles "back" button on navigation controller
+    override func willMove(toParent parent: UIViewController?) {
+        if parent == nil {
+            print("Back button tapped")
+           // if isInTutorialMode {
+                let vc = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+                vc.isInTutorialMode = false
+                self.isInTutorialMode = false
+                tutorialDelegate?.finishTutorial(isInTutorialMode: isInTutorialMode)
+                // self.navigationController?.popToRootViewController(animated: true)
+           // }
+
+        }
+    }
     
-    @IBAction func backButtonTap(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+//    MARK: - IBAction Functions
+    @IBAction func settingsFromTutClick(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsTBController
+        vc.isInTutorialMode = true
+        navigationController?.pushViewController(vc, animated: true)
+        self.blurView.isHidden = true
+        self.isInTutorialMode = false
     }
     
     @IBAction func resetClick(_ sender: UIButton) {
@@ -482,6 +521,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.scene.rootNode.addChildNode(botPlaneNode)
         sceneView.scene.rootNode.addChildNode(backPlaneNode)
     }
+    
+//    func onDoneTap(data: Bool) {
+//        self.isInTutorialMode = data
+//    }
     
 //    MARK: - Data management
     let defaults = UserDefaults.standard
