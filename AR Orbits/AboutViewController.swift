@@ -71,13 +71,32 @@ class AboutViewController: UIViewController {
             // iPhones
             case 1136:
                 print("iPhone 5 or 5S or 5C or SE")
+                logoHeight.constant = 60 // default 85
+                logoWidth.constant = 175 // default 250
+                middleStackHeight.constant = 100 // default 150
+                bottomStackHeight.constant = 100 // default 150
+                
+                topLogoGap.constant = 0
+                botLogoGap.constant = 16
+                middleGap.constant = 0
+                bottomGap.constant = 16 // default: 32
+                
+                donateWidth.constant = 175  // default 175
+                donateHeight.constant = 36 // defalt 36
                 
             case 1334:
                 print("iPhone 6/6S/7/8")
+                logoHeight.constant = 60 // default 85
+                logoWidth.constant = 175 // default 250
+                
+                middleStackHeight.constant = 125 // default 150
+                bottomStackHeight.constant = 125 // default 150
           
                 
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
+                middleStackHeight.constant = 125 // default 150
+                bottomStackHeight.constant = 125 // default 150
                 
             case 2436:
                 // All margins are normalized to this
@@ -107,14 +126,35 @@ class AboutViewController: UIViewController {
                 
             case 1668, 2224:
                 print("iPad Pro 10.5in")
+                logoHeight.constant = 100
+                logoWidth.constant = 300
+                middleStackHeight.constant = 175
+                bottomStackHeight.constant = 175
+                
+                topLogoGap.constant = 8
+                botLogoGap.constant = 32
+                middleGap.constant = 0
+                bottomGap.constant = 42 // default: 32
+                
+                donateWidth.constant = 270  // default 175
+                donateHeight.constant = 42 // defalt 36
                 
             case 2388:
                 print("iPad Pro 11in")
+                logoHeight.constant = 125
+                logoWidth.constant = 360
+                middleStackHeight.constant = 225
+                bottomStackHeight.constant = 225
                 
+                middleGap.constant = 32
+                
+                donateWidth.constant = 360  // default 175
+                donateHeight.constant = 50 // defalt 36
+
             case 2732:
                 print("iPad Pro 12.9in")
-                logoHeight.constant = 175
-                logoWidth.constant = 450
+                logoHeight.constant = 150
+                logoWidth.constant = 400
                 middleStackHeight.constant = 250
                 bottomStackHeight.constant = 250
                 

@@ -488,6 +488,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 
             case 1668, 2224:
                 print("iPad Pro 10.5in")
+                finalBlurViewPos = blurView.center.y + 325
  
             case 2388:
                 print("iPad Pro 11in")

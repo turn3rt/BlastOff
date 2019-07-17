@@ -85,14 +85,25 @@ class P0Tutorial: UIViewController {
                 
             case 1668, 2224:
                 print("iPad Pro 10.5in")
-                topMargin.constant = 42
+                topMargin.constant = 42  + 64
+                midMargin.constant = 72
+                logoWidth.constant = 200
+                logoHeight.constant = 200
+                
                 
             case 2388:
                 print("iPad Pro 11in")
+                topMargin.constant = 64  + 64
+                midMargin.constant = 72
+                logoWidth.constant = 200
+                logoHeight.constant = 200
                 
             case 2732:
                 print("iPad Pro 12.9in")
-                topMargin.constant = 100
+                topMargin.constant = 64  + 64
+                midMargin.constant = 72
+                logoWidth.constant = 200
+                logoHeight.constant = 200
 
             default:
                 print("Unknown Device")
