@@ -43,15 +43,20 @@ class P0Tutorial: UIViewController {
             // iPhones
             case 1136:
                 print("iPhone 5 or 5S or 5C or SE")
-                topMargin.constant = 16
+                topMargin.constant = 16 + 42
+                midMargin.constant = 16
                 logoWidth.constant = 125
                 logoHeight.constant = 125
                 
             case 1334:
                 print("iPhone 6/6S/7/8")
+                topMargin.constant = 32 + 42
+                midMargin.constant = 24
        
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
+                topMargin.constant = 64 + 42
+                midMargin.constant = 50
     
             case 2436:
                 print("iPhone X, XS") // TODO: Fix these by adding 42 to all top margins
@@ -60,22 +65,23 @@ class P0Tutorial: UIViewController {
                 
             case 2688:
                 print("iPhone XS Max")
-                topMargin.constant = 64 + 42
-                midMargin.constant = 24
+                topMargin.constant = 64 + 64
+                midMargin.constant = 64
 
 
             case 1792:
                 print("iPhone XR")
-                topMargin.constant = 64 + 42
-                midMargin.constant = 24
+                topMargin.constant = 64 + 64
+                midMargin.constant = 64
 
                 
             // iPads
             case 2048:
                 print("iPad Mini, Air, Pro 9.7in") // this is what i own
-                topMargin.constant = 42
-//                logoWidth.constant = 224
-//                logoHeight.constant = 224
+                topMargin.constant = 42  + 42
+                midMargin.constant = 64
+                logoWidth.constant = 200
+                logoHeight.constant = 200
                 
             case 1668, 2224:
                 print("iPad Pro 10.5in")

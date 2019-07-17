@@ -44,6 +44,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // isInTutorialMode = true // TODO: NEEDS TO BE DELETED IN FINAL PRODUCT
+        
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

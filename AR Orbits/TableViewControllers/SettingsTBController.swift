@@ -101,11 +101,19 @@ class SettingsTBController: UITableViewController {
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        
         if savedNumberOfOrbits != 0 {
             totalNumberOfOrbits = savedNumberOfOrbits + defaultOrbitNames.count
         }
+        
+        // TODO: Why the fuck doesn't this work - post to stack overflow for future versions
+//        if UIScreen.main.nativeBounds.height == 1136 { // is iPhone SE,
+////            let indexPath = NSIndexPath(row: 7, section: 0) as? IndexPath
+//            let point = CGPoint(x: 100, y: 5000)
+////            tableView.scrollToRow(at: indexPath!, at: .top, animated: true)
+//            tableView.setContentOffset(point, animated: true)
+////            self.tableView.center.y -= 5000
+//            self.view.center.y = 5000
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -241,6 +249,7 @@ class SettingsTBController: UITableViewController {
         // self.resetButton.isUserInteractionEnabled = false
         
         self.resetButton.isHidden = true
+        
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
         
@@ -278,3 +287,11 @@ class SettingsTBController: UITableViewController {
     // MARK: - Data Management
     let defaults = UserDefaults.standard
 }
+
+//extension UITableView {
+//    func scrollToBottom(animated: Bool) {
+//        let y = contentSize.height - frame.size.height
+//        if y < 0 { return }
+//        setContentOffset(CGPoint(x: 0, y: y), animated: animated)
+//    }
+//}

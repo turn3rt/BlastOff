@@ -42,10 +42,14 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var blurView2: UIVisualEffectView!
+    @IBOutlet weak var blurView2TopMargin: NSLayoutConstraint!
     
     @IBOutlet weak var initialTutText: UILabel!
     @IBOutlet weak var scrollTutText: UILabel!
+    @IBOutlet weak var scrollTutTextHeight: NSLayoutConstraint! // default 200
     @IBOutlet weak var scrollTutText2: UILabel!
+    @IBOutlet weak var scrollTutText2Height: NSLayoutConstraint! // default 200
+    
     
     @IBOutlet var tutorialTapRecognizer: UITapGestureRecognizer!
     @IBOutlet var tapOffKeyboardRecognizer: UITapGestureRecognizer!
@@ -292,8 +296,17 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if isInTutorialMode {
             blurView.isHidden = true
+            
+            if UIScreen.main.nativeBounds.height == 1792 { // iPhone Xr
+                blurView2TopMargin.constant = 206 // default val is 166
+            }
+            
+            if UIScreen.main.nativeBounds.height == 2688 { // iPhone Xs Max
+                blurView2TopMargin.constant = 206 // default val is 166
+            }
+            
+            // handle large iPhone devices
             blurView2.isHidden = false
-           // blurView.center.y = finalBlurViewPos
             print("Blur Views Swapped")
         }
         return true
@@ -308,7 +321,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         if numOfTutTaps == 0 {
             animateBlurView()
             numOfTutTaps += 1
-            //self.blurView.center.y = self.finalBlurViewPos
+            // self.blurView2.center.y = self.finalBlurViewPos
         }
     }
     
@@ -441,12 +454,20 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             // iPhones
             case 1136:
                 print("iPhone 5 or 5S or 5C or SE")
+                finalBlurViewPos = blurView.center.y + 316
+                scrollTutTextHeight.constant = 64
+                scrollTutText2Height.constant = 64
                 
             case 1334:
                 print("iPhone 6/6S/7/8")
+                finalBlurViewPos = blurView.center.y + 316
+                scrollTutTextHeight.constant = 132
+                scrollTutText2Height.constant = 132
+
                 
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
+                finalBlurViewPos = blurView.center.y + 316
                 
             case 2436:
                 print("iPhone X, XS")
@@ -454,13 +475,16 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 
             case 2688:
                 print("iPhone XS Max")
+                finalBlurViewPos = blurView.center.y + 380
                 
             case 1792:
                 print("iPhone XR")
-                
+                finalBlurViewPos = blurView.center.y + 380
+//                blurView2TopMargin.constant += 40
             // iPads
             case 2048:
                 print("iPad Mini, Air, Pro 9.7in")
+                finalBlurViewPos = blurView.center.y + 325
                 
             case 1668, 2224:
                 print("iPad Pro 10.5in")
@@ -549,8 +573,63 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             self.omegaSlider.alpha = 1.0
             self.nuSlider.alpha = 1.0
             
-            // recenter scroll view
-            self.scrollView.contentOffset.y = self.initialScrollPos
+            // recenter scroll view & handle save button visibility for smaller screens
+            print("Native Device Height: \(UIScreen.main.nativeBounds.height)")
+            if UIDevice().userInterfaceIdiom == .phone || UIDevice().userInterfaceIdiom == .pad  {
+                switch UIScreen.main.nativeBounds.height {
+                // iPhones
+                case 1136:
+                    print("iPhone 5 or 5S or 5C or SE") // needs to scroll to make save button visible
+                    self.scrollView.contentOffset.y = self.initialScrollPos + 200
+
+                case 1334:
+                    print("iPhone 6/6S/7/8") // needs to scroll to make save button visible
+                    self.scrollView.contentOffset.y = self.initialScrollPos + 120
+                
+            
+                //TODO: Find out if really need all these, put in default case handler
+                case 1920, 2208:
+                    print("iPhone 6+/6S+/7+/8+")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+                    
+                case 2436:
+                    print("iPhone X, XS")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+
+                case 2688:
+                    print("iPhone XS Max")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+                    
+                case 1792:
+                    print("iPhone XR")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+                    
+                // iPads
+                case 2048:
+                    print("iPad Mini, Air, Pro 9.7in")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+                    
+                case 1668, 2224:
+                    print("iPad Pro 10.5in")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+
+                case 2388:
+                    print("iPad Pro 11in")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+                    
+                case 2732:
+                    print("iPad Pro 12.9in")
+                    self.scrollView.contentOffset.y = self.initialScrollPos
+
+                    
+                default:
+                    print("Unknown Device")
+                    
+                }
+            }
+            
+            
+            
             
             // move blur view to bottom
             self.blurView2.center.y += self.blurView2.bounds.height
