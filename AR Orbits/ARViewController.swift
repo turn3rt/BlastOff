@@ -251,7 +251,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     
     var numOfPoints = 1000
     var sizeOfPoints = 0.0005
-    func createOrbit(name: String, orbitalElements: [Double], color: UIColor) {
+    func createOrbit(name: String, orbitalElements: [Double], color: UIColor) { // this is the kepler solver
         print("createOrbit Start")
         var oe = orbitalElements
         // NOTE: oe[0] = a = semi maj axis is in KILOMETERS. must convert to AR units by dividing by scale factor
@@ -353,10 +353,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
     }
     
     func rotate(node: SCNNode) {
-        let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(2*Float.pi), z: 0, duration: 86400/10000) // in seconds
-        // ^^ duration is 1 day decreased by scale factor of 10,000 ^^
-        let repeatForever = SCNAction.repeatForever(rotateOnce)
-        node.runAction(repeatForever)
+        let rotateOnce = SCNAction.rotateBy(x: 0, y: CGFloat(2*Float.pi), z: 0, duration: 86400/1000) // in seconds
+        // ^^ duration is 1 day decreased by scale factor of 1,000 ^^
+        // let repeatForever = SCNAction.repeatForever(rotateOnce)
+        //node.runAction(repeatForever)
+        node.runAction(rotateOnce)
     }
     
     func showWorldAxis() {

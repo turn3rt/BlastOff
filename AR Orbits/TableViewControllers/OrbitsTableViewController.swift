@@ -22,8 +22,9 @@ class OrbitsTableViewController: UITableViewController {
         numOfDefaultOrbitsShown = defaultOrbitisShown.filter{$0}.count //  counts the number of "true" statements
         print("and the number of default orbits shown is currently: \(numOfDefaultOrbitsShown)")
         
-        if !isInTutorialMode{self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)}
-        else {
+        // TODO: Clean this up
+       // if !isInTutorialMode{self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)}
+       // else {
             for vc in (self.navigationController?.viewControllers ?? []) {
                 if vc is ARViewController {
                     _ = self.navigationController?.popToViewController(vc, animated: true)
@@ -31,7 +32,7 @@ class OrbitsTableViewController: UITableViewController {
                     break
                 }
             }
-        }
+       // }
 
 //        let arr = [false, true, true, false, true]
 //        let numberOfTrue = arr.filter{$0}.count
