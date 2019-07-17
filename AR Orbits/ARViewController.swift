@@ -62,7 +62,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         } // clears everything
         
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        configureScene()
         
         // Loading Settings Values
         if defaults.contains(key: "sizeValue"){
@@ -83,6 +82,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         } else {
             cameraFeedIsShown = true
         }
+        
+        configureScene()
+
         
         switch sizeValue {
         case 0: // small
