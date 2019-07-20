@@ -35,6 +35,14 @@ class P0Tutorial: UIViewController {
         vc.isInTutorialMode = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func modOrbitTutClick(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
+        vc.isInTutorialMode = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     // MARK: - Internal Functions
     func configureAutoLayoutForDevice() -> () {
         print("Native Device Height: \(UIScreen.main.nativeBounds.height)")
