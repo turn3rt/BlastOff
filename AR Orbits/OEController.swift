@@ -36,7 +36,6 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     
     @IBOutlet weak var saveButton: UIButton!
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var initialHeightOfScroll: NSLayoutConstraint!
     
@@ -82,6 +81,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     // MARK: - Local Vars
     var isModifyingOrbitPCIOE = false
     var isInTutorialMode = false
+    var isInModTutorialMode = false
     var numOfTutTaps = 0
     var initialScrollPos = CGFloat()
     var finalBlurViewPos = CGFloat()
@@ -96,6 +96,17 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             blurView.isUserInteractionEnabled = true
             tapOffKeyboardRecognizer.isEnabled = false
             disableSliders()
+        }
+        
+        if isInModTutorialMode {
+            disableSliders()
+            blurView.isHidden = false
+            blurView.isUserInteractionEnabled = true
+            tapOffKeyboardRecognizer.isEnabled = false
+            initialTutText.text = "We are going to be rotating the \(self.orbit.name) about the Z-Axis. Tap to continue..."
+            scrollTutText.text = "Add or subtract an amount to this value. It is suggested to add 45 degrees. Press the return key when finished..."
+            scrollTutText2.text = "Add or subtract an amount to this value. It is suggested to add 45 degrees. Press the return key when finished..."
+            
         }
         initialScrollPos = scrollView.contentOffset.y
     }
@@ -130,6 +141,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             
             titleLabel.text = "Intitial Planet-Centered Orbital Elements of \(self.orbit.name)"
 
+            
+            
             print("max slider values: aSlider: \(aSlider.maximumValue)")
             print("max slider values: eSlider: \(eSlider.maximumValue)")
             print("min slider values: aSlider: \(aSlider.minimumValue)")
@@ -166,8 +179,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if isDouble(number: textField.text!) { // user enters valid number
             // @TODO: can improve this later
-            if isInTutorialMode {
-                
+            if isInTutorialMode || isInModTutorialMode {
+                if isInModTutorialMode { self.numOfTutTaps = 6 }
                 self.numOfTutTaps += 1
                 print("num of tut taps: \(self.numOfTutTaps)")
                 switch self.numOfTutTaps {
@@ -213,6 +226,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                     }
                 case 7:  // user enters nu value
                     self.scrollTutText2.text = "Now, we just need to save and name the orbit..."
+                    blurView.isHidden = true
+                    blurView2.isHidden = false
                     animateScrollView()
                     textField.resignFirstResponder()
                     delay(bySeconds: 1.64, closure: {
@@ -228,7 +243,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                         }, completion: { Void in })
                         
                     })
-                default: // user did not enter correct value
+                default:
                     print("Error in num of tutorial taps")
                 }
             }
@@ -243,6 +258,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             
         } else if !isInTutorialMode { // Executes when user enters a non-valid number
             let alert = UIAlertController(title:"Input Error", message: "Please enter a real number value.", preferredStyle: .alert)
+            
             // button creation
             let confirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
                 let neuTextField = alert.textFields![0] as UITextField
@@ -294,7 +310,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if isInTutorialMode {
+        if isInTutorialMode || isInModTutorialMode {
             blurView.isHidden = true
             
             if UIScreen.main.nativeBounds.height == 1792 { // iPhone Xr
@@ -366,7 +382,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 savedNumberOfOrbits = savedNumberOfOrbits + 1
                 print("New savedNumberOfOrbits: \(savedNumberOfOrbits)")
                 self.defaults.set(savedNumberOfOrbits, forKey: "savedNumberOfOrbits")
-                if !self.isInTutorialMode {self.navigationController?.popToRootViewController(animated: true)}
+                if !self.isInTutorialMode && !self.isInModTutorialMode {self.navigationController?.popToRootViewController(animated: true)}
                 else {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
                     vc.isInTutorialMode = true
@@ -516,11 +532,26 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             self.blurView.center.y = self.finalBlurViewPos
             self.initialTutText.alpha = 0.0
             self.scrollTutText.alpha = 1.0
+            
+            if self.isInModTutorialMode {
+                self.scrollView.contentOffset.y = 85*2
+                self.eStack.alpha = 0.0
+                self.eSlider.alpha = 0.0
+//                self.capOmegaSlider.isUserInteractionEnabled = false
+//                self.capOmegaSlider.alpha = 0.32
+            }
+            
         })
     }
     
     func animateScrollView(){
         UIView.animate(withDuration: 1.0, animations: {
+            if self.isInModTutorialMode {
+                self.capOmegaStack.alpha = 0.0
+                self.capOmegaSlider.alpha = 0.0
+                self.incStack.alpha = 0.0
+                self.incSlider.alpha = 0.0
+            }
             self.scrollView.contentOffset.y += 85 // scrolls view "up"
             self.scrollTutText2.alpha = 0.0
             self.viewsToFade(numberOfTutTaps: self.numOfTutTaps).stack.alpha = 0.0

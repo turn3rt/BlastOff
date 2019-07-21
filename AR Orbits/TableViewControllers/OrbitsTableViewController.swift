@@ -11,6 +11,7 @@ import UIKit
 class OrbitsTableViewController: UITableViewController {
 
     var isInTutorialMode = Bool()
+    var isInModTutorialMode = Bool()
    // var ARvc: ARViewController?
     
     @IBOutlet var doneButton: UIBarButtonItem!
@@ -85,7 +86,7 @@ class OrbitsTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return isInTutorialMode ? 3: 2 // if isInTutorialMode, return 3 else return 2
+        return isInTutorialMode || isInModTutorialMode ? 3: 2 // if isInTutorialMode or isInModTutMode, return 3 else return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,8 +138,10 @@ class OrbitsTableViewController: UITableViewController {
                     }
             }
             return cell
-        default: // tutorial cell
-            cell.orbitName.text = "Select or deselect the orbits to plot. Swipe to delete. Press done to end the tutorial..."
+        default: // figures out if is new orbit tutorial or modifying orbit tutorial
+            if isInTutorialMode{ cell.orbitName.text = "Select or deselect the orbits to plot. Swipe to delete. Press done to end the tutorial..." }
+            else { cell.orbitName.text = "Here, you can select which orbit to modify. Make a selection to continue..."} // is modifying tutorial mode
+            print("Tutorial mode enabled")
             return cell
         }
     }
@@ -163,7 +166,7 @@ class OrbitsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case 0:
+        case 0: // default orbit selections
             print("didselectRowAt for drawing the orbit")
             if defaultOrbitisShown[indexPath.row] == false && isEditingShownOrbits == true {
                 print("User Selected Default orbit: \(defaultOrbitNames[indexPath.row])")
@@ -173,7 +176,7 @@ class OrbitsTableViewController: UITableViewController {
                     cell.tintColor = colors[indexPath.row]
                     cell.orbitName.textColor = colors[indexPath.row]
                 }
-            } else {
+            } else { // user is modifying orbit
                 print("presenting PCIOE controller with selected row: \(indexPath.row)")
                 let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
                 // Prep for data passage
@@ -183,12 +186,15 @@ class OrbitsTableViewController: UITableViewController {
                 vc.isModifyingOrbitPCIOE = true
                 let orbitToPass = Orbit(name: orbitToPassName, rv: orbitToPassPCI, oe: orbitToPassOE, isShown: false)
                 
+                // check if isInModTutorial mode
+                if isInModTutorialMode { vc.isInModTutorialMode = true; vc.isInTutorialMode = true }
+                
                 // Data Passage
                 vc.orbit = orbitToPass
                 navigationController?.pushViewController(vc, animated: true)
             }
 
-        case 1:
+        case 1: // user generated orbit selections
             print("didselectRowAt for drawing the orbit")
             print("User selected \(indexPath.row) with orbit name: \(defaults.string(forKey: (indexPath.row*4).description)!)")
             if isEditingShownOrbits == true && defaults.bool(forKey: "\((indexPath.row*4) + 3)") == false {
@@ -200,7 +206,7 @@ class OrbitsTableViewController: UITableViewController {
                     cell.tintColor = colors[colorIndex] // colors[indexPath.row + defaultOrbitNames.count]
                     cell.orbitName.textColor = colors[colorIndex] // colors[indexPath.row + defaultOrbitNames.count ]
                 }
-            } else {
+            } else { // is modifying an orbit
                 print("presenting PCIOE controller with selected row: \(indexPath.row)")
                 let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
                 // Prep for data passage
@@ -211,6 +217,9 @@ class OrbitsTableViewController: UITableViewController {
                 vc.isModifyingOrbitPCIOE = true
                 let orbitToPass = Orbit(name: orbitToPassName!, rv: orbitToPassPCI, oe: orbitToPassOE, isShown: false)
 
+                // check if isInModTutorial mode
+                if isInModTutorialMode { vc.isInModTutorialMode = true; vc.isInTutorialMode = true }
+                
                 // Data Passage
                 vc.orbit = orbitToPass
                 navigationController?.pushViewController(vc, animated: true)

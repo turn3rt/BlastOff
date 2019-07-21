@@ -27,6 +27,7 @@ class PCIOEViewController: UIViewController {
     
     var isModifyingOrbitPCIOE = false
     var isInTutorialMode = false
+    var isInModTutorialMode = false
     var ogBlurCenter = CGPoint()
     let nasaLink = "https://spaceflight.nasa.gov/realdata/elements/"
     
@@ -47,6 +48,11 @@ class PCIOEViewController: UIViewController {
             tapRecognizer.isEnabled = true
             botPar.isHidden = true
             botPar.text = "More commonly, six orbital elements (OE's) describe the orbit. Tap the planet to continue the tutorial..."
+            if isInModTutorialMode {
+                isInTutorialMode = false
+                topBlurLabel.text = "If you're not a rocket scientist, modyfing these are typcially more difficult..."
+                botBlurLabel.text = "So for this tutorial, we're going to modify the Orbital Elements (OE's) of the \(self.orbit.name). The link from N.A.S.A has more information on OE's if desired."
+            }
             // animateTopPar()
             delay(bySeconds: 0, closure: {
                 self.botPar.isHidden = false
@@ -107,6 +113,9 @@ class PCIOEViewController: UIViewController {
                     oeController.orbit = self.orbit
                     oeController.selectedIndexPathOfOrbit = self.selectedIndexPathOfOrbit
                     oeController.isModifyingOrbitPCIOE = true
+                    
+                    if isInModTutorialMode { oeController.isInModTutorialMode = true }
+                    
                     print("sent orbit with name & OE's: \(self.orbit.name) and [\(self.orbit.oe)] to OEController")
                 }
                 if isInTutorialMode == true {

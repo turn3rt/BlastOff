@@ -37,8 +37,8 @@ class P0Tutorial: UIViewController {
     }
     
     @IBAction func modOrbitTutClick(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "PCIOEvc") as! PCIOEViewController
-        vc.isInTutorialMode = true
+        let vc = storyboard?.instantiateViewController(withIdentifier: "OrbitsTBVC") as! OrbitsTableViewController
+        vc.isInModTutorialMode = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
