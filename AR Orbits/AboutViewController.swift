@@ -22,7 +22,6 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var donateHeight: NSLayoutConstraint!
     @IBOutlet weak var donateButton: UIButton!
 
-    
     @IBOutlet weak var topLogoGap: NSLayoutConstraint!
     @IBOutlet weak var botLogoGap: NSLayoutConstraint!
     @IBOutlet weak var middleGap: NSLayoutConstraint!
@@ -59,7 +58,10 @@ class AboutViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func donateClick(_ sender: UIButton) {
-        print("yeet")
+        let alert = UIAlertController(title: "Development in Progress...", message: "The in In-App Purchase API will be linked prior to public release", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+        self.present(alert, animated: true)
+        self.donateButton.layer.removeAllAnimations()
     }
     
     

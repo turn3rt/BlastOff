@@ -344,6 +344,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
     // MARK: - Useful Internal Controller Functions & Variables
     var nameOfOrbit = String()
     func showAddNameAlert(){
+        self.saveButton.layer.removeAllAnimations()
+
         //controller definition
         let alert = UIAlertController(title:"Add Name", message: "Please add a name for your orbit", preferredStyle: .alert)
         // button creation
