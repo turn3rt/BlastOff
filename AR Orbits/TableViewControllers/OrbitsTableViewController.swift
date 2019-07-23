@@ -158,7 +158,10 @@ class OrbitsTableViewController: UITableViewController {
         case 0:
             return "Default Orbits"
         case 1:
-            return "My Orbits"
+            if savedNumberOfOrbits != 0 { return "My Orbits" }
+            else { return nil }
+            
+           // return  nil // "My Orbits"
         default: // tutorial
             return "Tutorial Comments"
         }
