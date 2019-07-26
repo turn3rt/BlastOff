@@ -357,17 +357,25 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 print("Prior Saved Number of orbits: \(savedNumberOfOrbits)")
                 
                 self.defaults.set(self.nameOfOrbit, forKey: "\(savedNumberOfOrbits*4)")
-                let oe = [Double(self.aSlider.value),
-                          Double(self.eSlider.value),
-                          Double(deg2rad(Double(self.capOmegaSlider.value))),
-                          Double(deg2rad(Double(self.incSlider.value))),
-                          Double(deg2rad(Double(self.omegaSlider.value))),
-                          Double(deg2rad(Double(self.nuSlider.value)))]
+                
+                let oe = [Double(self.aTField.text!),
+                          Double(self.eTField.text!),
+                          deg2rad(Double(self.capOmegaTField.text!)!),
+                          deg2rad(Double(self.incTField.text!)!),
+                          deg2rad(Double(self.omegaTField.text!)!),
+                          deg2rad(Double(self.nuTField.text!)!)]
+                
+//                let oe = [Double(self.aSlider.value),
+//                          Double(self.eSlider.value),
+//                          Double(deg2rad(Double(self.capOmegaSlider.value))),
+//                          Double(deg2rad(Double(self.incSlider.value))),
+//                          Double(deg2rad(Double(self.omegaSlider.value))),
+//                          Double(deg2rad(Double(self.nuSlider.value)))]
                 
                 self.defaults.set(oe, forKey: "\((savedNumberOfOrbits*4)+2)")
                 print("and the following orbital element values: [\(oe)]")
 
-                let rvVals = oe2rv(oe: oe, mu: earthGravityParam)
+                let rvVals = oe2rv(oe: oe as! [Double], mu: earthGravityParam)
                 let rvArray = [rvVals.rPCI[0],
                                rvVals.rPCI[1],
                                rvVals.rPCI[2],

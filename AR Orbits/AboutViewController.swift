@@ -58,13 +58,13 @@ class AboutViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func donateClick(_ sender: UIButton) {
-//        let alert = UIAlertController(title: "Development in Progress...", message: "The in In-App Purchase API will be linked prior to public release", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
-//        self.present(alert, animated: true)
+        let alert = UIAlertController(title: "Development in Progress...", message: "The in In-App Purchase API will be linked prior to public release", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+        self.present(alert, animated: true)
         self.donateButton.layer.removeAllAnimations()
-        if let url = URL(string: "https://venmo.com/code?user_id=1510494607245312527") {
-            UIApplication.shared.open(url)
-        }
+//        if let url = URL(string: "https://venmo.com/code?user_id=1510494607245312527") {
+//            UIApplication.shared.open(url)
+//        }
     }
     
     // TODO: Implement after public release, link to app store review page
