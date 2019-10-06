@@ -318,7 +318,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             }
             
             if UIScreen.main.nativeBounds.height == 2688 { // iPhone Xs Max
-                blurView2TopMargin.constant = 206 // default val is 166
+                blurView2TopMargin.constant = 212 // default val is 166
             }
             
             // handle large iPhone devices
@@ -500,8 +500,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 finalBlurViewPos = blurView.center.y + 344 // default
                 
             case 2688:
-                print("iPhone XS Max")
-                finalBlurViewPos = blurView.center.y + 380
+                print("iPhone XS Max, 11 Pro Max")
+                finalBlurViewPos = blurView.center.y + 384
                 
             case 1792:
                 print("iPhone XR, 11")
