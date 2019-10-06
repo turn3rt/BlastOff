@@ -313,8 +313,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         if isInTutorialMode || isInModTutorialMode {
             blurView.isHidden = true
             
-            if UIScreen.main.nativeBounds.height == 1792 { // iPhone Xr
-                blurView2TopMargin.constant = 206 // default val is 166
+            if UIScreen.main.nativeBounds.height == 1792 { // iPhone XR, 11
+                blurView2TopMargin.constant = 212 // default val is 166
             }
             
             if UIScreen.main.nativeBounds.height == 2688 { // iPhone Xs Max
@@ -496,7 +496,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 finalBlurViewPos = blurView.center.y + 316
                 
             case 2436:
-                print("iPhone X, XS")
+                print("iPhone X, XS, 11 Pro")
                 finalBlurViewPos = blurView.center.y + 344 // default
                 
             case 2688:
@@ -504,8 +504,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 finalBlurViewPos = blurView.center.y + 380
                 
             case 1792:
-                print("iPhone XR")
-                finalBlurViewPos = blurView.center.y + 380
+                print("iPhone XR, 11")
+                finalBlurViewPos = blurView.center.y + 384
 //                blurView2TopMargin.constant += 40
             // iPads
             case 2048:
