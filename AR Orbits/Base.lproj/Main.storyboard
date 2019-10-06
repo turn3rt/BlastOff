@@ -136,18 +136,21 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="fHz-7Q-Zs8">
                                                 <rect key="frame" x="-2" y="0.0" width="187" height="30.333333333333332"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="rxSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Ur4-wd-zkl"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="ki1-C7-95F">
                                                 <rect key="frame" x="-2" y="86.333333333333343" width="187" height="30.333333333333329"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="rySliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="bpr-El-7lj"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10000" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-S7-tjc">
                                                 <rect key="frame" x="-2" y="172.66666666666669" width="187" height="30.333333333333343"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="rzSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Sy8-c1-E9i"/>
                                                 </connections>
@@ -263,18 +266,21 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="C7O-RC-lZh">
                                                 <rect key="frame" x="-2" y="0.0" width="187" height="29.666666666666668"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="vxSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="3ng-f9-gAz"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="xPW-fm-seF">
                                                 <rect key="frame" x="-2" y="90.666666666666629" width="187" height="29.666666666666671"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="vySliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="C9o-NN-tja"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-Oo-bgW">
                                                 <rect key="frame" x="-2" y="181.33333333333337" width="187" height="29.666666666666657"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="vzSliderChange:" destination="S9O-HX-tyw" eventType="valueChanged" id="Yib-9a-mba"/>
                                                 </connections>
@@ -413,77 +419,80 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-yP-Gd7" userLabel="Position Stack">
-                                        <rect key="frame" x="16" y="70" width="771" height="262"/>
+                                        <rect key="frame" x="16" y="70" width="971" height="271"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
-                                                <rect key="frame" x="0.0" y="0.0" width="771" height="102"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Pc-wE-XLy">
+                                                <rect key="frame" x="0.0" y="0.0" width="971" height="93"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="α: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="173" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="α: semi-major axis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-ZG-kUz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="173" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6371.0" borderStyle="roundedRect" placeholder="α value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fN2-zu-MyD">
-                                                        <rect key="frame" x="0.0" y="34" width="144" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6371.0" borderStyle="roundedRect" placeholder="α value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fN2-zu-MyD">
+                                                        <rect key="frame" x="0.0" y="31" width="144" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="144" id="A68-DV-AKj"/>
+                                                            <constraint firstAttribute="height" constant="31" id="clU-3w-A6P"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-M8-1Y2">
-                                                        <rect key="frame" x="0.0" y="68" width="84.333333333333329" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kilometers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-M8-1Y2">
+                                                        <rect key="frame" x="0.0" y="62" width="84.333333333333329" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
-                                                <rect key="frame" x="0.0" y="98" width="771" height="102"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-1n-hvc">
+                                                <rect key="frame" x="0.0" y="89" width="971" height="93"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e: eccentricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNX-tT-Jfv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="e value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="iv3-3T-ibA">
-                                                        <rect key="frame" x="0.0" y="34" width="144" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="e value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="iv3-3T-ibA">
+                                                        <rect key="frame" x="0.0" y="31" width="144" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="144" id="4pw-Zl-oSF"/>
+                                                            <constraint firstAttribute="height" constant="31" id="tp5-1b-Zdv"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Unitless" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ9-Ai-vwu">
-                                                        <rect key="frame" x="0.0" y="68" width="67.333333333333329" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unitless" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ9-Ai-vwu">
+                                                        <rect key="frame" x="0.0" y="62" width="67.333333333333329" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
-                                                <rect key="frame" x="0.0" y="196" width="771" height="66"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-k3-j7M">
+                                                <rect key="frame" x="0.0" y="178" width="971" height="93"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ω: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ω: longitude of acending node" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xkM-nV-dQN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Ω value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-NS-RDl">
-                                                        <rect key="frame" x="0.0" y="22" width="144" height="22"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="Ω value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-NS-RDl">
+                                                        <rect key="frame" x="0.0" y="31" width="144" height="31"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="31" id="Gbp-Ag-8qV"/>
                                                             <constraint firstAttribute="width" constant="144" id="ukm-kJ-Y6t"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCY-8N-c9r">
-                                                        <rect key="frame" x="0.0" y="44" width="59" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCY-8N-c9r">
+                                                        <rect key="frame" x="0.0" y="62" width="59" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -491,108 +500,111 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="262" id="yX3-9i-8tY"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Z3-o5R" userLabel="Position Slider Stack">
-                                        <rect key="frame" x="184" y="99" width="603" height="204"/>
+                                        <rect key="frame" x="184" y="99" width="803" height="212"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6371" minValue="6371" maxValue="60000" translatesAutoresizingMaskIntoConstraints="NO" id="g91-C7-R67">
-                                                <rect key="frame" x="-2" y="0.0" width="607" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="807" height="33.666666666666664"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="aSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="WIC-vI-O5X"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-Hr-koI">
-                                                <rect key="frame" x="-2" y="87" width="607" height="31"/>
+                                                <rect key="frame" x="-2" y="89.666666666666686" width="807" height="33.666666666666657"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="eSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="3mi-pi-8xO"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-Eq-qKn">
-                                                <rect key="frame" x="-2" y="174" width="607" height="31"/>
+                                                <rect key="frame" x="-2" y="179.33333333333331" width="807" height="33.666666666666657"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="capOmegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="AYb-eT-DWx"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="204" id="4GF-0F-4em"/>
+                                            <constraint firstAttribute="height" constant="212" id="4GF-0F-4em"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="t8j-K3-b4C" userLabel="Velocity Stack">
-                                        <rect key="frame" x="16" y="336" width="771" height="262"/>
+                                        <rect key="frame" x="16" y="333" width="971" height="271"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
-                                                <rect key="frame" x="0.0" y="0.0" width="771" height="102"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-Ll-4bc">
+                                                <rect key="frame" x="0.0" y="0.0" width="971" height="93"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="i: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i: orbit inclination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-6d-xYz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192.33333333333334" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="i value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-fP-ZGZ">
-                                                        <rect key="frame" x="0.0" y="34" width="144" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="i value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-fP-ZGZ">
+                                                        <rect key="frame" x="0.0" y="31" width="144" height="31"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="31" id="HFk-Xh-k6H"/>
                                                             <constraint firstAttribute="width" constant="144" id="NyX-In-CoI"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-7d-dHk">
-                                                        <rect key="frame" x="0.0" y="68" width="59" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-7d-dHk">
+                                                        <rect key="frame" x="0.0" y="62" width="59" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
-                                                <rect key="frame" x="0.0" y="98" width="771" height="102"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-ch-reK">
+                                                <rect key="frame" x="0.0" y="89" width="971" height="93"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ω: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230.66666666666666" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ω: argument of periapsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-0B-iis">
+                                                        <rect key="frame" x="0.0" y="0.0" width="230.66666666666666" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="ω value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lwD-xY-ElP">
-                                                        <rect key="frame" x="0.0" y="34" width="144" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="ω value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lwD-xY-ElP">
+                                                        <rect key="frame" x="0.0" y="31" width="144" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="144" id="LMg-AP-2uj"/>
+                                                            <constraint firstAttribute="height" constant="31" id="xTy-PK-wRR"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTq-kN-RaJ">
-                                                        <rect key="frame" x="0.0" y="68" width="59" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTq-kN-RaJ">
+                                                        <rect key="frame" x="0.0" y="62" width="59" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
-                                                <rect key="frame" x="0.0" y="196" width="771" height="66"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ytx-HD-gVM">
+                                                <rect key="frame" x="0.0" y="178" width="971" height="93"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ν: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ν: true anomoly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je5-WW-tuI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="ν value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-vB-CkN">
-                                                        <rect key="frame" x="0.0" y="22" width="144" height="22"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="ν value" textAlignment="center" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-vB-CkN">
+                                                        <rect key="frame" x="0.0" y="31" width="144" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="144" id="10T-Xw-akR"/>
+                                                            <constraint firstAttribute="height" constant="31" id="5ko-00-35T"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-Xu-uqc">
-                                                        <rect key="frame" x="0.0" y="44" width="59" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degrees" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-Xu-uqc">
+                                                        <rect key="frame" x="0.0" y="62" width="59" height="31"/>
                                                         <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -600,38 +612,38 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="262" id="rBY-S6-Q61"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-iJ-rJM" userLabel="Velocity Slider Stack">
-                                        <rect key="frame" x="184" y="365" width="603" height="204"/>
+                                        <rect key="frame" x="184" y="362" width="803" height="212"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-tP-qx2">
-                                                <rect key="frame" x="-2" y="0.0" width="607" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="807" height="33.666666666666664"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="incSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Sdx-UG-umS"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-kU-zzT">
-                                                <rect key="frame" x="-2" y="87" width="607" height="31"/>
+                                                <rect key="frame" x="-2" y="89.666666666666629" width="807" height="33.666666666666657"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="omegaSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="Fs9-KW-0VX"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="mnf-u7-baF">
-                                                <rect key="frame" x="-2" y="174" width="607" height="31"/>
+                                                <rect key="frame" x="-2" y="179.33333333333337" width="807" height="33.666666666666657"/>
+                                                <color key="maximumTrackTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
                                                     <action selector="nuSliderChange:" destination="jDg-Av-zdz" eventType="valueChanged" id="grG-ot-9Kg"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="204" id="oqs-a6-AUe"/>
+                                            <constraint firstAttribute="height" constant="212" id="oqs-a6-AUe"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Ey-eV4">
-                                        <rect key="frame" x="-321" y="622" width="1017" height="36"/>
+                                        <rect key="frame" x="-521" y="628" width="1417" height="36"/>
                                         <color key="backgroundColor" red="0.30233701465086682" green="0.0" blue="1" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="161" id="BF2-4S-LkO"/>
@@ -660,9 +672,9 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eBY-yp-xQ4" secondAttribute="trailing" constant="16" id="AKB-aR-w2o"/>
                                     <constraint firstAttribute="trailing" secondItem="cXT-iJ-rJM" secondAttribute="trailing" constant="16" id="HPB-es-GBD"/>
                                     <constraint firstItem="WQq-Ey-eV4" firstAttribute="top" secondItem="t8j-K3-b4C" secondAttribute="bottom" constant="24" id="JAG-j6-Gf6"/>
-                                    <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="4" id="JEM-8g-SJu"/>
+                                    <constraint firstItem="t8j-K3-b4C" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="-8" id="JEM-8g-SJu"/>
                                     <constraint firstItem="WQq-Ey-eV4" firstAttribute="centerX" secondItem="Cl1-ct-j9H" secondAttribute="centerX" id="Lo7-1z-tqR"/>
-                                    <constraint firstItem="cXT-iJ-rJM" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="33" id="Nvm-W7-0TR"/>
+                                    <constraint firstItem="cXT-iJ-rJM" firstAttribute="top" secondItem="wtf-yP-Gd7" secondAttribute="bottom" constant="21" id="Nvm-W7-0TR"/>
                                     <constraint firstItem="t8j-K3-b4C" firstAttribute="leading" secondItem="Cl1-ct-j9H" secondAttribute="leading" constant="16" id="R3H-Gd-iUc"/>
                                     <constraint firstItem="WQq-Ey-eV4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Cl1-ct-j9H" secondAttribute="leading" constant="107" id="SYV-yw-gW1"/>
                                     <constraint firstAttribute="trailing" secondItem="Gz2-Z3-o5R" secondAttribute="trailing" constant="16" id="V7s-ye-27b"/>
@@ -675,8 +687,8 @@
                                     <constraint firstAttribute="trailing" secondItem="t8j-K3-b4C" secondAttribute="trailing" constant="16" id="xLH-Zm-dGN"/>
                                 </constraints>
                             </scrollView>
-                            <visualEffectView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDf-Ik-AP7">
-                                <rect key="frame" x="0.0" y="-90" width="375" height="814"/>
+                            <visualEffectView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDf-Ik-AP7">
+                                <rect key="frame" x="0.0" y="-1190" width="375" height="814"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="n14-64-u1Q">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="814"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -714,10 +726,10 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfy-Px-wms">
-                                <rect key="frame" x="0.0" y="166" width="375" height="558"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jfy-Px-wms">
+                                <rect key="frame" x="0.0" y="1171" width="375" height="553"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="A2N-y9-98V">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spuntik had a semi-major axis of 6955.2 km. Enter this value and press the return key..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="iUa-w9-hWb">
@@ -750,7 +762,7 @@
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="top" secondItem="NUe-qB-HHA" secondAttribute="top" id="MVr-8H-cVr"/>
                             <constraint firstItem="Cl1-ct-j9H" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="QxC-3v-hLb"/>
                             <constraint firstItem="GDf-Ik-AP7" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="Vj5-42-RQF"/>
-                            <constraint firstItem="Jfy-Px-wms" firstAttribute="top" secondItem="vbE-no-N3a" secondAttribute="top" constant="166" id="WNP-yT-GIw"/>
+                            <constraint firstItem="Jfy-Px-wms" firstAttribute="top" secondItem="vbE-no-N3a" secondAttribute="top" constant="171" id="WNP-yT-GIw"/>
                             <constraint firstAttribute="bottom" secondItem="GDf-Ik-AP7" secondAttribute="bottom" id="XhT-l5-nlR"/>
                             <constraint firstItem="Pay-z1-Lho" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cS2-zs-IRv"/>
                             <constraint firstItem="oZy-1W-ulK" firstAttribute="leading" secondItem="vbE-no-N3a" secondAttribute="leading" id="cde-p0-yJ8"/>
@@ -1431,7 +1443,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXG-XK-sVf">
                                 <rect key="frame" x="0.0" y="169.33333333333331" width="375" height="659.66666666666674"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fvd-tR-siA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="659.66666666666674"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="660"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You could create an orbit with these..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-Ms-bX7">
@@ -2051,6 +2063,6 @@
         <image name="waves.png" width="576" height="965.25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7kq-QY-wra"/>
+        <segue reference="oiW-EM-Y3I"/>
     </inferredMetricsTieBreakers>
 </document>
