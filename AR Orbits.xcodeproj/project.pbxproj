@@ -48,10 +48,10 @@
 		B3F0CA5C22DE0F7C007D75A9 /* UF_MAElogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA5B22DE0F7B007D75A9 /* UF_MAElogo.png */; };
 		B3F0CA5E22DE0FF6007D75A9 /* engineeringLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA5D22DE0FF5007D75A9 /* engineeringLogo.png */; };
 		B3F0CA6022DE2B4C007D75A9 /* headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA5F22DE2B4B007D75A9 /* headshot.jpg */; };
-		B3F0CA6422DE3434007D75A9 /* Mocha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6322DE3434007D75A9 /* Mocha.jpeg */; };
 		B3F0CA6A22DE384E007D75A9 /* donation.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6922DE384D007D75A9 /* donation.png */; };
 		B3F0CA6C22DE7492007D75A9 /* gatorsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6B22DE7491007D75A9 /* gatorsLogo.png */; };
 		B3F0CA6E22DE806D007D75A9 /* selfie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6D22DE806C007D75A9 /* selfie.jpg */; };
+		B3F65F2E234E689100D12AE2 /* Mocha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3F65F2D234E689100D12AE2 /* Mocha.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,10 +98,10 @@
 		B3F0CA5B22DE0F7B007D75A9 /* UF_MAElogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UF_MAElogo.png; sourceTree = "<group>"; };
 		B3F0CA5D22DE0FF5007D75A9 /* engineeringLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engineeringLogo.png; sourceTree = "<group>"; };
 		B3F0CA5F22DE2B4B007D75A9 /* headshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headshot.jpg; sourceTree = "<group>"; };
-		B3F0CA6322DE3434007D75A9 /* Mocha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Mocha.jpeg; path = ../../../../Downloads/Mocha.jpeg; sourceTree = "<group>"; };
 		B3F0CA6922DE384D007D75A9 /* donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donation.png; sourceTree = "<group>"; };
 		B3F0CA6B22DE7491007D75A9 /* gatorsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gatorsLogo.png; sourceTree = "<group>"; };
 		B3F0CA6D22DE806C007D75A9 /* selfie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = selfie.jpg; sourceTree = "<group>"; };
+		B3F65F2D234E689100D12AE2 /* Mocha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mocha.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +221,7 @@
 		B3C6900F22973FC700AB80BF /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B3F0CA6322DE3434007D75A9 /* Mocha.jpeg */,
+				B3F65F2D234E689100D12AE2 /* Mocha.jpeg */,
 				B3F0CA6B22DE7491007D75A9 /* gatorsLogo.png */,
 				B3F0CA6D22DE806C007D75A9 /* selfie.jpg */,
 				B3F0CA6922DE384D007D75A9 /* donation.png */,
@@ -301,10 +301,10 @@
 				B3AB1853228A4FED0084802A /* art.scnassets in Resources */,
 				B3F0CA5A22DE0C8F007D75A9 /* aboutPic.jpg in Resources */,
 				B3935543229A185B00F88C4A /* settingsIcon.png in Resources */,
-				B3F0CA6422DE3434007D75A9 /* Mocha.jpeg in Resources */,
 				B3F0CA5C22DE0F7C007D75A9 /* UF_MAElogo.png in Resources */,
 				B3F0CA5E22DE0FF6007D75A9 /* engineeringLogo.png in Resources */,
 				B30764EE22D11ED400C2AD66 /* waves.png in Resources */,
+				B3F65F2E234E689100D12AE2 /* Mocha.jpeg in Resources */,
 				B3AB186F229062C70084802A /* DownArrow.png in Resources */,
 				B3F0CA6022DE2B4C007D75A9 /* headshot.jpg in Resources */,
 				B38A3F5922A06B5100F00DEB /* Matterhorn.jpeg in Resources */,
@@ -506,6 +506,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.AROrbits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -525,6 +526,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.AROrbits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

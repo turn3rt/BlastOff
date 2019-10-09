@@ -121,6 +121,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             for num in 0...defaultOrbitNames.count-1 {
                 if shownDefaultOrbitsArray[num] == true { //defaultOrbitisShown[num] == true {
                     createOrbit(name: defaultOrbitNames[num], orbitalElements: defaultOrbitOEs[num], color: colors[num])
+                    // Animating the orbit
+                    // animateOrbit(name: defaultOrbitNames[num], oe: defaultOrbitOEs[num], color: colors[num])
                     print("created default orbit with name: \(defaultOrbitNames[num])")
                 }
             }
@@ -183,7 +185,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
                 }
             }
         }
-     
         
     }
     
@@ -328,6 +329,81 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
 //        print("Orbit time is: \(orbitTime*scaleFactor)")
 //        print("CHECK OE'S HERE: \(oe)")
     }
+    
+//    func animateOrbit(name: String, oe: [Double], color: UIColor) {
+//        let satNode = generateStartingNode(name: name, oe: oe, color: color)
+//
+//        let a = oe[0]
+//        let e = oe[1]
+//        let exponent = 2.0
+//        let p = a*(1-(pow(e, exponent)))
+//
+//
+//
+//        var orbitAnimationSeq = [SCNAction]()
+//
+//        var nuStart = oe[5]
+//        for i in 1...numOfPoints {
+//
+//            let nuFrac = (2*Double.pi/Double(numOfPoints))
+//
+//            if nuStart >= 2*Double.pi {
+//                nuStart = nuStart - (2*Double.pi)
+//            }
+//            let nuNext = nuStart+nuFrac
+//
+//
+//            let frac1 = pow(p, 3)/earthGravityParam
+//            let numerator = sqrt(frac1)
+//            let bot1 = 1 + e*cos(nuNext)
+//            let denom1 = pow(bot1, 2)
+//
+//            let bot2 = 1 + e*cos(nuStart)
+//
+//
+//
+//            let t2 = (sqrt(pow(p, 3)/earthGravityParam))/pow(1+e*cos(nuNext), 2)
+//            let t1 = (sqrt(pow(p, 3)/earthGravityParam))/pow(1+e*cos(nuStart), 2)
+//
+//            let interval = t2 - t1
+//
+//            nuStart = nuNext
+//
+//
+//
+//            let nextPointAnimation = SCNAction.move(to: self.sceneView.scene.rootNode.childNode(withName: "\(name)\(i)", recursively: false)!.position, duration: interval)
+//            print("Time between \(name)\(i) and \(name)\(i+1) is \(nextPointAnimation.duration)")
+//            orbitAnimationSeq.append(nextPointAnimation)
+//        }
+//        let sequence = SCNAction.sequence(orbitAnimationSeq)
+//        let repeatedSeq = SCNAction.repeatForever(sequence)
+//        satNode.runAction(repeatedSeq)
+//    }
+    
+//    func startOrbitAnimation(to destinationPoint: SCNVector3, node: SCNNode, duration: Double) {
+//
+//        let action = SCNAction.move(to: destinationPoint, duration: duration)
+//        node.runAction(action) {
+//
+//            print("finished animating to next node")
+//        }
+//    }
+    
+    func generateStartingNode(name: String, oe: [Double], color: UIColor) -> SCNNode {
+                
+        let satNode = SCNSphere(radius: CGFloat(sizeOfPoints + sizeOfPoints*2)) // default: 0.0005
+        let node = SCNNode(geometry: satNode)
+        
+        let position = self.sceneView.scene.rootNode.childNode(withName: "\(name)1", recursively: false)!.position
+        node.position = position
+        node.geometry?.firstMaterial?.diffuse.contents = color
+        self.sceneView.scene.rootNode.addChildNode(node)
+        
+        return node
+    }
+
+    
+    
     
     func configureScene(){
         // Set the view's delegate
