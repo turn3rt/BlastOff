@@ -128,7 +128,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             }
         }
         
-        // Saved Orbit Drawing
+        // MARK: - Saved Orbit Drawing
         if savedNumberOfOrbits != 0 {
             var userOrbitsAreShownArray = [Bool]()
             for y in 0...savedNumberOfOrbits-1 {
@@ -250,6 +250,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         return node
     }
     
+    // MARK: Orbit Creation
     var numOfPoints = 1000
     var sizeOfPoints = 0.0005
     func createOrbit(name: String, orbitalElements: [Double], color: UIColor) { // this is the kepler solver

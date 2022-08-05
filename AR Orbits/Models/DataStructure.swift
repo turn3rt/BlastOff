@@ -10,7 +10,7 @@ import Foundation
 
 /*
  A note on the overall memory structure of this orbit app:
- There is a constant varibale called savedNumberOfOrbits that gets updated every time the user saves an orbit from the new orbit button.
+ There is a constant varibale called savedNumberOfOrbits that gets updated every time the user saves an orbit from the new or modify orbit buttons.
  
  There are four data points saved in UserDefaults.Standard repeating as follows:
  [0] orbitName  =
