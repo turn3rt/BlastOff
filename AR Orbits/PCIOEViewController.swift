@@ -29,7 +29,7 @@ class PCIOEViewController: UIViewController {
     var isInTutorialMode = false
     var isInModTutorialMode = false
     var ogBlurCenter = CGPoint()
-    let nasaLink = "https://spaceflight.nasa.gov/realdata/elements/"
+    let nasaLink = "https://web.archive.org/web/20190616154759/https://spaceflight.nasa.gov/realdata/elements/"
     
     
     override func viewDidLoad() {

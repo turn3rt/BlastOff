@@ -81,6 +81,17 @@ class P0Tutorial: UIViewController {
                 print("iPhone XR")
                 topMargin.constant = 64 + 64
                 midMargin.constant = 64
+                
+            case 2340: // @TODO: Marginalize
+                print("iPhone 12 Mini, 13 Mini")
+                
+            case 2532: // @In Progress:
+                print("iPhone 12, 12 Pro, 13, 13 Pro")
+                topMargin.constant = 64 + 64
+                midMargin.constant = 54
+                
+            case 2778:// @TODO: Marginalize
+                print("iPhone 12 Pro Max, 13 Pro Max")
 
                 
             // iPads

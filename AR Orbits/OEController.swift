@@ -289,7 +289,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
         }
         // TODO: fix this next line to add if final tutorial tap
         if !self.isInTutorialMode {textField.resignFirstResponder()}
-       else { print("wat") }//
+       else { print("wat") }
         print("Return Key Press Success")
         return true
     }
@@ -490,7 +490,6 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 scrollTutTextHeight.constant = 132
                 scrollTutText2Height.constant = 132
 
-                
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
                 finalBlurViewPos = blurView.center.y + 316
@@ -507,6 +506,19 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 print("iPhone XR, 11")
                 finalBlurViewPos = blurView.center.y + 384
 //                blurView2TopMargin.constant += 40
+                
+            case 2340: // @TODO: Marginalize
+                print("iPhone 12 Mini, 13 Mini")
+                
+            case 2532: // @In Progress:
+                print("iPhone 12, 12 Pro, 13, 13 Pro")
+                finalBlurViewPos = blurView.center.y + 354
+                
+            case 2778:// @TODO: Marginalize
+                print("iPhone 12 Pro Max, 13 Pro Max")
+                
+                
+                
             // iPads
             case 2048:
                 print("iPad Mini, Air, Pro 9.7in")
@@ -630,21 +642,21 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 
             
                 //TODO: Find out if really need all these, put in default case handler
-                case 1920, 2208:
-                    print("iPhone 6+/6S+/7+/8+")
-                    self.scrollView.contentOffset.y = self.initialScrollPos
-                    
-                case 2436:
-                    print("iPhone X, XS")
-                    self.scrollView.contentOffset.y = self.initialScrollPos
-
-                case 2688:
-                    print("iPhone XS Max")
-                    self.scrollView.contentOffset.y = self.initialScrollPos
-                    
-                case 1792:
-                    print("iPhone XR")
-                    self.scrollView.contentOffset.y = self.initialScrollPos
+//                case 1920, 2208:
+//                    print("iPhone 6+/6S+/7+/8+")
+//                    self.scrollView.contentOffset.y = self.initialScrollPos
+//
+//                case 2436:
+//                    print("iPhone X, XS")
+//                    self.scrollView.contentOffset.y = self.initialScrollPos
+//
+//                case 2688:
+//                    print("iPhone XS Max")
+//                    self.scrollView.contentOffset.y = self.initialScrollPos
+//
+//                case 1792:
+//                    print("iPhone XR")
+//                    self.scrollView.contentOffset.y = self.initialScrollPos
                     
                 // iPads
                 case 2048:
@@ -666,7 +678,7 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                     
                 default:
                     print("Unknown Device")
-                    
+                    self.scrollView.contentOffset.y = self.initialScrollPos
                 }
             }
             
