@@ -11,7 +11,6 @@ import SceneKit
 import ARKit
 import Foundation
 
-
 // MARK: - Protocols
 protocol ARViewControllerDelegate {
     func finishTutorial(isInTutorialMode: Bool)
@@ -186,9 +185,19 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
             }
         }
         
+      turnOnOcclusion()
+      
+        
     }
     
-    
+    func turnOnOcclusion() {
+        if let config = sceneView.session.configuration as? ARWorldTrackingConfiguration {
+            config.frameSemantics.insert(.personSegmentationWithDepth)
+            // Run the configuration to effect a frame semantics change.
+            sceneView.session.run(config)
+            print("person occulusion success")
+        }
+    }
     
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         // this function iterates at 60 frames per second
@@ -232,6 +241,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate, UIAlertViewDelegate
         sceneView.session.pause()
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         print("User Reset World Origin")
+        turnOnOcclusion()
+
     }
 
 //    MARK: - Internal Functions

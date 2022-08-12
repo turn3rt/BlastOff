@@ -90,22 +90,32 @@ class HomeViewController: UIViewController, ARViewControllerDelegate {
                 midMargin.constant = 48
                 botMargin.constant = 48
                 
+            case 2340:
+                print("iPhone 12 Mini, 13 Mini")
+                
             case 2436:
                 // All margins are normalized to this
-                print("iPhone X, XS")
+                print("iPhone X, XS, 11 Pro")
+                
+            case 2532:
+                print("iPhone 12, 12 Pro, 13, 13 Pro")
                 
             case 2688:
-                print("iPhone XS Max")
+                print("iPhone XS Max, XS Pro Max, 11 Pro Max")
                 topMargin.constant = 120
                 
+            case 2778:
+                print("iPhone 12 Pro Max, 13 Pro Max")
+                
             case 1792:
-                print("iPhone XR")
+                print("iPhone XR, 11")
                 topMargin.constant = 120
                 
             // iPads
             case 2048:
                 print("iPad Mini, Air, Pro 9.7in")
                 topMargin.constant = 200
+                
             case 1668, 2224:
                 print("iPad Pro 10.5in")
                 topMargin.constant = 240
