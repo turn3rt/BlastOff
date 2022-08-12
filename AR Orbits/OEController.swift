@@ -451,7 +451,8 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
                 scrollView.isScrollEnabled = false
                 
             default:
-                print("Unknown")
+                print("Unknown") // assumes all new devices are getting bigger
+                scrollView.isScrollEnabled = false
                 
             }
         }
@@ -510,14 +511,13 @@ class OEController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate 
             case 2340: // @TODO: Marginalize
                 print("iPhone 12 Mini, 13 Mini")
                 
-            case 2532: // @In Progress:
+            case 2532: // @DONE
                 print("iPhone 12, 12 Pro, 13, 13 Pro")
-                finalBlurViewPos = blurView.center.y + 354
+                finalBlurViewPos = blurView.center.y + 350
                 
-            case 2778:// @TODO: Marginalize
+            case 2778: // @DONE
                 print("iPhone 12 Pro Max, 13 Pro Max")
-                
-                
+                finalBlurViewPos = blurView.center.y + 350
                 
             // iPads
             case 2048:

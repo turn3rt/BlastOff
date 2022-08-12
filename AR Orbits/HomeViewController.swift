@@ -97,15 +97,16 @@ class HomeViewController: UIViewController, ARViewControllerDelegate {
                 // All margins are normalized to this
                 print("iPhone X, XS, 11 Pro")
                 
-            case 2532: // @TODO: Marginalize
+            case 2532: // @TODO: Marginalize (DONE)
                 print("iPhone 12, 12 Pro, 13, 13 Pro")
                 
             case 2688:
                 print("iPhone XS Max, XS Pro Max, 11 Pro Max")
                 topMargin.constant = 120
                 
-            case 2778:// @TODO: Marginalize
+            case 2778:// @TODO: Marginalize (DONE)
                 print("iPhone 12 Pro Max, 13 Pro Max")
+                topMargin.constant = 120
                 
             case 1792:
                 print("iPhone XR, 11")

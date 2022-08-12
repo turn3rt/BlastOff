@@ -307,6 +307,7 @@ class PCIController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate
 
             default:
                 print("Unknown")
+                scrollView.isScrollEnabled = false
                 
             }
         }

@@ -86,8 +86,9 @@ class AboutViewController: UIViewController {
             // iPhones
             case 1136:
                 print("iPhone 5 or 5S or 5C or SE")
-                logoHeight.constant = 60 // default 85
-                logoWidth.constant = 175 // default 250
+               // NOTE: Logo was referring to gators logo which was deleted in 2022
+               // logoHeight.constant = 60 // default 85
+               // logoWidth.constant = 175 // default 250
                 middleStackHeight.constant = 100 // default 150
                 bottomStackHeight.constant = 100 // default 150
                 
@@ -100,9 +101,10 @@ class AboutViewController: UIViewController {
                 donateHeight.constant = 36 // defalt 36
                 
             case 1334:
-                print("iPhone 6/6S/7/8")
-                logoHeight.constant = 60 // default 85
-                logoWidth.constant = 175 // default 250
+                print("iPhone 6/6S/7/8/SE 2")
+                // NOTE: Logo was referring to gators logo which was deleted in 2022
+                //logoHeight.constant = 60 // default 85
+                //logoWidth.constant = 175 // default 250
                 
                 middleStackHeight.constant = 125 // default 150
                 bottomStackHeight.constant = 125 // default 150
@@ -126,8 +128,8 @@ class AboutViewController: UIViewController {
             // iPads
             case 2048:
                 print("iPad Mini, Air, Pro 9.7in")
-                logoHeight.constant = 100
-                logoWidth.constant = 300
+                //logoHeight.constant = 100
+                //logoWidth.constant = 300
                 middleStackHeight.constant = 175
                 bottomStackHeight.constant = 175
                 
