@@ -16,10 +16,9 @@
 		B30764FB22D1581200C2AD66 /* M0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764FA22D1581200C2AD66 /* M0Tutorial.swift */; };
 		B30764FD22D159AA00C2AD66 /* N0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30764FC22D159AA00C2AD66 /* N0Tutorial.swift */; };
 		B31283F222C2E4C300133212 /* AppIconMain.png in Resources */ = {isa = PBXBuildFile; fileRef = B31283F122C2E4C200133212 /* AppIconMain.png */; };
-		B318F23622CF96E2008A524E /* minTutBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B318F23522CF96E2008A524E /* minTutBG.jpg */; };
+		B3374A6E28A6B02800FBB0EE /* ProfPic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3374A6D28A6B02800FBB0EE /* ProfPic.jpeg */; };
 		B37D9F3C22CCE748001384E3 /* P0Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */; };
 		B38A3F5722A06A0500F00DEB /* PCIOEBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */; };
-		B38A3F5922A06B5100F00DEB /* Matterhorn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */; };
 		B38A3F5B22A0A12E00F00DEB /* OrbitBGMain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */; };
 		B393553D2298770D00F88C4A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553C2298770D00F88C4A /* HomeViewController.swift */; };
 		B393553F2299B89E00F88C4A /* OrbitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */; };
@@ -44,9 +43,6 @@
 		B3C6900E22973FC200AB80BF /* rvBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3C6900C22973FC200AB80BF /* rvBG.jpg */; };
 		B3C6901122974ED100AB80BF /* PCIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6901022974ED100AB80BF /* PCIController.swift */; };
 		B3F0CA5A22DE0C8F007D75A9 /* aboutPic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA5922DE0C8E007D75A9 /* aboutPic.jpg */; };
-		B3F0CA5C22DE0F7C007D75A9 /* UF_MAElogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA5B22DE0F7B007D75A9 /* UF_MAElogo.png */; };
-		B3F0CA5E22DE0FF6007D75A9 /* engineeringLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA5D22DE0FF5007D75A9 /* engineeringLogo.png */; };
-		B3F0CA6A22DE384E007D75A9 /* donation.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6922DE384D007D75A9 /* donation.png */; };
 		B3F0CA6C22DE7492007D75A9 /* gatorsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6B22DE7491007D75A9 /* gatorsLogo.png */; };
 		B3F0CA6E22DE806D007D75A9 /* selfie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3F0CA6D22DE806C007D75A9 /* selfie.jpg */; };
 		B3F65F2E234E689100D12AE2 /* Mocha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3F65F2D234E689100D12AE2 /* Mocha.jpeg */; };
@@ -62,10 +58,9 @@
 		B30764FA22D1581200C2AD66 /* M0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M0Tutorial.swift; sourceTree = "<group>"; };
 		B30764FC22D159AA00C2AD66 /* N0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N0Tutorial.swift; sourceTree = "<group>"; };
 		B31283F122C2E4C200133212 /* AppIconMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconMain.png; sourceTree = "<group>"; };
-		B318F23522CF96E2008A524E /* minTutBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = minTutBG.jpg; sourceTree = "<group>"; };
+		B3374A6D28A6B02800FBB0EE /* ProfPic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfPic.jpeg; sourceTree = "<group>"; };
 		B37D9F3B22CCE748001384E3 /* P0Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P0Tutorial.swift; sourceTree = "<group>"; };
 		B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCIOEBackground.png; sourceTree = "<group>"; };
-		B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Matterhorn.jpeg; sourceTree = "<group>"; };
 		B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OrbitBGMain.jpg; sourceTree = "<group>"; };
 		B393553C2298770D00F88C4A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B393553E2299B89E00F88C4A /* OrbitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitsTableViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +87,6 @@
 		B3C6900C22973FC200AB80BF /* rvBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rvBG.jpg; sourceTree = "<group>"; };
 		B3C6901022974ED100AB80BF /* PCIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCIController.swift; sourceTree = "<group>"; };
 		B3F0CA5922DE0C8E007D75A9 /* aboutPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aboutPic.jpg; sourceTree = "<group>"; };
-		B3F0CA5B22DE0F7B007D75A9 /* UF_MAElogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UF_MAElogo.png; sourceTree = "<group>"; };
-		B3F0CA5D22DE0FF5007D75A9 /* engineeringLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engineeringLogo.png; sourceTree = "<group>"; };
-		B3F0CA6922DE384D007D75A9 /* donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donation.png; sourceTree = "<group>"; };
 		B3F0CA6B22DE7491007D75A9 /* gatorsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gatorsLogo.png; sourceTree = "<group>"; };
 		B3F0CA6D22DE806C007D75A9 /* selfie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = selfie.jpg; sourceTree = "<group>"; };
 		B3F65F2D234E689100D12AE2 /* Mocha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mocha.jpeg; sourceTree = "<group>"; };
@@ -217,17 +209,13 @@
 		B3C6900F22973FC700AB80BF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3374A6D28A6B02800FBB0EE /* ProfPic.jpeg */,
 				B3F65F2D234E689100D12AE2 /* Mocha.jpeg */,
 				B3F0CA6B22DE7491007D75A9 /* gatorsLogo.png */,
 				B3F0CA6D22DE806C007D75A9 /* selfie.jpg */,
-				B3F0CA6922DE384D007D75A9 /* donation.png */,
-				B3F0CA5B22DE0F7B007D75A9 /* UF_MAElogo.png */,
-				B3F0CA5D22DE0FF5007D75A9 /* engineeringLogo.png */,
 				B3F0CA5922DE0C8E007D75A9 /* aboutPic.jpg */,
 				B38A3F5A22A0A12E00F00DEB /* OrbitBGMain.jpg */,
-				B318F23522CF96E2008A524E /* minTutBG.jpg */,
 				B30764ED22D11ED400C2AD66 /* waves.png */,
-				B38A3F5822A06B5100F00DEB /* Matterhorn.jpeg */,
 				B38A3F5622A06A0500F00DEB /* PCIOEBackground.png */,
 				B3C6900C22973FC200AB80BF /* rvBG.jpg */,
 			);
@@ -295,22 +283,18 @@
 				B3AB1853228A4FED0084802A /* art.scnassets in Resources */,
 				B3F0CA5A22DE0C8F007D75A9 /* aboutPic.jpg in Resources */,
 				B3935543229A185B00F88C4A /* settingsIcon.png in Resources */,
-				B3F0CA5C22DE0F7C007D75A9 /* UF_MAElogo.png in Resources */,
-				B3F0CA5E22DE0FF6007D75A9 /* engineeringLogo.png in Resources */,
 				B30764EE22D11ED400C2AD66 /* waves.png in Resources */,
 				B3F65F2E234E689100D12AE2 /* Mocha.jpeg in Resources */,
 				B3AB186F229062C70084802A /* DownArrow.png in Resources */,
-				B38A3F5922A06B5100F00DEB /* Matterhorn.jpeg in Resources */,
 				B38A3F5B22A0A12E00F00DEB /* OrbitBGMain.jpg in Resources */,
-				B318F23622CF96E2008A524E /* minTutBG.jpg in Resources */,
 				B3AB185D228A4FEE0084802A /* LaunchScreen.storyboard in Resources */,
 				B3AB185A228A4FEE0084802A /* Assets.xcassets in Resources */,
 				B31283F222C2E4C300133212 /* AppIconMain.png in Resources */,
 				B3F0CA6C22DE7492007D75A9 /* gatorsLogo.png in Resources */,
+				B3374A6E28A6B02800FBB0EE /* ProfPic.jpeg in Resources */,
 				B38A3F5722A06A0500F00DEB /* PCIOEBackground.png in Resources */,
 				B3F0CA6E22DE806D007D75A9 /* selfie.jpg in Resources */,
 				B3C6900E22973FC200AB80BF /* rvBG.jpg in Resources */,
-				B3F0CA6A22DE384E007D75A9 /* donation.png in Resources */,
 				B3AB1865228B1C160084802A /* EarthTexture.png in Resources */,
 				B3AB1870229062C70084802A /* UpArrow.png in Resources */,
 				B3AB1858228A4FED0084802A /* Main.storyboard in Resources */,
